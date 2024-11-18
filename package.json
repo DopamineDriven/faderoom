@@ -1,0 +1,50 @@
+{
+  "name": "@fade/root",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "pnpm@9.13.2+sha512.88c9c3864450350e65a33587ab801acf946d7c814ed1134da4a924f6df5a2120fd36b46aab68f7cd1d413149112d53c7db3a4136624cfd00ff1846a0c6cef48a",
+  "scripts": {
+    "build:web": "turbo build --filter=@fade/web",
+    "changeset": "changeset",
+    "clean": "git clean -xdf node_modules",
+    "dev": "turbo dev --parallel --continue",
+    "format": "prettier --write \"**/*.{ts,tsx,cts,mts,js,jsx,mjs,cjs,json,yaml,yml,css,html,md,mdx}\" --ignore-unknown --cache",
+    "lint": "turbo lint",
+    "prepare": "husky",
+    "typecheck": "turbo typecheck",
+    "clean:house": "cd tooling/eslint && git clean -xdf node_modules .turbo && cd ../prettier && git clean -xdf node_modules .turbo && cd ../typescript && git clean -xdf .turbo node_modules && cd ../jest-presets && git clean -xdf node_modules .turbo && cd ../.. && git clean -xdf node_modules pnpm-lock.yaml && pnpm install",
+    "generate:base64": "openssl rand -base64 64",
+    "generate:hex": "openssl rand -hex 64",
+    "npm:registry": "npm set registry https://registry.npmjs.org",
+    "run:web": "turbo dev --filter=@fade/web",
+    "sync:time": "sudo ntpdate time.windows.com",
+    "latest:pnpm": "corepack use pnpm@latest",
+    "update:pnpm": "curl -fsSL https://get.pnpm.io/install.sh | sh -"
+  },
+  "devDependencies": {
+    "@changesets/cli": "latest",
+    "@fade/eslint-config": "workspace:*",
+    "@fade/prettier-config": "workspace:*",
+    "@fade/tsconfig": "workspace:*",
+    "@d0paminedriven/turbogen": "latest",
+    "@total-typescript/ts-reset": "latest",
+    "@types/node": "latest",
+    "dotenv": "latest",
+    "dotenv-cli": "latest",
+    "dotenv-expand": "latest",
+    "eslint": "latest",
+    "husky": "latest",
+    "jiti": "latest",
+    "prettier": "latest",
+    "tsx": "latest",
+    "turbo": "latest",
+    "typescript": "latest",
+    "vercel": "latest"
+  },
+  "prettier": "@fade/prettier-config",
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10",
+    "pnpm": ">=9"
+  }
+}
