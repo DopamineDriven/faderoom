@@ -1,63 +1,84 @@
-export function urlHelper(target: "images" | "reviews" | "image_by_id" | "login") {
-  switch(target) {
-    case (target = "image_by_id"): {
-      function imgById<const ID extends string>(id: ID) {
-        return `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&image_id=${id}` as const
-      }
-      return imgById;
-    }
-    case (target="images"): {
-      function imgsPerPage<const Count extends string | number>(count: Count) {
-        return `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&images_per_page=${count}` as const
-      };
-      return imgsPerPage;
-    }
-    case (target="reviews"): {
-      function reviewsPerPageAndByPage({count, pageNumber=1}:{count: string | number; pageNumber?: string | number;}) {
-        return `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/reviews/?reviews_page=${pageNumber}&reviews_per_page=${count}` as const
-      };
-      return reviewsPerPageAndByPage;
-    }
-    default: {
-      function login(apiKey: string, x_fingerprint: string) {
-        return `https://us.booksy.com/api/us/2/business_api/account/login?x-api-key=${apiKey}&x-fingerprint=${x_fingerprint}` as const;
-      }
-      return login;
-    }
-  }
-}
-export async function fetchBooksy<const T, const U extends string>(
-  query: T,
-  url: U,
-  variables?: { [key: string]: unknown }
+import {
+  booksyHeadersGet,
+  booksyHeadersPost
+} from "@/lib/constants";
+
+export async function fetchBooksyApiGet(
+  url: string,
+  accessToken: string
 ) {
-
-  const body = JSON.stringify({
-    query,
-    variables: {
-      ...variables
-
-    }
-  });
-
-
-  const res = await fetch(url, {
-    headers: {
-      "X-Api-Key":"web-biz-66e84d5a-d8cf-498f-9123-cc8aec9cdf4d",
-      "X-fingerprint": "s-0123456789abcdef"
-    },
-    method: "POST",
-    body,
+  return await fetch(url, {
+    headers: booksyHeadersGet(accessToken),
+    method: "GET",
     cache: "default",
     next: {
-      tags: ["wordpress"]
+      tags: ["booksy"]
     }
   });
-
-  const json = (await res.json()) as Record<string, T>;
-  if (json.errors) {
-    console.error(json.errors);
-    throw new Error(`WPGraphQL Fetcher Failed`);
-  }
-  return json.data;
 }
+
+export async function fetchBooksyApiPost(
+  url: string,
+  body: {[record: string | number | symbol]: unknown}
+) {
+  return await fetch(url, {
+    headers: booksyHeadersPost,
+    method: "POST",
+    credentials: "include",
+    keepalive: true,
+    cache: "default",
+    body: JSON.stringify({...body}),
+    next: {
+      tags: ["booksy"]
+    }
+  });
+}
+
+export async function fetchBooksyLogin<const T>() {
+  return await fetchBooksyApiPost(
+    `https://us.booksy.com/api/us/2/business_api/account/login?x-api-key=${process.env.BOOKSY_BIZ_API_KEY}&x-fingerprint=${process.env.BOOKSY_BIZ_X_FINGERPRINT}`,
+    { email: process.env.BOOKSY_BIZ_EMAIL, password:process.env.BOOKSY_BIZ_PASSWORD }
+  ).then((data) => data.json()) as Promise<T>;
+}
+
+export async function fetchBooksyReviewsPerPageByPage<const T>({
+  reviewsPerPage,
+  reviewsPageNumber = 1,
+  accessToken
+}: {
+  reviewsPerPage: string | number;
+  accessToken: string;
+  reviewsPageNumber?: string | number;
+}) {
+  return await fetchBooksyApiGet(
+    `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/reviews/?reviews_page=${reviewsPageNumber}&reviews_per_page=${reviewsPerPage}`,
+    accessToken
+  ).then((data) => data.json()) as T;
+}
+
+export async function fetchBooksyPhotosPerPage({
+  imagesPerPage,
+  accessToken
+}: {
+  imagesPerPage: string | number;
+  accessToken: string;
+}) {
+  return await fetchBooksyApiGet(
+    `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&images_per_page=${imagesPerPage}`,
+    accessToken
+  );
+}
+
+export async function fetchBooksyImageById({
+  imageId,
+  accessToken
+}: {
+  imageId: string;
+  accessToken: string;
+}) {
+  return await fetchBooksyApiGet(
+    `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&image_id=${imageId}`,
+    accessToken
+  );
+}
+

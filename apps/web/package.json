@@ -99,6 +99,7 @@
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
     "eslint": "latest",
+    "hex-rgb": "^5.0.0",
     "postcss": "^8.4.49",
     "postcss-focus-visible": "^10.0.1",
     "postcss-import": "^16.1.0",

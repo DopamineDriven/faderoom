@@ -21,9 +21,9 @@ import { ViewTransitions } from "next-view-transitions";
 import * as myGtag from "@/utils/analytics";
 
 export const viewport = {
-  colorScheme: "dark light",
+  colorScheme: "normal",
   userScalable: true,
-  themeColor: "#234670",
+  themeColor: "#d7be69",
   viewportFit: "auto",
   initialScale: 1,
   maximumScale: 1,
@@ -33,24 +33,18 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL(getSiteUrl(process.env.NODE_ENV)),
   title: {
-    default: "Drisdell Consulting Services",
-    template: "%s | Drisdell Consulting Services"
+    default: "The Fade Room Inc.",
+    template: "%s | The Fade Room Inc."
   },
-  // Since 1995, we have provided quality services and custom application development solutions to our customers.  And as hard as it is to accomplish in this day and age, we have realized a 100% on time, on budget project completion record on all of our client projects. We successfully manage projects, implement systems and solve business problems—just ask any of our clients!
   description:
-    "Exceptional Human Capital and Workforce Management IT System Support",
-  manifest: new URL("/meta/site.webmanifest", getSiteUrl(process.env.NODE_ENV)),
+    "Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.",
   appleWebApp: {
     capable: true,
-    title: "Drisdell Consulting Services",
+    title: "The Fade Room Inc.",
     statusBarStyle: "black-translucent",
     startupImage: [{ url: "/apple-icon.png" }]
   },
   authors: [{ name: "Andrew Ross", url: "https://github.com/DopamineDriven" }],
-  verification: {
-    google: "6_NmtOALI6hPXwpk9CJpLaFcVUqzxBVv56tYxFYqGvA",
-    yandex: "b77e0eafbd48ddd5"
-  },
   icons: [
     {
       type: "image/png",
@@ -82,6 +76,7 @@ export const metadata = {
       sizes: "16x16"
     }
   ],
+  openGraph: {countryName: "US"},
   robots: {
     googleBot: {
       follow: true,
