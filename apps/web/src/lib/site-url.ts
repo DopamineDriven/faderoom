@@ -1,6 +1,6 @@
-export const getProductionUrl = "https://prod-placeholder.com" as const;
+export const getProductionUrl = "https://thefaderoominc.vercel.app" as const;
 
-export const getPreviewUrl = "https://preview-placeholder.vercel.app" as const;
+export const getPreviewUrl = "https://thefaderoominc-dev.vercel.app" as const;
 
 export const getLocalUrl = "http://localhost:3007" as const;
 
