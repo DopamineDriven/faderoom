@@ -1,12 +1,10 @@
 import * as dotenv from "dotenv";
 import type {
-  BooksyLoginPayload,
   BooksyReviewsByPagePerPagePayload
 } from "@/types/booksy-helpers";
 import { formatHelper } from "@/lib/format-helper";
 import { FsService } from "@/services/fs";
 import {
-  fetchBooksyLogin,
   fetchBooksyReviewsPerPageByPage
 } from "./fetch-booksy";
 
@@ -16,18 +14,19 @@ console.log(process.env.BOOKSY_BIZ_API_KEY);
 const fsHandler = new FsService(process.cwd());
 
 (async () => {
-  const _data = await fetchBooksyLogin<BooksyLoginPayload>();
+  // const _data = await fetchBooksyLogin<BooksyLoginPayload>();
   const dataTwo =
     await fetchBooksyReviewsPerPageByPage<BooksyReviewsByPagePerPagePayload>({
       accessToken: "QsV4OU7w19HOe4OUO1g54w3mWkOkmoQs",
       reviewsPerPage: 10,
-      reviewsPageNumber: 1
+      reviewsPageNumber: 17
     });
   const s =
     typeof dataTwo === "string" ? dataTwo : JSON.stringify(dataTwo, null, 2);
   const argv3 = process.argv[3] ?? "no-arg";
   if (dataTwo) {
-    const templated = `export const ${formatHelper(argv3).split(" ").join("")} = ${s};`;
+    const templated = `export const ${formatHelper(argv3).split(" ").join("")} = ${s}; \nexport default ${formatHelper(argv3).split(" ").join("")};`;
+
     fsHandler.withWs({
       data: templated,
       cwd: process.cwd(),

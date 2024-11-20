@@ -35,36 +35,82 @@ export type BooksyLoginPayload = {
   first_login: boolean;
 };
 
+export type BooksyReviewsEntity = {
+  business: {
+    id: number;
+    name: string;
+    reviews_count: number;
+    reviews_stars: number;
+    url: string;
+    thumbnail_photo: string;
+    full_address: string;
+  };
+  rank: number;
+  review: string;
+  services: { id: number; name: string; treatment_id: number }[];
+  staff: { id: number; name: string }[];
+  title: string;
+  user: { id: number; first_name: string; last_name: string };
+  verified: boolean;
+  appointment_date: string;
+  created: string;
+  id: number;
+  reply_content: string | null;
+  reply_updated: string | null;
+  source: string | null;
+  updated: string;
+  anonymized: boolean;
+  photos: never[];
+  feedback_status: { Y: number; N: number; I: number };
+}
+
+export type BooksyReviewsEntityModified = {
+  business: {
+    id: number;
+    name: string;
+    reviews_count: number;
+    reviews_stars: number;
+    url: string;
+    thumbnail_photo: string;
+    full_address: string;
+  };
+  rank: number;
+  review: string;
+  services: { id: number; name: string; treatment_id: number }[];
+  staff: { id: number; name: string }[];
+  title: string;
+  user: { id: number; first_name: string; last_name: string };
+  verified: boolean;
+  appointment_date: string;
+  created: number;
+  id: number;
+  reply_content: string | null;
+  reply_updated: string | null;
+  source: string | null;
+  updated: string;
+  anonymized: boolean;
+  photos: never[];
+  feedback_status: { Y: number; N: number; I: number };
+}
 
 export type BooksyReviewsByPagePerPagePayload = {
-  reviews: {
-    business: {
-      id: number;
-      name: string;
-      reviews_count: number;
-      reviews_stars: number;
-      url: string;
-      thumbnail_photo: string;
-      full_address: string;
-    };
-    rank: number;
-    review: string;
-    services: { id: number; name: string; treatment_id: number }[];
-    staff: { id: number; name: string }[];
-    title: string;
-    user: { id: number; first_name: string; last_name: string };
-    verified: boolean;
-    appointment_date: string;
-    created: string;
-    id: number;
-    reply_content: string | null;
-    reply_updated: string | null;
-    source: string | null;
-    updated: string;
-    anonymized: boolean;
-    photos: never[];
-    feedback_status: { Y: number; N: number; I: number };
-  }[];
+  reviews: BooksyReviewsEntity[];
+  reviews_count: number;
+  num_reviews_per_rank: {
+    "1": number;
+    "2": number;
+    "3": number;
+    "4": number;
+    "5": number;
+  };
+  reviews_rank: number;
+  reviews_stars: number;
+  reviews_page: number;
+  reviews_per_page: number;
+};
+
+export type BooksyReviewsByPagePerPagePayloadModified = {
+  reviews: BooksyReviewsEntityModified[];
   reviews_count: number;
   num_reviews_per_rank: {
     "1": number;

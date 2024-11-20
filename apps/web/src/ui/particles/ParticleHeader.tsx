@@ -1,17 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import type { Container, ISourceOptions } from "@tsparticles/engine";
-import { ParticleButton } from "@/ui/particles/ParticleButton";
 import { cn } from "@/lib/utils";
-import css from "./particle-header.module.css";
 
-export function ParticleHeaderComponent<
-  const T extends "HOME" | "ABOUT" | "CONSULTANTS" | "CONTACT" | "QR"
->({ content, title, target }: { content: string; title: string; target: T }) {
+export function ParticleHeaderComponent() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -27,30 +22,10 @@ export function ParticleHeaderComponent<
     console.log(container);
   };
 
-  const tsTheme = useMemo(() => {
-    return target === "CONTACT"
-      ? "#ffffff"
-      : target === "QR"
-        ? "#ffffff"
-        : target === "ABOUT"
-          ? "#ffffff"
-          : "#102a43";
-  }, [target]);
-
-  const tsParticle = useMemo(() => {
-    return target === "CONTACT"
-      ? "#102a43"
-      : target === "QR"
-        ? "#102a43"
-        : target === "ABOUT"
-          ? "#102a43"
-          : "#ffffff";
-  }, [target]);
-
   const options = {
     background: {
       color: {
-        value: tsTheme
+        value: "#141415"
       }
     },
     fpsLimit: 120,
@@ -68,6 +43,12 @@ export function ParticleHeaderComponent<
         resize: { enable: true }
       },
       modes: {
+        bubble: {
+          distance: 400,
+          duration: 2,
+          opacity: 0.9,
+          size: 40
+        },
         push: {
           quantity: 4
         },
@@ -79,14 +60,17 @@ export function ParticleHeaderComponent<
     },
     particles: {
       color: {
-        value: tsParticle
+        value: "#d7be69"
       },
       links: {
-        color: tsParticle,
+        color: "#d7be69",
         distance: 150,
         enable: true,
         opacity: 0.5,
         width: 1
+      },
+      collisions: {
+        enable: true
       },
       move: {
         direction: "none",
@@ -122,137 +106,35 @@ export function ParticleHeaderComponent<
   return (
     <div
       className={cn(
-        "relative sm:h-[33rem] 2xl:h-[90vh]",
-        target === "QR"
-          ? "h-[75vh]"
-          : target === "HOME"
-            ? "h-[75vh]"
-            : "h-[50vh]"
+        "relative sm:h-[33rem] 2xl:h-[90vh] h-[75vh]"
       )}>
-      <div className='absolute inset-0 flex flex-col' aria-hidden='true'>
-        <div className='relative w-full flex-1'>
-          <div className='absolute inset-0 overflow-hidden'>
+      <div className="absolute inset-0 flex flex-col" aria-hidden="true">
+        <div className="relative w-full flex-1">
+          <div className="absolute inset-0 overflow-hidden">
             {init && (
               <Particles
-                id='tsparticles'
+                id="tsparticles"
                 particlesLoaded={particlesLoaded}
                 options={options}
-                className='h-full w-full object-cover object-center'
+                className="h-full w-full object-cover object-center"
               />
             )}
           </div>
-          <div className='absolute inset-0 opacity-50' />
+          <div className="absolute inset-0 opacity-50" />
         </div>
-        <div className='inset-0 w-full bg-white' />
+        <div className="inset-0 w-full bg-white" />
       </div>
-      <div className='relative z-10 flex h-full w-full flex-col items-center justify-center'>
-        {target === "QR" ? (
-          <>
-            <h1
-              className={cn(
-                `mb-4 text-balance text-center font-basis-grotesque-pro-bold text-4xl tracking-tight text-dcs-800 sm:text-5xl`
-              )}>
-              {"Welcome to Drisdell Consulting!"}
-            </h1>
-            <p className='mx-auto mb-4 max-w-xl text-pretty px-2 text-center font-basis-grotesque-pro-medium text-[1.25rem] leading-[1.5rem] tracking-tight text-dcs-800 sm:max-w-2xl'>
-              {`It was a pleasure to meet you and we look forward to the opportunity to continue to get to know you better. Please take a moment to let us know more about you. We want to help you address your HCM needs and goals.`}
-            </p>
-          </>
-        ) : (
-          <>
-            <h1
-              className={cn(
-                "mb-4 px-4 text-center font-basis-grotesque-pro-bold text-4xl md:text-6xl",
-                target === "HOME"
-                  ? "text-white"
-                  : target === "CONSULTANTS"
-                    ? "text-white"
-                    : target === "QR"
-                      ? "text-[#102a43]"
-                      : "text-[#102a43]"
-              )}>
-              {title}
-            </h1>
-            <div
-              dangerouslySetInnerHTML={{ __html: content }}
-              className={cn(
-                "mx-auto mb-4 px-2 flex max-w-xl flex-col justify-center text-center font-basis-grotesque-pro-regular sm:max-w-2xl",
-                css.content,
-                target === "HOME"
-                  ? "text-white"
-                  : target === "CONSULTANTS"
-                    ? "text-white"
-                    : target === "QR"
-                      ? "text-white"
-                      : "text-[#102a43]"
-              )}
-            />
-          </>
-        )}
-        <div className='flex flex-col gap-4 sm:flex-row'>
-          {target === "CONTACT" ? (
-            <>
-              <Link href='/consultants'>
-                <ParticleButton variant='dcs' size='dcs'>
-                  {"Consultants"}
-                </ParticleButton>
-              </Link>
-              <Link
-                href='/contact-us#send-us-an-email'
-                scroll={true}
-                style={{ scrollBehavior: "smooth" }}
-                shallow={true}>
-                <ParticleButton variant='dcs' size='dcs'>
-                  {"Send an Email"}
-                </ParticleButton>
-              </Link>
-              <Link href='/consultants/skills-and-positions'>
-                <ParticleButton variant='dcs' size='dcs'>
-                  {"Skills & Positions"}
-                </ParticleButton>
-              </Link>
-            </>
-          ) : target === "QR" ? (
-            <>
-              {/* <Link href='/consultants'>
-                <Button variant='dcs' size='dcs'>
-                  {"Consultants"}
-                </Button>
-              </Link>
-              <Link href='/about-us'>
-                <Button variant='dcs' size='dcs'>
-                  {"About Us"}
-                </Button>
-              </Link> */}
-            </>
-          ) : target === "ABOUT" ? (
-            <>
-              <Link href='/consultants'>
-                <ParticleButton variant='dcs' size='dcs'>
-                  {"Consultants"}
-                </ParticleButton>
-              </Link>
-              <Link href='/contact-us'>
-                <ParticleButton variant='dcs' size='dcs'>
-                  {"Contact Us"}
-                </ParticleButton>
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link href='/about-us'>
-                <ParticleButton variant='dcs_dark' size='dcs'>
-                  {"About Us"}
-                </ParticleButton>
-              </Link>
-              <Link href='/contact-us'>
-                <ParticleButton variant='dcs_dark' size='dcs'>
-                  {"Contact Us"}
-                </ParticleButton>
-              </Link>
-            </>
-          )}
-        </div>
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center">
+        <h1
+          className={cn(
+            `mb-4 text-balance text-center font-basis-grotesque-pro-bold text-4xl tracking-tight text-fr-300 sm:text-5xl`
+          )}>
+          {"The Fade Room Inc."}
+        </h1>
+        <p className="mx-auto mb-4 max-w-xl text-pretty px-2 text-center font-basis-grotesque-pro-light-italic text-[1.25rem] leading-[1.5rem] tracking-tight text-fr-300 sm:max-w-2xl">
+          {`Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.`}
+        </p>
+        <div className="flex flex-col gap-4 sm:flex-row"></div>
       </div>
     </div>
   );
