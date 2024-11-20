@@ -15,7 +15,12 @@ export default withPWAInit({ dest: "public", register: true, scope: "/app" })({
         protocol: "http"
       },
       { hostname: "images.unsplash.com", protocol: "https" },
-      { hostname: "tailwindui.com", protocol: "https" }
+      { hostname: "tailwindui.com", protocol: "https" },
+      { hostname: "d2zdpiztbgorvt.cloudfront.net", protocol: "https" },
+      { hostname: "thefaderoomheadless.com", protocol: "https" },
+      { hostname: "thefaderoominc.com", protocol: "https" },
+      { hostname: "thefaderoominc.vercel.app", protocol: "https" },
+      { hostname: "thefaderoominc-dev.vercel.app", protocol: "https" }
     ]
   },
   productionBrowserSourceMaps: true

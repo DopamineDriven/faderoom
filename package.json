@@ -2,7 +2,7 @@
   "name": "@fade/root",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@9.13.2+sha512.88c9c3864450350e65a33587ab801acf946d7c814ed1134da4a924f6df5a2120fd36b46aab68f7cd1d413149112d53c7db3a4136624cfd00ff1846a0c6cef48a",
+  "packageManager": "pnpm@9.14.1+sha512.7f1de9cffea40ff4594c48a94776112a0db325e81fb18a9400362ff7b7247f4fbd76c3011611c9f8ac58743c3dc526017894e07948de9b72052f874ee2edfdcd",
   "scripts": {
     "build:web": "turbo build --filter=@fade/web",
     "changeset": "changeset",
@@ -12,11 +12,12 @@
     "lint": "turbo lint",
     "prepare": "husky",
     "typecheck": "turbo typecheck",
+    "clean:test": "git clean -xdf -e **/*{node_modules,.next,dist} && pnpm latest:pnpm",
     "clean:house": "cd tooling/eslint && git clean -xdf node_modules .turbo && cd ../prettier && git clean -xdf node_modules .turbo && cd ../typescript && git clean -xdf .turbo node_modules && cd ../jest-presets && git clean -xdf node_modules .turbo && cd ../.. && git clean -xdf node_modules pnpm-lock.yaml && pnpm install",
     "generate:base64": "openssl rand -base64 64",
     "generate:hex": "openssl rand -hex 64",
     "npm:registry": "npm set registry https://registry.npmjs.org",
-    "run:web": "turbo dev --filter=@fade/web",
+    "run:web": "turbo run dev --continue --filter=@fade/web",
     "sync:time": "sudo ntpdate time.windows.com",
     "latest:pnpm": "corepack use pnpm@latest",
     "update:pnpm": "curl -fsSL https://get.pnpm.io/install.sh | sh -"
