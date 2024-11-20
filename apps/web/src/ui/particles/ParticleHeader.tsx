@@ -5,6 +5,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import type { Container, ISourceOptions } from "@tsparticles/engine";
 import { cn } from "@/lib/utils";
+import { ParticleOverlayImageGrid } from "./ParticleOverlayImageGrid";
 
 export function ParticleHeaderComponent() {
   const [init, setInit] = useState(false);
@@ -106,7 +107,7 @@ export function ParticleHeaderComponent() {
   return (
     <div
       className={cn(
-        "relative sm:h-[33rem] 2xl:h-[90vh] h-[75vh]"
+        "relative sm:h-screen h-[75vh]"
       )}>
       <div className="absolute inset-0 flex flex-col" aria-hidden="true">
         <div className="relative w-full flex-1">
@@ -122,9 +123,10 @@ export function ParticleHeaderComponent() {
           </div>
           <div className="absolute inset-0 opacity-50" />
         </div>
-        <div className="inset-0 w-full bg-white" />
+        <div className="inset-0 w-full bg-[#141415]" />
       </div>
-      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center">
+      <ParticleOverlayImageGrid />
+      {/* <div className="relative z-10 flex h-full w-full flex-col items-center justify-center">
         <h1
           className={cn(
             `mb-4 text-balance text-center font-basis-grotesque-pro-bold text-4xl tracking-tight text-fr-300 sm:text-5xl`
@@ -134,8 +136,7 @@ export function ParticleHeaderComponent() {
         <p className="mx-auto mb-4 max-w-xl text-pretty px-2 text-center font-basis-grotesque-pro-light-italic text-[1.25rem] leading-[1.5rem] tracking-tight text-fr-300 sm:max-w-2xl">
           {`Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.`}
         </p>
-        <div className="flex flex-col gap-4 sm:flex-row"></div>
-      </div>
+      </div> */}
     </div>
   );
 }
