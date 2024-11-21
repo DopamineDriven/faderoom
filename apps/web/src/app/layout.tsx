@@ -36,8 +36,7 @@ export const metadata = {
     default: "The Fade Room Inc.",
     template: "%s | The Fade Room Inc."
   },
-  description:
-    "Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.",
+  description: "Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.",
   appleWebApp: {
     capable: true,
     title: "The Fade Room Inc.",
@@ -76,7 +75,7 @@ export const metadata = {
       sizes: "16x16"
     }
   ],
-  openGraph: {countryName: "US"},
+  openGraph: { countryName: "US" },
   robots: {
     googleBot: {
       follow: true,
@@ -96,27 +95,34 @@ export const metadata = {
 } satisfies Metadata;
 
 export default function RootLayout({
-  children
+  children,
+  modal
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <ViewTransitions>
       <html
         suppressHydrationWarning
-        lang='en'
+        lang="en"
         className={`h-full ${BasisGrotesqueProBlack.variable} ${BasisGrotesqueProBlackItalic.variable} ${BasisGrotesqueProBold.variable} ${BasisGrotesqueProBoldItalic.variable} ${BasisGrotesqueProItalic.variable} ${BasisGrotesqueProLight.variable} ${BasisGrotesqueProLightItalic.variable} ${BasisGrotesqueProMedium.variable} ${BasisGrotesqueProMediumItalic.variable} ${BasisGrotesqueProRegular.variable}`}>
-        <body className='antialiased bg-[#272729]'>
-          <div className='m-0 flex min-h-full flex-col justify-between p-0'>
+        <body className="bg-fr-bg antialiased">
+          <div className="m-0 flex min-h-full flex-col justify-between p-0">
             {/* <Nav /> */}
-            <main className=''>{children}</main>
+            <main className="">
+              {children}
+              {modal}
+              <div id="modal-root" />
+            </main>
+
             {/* <Footer /> */}
           </div>
         </body>
         <Script
           async
-          strategy='afterInteractive'
-          id='gtag-init'
+          strategy="afterInteractive"
+          id="gtag-init"
           dangerouslySetInnerHTML={{
             __html: `
           window.dataLayer = window.dataLayer || [];
@@ -132,7 +138,7 @@ export default function RootLayout({
           async
           id={myGtag.GA_TRACKING_ID}
           data-test={myGtag.GA_TRACKING_ID}
-          strategy='afterInteractive'
+          strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${myGtag.GA_TRACKING_ID}`}
         />
       </html>
