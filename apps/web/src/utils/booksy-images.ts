@@ -5,6 +5,7 @@ import type { BooksyImagesByPageNumberAndCount } from "@/types/booksy-helpers";
 //   fetchBooksyPhotosPerPage
 // } from "./fetch-booksy";
 import * as dotenv from "dotenv";
+import BooksyImagesPage1 from "./__write__/booksy-images-page-1";
 dotenv.config();
 
 export class BooksyImageHandler extends FsService{
@@ -13,7 +14,7 @@ export class BooksyImageHandler extends FsService{
   }
 
   public tester() {
-    return this.booksyFingerPrint;
+    return this.booksyEnvKVs;
   }
 }
 
@@ -120,22 +121,20 @@ export function mapper(props: BooksyImagesByPageNumberAndCount) {
   });
 }
 
-// const fsService = new FsService(process.cwd());
+const fsService = new FsService(process.cwd());
 
 
 
-// // eslint-disable-next-line
-// mapper(BooksyImagesPage1).map(async (v, i) => {
-//   const { image, image_id } = await v;
+// eslint-disable-next-line
+mapper(BooksyImagesPage1).map(async (v, i) => {
+  const { image, image_id } = await v;
 
-//   const base64Image = image.replace(/^data:image\/\w+;base64,/, "");
+  const base64Image = image.replace(/^data:image\/\w+;base64,/, "");
 
-//   fsService.withWs({
-//     cwd: process.cwd(),
-//     path: `src/utils/__data__/images/${++i}-${image_id}.jpg`,
-//     data: Buffer.from(base64Image, "base64")
-//   });
-// });
-const test = new BooksyImageHandler(process.cwd());
+  fsService.withWs({
+    cwd: process.cwd(),
+    path: `public/booksy/images/${image_id}.jpg`,
+    data: Buffer.from(base64Image, "base64")
+  });
+});
 
-console.log(test.BooksyHeadersGET("QsV4OU7w19HOe4OUO1g54w3mWkOkmoQs"))

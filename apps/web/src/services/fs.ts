@@ -15,6 +15,7 @@ import type {
   WriteFileAsyncProps,
   WriteStreamProps
 } from "@/types/fs";
+import { ParsedUrlInfo } from "@/types/url";
 
 dotenv.config();
 
@@ -37,13 +38,15 @@ export class FsService {
     return expand.expand(this.myEnv);
   }
 
-  public get booksyFingerPrint(): undefined | {
-    [key: string]: string;
-    BOOKSY_BIZ_EMAIL: string;
-    BOOKSY_BIZ_PASSWORD: string;
-    BOOKSY_BIZ_X_FINGERPRINT: string;
-    BOOKSY_BIZ_API_KEY: string;
-  } {
+  public get booksyEnvKVs():
+    | undefined
+    | {
+        [key: string]: string;
+        BOOKSY_BIZ_EMAIL: string;
+        BOOKSY_BIZ_PASSWORD: string;
+        BOOKSY_BIZ_X_FINGERPRINT: string;
+        BOOKSY_BIZ_API_KEY: string;
+      } {
     const parsed = this.parseDotEnv()?.parsed;
     if (parsed) {
       return parsed satisfies {
@@ -582,6 +585,178 @@ export class FsService {
     return objectCopy as Record<keyof T, T[keyof T]>;
   }
 
+  /* begin url */
+
+  public isServerSide(): boolean {
+    return typeof window === "undefined";
+  }
+  public isBase64(str: string) {
+    if (!str) {
+      return false;
+    }
+
+    return /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?\n?$/.test(
+      str.replace(/\n/g, "")
+    );
+  }
+  public previewRegex = /\/preview(\/\w|\?)/;
+
+  public isPreviewPath(uri: string) {
+    if (typeof uri === "string") {
+      return this.previewRegex.test(uri);
+    }
+
+    return false;
+  }
+
+  public URL_REGEX =
+    /^(([^:/?#]+):)?(\/\/([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/;
+
+  public parseUrl(url: string): ParsedUrlInfo {
+    // feeding consistently populated data from a 3rd party SaaS provider to this only
+    const parsed = this.URL_REGEX.exec(url) as unknown as RegExpExecArray;
+
+    return {
+      href: parsed[0],
+      protocol: parsed[1] ?? "",
+      baseUrl: `${parsed[1]}${parsed[3]}`,
+      host: parsed[4] ?? "",
+      pathname: parsed[5] ?? "",
+      search: parsed[6] ?? "",
+      hash: parsed[8] ?? ""
+    } satisfies ParsedUrlInfo;
+  }
+
+  /* end url */
+
+  private declare gz: "application/x-gzip" | "application/gzip";
+
+  private declare zip: `application/zip` | `application/x-zip-compressed`;
+
+  private get mimeTypeObj() {
+    return {
+      aac: "audio/aac",
+      abw: "application/x-abiword",
+      apng: "image/apng",
+      arc: "application/x-freearc",
+      avif: "image/avif",
+      avi: "video/x-msvideo",
+      azw: "application/vnd.amazon.ebook",
+      bin: "application/octet-stream",
+      bmp: "image/bmp",
+      bz: "application/x-bzip",
+      bz2: "application/x-bzip2",
+      cda: "application/x-cdf",
+      cjs: "application/javascript",
+      csh: "application/x-csh",
+      css: "text/css",
+      csv: "text/csv",
+      doc: "application/msword",
+      docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      eot: "application/vnd.ms-fontobject",
+      epub: "application/epub+zip",
+      gif: "image/gif",
+      gz: this.gz,
+      htm: "text/html",
+      html: "text/html",
+      ico: "image/vnd.microsoft.icon",
+      ics: "text/calendar",
+      jar: "application/java-archive",
+      jpeg: "image/jpeg",
+      jpg: "image/jpeg",
+      js: "text/javascript",
+      json: "application/json",
+      jsonld: "application/ld+json",
+      m3u8: "application/vnd.apple.mpegurl",
+      md: "text/markdown",
+      mdx: "application/x-mdx",
+      mid: "audio/midi",
+      midi: "audio/x-midi",
+      mjs: "text/javascript",
+      mp3: "audio/mpeg",
+      mp4: "video/mp4",
+      mpeg: "video/mpeg",
+      mpkg: "application/vnd.apple.installer+xml",
+      ndjson: "application/x-ndjson",
+      odp: "application/vnd.oasis.opendocument.presentation",
+      ods: "application/vnd.oasis.opendocument.spreadsheet",
+      odt: "application/vnd.oasis.opendocument.text",
+      oga: "audio/ogg",
+      ogv: "video/ogg",
+      ogx: "application/ogg",
+      opus: "audio/ogg",
+      otf: "font/otf",
+      png: "image/png",
+      pdf: "application/pdf",
+      php: "application/x-httpd-php",
+      pkpass: "application/vnd.apple.pkpass",
+      ppt: "application/vnd.ms-powerpoint",
+      pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      rar: "application/vnd.rar",
+      rtf: "application/rtf",
+      sh: "application/x-sh",
+      svg: "image/svg+xml",
+      tar: "application/x-tar",
+      tif: "image/tiff",
+      tiff: "image/tiff",
+      ts: "video/mp2t",
+      ttf: "font/ttf",
+      txt: "text/plain",
+      vsd: "application/vnd.visio",
+      wav: "audio/wav",
+      weba: "video/webm",
+      webp: "image/webp",
+      woff: "font/woff",
+      woff2: "font/woff2",
+      xhtml: "application/xhtml+xml",
+      xls: "application/vnd.ms-excel",
+      xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      xml: "application/xml",
+      xul: "application/vnd.mozilla.xul+xml",
+      zip: this.zip,
+      "3gp": "video/3gpp",
+      "3g2": "video/3gpp2",
+      "7z": "application/x-7z-compressed"
+    } as const;
+  }
+
+  private assetType<const T extends string>(url: T) {
+    return this.parseUrl(url)
+      .pathname?.split(/([.])/gim)
+      ?.reverse()?.[0] as keyof typeof this.mimeTypeObj;
+  }
+
+  private getMime<const S extends ReturnType<typeof this.assetType>>(input: S) {
+    return this.mimeTypeObj[input];
+  }
+
+  private assetToBufferViewWorkup<
+    const T extends string,
+    const Data extends ReadableStreamReadResult<Buffer>
+  >(path: T, data: Data) {
+    return `data:${this.getMime(this.assetType(path))};base64, ${Buffer.from(
+      Buffer.from(data.value ?? Buffer.alloc(0)).toJSON().data
+    ).toString("base64")}` as const;
+  }
+
+  public async assetToBufferView<const T extends string>(path: T) {
+    const fetcher = await fetch(path).then(t => t.arrayBuffer());
+    const reader = new ReadableStream({
+      type: "bytes",
+      async pull(controller) {
+        const byobRequest = controller.byobRequest;
+        byobRequest?.respond(byobRequest?.view?.byteLength ?? 0);
+      }
+    });
+    const readerByob = new ReadableStreamBYOBReader(reader);
+    const readableByteStream = fetcher;
+    const data = await readerByob.read(Buffer.from(readableByteStream));
+    return {
+      b64encodedData: this.assetToBufferViewWorkup(path, data),
+      extension: this.assetType(path)
+    } as const;
+  }
+
   public formatHelper<const T extends string>(f: T) {
     if (/([A-Za-z]+-[A-Za-z]+)/g.test(f) === true) {
       const formatting = f
@@ -590,28 +765,5 @@ export class FsService {
         .join(" ");
       return formatting;
     } else return f.substring(0, 1).toUpperCase().concat(f.substring(1));
-  }
-
-  // public async fetchBooksyLogin<const T>() {
-  //   // return (await fetchBooksyApiPost(
-  //   //   `https://us.booksy.com/api/us/2/business_api/account/login?x-api-key=${process.env.BOOKSY_BIZ_API_KEY}&x-fingerprint=${process.env.BOOKSY_BIZ_X_FINGERPRINT}`,
-  //   //   {
-  //   //     email: process.env.BOOKSY_BIZ_EMAIL,
-  //   //     password: process.env.BOOKSY_BIZ_PASSWORD
-  //   //   }
-  //   // ).then(data => data.json())) as Promise<T>;
-  // }
-
-  public BooksyHeadersGET(accessToken: string) {
-    return {
-      Connection: "keep-alive",
-      Accept: "*/*",
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
-      "Acccept-Encoding": "gzip, deflate, br",
-      "X-fingerprint": process.env.BOOKSY_BIZ_X_FINGERPRINT ?? "",
-      "X-Access-Token": accessToken,
-      "X-Api-Key": process.env.BOOKSY_BIZ_API_KEY ?? ""
-    } as const;
   }
 }
