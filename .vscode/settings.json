@@ -20,6 +20,7 @@
   "editor.bracketPairColorization.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.suggest.showStatusBar": true,
+  "eslint.options": {"flags": ["unstable_ts_config"]},
   "eslint.enable": true,
   "eslint.useFlatConfig": true,
   "eslint.rules.customizations": [

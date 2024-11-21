@@ -1,0 +1,96 @@
+{
+  "name": "@fade/booksy",
+  "version": "0.1.0",
+  "description": "booksy api handling, file generation, and more for a client project",
+  "publishConfig": {
+    "access": "public",
+    "typesVersions": {
+      "*": {
+        "*": [
+          "dist/*.d.ts",
+          "dist/*/index.d.ts"
+        ],
+        "bin": [
+          "dist/bin/init.d.ts"
+        ],
+        "config": [
+          "dist/config/index.d.ts"
+        ],
+        "types": [
+          "dist/types/index.d.ts"
+        ]
+      }
+    }
+  },
+  "license": "MIT",
+  "source": "src/index.ts",
+  "bin": {
+    "ddbooksy": "dist/bin/init.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*.d.ts",
+        "dist/*/index.d.ts"
+      ],
+      "bin": [
+        "dist/bin/init.d.ts"
+      ],
+      "config": [
+        "dist/config/index.d.ts"
+      ],
+      "types": [
+        "dist/types/index.d.ts"
+      ]
+    }
+  },
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": true,
+  "files": [
+    "dist/**/*.{js,cjs,d.ts,d.cts,css}"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js",
+    "./bin": "./dist/bin/init.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "pnpm build",
+    "lint": "eslint",
+    "clean": "git clean -xdf .turbo dist node_modules",
+    "fix": "npm pkg fix"
+  },
+  "dependencies": {
+    "@inquirer/core": "^10.1.0",
+    "@inquirer/prompts": "^7.1.0",
+    "dotenv": "^16.4.5",
+    "gradient-string": "^3.0.0"
+  },
+  "devDependencies": {
+    "@inquirer/type": "^3.0.1",
+    "@microsoft/api-extractor": "^7.47.11",
+    "@swc/core": "^1.9.2",
+    "@swc/wasm": "^1.9.2",
+    "@fade/eslint-config": "workspace:*",
+    "@fade/prettier-config": "workspace:*",
+    "@fade/tsconfig": "workspace:*",
+    "@types/gradient-string": "^1.1.6",
+    "@types/node": "^22.9.1",
+    "chokidar": "^4.0.1",
+    "dotenv-cli": "^7.4.3",
+    "dotenv-expand": "^12.0.1",
+    "eslint": "^9.15.0",
+    "jiti": "^2.4.0",
+    "prettier": "^3.3.3",
+    "terser": "^5.36.0",
+    "tslib": "latest",
+    "tsup": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "latest"
+  },
+  "prettier": "@fade/prettier-config"
+}
