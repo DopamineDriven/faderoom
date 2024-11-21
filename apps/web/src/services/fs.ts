@@ -37,6 +37,27 @@ export class FsService {
     return expand.expand(this.myEnv);
   }
 
+  public get booksyFingerPrint(): undefined | {
+    [key: string]: string;
+    BOOKSY_BIZ_EMAIL: string;
+    BOOKSY_BIZ_PASSWORD: string;
+    BOOKSY_BIZ_X_FINGERPRINT: string;
+    BOOKSY_BIZ_API_KEY: string;
+  } {
+    const parsed = this.parseDotEnv()?.parsed;
+    if (parsed) {
+      return parsed satisfies {
+        [key: string]: string;
+      } as {
+        [key: string]: string;
+        BOOKSY_BIZ_EMAIL: string;
+        BOOKSY_BIZ_PASSWORD: string;
+        BOOKSY_BIZ_X_FINGERPRINT: string;
+        BOOKSY_BIZ_API_KEY: string;
+      };
+    } else return undefined;
+  }
+
   public returnParsedEnv() {
     const secretsConditional = this.parseDotEnv()?.parsed;
     if (secretsConditional) {
@@ -559,5 +580,38 @@ export class FsService {
       }
     }
     return objectCopy as Record<keyof T, T[keyof T]>;
+  }
+
+  public formatHelper<const T extends string>(f: T) {
+    if (/([A-Za-z]+-[A-Za-z]+)/g.test(f) === true) {
+      const formatting = f
+        .split(/-/g)
+        .map(v => v.substring(0, 1).toUpperCase().concat(v.substring(1)))
+        .join(" ");
+      return formatting;
+    } else return f.substring(0, 1).toUpperCase().concat(f.substring(1));
+  }
+
+  // public async fetchBooksyLogin<const T>() {
+  //   // return (await fetchBooksyApiPost(
+  //   //   `https://us.booksy.com/api/us/2/business_api/account/login?x-api-key=${process.env.BOOKSY_BIZ_API_KEY}&x-fingerprint=${process.env.BOOKSY_BIZ_X_FINGERPRINT}`,
+  //   //   {
+  //   //     email: process.env.BOOKSY_BIZ_EMAIL,
+  //   //     password: process.env.BOOKSY_BIZ_PASSWORD
+  //   //   }
+  //   // ).then(data => data.json())) as Promise<T>;
+  // }
+
+  public BooksyHeadersGET(accessToken: string) {
+    return {
+      Connection: "keep-alive",
+      Accept: "*/*",
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
+      "Acccept-Encoding": "gzip, deflate, br",
+      "X-fingerprint": process.env.BOOKSY_BIZ_X_FINGERPRINT ?? "",
+      "X-Access-Token": accessToken,
+      "X-Api-Key": process.env.BOOKSY_BIZ_API_KEY ?? ""
+    } as const;
   }
 }

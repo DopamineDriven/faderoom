@@ -1,11 +1,8 @@
 import * as dotenv from "dotenv";
-import type {
-  BooksyReviewsByPagePerPagePayload
-} from "@/types/booksy-helpers";
 import { formatHelper } from "@/lib/format-helper";
 import { FsService } from "@/services/fs";
 import {
-  fetchBooksyReviewsPerPageByPage
+  fetchBooksyPhotosPerPage
 } from "./fetch-booksy";
 
 dotenv.config();
@@ -16,10 +13,10 @@ const fsHandler = new FsService(process.cwd());
 (async () => {
   // const _data = await fetchBooksyLogin<BooksyLoginPayload>();
   const dataTwo =
-    await fetchBooksyReviewsPerPageByPage<BooksyReviewsByPagePerPagePayload>({
+    await fetchBooksyPhotosPerPage({
       accessToken: "QsV4OU7w19HOe4OUO1g54w3mWkOkmoQs",
-      reviewsPerPage: 10,
-      reviewsPageNumber: 17
+      imagesPerPage: 40,
+      imagesPage: 1
     });
   const s =
     typeof dataTwo === "string" ? dataTwo : JSON.stringify(dataTwo, null, 2);

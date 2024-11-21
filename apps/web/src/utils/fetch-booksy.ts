@@ -1,12 +1,6 @@
-import {
-  booksyHeadersGet,
-  booksyHeadersPost
-} from "@/lib/constants";
+import { booksyHeadersGet, booksyHeadersPost } from "@/lib/constants";
 
-export async function fetchBooksyApiGet(
-  url: string,
-  accessToken: string
-) {
+export async function fetchBooksyApiGet(url: string, accessToken: string) {
   return await fetch(url, {
     headers: booksyHeadersGet(accessToken),
     method: "GET",
@@ -19,7 +13,7 @@ export async function fetchBooksyApiGet(
 
 export async function fetchBooksyApiPost(
   url: string,
-  body: {[record: string | number | symbol]: unknown}
+  body: { [record: string | number | symbol]: unknown }
 ) {
   return await fetch(url, {
     headers: booksyHeadersPost,
@@ -27,7 +21,7 @@ export async function fetchBooksyApiPost(
     credentials: "include",
     keepalive: true,
     cache: "default",
-    body: JSON.stringify({...body}),
+    body: JSON.stringify({ ...body }),
     next: {
       tags: ["booksy"]
     }
@@ -35,10 +29,13 @@ export async function fetchBooksyApiPost(
 }
 
 export async function fetchBooksyLogin<const T>() {
-  return await fetchBooksyApiPost(
+  return (await fetchBooksyApiPost(
     `https://us.booksy.com/api/us/2/business_api/account/login?x-api-key=${process.env.BOOKSY_BIZ_API_KEY}&x-fingerprint=${process.env.BOOKSY_BIZ_X_FINGERPRINT}`,
-    { email: process.env.BOOKSY_BIZ_EMAIL, password:process.env.BOOKSY_BIZ_PASSWORD }
-  ).then((data) => data.json()) as Promise<T>;
+    {
+      email: process.env.BOOKSY_BIZ_EMAIL,
+      password: process.env.BOOKSY_BIZ_PASSWORD
+    }
+  ).then(data => data.json())) as Promise<T>;
 }
 
 export async function fetchBooksyReviewsPerPageByPage<const T>({
@@ -50,23 +47,25 @@ export async function fetchBooksyReviewsPerPageByPage<const T>({
   accessToken: string;
   reviewsPageNumber?: string | number;
 }) {
-  return await fetchBooksyApiGet(
+  return (await fetchBooksyApiGet(
     `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/reviews/?reviews_page=${reviewsPageNumber}&reviews_per_page=${reviewsPerPage}`,
     accessToken
-  ).then((data) => data.json()) as T;
+  ).then(data => data.json())) as T;
 }
 
-export async function fetchBooksyPhotosPerPage({
+export async function fetchBooksyPhotosPerPage<const T>({
   imagesPerPage,
-  accessToken
+  accessToken,
+  imagesPage
 }: {
   imagesPerPage: string | number;
+  imagesPage: string | number;
   accessToken: string;
 }) {
-  return await fetchBooksyApiGet(
-    `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&images_per_page=${imagesPerPage}`,
+  return (await fetchBooksyApiGet(
+    `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&images_page=${imagesPage}&images_per_page=${imagesPerPage}`,
     accessToken
-  );
+  ).then(data => data.json())) as T;
 }
 
 export async function fetchBooksyImageById({
@@ -81,4 +80,3 @@ export async function fetchBooksyImageById({
     accessToken
   );
 }
-
