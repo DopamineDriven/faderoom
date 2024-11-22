@@ -1,6 +1,6 @@
 import type { TsxExclude } from "@/types/helpers";
 
-export function ChevronDown({
+export function ChevronUp({
   ...props
 }: TsxExclude<"svg", "viewBox" | "xmlns">) {
   return (
@@ -8,11 +8,11 @@ export function ChevronDown({
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06"
+        d="M14.707 12.707a1 1 0 0 1-1.414 0L10 9.414l-3.293 3.293a1 1 0 0 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414"
         clipRule="evenodd"
       />
     </svg>
   );
 }
 
-ChevronDown.displayName = "ChevronDown";
+ChevronUp.displayName="ChevronUp";

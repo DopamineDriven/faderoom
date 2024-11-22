@@ -6,7 +6,7 @@
   "license": "MIT",
   "prettier": "@fade/prettier-config",
   "scripts": {
-    "prebuild": "tsx src/services/test.ts",
+    "prebuild": "tsx src/services/prebuild.ts",
     "dev": "next dev -p 3007",
     "build": "next build",
     "clean": "git clean -xdf .next node_modules",

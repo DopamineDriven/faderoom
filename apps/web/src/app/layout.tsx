@@ -16,6 +16,8 @@ import {
 import "./global.css";
 import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
+import { Footer } from "@/ui/footer";
+import { Nav } from "@/ui/nav/Nav";
 // import { Footer } from "@/ui/sections/Footer";
 // import { Nav } from "@/ui/sections/Nav";
 import * as myGtag from "@/utils/analytics";
@@ -109,15 +111,14 @@ export default function RootLayout({
         className={`h-full ${BasisGrotesqueProBlack.variable} ${BasisGrotesqueProBlackItalic.variable} ${BasisGrotesqueProBold.variable} ${BasisGrotesqueProBoldItalic.variable} ${BasisGrotesqueProItalic.variable} ${BasisGrotesqueProLight.variable} ${BasisGrotesqueProLightItalic.variable} ${BasisGrotesqueProMedium.variable} ${BasisGrotesqueProMediumItalic.variable} ${BasisGrotesqueProRegular.variable}`}>
         <body className="bg-fr-bg antialiased">
           <div className="m-0 flex min-h-full flex-col justify-between p-0">
-            {/* <Nav /> */}
+            <Nav />
             <main className="">
               {children}
               {modal}
-              <div id="modal-root" />
             </main>
-
-            {/* <Footer /> */}
+            <Footer />
           </div>
+          <div id="modal-root" />
         </body>
         <Script
           async

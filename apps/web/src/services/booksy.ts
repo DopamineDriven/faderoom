@@ -148,7 +148,7 @@ export class BooksyService extends FsService {
     });
   }
 
-  private writeTarget<
+  public writeTarget<
     const T extends string,
     const V extends WithImplicitCoercion<CoercionUnion>
   >(target: T, template: V) {
@@ -169,11 +169,11 @@ export class BooksyService extends FsService {
     return this.mapper(data).map(async (v, _i) => {
       const { image, image_id, file_extension } = await v;
 
-      const base64Image = image.replace(/^data:image\/\w+;base64,/, "");
+      const base64Data = image.replace(/^data:(image|application|video|text|font)\/[A-Za-z0-9+-.]+;base64,/, "");
 
       this.writeTarget(
         `public/booksy/images/${image_id}.${file_extension}`,
-        Buffer.from(base64Image, "base64")
+        Buffer.from(base64Data, "base64")
       );
     });
   }
