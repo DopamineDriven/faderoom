@@ -13,50 +13,47 @@ import {
 } from "@/ui/dropdown";
 import { cn } from "@/lib/utils";
 import { NavButton } from "@/ui/nav/NavButton";
-import { DrisdellIcon } from "@/ui/icons/DrisdellIcon";
+import { FadeRoomIcon } from "@/ui/icons/FadeRoom";
 import css from "./navbar.module.css";
 
 const navigation = [
   { name: "Home", href: "/" },
   {
-    name: "About Us",
-    href: "/about-us",
+    name: "Services",
+    href: "/services",
     children: [
-      { name: "Our Careers", href: "/about-us/our-careers" },
-      { name: "Our Consultants", href: "/about-us/our-consultants" },
-      { name: "Our Customers", href: "/about-us/our-customers" },
-      { name: "Our Expertise", href: "/about-us/our-expertise" },
-      { name: "Our Mission", href: "/about-us/our-mission" },
-      { name: "Our Organization", href: "/about-us/our-organization" },
-      { name: "Our Project Delivery", href: "/about-us/our-project-delivery" },
-      {
-        name: "Our Satisfied Clients",
-        href: "/about-us/our-satisfied-clients"
-      },
-      { name: "Our World", href: "/about-us/our-world" }
+      { name: "Haircut", href: "/services/haircut" },
+      { name: "Student Cut", href: "/services/student-cut" },
+      { name: "Kids Haircut", href: "/services/kids-haircut" },
+      { name: "Senior Special", href: "/services/senior-special" },
+      { name: "Haircut & Shave", href: "/services/haircut-and-shave" },
+      { name: "Presidential Package", href: "/services/presidential-package" },
+      { name: "Hero Cut", href: "/services/hero-cut" },
+      { name: "Gray Camoflauge", href: "/services/gray-camoflauge" },
+      { name: "Permanent Hair Color", href: "/services/permanent-hair-color" },
+      { name: "Beard Trim & Shave", href: "/services/beard-trim-and-shave" },
+      { name: "Basic Beard Trim", href: "/services/basic-beard-trim" },
+      { name: "Basic Shave", href: "/services/basic-shave" },
+      { name: "Facial", href: "/services/facial" },
+      { name: "Ear Waxing", href: "/services/ear-waxing" },
+      { name: "Eyebrow Wax", href: "/services/eyebrow-wax" },
+      { name: "Nose Wax", href: "/services/nose-wax" }
     ]
   },
-  {
-    name: "Consultants",
-    href: "/consultants",
-    children: [
-      {
-        name: "Consultant Testimonials",
-        href: "/consultants/consultant-testimonials"
-      },
-      {
-        name: "Skills and Positions",
-        href: "/consultants/skills-and-positions"
-      },
-      { name: "Submit a Résumé", href: "/consultants/submit-a-resume" },
-      {
-        name: "Why Drisdell Consulting Services?",
-        href: "/consultants/why-drisdell-consulting-services"
-      }
-    ]
-  },
+  { name: "Business Hours", href: "/business-hours" },
   { name: "Contact Us", href: "/contact-us" }
-];
+] satisfies ({
+  name: string;
+  href: string;
+  children?: undefined;
+} | {
+  name: string;
+  href: string;
+  children: {
+      name: string;
+      href: string;
+  }[];
+})[];
 
 export function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -103,7 +100,7 @@ export function Nav() {
     <>
       <nav
         className={cn(
-          "bg-white font-basis-grotesque-pro-medium shadow will-change-scroll",
+          "bg-fr-bg font-basis-grotesque-pro-medium shadow will-change-scroll",
           css.stickyNav,
           hasScrolled === false ? "bg-opacity-100" : "bg-opacity-95"
         )}>
@@ -113,9 +110,9 @@ export function Nav() {
               <div className='flex flex-shrink-0 items-center'>
                 <Link
                   scroll={false}
-                  href='/'
-                  className='z-[100] text-xl font-bold text-gray-800'>
-                  <DrisdellIcon width={50} />
+                  href={"/"}
+                  className='z-[100] text-xl font-bold text-fr-300'>
+                  <FadeRoomIcon width={50} />
                 </Link>
               </div>
               {/* Desktop/Tablet Menu */}
@@ -126,7 +123,7 @@ export function Nav() {
                       <>
                         <Link
                           scroll={false}
-                          className='inline-flex items-center border-b-2 border-transparent px-1 py-2 text-sm font-medium text-dcs-800 hover:border-dcs-800 hover:text-dcs-900'
+                          className='inline-flex items-center border-b-2 border-transparent px-1 py-2 text-sm font-medium text-fr-300 hover:border-fr-500 hover:text-fr-400'
                           href={item.href}>
                           {item.name}
                         </Link>
@@ -134,7 +131,7 @@ export function Nav() {
                           <DropdownMenuTrigger asChild>
                             <NavButton
                               variant='ghost'
-                              className='h-auto rounded-full px-1 py-1 text-sm font-medium text-dcs-800 hover:text-dcs-900'>
+                              className='h-auto rounded-full px-1 py-1 text-sm font-medium text-fr-300 hover:text-fr-400'>
                               <ChevronDown className='h-4 w-4' />
                             </NavButton>
                           </DropdownMenuTrigger>
@@ -153,7 +150,7 @@ export function Nav() {
                       <Link
                         scroll={false}
                         href={item.href}
-                        className='inline-flex items-center border-b-2 border-transparent px-1 py-2 text-sm font-medium text-dcs-800 hover:border-dcs-800 hover:text-dcs-900'>
+                        className='inline-flex items-center border-b-2 border-transparent px-1 py-2 text-sm font-medium text-fr-300 hover:border-fr-500 hover:text-fr-400'>
                         {item.name}
                       </Link>
                     )}
@@ -165,7 +162,7 @@ export function Nav() {
             <div className='-mr-2 flex items-center sm:hidden'>
               <NavButton
                 variant='ghost'
-                className='inline-flex items-center justify-center rounded-md p-2 text-dcs-800 hover:bg-dcs-200 hover:text-dcs-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-dcs-800'
+                className='inline-flex items-center justify-center rounded-md p-2 text-fr-300 hover:bg-woodsmk-900 hover:text-fr-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-fr-500'
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                 <span className='sr-only'>Open main menu</span>
                 {mobileMenuOpen ? (
@@ -182,7 +179,7 @@ export function Nav() {
         <div className={cn(`sm:hidden`, mobileMenuOpen ? "block" : "hidden")}>
           <div
             className={cn(
-              "basis-grotesque-pro-medium absolute flow-root w-full min-w-full space-y-1 bg-white pb-3 pt-2 will-change-scroll",
+              "basis-grotesque-pro-medium absolute flow-root w-full min-w-full space-y-1 bg-fr-bg pb-3 pt-2 will-change-scroll",
               hasScrolled === false ? "bg-opacity-100" : "bg-opacity-95",
               css.navMobile
             )}>
@@ -193,13 +190,13 @@ export function Nav() {
                     <div className='flex w-full min-w-full flex-row justify-between px-3 py-2'>
                       <Link
                         scroll={false}
-                        className='z-50 inline-flex justify-between text-base font-medium text-dcs-800 hover:bg-dcs-200 hover:text-dcs-900'
+                        className='z-50 inline-flex justify-between text-base font-medium text-fr-300 hover:bg-woodsmk-900 hover:text-fr-400'
                         href={item.href}>
                         {item.name}
                       </Link>
                       <NavButton
                         variant='ghost'
-                        className='-my-2.5 inline-flex items-end justify-between align-top text-base font-medium text-dcs-800 hover:bg-dcs-200 hover:text-dcs-900'
+                        className='-my-2.5 inline-flex items-end justify-between align-top text-base font-medium text-fr-300 hover:bg-woodsmk-900 hover:text-fr-400'
                         onClick={() => toggleExpanded(item.name)}>
                         {expandedItems.includes(item.name) ? (
                           <ChevronUp className='ml-1 h-4 w-4' />
@@ -216,7 +213,7 @@ export function Nav() {
                               scroll={false}
                               key={child.name}
                               href={child.href}
-                              className='block px-3 py-2 text-base font-medium text-dcs-800 hover:bg-dcs-200 hover:text-dcs-900'>
+                              className='block px-3 py-2 text-base font-medium text-fr-300 hover:bg-woodsmk-900 hover:text-fr-400'>
                               {child.name}
                             </Link>
                           ))}

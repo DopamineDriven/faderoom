@@ -629,11 +629,15 @@ export class FsService {
 
   /* end url */
 
-  private declare gz: "application/x-gzip" | "application/gzip";
+  public get gzVal() {
+    return (["application/x-gzip", "application/gzip"] as const).reduce((vals) => vals)
+  }
 
-  private declare zip: `application/zip` | `application/x-zip-compressed`;
+  public get zipVal() {
+    return (["application/zip", "application/x-zip-compressed"] as const).reduce((vals) => vals)
+  }
 
-  private get mimeTypeObj() {
+  public get mimeTypeObj() {
     return {
       aac: "audio/aac",
       abw: "application/x-abiword",
@@ -656,7 +660,7 @@ export class FsService {
       eot: "application/vnd.ms-fontobject",
       epub: "application/epub+zip",
       gif: "image/gif",
-      gz: this.gz,
+      gz: this.gzVal,
       htm: "text/html",
       html: "text/html",
       ico: "image/vnd.microsoft.icon",
@@ -713,24 +717,24 @@ export class FsService {
       xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       xml: "application/xml",
       xul: "application/vnd.mozilla.xul+xml",
-      zip: this.zip,
+      zip: this.zipVal,
       "3gp": "video/3gpp",
       "3g2": "video/3gpp2",
       "7z": "application/x-7z-compressed"
     } as const;
   }
 
-  private assetType<const T extends string>(url: T) {
+  public assetType<const T extends string>(url: T) {
     return this.parseUrl(url)
       .pathname?.split(/([.])/gim)
       ?.reverse()?.[0] as keyof typeof this.mimeTypeObj;
   }
 
-  private getMime<const S extends ReturnType<typeof this.assetType>>(input: S) {
+  public getMime<const S extends ReturnType<typeof this.assetType>>(input: S) {
     return this.mimeTypeObj[input];
   }
 
-  private assetToBufferViewWorkup<
+  public assetToBufferViewWorkup<
     const T extends string,
     const Data extends ReadableStreamReadResult<Buffer>
   >(path: T, data: Data) {
