@@ -630,11 +630,15 @@ export class FsService {
   /* end url */
 
   public get gzVal() {
-    return (["application/x-gzip", "application/gzip"] as const).reduce((vals) => vals)
+    return (["application/x-gzip", "application/gzip"] as const).reduce(
+      vals => vals
+    );
   }
 
   public get zipVal() {
-    return (["application/zip", "application/x-zip-compressed"] as const).reduce((vals) => vals)
+    return (
+      ["application/zip", "application/x-zip-compressed"] as const
+    ).reduce(vals => vals);
   }
 
   public get mimeTypeObj() {
@@ -734,17 +738,27 @@ export class FsService {
     return this.mimeTypeObj[input];
   }
 
-  public assetToBufferViewWorkup<
-    const T extends string,
-    const Data extends ReadableStreamReadResult<Buffer>
-  >(path: T, data: Data) {
-    return `data:${this.getMime(this.assetType(path))};base64, ${Buffer.from(
-      Buffer.from(data.value ?? Buffer.alloc(0)).toJSON().data
-    ).toString("base64")}` as const;
+  public async assetToBuffer<const T extends string>(path: T) {
+    const [fetcher] = await Promise.all([
+      fetch(path).then(t => t.arrayBuffer())
+    ]);
+
+    const b64encodedData =
+      `data:${this.getMime(this.assetType(path))};base64, ${Buffer.from(
+        Buffer.from(fetcher).toJSON().data
+      ).toString("base64")}` as const;
+    const extension = this.assetType(path);
+    return {
+      b64encodedData,
+      extension
+    } as const;
   }
 
   public async assetToBufferView<const T extends string>(path: T) {
-    const fetcher = await fetch(path).then(t => t.arrayBuffer());
+    const [fetcher] = await Promise.all([
+      fetch(path).then(t => t.arrayBuffer())
+    ]);
+    // const byobRequest = new ReadableStreamBYOBRequest();
     const reader = new ReadableStream({
       type: "bytes",
       async pull(controller) {
@@ -752,12 +766,18 @@ export class FsService {
         byobRequest?.respond(byobRequest?.view?.byteLength ?? 0);
       }
     });
+
     const readerByob = new ReadableStreamBYOBReader(reader);
     const readableByteStream = fetcher;
     const data = await readerByob.read(Buffer.from(readableByteStream));
+    const b64encodedData =
+      `data:${this.getMime(this.assetType(path))};base64, ${Buffer.from(
+        Buffer.from(data.value ?? Buffer.alloc(0)).toJSON().data
+      ).toString("base64")}` as const;
+    const extension = this.assetType(path);
     return {
-      b64encodedData: this.assetToBufferViewWorkup(path, data),
-      extension: this.assetType(path)
+      b64encodedData,
+      extension
     } as const;
   }
 

@@ -136,7 +136,7 @@ export class BooksyService extends FsService {
   public mapper(props: BooksyImagesByPageNumberAndCount) {
     return props.images.map(async t => {
       return await (async () => {
-        const { b64encodedData, extension } = await this.assetToBufferView(
+        const { b64encodedData, extension } = await this.assetToBuffer(
           t.image
         );
         return {

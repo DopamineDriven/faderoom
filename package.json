@@ -12,7 +12,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,cts,mts,js,jsx,mjs,cjs,json,yaml,yml,css,html,md,mdx}\" --ignore-unknown --cache",
     "lint": "turbo lint",
     "prepare": "husky",
-    "typecheck": "turbo typecheck",
+    "typecheck": "turbo run typecheck",
     "clean:test": "git clean -xdf -e **/*{node_modules,.next,dist} && pnpm latest:pnpm",
     "clean:house": "cd tooling/eslint && git clean -xdf node_modules .turbo && cd ../prettier && git clean -xdf node_modules .turbo && cd ../typescript && git clean -xdf .turbo node_modules && cd ../jest-presets && git clean -xdf node_modules .turbo && cd ../.. && git clean -xdf node_modules pnpm-lock.yaml && pnpm install",
     "generate:base64": "openssl rand -base64 64",
