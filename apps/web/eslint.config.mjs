@@ -1,7 +1,8 @@
-import type { Config } from "typescript-eslint";
 import baseConfig from "@fade/eslint-config/base";
 import nextjsConfig from "@fade/eslint-config/next";
 import reactConfig from "@fade/eslint-config/react";
+
+/** @type {import('typescript-eslint').Config} */
 
 export default [
   ...baseConfig,
@@ -15,4 +16,4 @@ export default [
       "import/consistent-type-specifier-style": "off"
     }
   }
-] satisfies Config;
+];

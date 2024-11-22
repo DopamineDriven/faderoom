@@ -20,7 +20,6 @@
     "next.config.ts",
     "postcss.config.cjs",
     "tailwind.config.ts",
-    "eslint.config.ts",
     "src/**/*.tsx",
     "src/**/*.ts",
     "codegen.ts",
