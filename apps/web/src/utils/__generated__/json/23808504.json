@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": 23808505,
+      "width": 1755,
+      "height": 2340,
+      "file_extension": "jpeg",
+      "relative_path": "/booksy/images/test/23808505"
+    },
+    {
+      "id": 23808506,
+      "width": 1755,
+      "height": 2340,
+      "file_extension": "jpeg",
+      "relative_path": "/booksy/images/test/23808506"
+    },
+    {
+      "id": 23808504,
+      "width": 1755,
+      "height": 2340,
+      "file_extension": "jpeg",
+      "relative_path": "/booksy/images/test/23808504"
+    }
+  ]
+}

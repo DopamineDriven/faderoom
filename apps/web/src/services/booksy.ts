@@ -30,6 +30,13 @@ export class BooksyService extends FsService {
     return this.booksyEnvKVs?.BOOKSY_BIZ_PASSWORD ?? "";
   }
 
+  public cleanDataUrl(props: string) {
+    return props.replace(
+      /^data:(image|application|video|text|font)\/[A-Za-z0-9+-.]+;base64,/,
+      ""
+    );
+  }
+
   public booksyHeadersGET(accessToken: string) {
     return {
       Connection: "keep-alive",
@@ -161,13 +168,14 @@ export class BooksyService extends FsService {
   }
 
   public mapperAlt(props: BooksyImagesByPageNumberAndCount) {
-    return props.images.map(async t => {
-      return await this.mapperIIFE(t);
+    const data = props.images.map(t => {
+      return this.mapperIIFE(t);
     });
+    return data;
   }
 
   public mapper(props: BooksyImagesByPageNumberAndCount) {
-    return props.images.map(async t => {
+    return props?.images?.map(async t => {
       return await (async () => {
         const { b64encodedData, extension } = await this.assetToBuffer(t.image);
         return {
@@ -175,7 +183,7 @@ export class BooksyService extends FsService {
           image: b64encodedData,
           file_extension: extension
         };
-      })().then(data => data);
+      })();
     });
   }
 
@@ -197,13 +205,11 @@ export class BooksyService extends FsService {
         imagesPage: 1
       })
     ]);
+
     return this.mapper(data).map(async (v, _i) => {
       const { image, image_id, file_extension } = await v;
 
-      const base64Data = image.replace(
-        /^data:(image|application|video|text|font)\/[A-Za-z0-9+-.]+;base64,/,
-        ""
-      );
+      const base64Data = this.cleanDataUrl(image);
 
       this.writeTarget(
         `public/booksy/images/${image_id}.${file_extension}`,
@@ -212,11 +218,59 @@ export class BooksyService extends FsService {
     });
   }
 
+  public omitFileExtension(v: string) {
+    return v.split(/(\.)/g)?.[0] ?? "";
+  }
+
+  public async exeGenerateImagesAndImageData(arrHelper = Array.of<{
+    readonly id: number;
+    readonly width: number;
+    readonly height: number;
+    readonly file_extension: string;
+    readonly relative_path: `/booksy/images/${number}`;
+  }>()) {
+    const [data] = await Promise.all([
+      this.fetchBooksyPhotosPerPage<BooksyImagesByPageNumberAndCount>({
+        imagesPerPage: 40,
+        imagesPage: 1
+      })
+    ]);
+
+    const derivedData = this.mapperAlt(data);
+
+    try {
+      return derivedData.map(async v => {
+        const vv = await v;
+        const workup = {
+          id: vv.image_id,
+          width: vv.width,
+          height: vv.height,
+          file_extension: vv.file_extension,
+          relative_path: `/booksy/images/${vv.image_id}`
+        } as const;
+        arrHelper.push(workup);
+        const base64Data = this.cleanDataUrl(vv.image);
+        const toJson = JSON.stringify({ data: arrHelper }, null, 2);
+        this.writeTarget(
+          `src/utils/__generated__/image-data.ts`,
+          `export const imageData = ${toJson} as const;`
+        );
+        this.writeTarget(
+          `public/booksy/images/${vv.image_id}.${vv.file_extension}`,
+          Buffer.from(base64Data, "base64")
+        );
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   public arrayOfImageIds() {
     const getIds = this.readDir({
       cwd: this.cwd,
       path: "public/booksy/images"
     });
+
     const imgTuple = getIds.map(
       v => [v.split(/(\.)/g)[0] ?? "", `/booksy/images/${v}`] as const
     );
