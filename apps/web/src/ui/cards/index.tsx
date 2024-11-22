@@ -9,7 +9,7 @@ import { CarouselCards } from "./CarouselCards";
 
 export function Cards() {
   return (
-    <div className="bg-fr-bg py-12 sm:py-32">
+    <div className="bg-fr-bg-main py-12 sm:py-32">
       <div className="mx-auto max-w-7xl px-0 lg:px-8">
         <div className="mx-auto max-w-3xl pb-10 text-center">
           <h2 className="text-balance font-basis-grotesque-pro-regular text-4xl tracking-tight text-fr-300 sm:text-5xl">
@@ -39,7 +39,10 @@ export function Cards() {
               <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
               <h3 className="mt-3 font-basis-grotesque-pro-regular text-lg/6 font-semibold text-fr-300">
                 {img["0"]}
-                <Link href={`/photos/${img["0"]}`} passHref className="appearance-none">
+                <Link
+                  href={`/photos/${img["0"]}`}
+                  passHref
+                  className="appearance-none">
                   <span className="absolute inset-0" />
                   {img["0"]}
                 </Link>

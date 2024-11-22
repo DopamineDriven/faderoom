@@ -39,7 +39,8 @@ const config = {
         xxs: ["0.5rem", { lineHeight: "0.75rem" }]
       },
       colors: {
-        "fr-bg": "#272729",
+        "fr-bg-main": "#272729",
+        "fr-bg-nav": "#1a1a1b",
         "reddit-0": "rgb(var(--reddit-0))",
         "reddit-1:": "rgb(var(--reddit-1:))",
         "reddit-2": "rgb(var(--reddit-2))",
