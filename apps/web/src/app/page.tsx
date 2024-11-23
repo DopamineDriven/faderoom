@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Cards } from "@/ui/cards";
 import { LoadingDots } from "@/ui/loading/Dots";
 import { ParticleHeaderComponent } from "@/ui/particles/ParticleHeader";
+import { imageObject } from "@/utils/__generated__/image-object";
 
 export const metadata = {
   title: "The Fade Room Inc."
@@ -16,7 +17,7 @@ export default function Home() {
           <ParticleHeaderComponent />
         </Suspense>
         <div className="absolute inset-0 overflow-hidden" />
-        <Cards />
+        <Cards imageData={imageObject} />
       </div>
     </>
   );
