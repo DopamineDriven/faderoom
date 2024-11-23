@@ -115,10 +115,10 @@ export default function RootLayout({
             <main className="">
               {children}
               {modal}
+              <div id="modal-root" />
             </main>
             <Footer />
           </div>
-          <div id="modal-root" />
         </body>
         <Script
           async
