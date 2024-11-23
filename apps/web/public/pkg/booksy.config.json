@@ -9,17 +9,7 @@
     "booksyBizApiKey",
     "booksyBizAuthorizationSecret",
     "booksyBizAuthHeader",
-    "booksyBizXFingerprint",
-    "defaultPreviewUrl",
-    "defaultProductionUrl",
-    "packageManager",
-    "projectDescription",
-    "projectTitle",
-    "siteTheme",
-    "withAuth",
-    "withGA",
-    "withTurbo",
-    "turboGenerated"
+    "booksyBizXFingerprint"
   ],
   "properties": {
     "$schema": {
