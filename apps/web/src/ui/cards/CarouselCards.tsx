@@ -7,11 +7,18 @@ import useEmblaCarousel from "embla-carousel-react";
 import { shimmer } from "@/lib/shimmer";
 import { cn } from "@/lib/utils";
 import { CarouselButton } from "@/ui/cards/CarouselButton";
-import { imageTuple } from "@/utils/__generated__/image-tuples";
 import css from "./carousel-cards.module.css";
 import Link from "next/link";
 
-export function CarouselCards() {
+export function CarouselCards({imageData}: {imageData: {
+  data: {
+      id: number;
+      width: number;
+      height: number;
+      file_extension: string;
+      relative_path: string;
+  }[];
+}}) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       dragFree: true,
@@ -52,25 +59,27 @@ export function CarouselCards() {
     };
   }, [emblaApi, onSelect]);
 
+
+
   return (
     <div className={cn("relative", css.embla)}>
       <div className={css.embla__viewport} ref={emblaRef}>
         <div className={css.embla__container}>
-          {imageTuple["imgIdAndPathTuple"].map((img) => (
+          {imageData.data.map((img) => (
             <div
-              key={img['0']}
+              key={img.id}
               className={cn(
                 css.embla__slide,
                 "embla__class-names relative isolate flex flex-col"
               )}>
-                <Link href={`/photos/${img['0']}`} passHref className="appearance-none">
+                <Link href={`/photos/${img.id}`} passHref className="appearance-none">
               <Image
-                alt={img["0"]}
-                src={img["1"]}
-                width={176}
-                height={274}
+                alt={img.relative_path}
+                src={`${img.relative_path}.${img.file_extension}`}
+                width={img.width}
+                height={img.height}
                 placeholder="blur"
-                blurDataURL={shimmer([176, 274])}
+                blurDataURL={shimmer([img.width, img.height])}
                 className="absolute inset-0 -z-10 h-full w-full object-cover group-hover:opacity-75"
                 style={{ objectFit: "cover" }}
               />
@@ -81,7 +90,7 @@ export function CarouselCards() {
                 )}>
                 <span className="absolute -translate-y-20 translate-x-3 appearance-none">
                   <span className="z-[100] mx-1 my-2 bg-black/50 bg-clip-text text-white">
-                    {img[0]}
+                    {img.id}
                   </span>
                   <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />{" "}
                 </span>
@@ -108,7 +117,7 @@ export function CarouselCards() {
         <span className='sr-only'>Next slide</span>
       </CarouselButton> */}
       <div className="mt-4 flex justify-center">
-        {imageTuple["imgIdAndPathTuple"].map((_, index) => (
+        {imageData.data.map((_, index) => (
           <CarouselButton
             key={index}
             variant="ghost"

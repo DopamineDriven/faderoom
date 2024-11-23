@@ -1,13 +1,21 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { shimmer } from "@/lib/shimmer";
-import { cn } from "@/lib/utils";
-import { imageTuple } from "@/utils/__generated__/image-tuples";
+// import Image from "next/image";
+// import Link from "next/link";
+// import { shimmer } from "@/lib/shimmer";
+// import { cn } from "@/lib/utils";
+// import { imageTuple } from "@/utils/__generated__/image-tuples";
 import { CarouselCards } from "./CarouselCards";
 
-export function Cards() {
+export function Cards({imageData}: {imageData: {
+  data: {
+      id: number;
+      width: number;
+      height: number;
+      file_extension: string;
+      relative_path: string;
+  }[];
+}}) {
   return (
     <div className="bg-fr-bg-main py-12 sm:py-32">
       <div className="mx-auto max-w-7xl px-0 lg:px-8">
@@ -17,7 +25,7 @@ export function Cards() {
           </h2>
         </div>
         {/* viewports lg or bigger render Classic Cards (below) */}
-        <div
+        {/* <div
           className={cn(
             "hidden lg:mx-0 lg:mt-20 lg:grid lg:max-w-none lg:auto-rows-fr lg:grid-cols-3 lg:gap-6"
           )}>
@@ -49,9 +57,9 @@ export function Cards() {
               </h3>
             </article>
           ))}
-        </div>
+        </div> */}
         {/* viewports md or smaller render Carousel Cards */}
-        <CarouselCards />
+        <CarouselCards imageData={imageData} />
       </div>
     </div>
   );

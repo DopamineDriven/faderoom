@@ -1,4 +1,4 @@
-export const imageObjet = {
+export const imageObject = {
   "data": [
     {
       "id": 23808505,
@@ -281,4 +281,4 @@ export const imageObjet = {
       "relative_path": "/booksy/images/test/20867568"
     }
   ]
-} as const;
+};
