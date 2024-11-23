@@ -90,7 +90,8 @@
     "tsup": "latest",
     "tsx": "latest",
     "typescript": "latest",
-    "typescript-eslint": "latest"
+    "typescript-eslint": "latest",
+    "yaml": "^2.6.1"
   },
   "prettier": "@fade/prettier-config"
 }

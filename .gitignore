@@ -39,3 +39,7 @@ dist
 notes.md
 .env.*
 .env*.local
+
+
+# Booksy Config containing access token that is generated prebuild
+booksy.config.yaml

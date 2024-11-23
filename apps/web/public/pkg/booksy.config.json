@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "accessToken",
+    "booksyBizEmail",
+    "booksyBizPassword",
+    "booksyBizApiKey",
+    "booksyBizAuthorizationSecret",
+    "booksyBizAuthHeader",
+    "booksyBizXFingerprint",
+    "defaultPreviewUrl",
+    "defaultProductionUrl",
+    "packageManager",
+    "projectDescription",
+    "projectTitle",
+    "siteTheme",
+    "withAuth",
+    "withGA",
+    "withTurbo",
+    "turboGenerated"
+  ],
+  "properties": {
+    "$schema": {
+      "default": "https://thefaderoominc.vercel.app/pkg/booksy.config.json",
+      "description": "Set this in booksy.config.yaml to enable schema autocompletion/validation",
+      "type": "string"
+    },
+    "accessToken": {
+      "title": "accessToken",
+      "type": "string",
+      "description": "booksy access token generated on each deploy via executing a login api call before outputting this scaffold"
+    },
+    "booksyBizEmail": {
+      "default": "${BOOKSY_BIZ_EMAIL}",
+      "type": "string",
+      "title": "booksyBizEmail",
+      "description": "Booksy owner email key in .env; eg, ${BOOKSY_BIZ_EMAIL}"
+    },
+    "booksyBizPassword": {
+      "default": "${BOOKSY_BIZ_PASSWORD}",
+      "type": "string",
+      "title": "booksyBizPassword",
+      "description": "Booksy owner password key in .env; eg, ${BOOKSY_BIZ_PASSWORD}"
+    },
+    "booksyBizApiKey": {
+      "default": "${BOOKSY_BIZ_API_KEY}",
+      "type": "string",
+      "title": "booksyBizApiKey",
+      "description": "Booksy api key in .env; eg, ${BOOKSY_BIZ_API_KEY}"
+    },
+    "booksyBizAuthorizationSecret": {
+      "default": "${BOOKSY_BIZ_AUTHORIZATION_SECRET}",
+      "type": "string",
+      "title": "booksyBizAuthoirzationSecret",
+      "description": "Booksy authorization secert key in .env; eg, ${BOOKSY_BIZ_AUTHORIZATION_SECRET}"
+    },
+    "booksyBizAuthHeader": {
+      "default": "${BOOKSY_BIZ_AUTH_HEADER}",
+      "type": "string",
+      "title": "booksyBizAuthHeader",
+      "description": "Booksy auth header key in .env; eg, ${BOOKSY_BIZ_AUTH_HEADER}"
+    },
+    "booksyBizXFingerprint": {
+      "default": "${BOOKSY_BIZ_X_FINGERPRINT}",
+      "type": "string",
+      "title": "booksyBizXFingerprint",
+      "description": "Booksy x-fingerprint key in .env; eg, ${BOOKSY_BIZ_X_FINGERPRINT}"
+    }
+  }
+}

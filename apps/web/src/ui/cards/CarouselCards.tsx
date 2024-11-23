@@ -53,7 +53,7 @@ export function CarouselCards() {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className={cn("relative lg:hidden", css.embla)}>
+    <div className={cn("relative", css.embla)}>
       <div className={css.embla__viewport} ref={emblaRef}>
         <div className={css.embla__container}>
           {imageTuple["imgIdAndPathTuple"].map((img) => (
