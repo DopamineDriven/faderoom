@@ -14,6 +14,7 @@ export function Cards({imageData}: {imageData: {
       height: number;
       file_extension: string;
       relative_path: string;
+      url: string;
   }[];
 }}) {
   return (

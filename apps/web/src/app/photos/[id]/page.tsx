@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { InferGSPRT } from "@/types/next";
 import { shimmer } from "@/lib/shimmer";
-import { imageObject } from "@/utils/__generated__/image-object";
+import { imageData as imageObject } from "@/utils/__generated__/image-object";
 
 export async function generateStaticParams() {
   return imageObject.data.map(v => {
@@ -21,7 +21,7 @@ export default async function PhotoPage({
     <div>
       <Image
         alt={"/womens-undercut.png"}
-        src={img.relative_path}
+        src={img.url}
         width={img.width}
         height={img.height}
         placeholder="blur"

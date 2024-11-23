@@ -738,6 +738,10 @@ export class FsService {
     return this.mimeTypeObj[input];
   }
 
+  public async assetToBlob(path: string) {
+    return await fetch(path).then((res) => res.blob());
+  }
+
   public async assetToBuffer<const T extends string>(path: T) {
     const [fetcher] = await Promise.all([
       fetch(path).then(t => t.arrayBuffer())

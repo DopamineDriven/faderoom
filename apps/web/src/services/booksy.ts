@@ -1,3 +1,4 @@
+import { list, put } from "@vercel/blob";
 import * as dotenv from "dotenv";
 import type {
   BooksyImagesByPageNumberAndCount,
@@ -5,7 +6,7 @@ import type {
 } from "@/types/booksy-helpers";
 import type { CoercionUnion } from "@/types/fs";
 import { FsService } from "@/services/fs";
-import { Unenumerate } from "@/types/helpers";
+import { Unenumerate, UnwrapPromise } from "@/types/helpers";
 
 dotenv.config();
 
@@ -157,12 +158,14 @@ export class BooksyService extends FsService {
       const [{ b64encodedData, extension }] = await Promise.all([
         this.assetToBuffer(t.image)
       ]);
+      console.log(t.created);
       return {
         image_id: t.image_id,
         width: t.width,
         height: t.height,
         image: b64encodedData,
-        file_extension: extension
+        file_extension: extension,
+        modified: new Date(t.created.concat(":00.000Z")).valueOf()
       };
     })().then(data => data);
   }
@@ -202,13 +205,38 @@ export class BooksyService extends FsService {
     return v.split(/(\.)/g)?.[0] ?? "";
   }
 
-  public async exeGenerateImagesAndImageData(arrHelper = Array.of<{
-    readonly id: number;
-    readonly width: number;
-    readonly height: number;
-    readonly file_extension: string;
-    readonly relative_path: `/booksy/images/${number}.${string}`;
-  }>()) {
+  public async listVercelBlobs() {
+    return (await list()).blobs.map(v => v);
+  }
+
+  public async getVercelBlobPaths() {
+    return (await this.listVercelBlobs()).map(v => v.pathname);
+  }
+
+  public async getVercelBlobUrls() {
+    return (await this.listVercelBlobs()).map(v => v.url);
+  }
+  public async compareVercelBlobPathsToIncomingIds(
+    props: UnwrapPromise<Unenumerate<ReturnType<typeof this.mapper>>>
+  ) {
+    const [blobPaths] = await Promise.all([this.getVercelBlobPaths()]);
+
+    if (blobPaths.includes(`${props.image_id}.${props.file_extension}`)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public async exeGenerateImagesAndImageData(
+    arrHelper = Array.of<{
+      readonly id: number;
+      readonly width: number;
+      readonly height: number;
+      readonly file_extension: string;
+      readonly relative_path: `/booksy/images/${number}.${string}`;
+    }>()
+  ) {
     const [data] = await Promise.all([
       this.fetchBooksyPhotosPerPage<BooksyImagesByPageNumberAndCount>({
         imagesPerPage: 40,
@@ -221,6 +249,7 @@ export class BooksyService extends FsService {
     try {
       return derivedData.map(async v => {
         const vv = await v;
+
         const workup = {
           id: vv.image_id,
           width: vv.width,
@@ -228,6 +257,10 @@ export class BooksyService extends FsService {
           file_extension: vv.file_extension,
           relative_path: `/booksy/images/${vv.image_id}.${vv.file_extension}`
         } as const;
+
+        const [blob] = await Promise.all([(await fetch(vv.image)).blob()]);
+        console.log(blob);
+
         arrHelper.push(workup);
         const base64Data = this.cleanDataUrl(vv.image);
         const toJson = JSON.stringify({ data: arrHelper }, null, 2);
@@ -239,6 +272,83 @@ export class BooksyService extends FsService {
           `public/booksy/images/${vv.image_id}.${vv.file_extension}`,
           Buffer.from(base64Data, "base64")
         );
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  public async exeVercelBlob(
+    arrHelper = Array.of<{
+      readonly id: number;
+      readonly width: number;
+      readonly height: number;
+      readonly file_extension: string;
+      readonly relative_path: `/booksy/images/${number}.${string}`;
+      readonly url: string;
+    }>()
+  ) {
+    const [data] = await Promise.all([
+      this.fetchBooksyPhotosPerPage<BooksyImagesByPageNumberAndCount>({
+        imagesPerPage: 40,
+        imagesPage: 1
+      })
+    ]);
+
+    const derivedData = this.mapperAlt(data);
+
+    try {
+      return derivedData.map(async v => {
+        const vv = await v;
+        const workup = (url: string) =>
+          ({
+            id: vv.image_id,
+            width: vv.width,
+            height: vv.height,
+            file_extension: vv.file_extension,
+            relative_path: `/booksy/images/${vv.image_id}.${vv.file_extension}`,
+            url
+          }) as const;
+        const doesExist = await this.compareVercelBlobPathsToIncomingIds(vv);
+        if (doesExist === false) {
+          const [blob] = await Promise.all([(await fetch(vv.image)).blob()]);
+          const file = new File([blob], `${vv.image_id}.${vv.file_extension}`, {
+            lastModified: vv.modified
+          });
+          const vercelBlob = await put(file.name, file, { access: "public" });
+          console.log(`reuploading, didn't detect... ${file.name}`);
+          arrHelper.push(workup(vercelBlob.url));
+          const base64Data = this.cleanDataUrl(vv.image);
+          const toJson = JSON.stringify({ data: arrHelper }, null, 2);
+          this.writeTarget(
+            `src/utils/__generated__/image-object.ts`,
+            `export const imageData = ${toJson};`
+          );
+          this.writeTarget(
+            `public/booksy/images/${vv.image_id}.${vv.file_extension}`,
+            Buffer.from(base64Data, "base64")
+          );
+        } else {
+          const [blobs] = await Promise.all([this.listVercelBlobs()]);
+          // eslint-disable-next-line
+          const getInfo = blobs.find(
+            path => path.pathname === `${vv.image_id}.${vv.file_extension}`
+          )!;
+          console.log(
+            `no need to reupload, got the info ${getInfo.pathname} ${getInfo.url}`
+          );
+          arrHelper.push(workup(getInfo.url));
+          const base64Data = this.cleanDataUrl(vv.image);
+          const toJson = JSON.stringify({ data: arrHelper }, null, 2);
+          this.writeTarget(
+            `src/utils/__generated__/image-object.ts`,
+            `export const imageData = ${toJson};`
+          );
+          this.writeTarget(
+            `public/booksy/images/${vv.image_id}.${vv.file_extension}`,
+            Buffer.from(base64Data, "base64")
+          );
+        }
       });
     } catch (err) {
       console.error(err);
