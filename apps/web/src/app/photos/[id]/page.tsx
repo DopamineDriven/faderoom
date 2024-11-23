@@ -1,20 +1,19 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { InferGSPRT } from "@/types/next";
 import { shimmer } from "@/lib/shimmer";
 import { imageObject } from "@/utils/__generated__/image-object";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return imageObject.data.map(v => {
-    return { id: v.id };
+    return { id: v.id.toString(10) };
   });
 }
 export default async function PhotoPage({
   params
-}: {
-  params: Promise<{ id: string }>;
-}) {
+}: InferGSPRT<typeof generateStaticParams>) {
   const photoId = (await params).id;
-  const img = imageObject.data.find(img => img.id.toString() === photoId);
+  const img = imageObject.data.find(img => img.id.toString(10) === photoId);
   if (!img) {
     notFound();
   }
