@@ -1,7 +1,7 @@
 export function b64toBlob<const T extends string>(b64Data: T) {
   const sliceSize = 512;
   // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
-  const typeMatch = b64Data.match(/data:(.*);/);
+  const typeMatch = b64Data.match(/^data:(image|application|video|text|font)\/[A-Za-z0-9+-.]+;base64,/);
   const type = typeMatch?.[1];
   console.log(type ?? "");
   if (!typeMatch) {

@@ -19,7 +19,8 @@
       "persistent": true
     },
     "typecheck": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": [".cache/tsbuildinfo.json"]
     },
     "clean": {
       "cache": false
@@ -74,6 +75,8 @@
     "WORDPRESS_AUTH_AUTH_TOKEN",
     "WORDPRESS_AUTH_REFRESH_TOKEN",
     "WORDPRESS_AUTH_REFRESH_TOKEN_YML",
+    "WORDPRESS_DEFAULT_USERNAME",
+    "WORDPRESS_DEFAULT_PASSWORD",
     "WORDPRESS_PREVIEW_SECRET",
     "WORDPRESS_URL"
   ]

@@ -19,7 +19,8 @@ export default tseslint.config(
       "**/*.config.cjs",
       "tailwind.config.ts",
       "tsup.config.ts",
-      "**/*.presets.cjs"
+      "**/*.presets.cjs",
+      "public/**/*.js"
     ]
   },
   {

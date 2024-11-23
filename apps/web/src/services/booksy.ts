@@ -1,10 +1,12 @@
+import * as dotenv from "dotenv";
 import type {
   BooksyImagesByPageNumberAndCount,
   BooksyLoginPayload
 } from "@/types/booksy-helpers";
 import type { CoercionUnion } from "@/types/fs";
 import { FsService } from "@/services/fs";
-import * as dotenv from "dotenv";
+import { Unenumerate } from "@/types/helpers";
+
 dotenv.config();
 
 export class BooksyService extends FsService {
@@ -26,6 +28,13 @@ export class BooksyService extends FsService {
 
   private get booksyPassword() {
     return this.booksyEnvKVs?.BOOKSY_BIZ_PASSWORD ?? "";
+  }
+
+  public cleanDataUrl(props: string) {
+    return props.replace(
+      /^data:(image|application|video|text|font)\/[A-Za-z0-9+-.]+;base64,/,
+      ""
+    );
   }
 
   public booksyHeadersGET(accessToken: string) {
@@ -80,27 +89,27 @@ export class BooksyService extends FsService {
     ).then(data => data.json())) as Promise<T>;
   }
 
-  public getAccessToken(accessTokenHelper = Array.of<string>()) {
-    try {
-      (() =>
-        this.fetchBooksyLogin<BooksyLoginPayload>().then(data => {
-          accessTokenHelper.push(data.access_token);
-          return data.access_token;
-        }))().catch(err => console.error(err));
-      return accessTokenHelper["0"];
-    } catch (err) {
-      console.error(err);
-      return;
-    }
-  }
+  // public getAccessToken(accessTokenHelper = Array.of<string>()) {
+  //   try {
+  //     (() =>
+  //       this.fetchBooksyLogin<BooksyLoginPayload>().then(data => {
+  //         accessTokenHelper.push(data.access_token);
+  //         return data.access_token;
+  //       }))().catch(err => console.error(err));
+  //     return accessTokenHelper["0"];
+  //   } catch (err) {
+  //     console.error(err);
+  //     return;
+  //   }
+  // }
 
-  public get accessToken() {
-    return this.getAccessToken() ?? "";
-  }
+  // public get accessToken() {
+  //   return this.getAccessToken() ?? "";
+  // }
 
-  public async fetchBooksyGET(url: string) {
+  public async fetchBooksyGET(url: string, accessToken: string) {
     return await fetch(url, {
-      headers: this.booksyHeadersGET(this.accessToken),
+      headers: this.booksyHeadersGET(accessToken),
       method: "GET",
       cache: "default",
       next: {
@@ -116,8 +125,12 @@ export class BooksyService extends FsService {
     reviewsPerPage: string | number;
     reviewsPageNumber?: string | number;
   }) {
+    const [payload] = await Promise.all([
+      this.fetchBooksyLogin<BooksyLoginPayload>()
+    ]);
     return (await this.fetchBooksyGET(
-      `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/reviews/?reviews_page=${reviewsPageNumber}&reviews_per_page=${reviewsPerPage}`
+      `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/reviews/?reviews_page=${reviewsPageNumber}&reviews_per_page=${reviewsPerPage}`,
+      payload.access_token
     ).then(data => data.json())) as T;
   }
 
@@ -128,23 +141,49 @@ export class BooksyService extends FsService {
     imagesPerPage: string | number;
     imagesPage: string | number;
   }) {
+    const [payload] = await Promise.all([
+      this.fetchBooksyLogin<BooksyLoginPayload>()
+    ]);
     return (await this.fetchBooksyGET(
-      `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&images_page=${imagesPage}&images_per_page=${imagesPerPage}`
+      `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&images_page=${imagesPage}&images_per_page=${imagesPerPage}`,
+      payload.access_token
     ).then(data => data.json())) as T;
   }
 
+  public mapperIIFE(
+    t: Unenumerate<BooksyImagesByPageNumberAndCount["images"]>
+  ) {
+    return (async () => {
+      const [{ b64encodedData, extension }] = await Promise.all([
+        this.assetToBuffer(t.image)
+      ]);
+      return {
+        image_id: t.image_id,
+        width: t.width,
+        height: t.height,
+        image: b64encodedData,
+        file_extension: extension
+      };
+    })().then(data => data);
+  }
+
+  public mapperAlt(props: BooksyImagesByPageNumberAndCount) {
+    const data = props.images.map(t => {
+      return this.mapperIIFE(t);
+    });
+    return data;
+  }
+
   public mapper(props: BooksyImagesByPageNumberAndCount) {
-    return props.images.map(async t => {
+    return props?.images?.map(async t => {
       return await (async () => {
-        const { b64encodedData, extension } = await this.assetToBufferView(
-          t.image
-        );
+        const { b64encodedData, extension } = await this.assetToBuffer(t.image);
         return {
           image_id: t.image_id,
           image: b64encodedData,
           file_extension: extension
         };
-      })().then(data => data);
+      })();
     });
   }
 
@@ -166,10 +205,11 @@ export class BooksyService extends FsService {
         imagesPage: 1
       })
     ]);
+
     return this.mapper(data).map(async (v, _i) => {
       const { image, image_id, file_extension } = await v;
 
-      const base64Data = image.replace(/^data:(image|application|video|text|font)\/[A-Za-z0-9+-.]+;base64,/, "");
+      const base64Data = this.cleanDataUrl(image);
 
       this.writeTarget(
         `public/booksy/images/${image_id}.${file_extension}`,
@@ -178,11 +218,67 @@ export class BooksyService extends FsService {
     });
   }
 
+  public omitFileExtension(v: string) {
+    return v.split(/(\.)/g)?.[0] ?? "";
+  }
+
+  public async exeGenerateImagesAndImageData(arrHelper = Array.of<{
+    readonly id: number;
+    readonly width: number;
+    readonly height: number;
+    readonly file_extension: string;
+    readonly relative_path: `/booksy/images/${number}`;
+  }>()) {
+    const [data] = await Promise.all([
+      this.fetchBooksyPhotosPerPage<BooksyImagesByPageNumberAndCount>({
+        imagesPerPage: 40,
+        imagesPage: 1
+      })
+    ]);
+
+    const derivedData = this.mapperAlt(data);
+
+    try {
+      return derivedData.map(async v => {
+        const vv = await v;
+        const workup = {
+          id: vv.image_id,
+          width: vv.width,
+          height: vv.height,
+          file_extension: vv.file_extension,
+          relative_path: `/booksy/images/${vv.image_id}`
+        } as const;
+        arrHelper.push(workup);
+        const base64Data = this.cleanDataUrl(vv.image);
+        const toJson = JSON.stringify({ data: arrHelper }, null, 2);
+        this.writeTarget(
+          `src/utils/__generated__/image-data.ts`,
+          `export const imageData = ${toJson} as const;`
+        );
+        this.writeTarget(
+          `public/booksy/images/${vv.image_id}.${vv.file_extension}`,
+          Buffer.from(base64Data, "base64")
+        );
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   public arrayOfImageIds() {
-    const getIds = this.readDir({cwd: this.cwd, path: "public/booksy/images"});
-    const imgTuple = getIds.map((v) => [v.split(/(\.)/g)[0] ?? "", `/booksy/images/${v}`] as const);
+    const getIds = this.readDir({
+      cwd: this.cwd,
+      path: "public/booksy/images"
+    });
+
+    const imgTuple = getIds.map(
+      v => [v.split(/(\.)/g)[0] ?? "", `/booksy/images/${v}`] as const
+    );
     const toJson = JSON.stringify({ imgIdAndPathTuple: imgTuple }, null, 2);
 
-    this.writeTarget(`src/utils/__generated__/image-tuples.ts`,`export const imageTuple = ${toJson} as const; `)
+    this.writeTarget(
+      `src/utils/__generated__/image-tuples.ts`,
+      `export const imageTuple = ${toJson} as const; `
+    );
   }
 }

@@ -7,6 +7,7 @@ import { ParticleHeaderComponent } from "@/ui/particles/ParticleHeader";
 export const metadata = {
   title: "The Fade Room Inc."
 } satisfies Metadata;
+
 export default function Home() {
   return (
     <>
