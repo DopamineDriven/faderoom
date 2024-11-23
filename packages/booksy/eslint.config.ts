@@ -7,7 +7,8 @@ export default [
     rules: {
       "@typescript-eslint/no-floating-promises": "off",
       "@typescript-eslint/prefer-includes": "off",
-      "@typescript-eslint/require-await": "off"
+      "@typescript-eslint/require-await": "off",
+      "prefer-const": "off"
     },
     ignores: ["dist/**"]
   }
