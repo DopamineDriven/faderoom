@@ -17,15 +17,6 @@ body {
   height: 100%;
 }
 
-img,
-picture,
-video,
-canvas,
-svg,
-pre {
-  display: block;
-  max-width: 100%;
-}
 
 input,
 button,
