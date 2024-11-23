@@ -20,7 +20,12 @@ export default withPWAInit({ dest: "public", register: true, scope: "/app" })({
       { hostname: "thefaderoomheadless.com", protocol: "https" },
       { hostname: "thefaderoominc.com", protocol: "https" },
       { hostname: "thefaderoominc.vercel.app", protocol: "https" },
-      { hostname: "thefaderoominc-dev.vercel.app", protocol: "https" }
+      { hostname: "thefaderoominc-dev.vercel.app", protocol: "https" },
+      {
+        hostname: "adgf6mjgcvaeo8u4.public.blob.vercel-storage.com",
+        protocol: "https",
+        port: ""
+      }
     ]
   },
   productionBrowserSourceMaps: true

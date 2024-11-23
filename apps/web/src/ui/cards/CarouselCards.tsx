@@ -17,6 +17,7 @@ export function CarouselCards({imageData}: {imageData: {
       height: number;
       file_extension: string;
       relative_path: string;
+      url: string;
   }[];
 }}) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -75,7 +76,7 @@ export function CarouselCards({imageData}: {imageData: {
                 <Link href={`/photos/${img.id}`} passHref className="appearance-none">
               <Image
                 alt={img.relative_path}
-                src={`${img.relative_path}.${img.file_extension}`}
+                src={img.url}
                 width={img.width}
                 height={img.height}
                 placeholder="blur"

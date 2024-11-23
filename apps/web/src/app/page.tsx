@@ -3,7 +3,8 @@ import { Suspense } from "react";
 import { Cards } from "@/ui/cards";
 import { LoadingDots } from "@/ui/loading/Dots";
 import { ParticleHeaderComponent } from "@/ui/particles/ParticleHeader";
-import { imageObject } from "@/utils/__generated__/image-object";
+import { imageData as imageObject } from "@/utils/__generated__/image-object";
+
 
 export const metadata = {
   title: "The Fade Room Inc."

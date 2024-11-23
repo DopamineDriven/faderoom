@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { shimmer } from "@/lib/shimmer";
 import { Modal } from "@/ui/modal";
-import { imageObject } from "@/utils/__generated__/image-object";
+import { imageData as imageObject } from "@/utils/__generated__/image-object";
 import type { InferGSPRT } from "@/types/next";
 
 export async function generateStaticParams() {
@@ -22,7 +22,7 @@ export default async function PhotoModal({
     <Modal>
       <Image
         alt={"/womens-undercut.png"}
-        src={img.relative_path}
+        src={img.url}
         width={img.width}
         height={img.height}
         placeholder="blur"
