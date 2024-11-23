@@ -497,7 +497,7 @@ export class FsService {
       Buffer.from(
         fsSync.readFileSync(relative(cwd, path)).toJSON()
           .data satisfies number[]
-      ) satisfies WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer>
+      ) satisfies Buffer
     ) satisfies Buffer;
 
   public dirContainsDir({

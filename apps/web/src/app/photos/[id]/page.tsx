@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { shimmer } from "@/lib/shimmer";
-import { imageTuple } from "@/utils/__generated__/image-tuples";
+import { imageObject } from "@/utils/__generated__/image-object";
 
 export function generateStaticParams() {
-  return imageTuple["imgIdAndPathTuple"].map(v => {
-    return { id: v[0] };
+  return imageObject.data.map(v => {
+    return { id: v.id };
   });
 }
 export default async function PhotoPage({
@@ -12,17 +13,20 @@ export default async function PhotoPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const id = (await params).id;
+  const photoId = (await params).id;
+  const img = imageObject.data.find(img => img.id.toString() === photoId);
+  if (!img) {
+    notFound();
+  }
   return (
-    <div className="card">
-      {" "}
+    <div>
       <Image
         alt={"/womens-undercut.png"}
-        src={`/booksy/images/${id}.jpeg`}
-        width={1170}
-        height={300}
+        src={img.relative_path}
+        width={img.width}
+        height={img.height}
         placeholder="blur"
-        blurDataURL={shimmer([1170, 1170])}
+        blurDataURL={shimmer([img.width, img.height])}
         className="object-cover"
       />
     </div>
