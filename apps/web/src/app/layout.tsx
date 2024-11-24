@@ -112,11 +112,9 @@ export default function RootLayout({
         <body className="bg-fr-bg-main antialiased">
           <div className="m-0 flex min-h-full flex-col justify-between p-0">
             <Nav />
-            <main className="">
               {children}
               {modal}
               <div id="modal-root" />
-            </main>
             <Footer />
           </div>
         </body>
