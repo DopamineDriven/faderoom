@@ -64,7 +64,7 @@ export function CarouselCards({imageData}: {imageData: {
   return (
     <div className={cn("relative", css.embla)}>
       <div className={css.embla__viewport} ref={emblaRef}>
-        <div className={css.embla__container}>
+        <div className={cn(css.embla__container, "h-[75vh] sm:h-[30rem]")}>
           {imageData.data.map((img) => (
             <div
               key={img.id}
