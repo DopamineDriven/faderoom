@@ -74,6 +74,7 @@ export function CarouselCards({imageData}: {imageData: {
               )}>
                 <Link href={`/photos/${img.id}`} passHref className="appearance-none">
               <Image
+                loading="eager"
                 alt={img.relative_path}
                 src={img.url}
                 width={img.width}
