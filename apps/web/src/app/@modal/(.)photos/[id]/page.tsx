@@ -3,18 +3,10 @@ import { notFound } from "next/navigation";
 import { shimmer } from "@/lib/shimmer";
 import { Modal } from "@/ui/modal";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
-import type { InferGSPRT } from "@/types/next";
 
-export async function generateStaticParams() {
-  return imageObject.data.map(v => {
-    return { id: v.id.toString(10) };
-  });
-}
-export default async function PhotoModal({
-  params
-}: InferGSPRT<typeof generateStaticParams>) {
-  const photoId = (await params).id;
-  const img = imageObject.data.find(img => img.id.toString(10) === photoId);
+export default function PhotoModal({params}: {params: {id: string;}}) {
+
+  const img = imageObject.data.find(img => img.id.toString(10) === params.id);
   if (!img) {
     notFound();
   }
