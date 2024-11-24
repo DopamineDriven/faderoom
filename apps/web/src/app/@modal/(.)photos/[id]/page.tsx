@@ -4,9 +4,9 @@ import { shimmer } from "@/lib/shimmer";
 import { Modal } from "@/ui/modal";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
 
-export default function PhotoModal({params}: {params: {id: string;}}) {
-
-  const img = imageObject.data.find(img => img.id.toString(10) === params.id);
+export default async function PhotoModal({params}:  {params: Promise<{ id: string }>}) {
+  const idA = (await params).id;
+  const img = imageObject.data.find(({id}) => id.toString(10) === idA);
   if (!img) {
     notFound();
   }

@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
 
 export function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const dialogRef = useRef<ElementRef<"dialog"> | null>(null);
+  const dialogRef = useRef<ElementRef<"dialog">>(null);
 
   useEffect(() => {
     if (!dialogRef.current?.open) {
@@ -20,13 +20,13 @@ export function Modal({ children }: { children: React.ReactNode }) {
   }
 
   return createPortal(
-    <div className={'modal-backdrop'}>
-      <dialog ref={dialogRef} className={"modal"} onClose={onDismiss}>
+    <div className="modal-backdrop">
+      <dialog ref={dialogRef} className="modal" onClose={onDismiss}>
         {children}
-        <button onClick={onDismiss} className={'close-button'} />
+        <button onClick={onDismiss} className="close-button" />
       </dialog>
     </div>,
-    /*eslint-disable-next-line @typescript-eslint/no-non-null-assertion*/
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     document.getElementById("modal-root")!
   );
 }
