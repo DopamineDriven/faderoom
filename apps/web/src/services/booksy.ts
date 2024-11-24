@@ -278,6 +278,7 @@ export class BooksyService extends FsService {
     }
   }
 
+  // TODO change this so that the vercel blob info is output to a __generated__ json file then read from it instead of risking calling the api nth times
   public async exeVercelBlob(
     arrHelper = Array.of<{
       readonly id: number;
