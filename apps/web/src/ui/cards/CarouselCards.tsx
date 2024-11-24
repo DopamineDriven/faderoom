@@ -23,8 +23,7 @@ export function CarouselCards({imageData}: {imageData: {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       dragFree: true,
-      loop: false,
-      align: "start"
+      loop: false
     },
     [ClassNames()]
   );
