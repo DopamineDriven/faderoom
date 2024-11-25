@@ -67,9 +67,9 @@ export function CarouselCards({
     <div className={cn("relative", css.embla)}>
       <div className={css.embla__viewport} ref={emblaRef}>
         <div className={cn(css.embla__container)}>
-          {imageData.data.map(img => (
+          {imageData.data.map((img,i) => (
             <div
-              key={img.id}
+              key={i}
               className={cn(
                 css.embla__slide,
                 "embla__class-names relative isolate flex flex-col"
@@ -86,7 +86,7 @@ export function CarouselCards({
                   height={img.height}
                   placeholder="blur"
                   blurDataURL={shimmer([img.width, img.height])}
-                  className="absolute inset-0 -z-10 h-full w-full object-cover group-hover:opacity-75"
+                  className={cn(css.embla__slide__img)}
                   style={{ objectFit: "cover" }}
                 />
 
