@@ -9,4 +9,10 @@ export type BooksyConfig = {
   readonly booksyBizXFingerprint: string;
 };
 
-
+export type VercelBlobShape = {
+  url: string;
+  downloadUrl: string;
+  pathname: string;
+  size: number;
+  uploadedAt: string;
+};

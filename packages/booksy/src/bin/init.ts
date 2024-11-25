@@ -18,11 +18,20 @@ export async function generateData() {
   return await booksy.exeVercelBlob()
 }
 
+export async function vercelWorkup() {
+  const handler = new ConfigHandler(process.cwd());
+  handler.listVercelBlobs();
+}
+
 
 if (process.argv[2] === "init") {
   Promise.all([generateScaffold()]);
 }
 
-if (process.argv[2]==="generate") {
+if (process.argv[2] === "generate") {
   Promise.all([generateData()]);
+}
+
+if (process.argv[2] === "workup") {
+  Promise.all([vercelWorkup()]);
 }
