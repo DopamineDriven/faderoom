@@ -43,3 +43,4 @@ notes.md
 
 # Booksy Config containing access token that is generated prebuild
 booksy.config.yaml
+.npmrc

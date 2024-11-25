@@ -1,6 +1,6 @@
 import { ConfigHandler } from "@/services/config/index.js";
 
-export class BooksyLogin extends ConfigHandler {
+export class BooksyLoginService extends ConfigHandler {
   constructor(public override cwd: string) {
     super(cwd??=process.cwd());
   }

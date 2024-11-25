@@ -8,6 +8,8 @@ const tsupConfig = (options: Options) =>
       "src/bin/init.ts",
       "src/**/*.ts",
       "!src/generated/**/*",
+      "!src/utils/**/*",
+      "!public/**/*",
       "!src/services/test.ts"
     ],
     target: ["esnext"],

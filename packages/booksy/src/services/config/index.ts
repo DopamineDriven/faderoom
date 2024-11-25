@@ -490,6 +490,7 @@ email=
     public resolvedConfig() {
       const keyVals = this.parsedConfig<BooksyConfig>();
       this.confErr("accessToken", keyVals);
+      this.confErr("blobReadWriteToken", keyVals);
       this.confErr("booksyBizApiKey", keyVals);
       this.confErr("booksyBizAuthHeader", keyVals);
       this.confErr("booksyBizAuthorizationSecret", keyVals);
@@ -504,6 +505,7 @@ email=
       return `# yaml-language-server: $schema=https://thefaderoominc.vercel.app/pkg/booksy.config.json
 $schema: https://thefaderoominc.vercel.app/pkg/booksy.config.json
 accessToken: ${accessToken}
+blobReadWriteToken: \${BLOB_READ_WRITE_TOKEN}
 booksyBizApiKey: \${BOOKSY_BIZ_API_KEY}
 booksyBizPassword: \${BOOKSY_BIZ_PASSWORD}
 booksyBizEmail: \${BOOKSY_BIZ_EMAIL}
