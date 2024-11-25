@@ -4,6 +4,7 @@
   "additionalProperties": false,
   "required": [
     "accessToken",
+    "blobReadWriteToken",
     "booksyBizEmail",
     "booksyBizPassword",
     "booksyBizApiKey",
@@ -57,6 +58,12 @@
       "type": "string",
       "title": "booksyBizXFingerprint",
       "description": "Booksy x-fingerprint key in .env; eg, ${BOOKSY_BIZ_X_FINGERPRINT}"
+    },
+    "blobReadWriteToken": {
+      "default": "${BLOB_READ_WRITE_TOKEN}",
+      "type": "string",
+      "title": "blobReadWriteToken",
+      "description": "Vercel blob storage read/write token key in .env; eg, ${BLOB_READ_WRITE_TOKEN}"
     }
   }
 }

@@ -16,6 +16,7 @@ import type {
 import { ParsedUrlInfo } from "@/types/url.js";
 import expand from "dotenv-expand";
 import {parse} from "yaml";
+import { BooksyConfig } from "@/types/helpers.js";
 
 dotenv.config();
 
@@ -321,21 +322,6 @@ email=
     return fsSync.existsSync(relative(this.cwd ?? cwd, path));
   }
 
-  public isPlainObject(obj: unknown): obj is Record<string, unknown> {
-    const stringifiedObj = "[object Object]" as const;
-    return (
-      !!obj &&
-      typeof obj === "object" &&
-      Object.prototype.toString.call<object, [], string>(obj) === stringifiedObj
-    );
-  }
-
-  public parseFileFromPath(path: string) {
-    return /\//g.test(path) === true
-      ? path?.split(/([/])/gim)?.reverse()?.[0]
-      : path;
-  }
-
   public pathHandler<T extends string>(path: T) {
     return /\//g.test(path) === true
       ? path.split(/([/])/gim).reverse().slice(2).reverse().join("")
@@ -433,8 +419,8 @@ email=
     Buffer.from(
       Buffer.from(
         fsSync.readFileSync(relative(cwd, path)).toJSON()
-          .data satisfies number[]
-      ) satisfies WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer>
+          .data
+      ) satisfies Buffer
     ) satisfies Buffer;
 
   public dirContainsDir({
@@ -487,6 +473,45 @@ email=
     ) as T;
   }
 
+  public confErr<T extends keyof BooksyConfig>(
+    s: T,
+    keyVals: {
+      [P in T]: BooksyConfig[P];
+    }
+  ) {
+    const path = "booksy.config.yaml" as const;
+    if (!(s in keyVals)) {
+      throw new Error(
+        `required key ${s} missing in ${path}`
+      );
+    }
+  }
+
+    public resolvedConfig() {
+      const keyVals = this.parsedConfig<BooksyConfig>();
+      this.confErr("accessToken", keyVals);
+      this.confErr("booksyBizApiKey", keyVals);
+      this.confErr("booksyBizAuthHeader", keyVals);
+      this.confErr("booksyBizAuthorizationSecret", keyVals);
+      this.confErr("booksyBizEmail", keyVals);
+      this.confErr("booksyBizPassword", keyVals);
+      this.confErr("booksyBizXFingerprint", keyVals);
+      return keyVals;
+    }
+
+    public generateYaml(accessToken: string){
+      // prettier-ignore
+      return `# yaml-language-server: $schema=https://thefaderoominc.vercel.app/pkg/booksy.config.json
+$schema: https://thefaderoominc.vercel.app/pkg/booksy.config.json
+accessToken: ${accessToken}
+booksyBizApiKey: \${BOOKSY_BIZ_API_KEY}
+booksyBizPassword: \${BOOKSY_BIZ_PASSWORD}
+booksyBizEmail: \${BOOKSY_BIZ_EMAIL}
+booksyBizAuthorizationSecret: \${BOOKSY_BIZ_AUTHORIZATION_SECRET}
+booksyBizAuthHeader: \${BOOKSY_BIZ_AUTH_HEADER}
+booksyBizXFingerprint: \${BOOKSY_BIZ_X_FINGERPRINT}
+`
+    }
 
   /* begin url */
 
