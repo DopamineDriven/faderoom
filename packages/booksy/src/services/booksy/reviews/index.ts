@@ -1,6 +1,7 @@
 import type {
   BooksyReviewsByPagePerPagePayload,
-  BooksyReviewsByPagePerPagePayloadModified
+  BooksyReviewsByPagePerPagePayloadModified,
+  BooksyReviewsEntity
 } from "@/types/booksy.js";
 import type { CoercionUnion } from "@/types/fs.js";
 import type { BooksyConfig } from "@/types/helpers.js";
@@ -71,72 +72,76 @@ export class BooksyReviewsService extends ConfigHandler {
     });
   }
 
+  public reviewsDataTransformer(reviews: BooksyReviewsEntity[]) {
+    return reviews.map(v => {
+      let record = Array.of<string>();
+      const {
+        anonymized,
+        business,
+        feedback_status,
+        id,
+        photos,
+        rank,
+        reply_content,
+        reply_updated,
+        review,
+        services,
+        source,
+        staff,
+        created,
+        updated,
+        appointment_date,
+        title,
+        user,
+        verified
+      } = v;
+      services.forEach(function (service) {
+        record.push(service.name);
+      });
+
+      const last_name = user.last_name.split("…")?.[0]?.concat(".") ?? "";
+      const name = user.first_name.concat(" ").concat(last_name);
+      return {
+        anonymized: anonymized,
+        appointment_date: new Date(
+          appointment_date.concat(":00.000Z")
+        ).valueOf(),
+        business,
+        created: new Date(created.concat(":00.000Z")).valueOf(),
+        feedback_status,
+        id,
+        photos: photos.length >= 1 ? photos : null,
+        photos_length: photos.length,
+        rank,
+        reply_content,
+        reply_updated:
+          reply_updated !== null
+            ? new Date(reply_updated.concat(":00.000z")).valueOf()
+            : reply_updated,
+        review,
+        services: record.length > 1 ? record : record[0],
+        source,
+        staff: staff.find(name => name.name === "Mauricio Flores")
+          ? "Mauricio Flores"
+          : "Cynthia Sanchez",
+        title,
+        user: name,
+        updated: new Date(updated.concat(":00.000Z")).valueOf(),
+        verified
+      };
+    });
+  }
+
   public async fetchReviews() {
-    return await this.fetchBooksyReviewsPerPageByPage<BooksyReviewsByPagePerPagePayload>(
-      {
+    return await Promise.all([
+      this.fetchBooksyReviewsPerPageByPage<BooksyReviewsByPagePerPagePayload>({
         reviewsPerPage: 200,
         reviewsPageNumber: 1
-      }
-    )
-      .then(data => {
-       return this.arrToArrOfArrs({
-          arrToFragment: data.reviews.map(v => {
-            let record = Array.of<string>();
-            const {
-              anonymized,
-              business,
-              feedback_status,
-              id,
-              photos,
-              rank,
-              reply_content,
-              reply_updated,
-              review,
-              services,
-              source,
-              staff,
-              created,
-              updated,
-              appointment_date,
-              title,
-              user,
-              verified
-            } = v;
-            services.forEach(function (service) {
-              record.push(service.name);
-            });
-
-            const last_name = user.last_name.split("…")?.[0]?.concat(".") ?? "";
-            const name = user.first_name.concat(" ").concat(last_name);
-            return {
-              anonymized: anonymized,
-              appointment_date: new Date(
-                appointment_date.concat(":00.000Z")
-              ).valueOf(),
-              business,
-              created: new Date(created.concat(":00.000Z")).valueOf(),
-              feedback_status,
-              id,
-              photos: photos.length >= 1 ? photos : null,
-              photos_length: photos.length,
-              rank,
-              reply_content,
-              reply_updated:
-                reply_updated !== null
-                  ? new Date(reply_updated.concat(":00.000z")).valueOf()
-                  : reply_updated,
-              review,
-              services: record.length > 1 ? record : record[0],
-              source,
-              staff: staff.find(name => name.name === "Mauricio Flores")
-                ? "Mauricio Flores"
-                : "Cynthia Sanchez",
-              title,
-              user: name,
-              updated: new Date(updated.concat(":00.000Z")).valueOf(),
-              verified
-            };
-          }),
+      })
+    ])
+      .then(([data]) => {
+        return this.arrToArrOfArrs({
+          arrToFragment: this.reviewsDataTransformer(data.reviews),
           arrOfArrsAggregator:
             Array.of<BooksyReviewsByPagePerPagePayloadModified["reviews"]>(),
           interval: 10
