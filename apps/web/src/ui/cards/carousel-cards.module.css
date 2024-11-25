@@ -7,15 +7,15 @@
 }
 
 .embla__container {
-  @apply ml-[calc(var(--slide-spacing)*-1)] flex touch-pan-y touch-pinch-zoom;
+  @apply ml-[calc(1*-1)rem] flex touch-pan-y touch-pinch-zoom;
 }
 
 .embla__slide {
-  @apply min-w-0 flex-[0_0_var(--slide-size)] pl-[var(--slide-spacing)] [transform:translate3d(0,0,0)];
+  @apply min-w-0 flex-[0_0_70%] pl-[1rem] [transform:translate3d(0,0,0)];
 }
 
 .embla__slide__img {
-  @apply inset-0 -z-10 block h-[var(--slide-height)] w-full rounded-[1.8rem] object-cover;
+  @apply inset-0 -z-10 block h-[19rem] w-full rounded-[1.8rem] object-cover;
 }
 
 .embla__controls {
