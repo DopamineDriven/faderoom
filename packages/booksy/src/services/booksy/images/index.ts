@@ -10,7 +10,7 @@ import { BooksyConfig } from "@/types/helpers.js";
 
 dotenv.config();
 
-export class BooksyService extends ConfigHandler {
+export class BooksyImageService extends ConfigHandler {
   constructor(public override cwd: string) {
     super((cwd ??= process.cwd()));
   }
