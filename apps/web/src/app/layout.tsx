@@ -114,7 +114,7 @@ export default function RootLayout({
             <Nav />
               {children}
               {modal}
-              <div id="modal-root" />
+              <div className="m-auto" id="modal-root" />
             <Footer />
           </div>
         </body>
