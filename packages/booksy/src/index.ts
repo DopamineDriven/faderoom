@@ -1,7 +1,13 @@
-export { generateData, generateScaffold, vercelWorkup } from "@/bin/init.js";
+export {
+  generateImagesData,
+  generateReviewsData,
+  generateScaffold,
+  vercelWorkup
+} from "@/bin/init.js";
 export { ConfigHandler } from "@/services/config/index.js";
 export { BooksyImageService } from "@/services/booksy/images/index.js";
 export { BooksyLoginService } from "@/services/booksy/login/index.js";
+export { BooksyReviewsService } from "@/services/booksy/reviews/index.js";
 export { booksyService } from "@/services/booksy/index.js";
 export type { BooksyServiceProps } from "@/services/booksy/index.js";
 export type {

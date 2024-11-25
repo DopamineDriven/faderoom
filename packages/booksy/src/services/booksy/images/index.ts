@@ -9,15 +9,15 @@ export class BooksyImageService extends ConfigHandler {
     super((cwd ??= process.cwd()));
   }
 
-  private resolveConf<const T extends keyof BooksyConfig>(target: T) {
+  public resolveConf<const T extends keyof BooksyConfig>(target: T) {
     return this.resolvedConfig()[target];
   }
 
-  private get booksyXFingerprint() {
+  public get booksyXFingerprint() {
     return this.resolveConf("booksyBizXFingerprint");
   }
 
-  private get booksyApiKey() {
+  public get booksyApiKey() {
     return this.resolveConf("booksyBizApiKey");
   }
 
@@ -51,18 +51,6 @@ export class BooksyImageService extends ConfigHandler {
       method: "GET",
       cache: "default"
     });
-  }
-
-  public async fetchBooksyReviewsPerPageByPage<const T>({
-    reviewsPerPage,
-    reviewsPageNumber = 1
-  }: {
-    reviewsPerPage: string | number;
-    reviewsPageNumber?: string | number;
-  }) {
-    return (await this.fetchBooksyGET(
-      `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/reviews/?reviews_page=${reviewsPageNumber}&reviews_per_page=${reviewsPerPage}`
-    ).then(data => data.json())) as T;
   }
 
   public async fetchBooksyPhotosPerPage<const T>({
@@ -102,19 +90,6 @@ export class BooksyImageService extends ConfigHandler {
     return data;
   }
 
-  // public mapper(props: BooksyImagesByPageNumberAndCount) {
-  //   return props?.images?.map(async t => {
-  //     return await (async () => {
-  //       const { b64encodedData, extension } = await this.assetToBuffer(t.image);
-  //       return {
-  //         image_id: t.image_id,
-  //         image: b64encodedData,
-  //         file_extension: extension
-  //       };
-  //     })();
-  //   });
-  // }
-
   public writeTarget<
     const T extends string,
     const V extends WithImplicitCoercion<CoercionUnion>
@@ -124,12 +99,6 @@ export class BooksyImageService extends ConfigHandler {
       data: template,
       cwd: this.cwd
     });
-  }
-
-
-
-  public omitFileExtension(v: string) {
-    return v.split(/(\.)/g)?.[0] ?? "";
   }
 
   public async getVercelBlobPaths() {

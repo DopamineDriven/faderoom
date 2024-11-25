@@ -128,6 +128,10 @@ body {
     --fuscousgray800: 69 69 69;
     --fuscousgray900: 61 61 61;
     --fuscousgray950: 38 38 38;
+    --radius: 0.5rem;
+    --slide-height: 19rem;
+    --slide-spacing: 1rem;
+    --slide-size: 70%;
   }
 }
 
