@@ -1,14 +1,8 @@
 import { list, put } from "@vercel/blob";
-import * as dotenv from "dotenv";
-import type {
-  BooksyImagesByPageNumberAndCount
-} from "@/types/booksy.js";
-import type { CoercionUnion } from "@/types/fs.js";
+import type { BooksyImagesByPageNumberAndCount } from "@/types/booksy.js";
+import type { CoercionUnion, Unenumerate, UnwrapPromise } from "@/types/fs.js";
+import type { BooksyConfig } from "@/types/helpers.js";
 import { ConfigHandler } from "@/services/config/index.js";
-import { Unenumerate, UnwrapPromise } from "@/types/fs.js";
-import { BooksyConfig } from "@/types/helpers.js";
-
-dotenv.config();
 
 export class BooksyImageService extends ConfigHandler {
   constructor(public override cwd: string) {

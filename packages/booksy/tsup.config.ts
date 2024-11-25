@@ -1,4 +1,3 @@
-import { relative } from "node:path";
 import { defineConfig, Options } from "tsup";
 
 const tsupConfig = (options: Options) =>
@@ -19,7 +18,9 @@ const tsupConfig = (options: Options) =>
     format: ["cjs", "esm"],
     shims: true,
     sourcemap: true,
-    tsconfig: relative(process.cwd(), "tsconfig.json"),
+    cjsInterop: true,
+    external: ['assert'],
+    tsconfig: "tsconfig.json",
     clean: true,
     outDir: "dist",
     // onSuccess: process.env.NODE_ENV === "development" ? "node dist/index.js" : undefined,

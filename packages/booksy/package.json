@@ -1,6 +1,6 @@
 {
   "name": "@fade/booksy",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "booksy api handling, file generation, and more for a client project",
   "publishConfig": {
     "access": "public",
@@ -37,7 +37,10 @@
         "dist/bin/init.d.ts"
       ],
       "config": [
-        "dist/config/index.d.ts"
+        "dist/services/config/index.d.ts"
+      ],
+      "booksy": [
+        "dist/services/booksy/index.d.ts"
       ],
       "types": [
         "dist/types/index.d.ts"
@@ -64,34 +67,33 @@
     "fix": "npm pkg fix"
   },
   "dependencies": {
-    "@inquirer/core": "^10.1.0",
-    "@inquirer/prompts": "^7.1.0",
+    "@vercel/blob": "^0.26.0",
     "dotenv": "^16.4.5",
-    "gradient-string": "^3.0.0"
+    "gradient-string": "^3.0.0",
+    "yaml": "^2.6.1"
   },
   "devDependencies": {
-    "@inquirer/type": "^3.0.1",
-    "@microsoft/api-extractor": "^7.47.11",
-    "@swc/core": "^1.9.2",
-    "@swc/wasm": "^1.9.2",
+    "@microsoft/api-extractor": "^7.48.0",
+    "@swc/core": "^1.9.3",
+    "@swc/wasm": "^1.9.3",
     "@fade/eslint-config": "workspace:*",
     "@fade/prettier-config": "workspace:*",
     "@fade/tsconfig": "workspace:*",
     "@types/gradient-string": "^1.1.6",
-    "@types/node": "^22.9.1",
+    "@types/node": "^22.9.3",
     "chokidar": "^4.0.1",
-    "dotenv-cli": "^7.4.3",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.4",
     "dotenv-expand": "^12.0.1",
     "eslint": "^9.15.0",
     "jiti": "^2.4.0",
     "prettier": "^3.3.3",
     "terser": "^5.36.0",
     "tslib": "latest",
-    "tsup": "latest",
+    "tsup": "^8.3.5",
     "tsx": "latest",
     "typescript": "latest",
-    "typescript-eslint": "latest",
-    "yaml": "^2.6.1"
+    "typescript-eslint": "latest"
   },
   "prettier": "@fade/prettier-config"
 }
