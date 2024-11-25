@@ -1,4 +1,4 @@
-import { list, put } from "@vercel/blob";
+import { put } from "@vercel/blob";
 import type { BooksyImagesByPageNumberAndCount } from "@/types/booksy.js";
 import type { CoercionUnion, Unenumerate, UnwrapPromise } from "@/types/fs.js";
 import type { BooksyConfig } from "@/types/helpers.js";
@@ -84,7 +84,6 @@ export class BooksyImageService extends ConfigHandler {
       const [{ b64encodedData, extension }] = await Promise.all([
         this.assetToBuffer(t.image)
       ]);
-      console.log(t.created);
       return {
         image_id: t.image_id,
         width: t.width,
@@ -103,18 +102,18 @@ export class BooksyImageService extends ConfigHandler {
     return data;
   }
 
-  public mapper(props: BooksyImagesByPageNumberAndCount) {
-    return props?.images?.map(async t => {
-      return await (async () => {
-        const { b64encodedData, extension } = await this.assetToBuffer(t.image);
-        return {
-          image_id: t.image_id,
-          image: b64encodedData,
-          file_extension: extension
-        };
-      })();
-    });
-  }
+  // public mapper(props: BooksyImagesByPageNumberAndCount) {
+  //   return props?.images?.map(async t => {
+  //     return await (async () => {
+  //       const { b64encodedData, extension } = await this.assetToBuffer(t.image);
+  //       return {
+  //         image_id: t.image_id,
+  //         image: b64encodedData,
+  //         file_extension: extension
+  //       };
+  //     })();
+  //   });
+  // }
 
   public writeTarget<
     const T extends string,
@@ -127,80 +126,24 @@ export class BooksyImageService extends ConfigHandler {
     });
   }
 
+
+
   public omitFileExtension(v: string) {
     return v.split(/(\.)/g)?.[0] ?? "";
   }
 
-  public async listVercelBlobs() {
-    return (await list()).blobs.map(v => v);
-  }
-
   public async getVercelBlobPaths() {
-    return (await this.listVercelBlobs()).map(v => v.pathname);
+    return (this.vercelData()).map(v => v.pathname);
   }
 
-  public async getVercelBlobUrls() {
-    return (await this.listVercelBlobs()).map(v => v.url);
-  }
   public async compareVercelBlobPathsToIncomingIds(
-    props: UnwrapPromise<Unenumerate<ReturnType<typeof this.mapper>>>
+    props: UnwrapPromise<Unenumerate<ReturnType<typeof this.mapperAlt>>>
   ) {
     const [blobPaths] = await Promise.all([this.getVercelBlobPaths()]);
-
     if (blobPaths.includes(`${props.image_id}.${props.file_extension}`)) {
       return true;
     } else {
       return false;
-    }
-  }
-
-  public async exeGenerateImagesAndImageData(
-    arrHelper = Array.of<{
-      readonly id: number;
-      readonly width: number;
-      readonly height: number;
-      readonly file_extension: string;
-      readonly relative_path: `/booksy/images/${number}.${string}`;
-    }>()
-  ) {
-    const [data] = await Promise.all([
-      this.fetchBooksyPhotosPerPage<BooksyImagesByPageNumberAndCount>({
-        imagesPerPage: 40,
-        imagesPage: 1
-      })
-    ]);
-
-    const derivedData = this.mapperAlt(data);
-
-    try {
-      return derivedData.map(async v => {
-        const vv = await v;
-
-        const workup = {
-          id: vv.image_id,
-          width: vv.width,
-          height: vv.height,
-          file_extension: vv.file_extension,
-          relative_path: `/booksy/images/${vv.image_id}.${vv.file_extension}`
-        } as const;
-
-        const [blob] = await Promise.all([(await fetch(vv.image)).blob()]);
-        console.log(blob);
-
-        arrHelper.push(workup);
-        const base64Data = this.cleanDataUrl(vv.image);
-        const toJson = JSON.stringify({ data: arrHelper }, null, 2);
-        this.writeTarget(
-          `src/utils/__generated__/image-data.ts`,
-          `export const imageData = ${toJson};`
-        );
-        this.writeTarget(
-          `public/booksy/images/${vv.image_id}.${vv.file_extension}`,
-          Buffer.from(base64Data, "base64")
-        );
-      });
-    } catch (err) {
-      console.error(err);
     }
   }
 
@@ -256,14 +199,12 @@ export class BooksyImageService extends ConfigHandler {
             Buffer.from(base64Data, "base64")
           );
         } else {
-          const [blobs] = await Promise.all([this.listVercelBlobs()]);
+          const blobs = this.vercelData()
           // eslint-disable-next-line
           const getInfo = blobs.find(
             path => path.pathname === `${vv.image_id}.${vv.file_extension}`
           )!;
-          console.log(
-            `no need to reupload, got the info ${getInfo.pathname} ${getInfo.url}`
-          );
+          console.log(`${getInfo.pathname} blob already exists`);
           arrHelper.push(workup(getInfo.url));
           const base64Data = this.cleanDataUrl(vv.image);
           const toJson = JSON.stringify({ data: arrHelper }, null, 2);

@@ -2,11 +2,11 @@ import { ConfigHandler } from "@/services/config/index.js";
 
 export class BooksyLoginService extends ConfigHandler {
   constructor(public override cwd: string) {
-    super(cwd??=process.cwd());
+    super((cwd ??= process.cwd()));
   }
   public get booksyHeadersPOST() {
-    // eslint-disable-next-line
-    const {BOOKSY_BIZ_API_KEY, BOOKSY_BIZ_X_FINGERPRINT}= this.booksyEnvKVs!;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const { BOOKSY_BIZ_API_KEY, BOOKSY_BIZ_X_FINGERPRINT } = this.booksyEnvKVs!;
     return {
       Connection: "keep-alive",
       Accept: "*/*",
@@ -33,8 +33,13 @@ export class BooksyLoginService extends ConfigHandler {
   }
 
   public async fetchBooksyLogin<const T>() {
-    // eslint-disable-next-line
-   const {BOOKSY_BIZ_EMAIL, BOOKSY_BIZ_PASSWORD, BOOKSY_BIZ_API_KEY, BOOKSY_BIZ_X_FINGERPRINT}= this.booksyEnvKVs!;
+    const {
+      BOOKSY_BIZ_EMAIL,
+      BOOKSY_BIZ_PASSWORD,
+      BOOKSY_BIZ_API_KEY,
+      BOOKSY_BIZ_X_FINGERPRINT
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    } = this.booksyEnvKVs!;
     return (await this.fetchBooksyPOST(
       `https://us.booksy.com/api/us/2/business_api/account/login?x-api-key=${BOOKSY_BIZ_API_KEY}&x-fingerprint=${BOOKSY_BIZ_X_FINGERPRINT}`,
       {
@@ -43,5 +48,4 @@ export class BooksyLoginService extends ConfigHandler {
       }
     ).then(data => data.json())) as Promise<T>;
   }
-
 }

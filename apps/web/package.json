@@ -6,7 +6,10 @@
   "license": "MIT",
   "prettier": "@fade/prettier-config",
   "scripts": {
-    "prebuild": "pnpm ddbooksy init && pnpm ddbooksy generate",
+    "prebuild": "pnpm booksy:init && pnpm booksy:workup && pnpm booksy:generate",
+    "booksy:init": "ddbooksy init",
+    "booksy:generate": "ddbooksy generate",
+    "booksy:workup": "ddbooksy workup",
     "dev": "next dev -p 3007",
     "build": "next build",
     "clean": "git clean -xdf .next node_modules",
@@ -17,7 +20,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@d0paminedriven/booksy": "^0.3.0",
+    "@d0paminedriven/booksy": "^0.5.0",
     "@d0paminedriven/codemod": "^2.3.0",
     "@ducanh2912/next-pwa": "^10.2.9",
     "@headlessui/react": "^2.2.0",

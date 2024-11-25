@@ -66,8 +66,8 @@ importers:
   apps/web:
     dependencies:
       '@d0paminedriven/booksy':
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^0.5.0
+        version: 0.5.0
       '@d0paminedriven/codemod':
         specifier: ^2.3.0
         version: 2.3.0(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1245,8 +1245,8 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
 
-  '@d0paminedriven/booksy@0.3.0':
-    resolution: {integrity: sha512-Gqcw7nnxenPfkiORsr32Fg+92k2cM32+2527BVgQGxjSVA54yHSRjYNHx28vJkjJXDC5F5ndzaCDzF44xNWgyA==}
+  '@d0paminedriven/booksy@0.5.0':
+    resolution: {integrity: sha512-rxsu0VJQUwKNZLKMohmiy7wDp+9ZwWnXoXW/33GFz7YUXYN9GaZPtZ+NA9PF6nDhJKCu/jcSIo4ZN+Qa/eWzyg==}
     hasBin: true
 
   '@d0paminedriven/codemod@2.3.0':
@@ -9103,7 +9103,7 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@d0paminedriven/booksy@0.3.0':
+  '@d0paminedriven/booksy@0.5.0':
     dependencies:
       '@vercel/blob': 0.26.0
       dotenv: 16.4.5

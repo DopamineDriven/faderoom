@@ -1,4 +1,4 @@
-export { generateData, generateScaffold } from "@/bin/init.js";
+export { generateData, generateScaffold, vercelWorkup } from "@/bin/init.js";
 export { ConfigHandler } from "@/services/config/index.js";
 export { BooksyImageService } from "@/services/booksy/images/index.js";
 export { BooksyLoginService } from "@/services/booksy/login/index.js";
@@ -65,7 +65,7 @@ export type {
   BooksyReviewsEntityModified
 } from "./types/booksy.js";
 export type { ParsedUrlInfo } from "@/types/url.js";
-export type { BooksyConfig } from "@/types/helpers.js";
+export type { BooksyConfig, VercelBlobShape } from "@/types/helpers.js";
 export type {
   Item,
   JSONified,

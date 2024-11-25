@@ -1,25 +1,49 @@
-import { ConfigHandler } from "@/services/config/index.js";
-import { BooksyLoginService } from "@/services/booksy/login/index.js";
-import type { BooksyLoginPayload } from "@/types/booksy.js";
-import { BooksyImageService } from "./booksy/images/index.js";
+const data = new Date(Date.now()).valueOf();
 
-async function generateScaffold() {
-  const handler = new ConfigHandler(process.cwd());
-  const booksy = new BooksyLoginService(handler.cwd);
-  const [login] = await Promise.all([booksy.fetchBooksyLogin<BooksyLoginPayload>()]);
-  handler.withWs({data: handler.generateYaml(login.access_token), cwd: handler.cwd, path: "booksy.config.yaml"});
-  return login;
-}
+console.log(data);
+// import { ConfigHandler } from "@/services/config/index.js";
 
-export async function generateData() {
-  const handler = new ConfigHandler(process.cwd());
-  const booksy = new BooksyImageService(handler.cwd);
-  return await booksy.exeVercelBlob()
-}
+// type VercelBlobShape = {
+//   url: string;
+//   downloadUrl: string;
+//   pathname: string;
+//   size: number;
+//   uploadedAt: string;
+// };
+// const handler = new ConfigHandler(process.cwd());
 
-if (process.argv[2] === "init") {
-  Promise.all([generateScaffold()]);
-}
-if (process.argv[2]==="generate") {
-  Promise.all([generateData()]);
-}
+// handler.listVercelBlobs();
+// const paths = handler
+//   .readDir({ cwd: handler.cwd, path: "src/utils/__generated__/vercel" })
+//   .map(v => v.split(/\.json/g)[0] ?? "");
+
+// console.log(paths);
+
+// const fileToBuffer = JSON.parse(Buffer.from(
+//   handler
+//     .fileToBuffer({
+//       cwd: handler.cwd,
+//       path: "src/utils/__generated__/vercel/20838044.jpeg.json"
+//     })
+//     .toJSON().data
+// ).toString("utf-8"));
+
+// console.log(fileToBuffer);
+
+// const vercelData = () => {
+//   return handler
+//     .readDir({ cwd: handler.cwd, path: "src/utils/__generated__/vercel" })
+//     .map((v) => {
+//       const data = JSON.parse(Buffer.from(
+//         handler
+//           .fileToBuffer({
+//             cwd: handler.cwd,
+//             path: `src/utils/__generated__/vercel/${v}`
+//           })
+//           .toJSON().data
+//       ).toString("utf-8")) as VercelBlobShape;
+//       return data;
+//     });
+// };
+
+// console.log(vercelData());
