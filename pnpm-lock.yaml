@@ -65,6 +65,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@d0paminedriven/booksy':
+        specifier: ^0.1.0
+        version: 0.1.0(@types/node@22.9.1)
       '@d0paminedriven/codemod':
         specifier: ^2.3.0
         version: 2.3.0(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1247,6 +1250,10 @@ packages:
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
+
+  '@d0paminedriven/booksy@0.1.0':
+    resolution: {integrity: sha512-/E/Ki08W7EzenLllqQGerDe39M8bBlEfRYHiz3vovlrg7xXMY6B8ZVvMufJhAmN6A+iXYvG/4NiQrawVW3yDAA==}
+    hasBin: true
 
   '@d0paminedriven/codemod@2.3.0':
     resolution: {integrity: sha512-Klm8sdpy6+BQK/2dp5nNUbViJJ0Wt3Q8lzCHsxTHGY7TqDZHAukvf7Ejvm2vmqTvMT3rA9rzkWjwHjrSNeSoDA==}
@@ -9099,6 +9106,15 @@ snapshots:
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
+
+  '@d0paminedriven/booksy@0.1.0(@types/node@22.9.1)':
+    dependencies:
+      '@inquirer/core': 10.1.0(@types/node@22.9.1)
+      '@inquirer/prompts': 7.1.0(@types/node@22.9.1)
+      dotenv: 16.4.5
+      gradient-string: 3.0.0
+    transitivePeerDependencies:
+      - '@types/node'
 
   '@d0paminedriven/codemod@2.3.0(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
