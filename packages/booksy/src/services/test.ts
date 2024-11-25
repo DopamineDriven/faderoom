@@ -1,7 +1,4 @@
-const data = new Date(Date.now()).valueOf();
-
-console.log(data);
-// import { ConfigHandler } from "@/services/config/index.js";
+import { BooksyReviewsService } from "./booksy/reviews/index.js";
 
 // type VercelBlobShape = {
 //   url: string;
@@ -11,7 +8,9 @@ console.log(data);
 //   uploadedAt: string;
 // };
 // const handler = new ConfigHandler(process.cwd());
+const booksyReviews = new BooksyReviewsService(process.cwd());
 
+booksyReviews.generateReviews();
 // handler.listVercelBlobs();
 // const paths = handler
 //   .readDir({ cwd: handler.cwd, path: "src/utils/__generated__/vercel" })

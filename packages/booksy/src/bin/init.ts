@@ -1,21 +1,34 @@
 #!/usr/bin/env node
-import { ConfigHandler } from "@/services/config/index.js";
+import type { BooksyLoginPayload } from "@/types/booksy.js";
 import { BooksyImageService } from "@/services/booksy/images/index.js";
 import { BooksyLoginService } from "@/services/booksy/login/index.js";
-import type { BooksyLoginPayload } from "@/types/booksy.js";
+import { BooksyReviewsService } from "@/services/booksy/reviews/index.js";
+import { ConfigHandler } from "@/services/config/index.js";
 
 export async function generateScaffold() {
   const handler = new ConfigHandler(process.cwd());
   const booksy = new BooksyLoginService(handler.cwd);
-  const [login] = await Promise.all([booksy.fetchBooksyLogin<BooksyLoginPayload>()]);
-  handler.withWs({data: handler.generateYaml(login.access_token), cwd: handler.cwd, path: "booksy.config.yaml"});
+  const [login] = await Promise.all([
+    booksy.fetchBooksyLogin<BooksyLoginPayload>()
+  ]);
+  handler.withWs({
+    data: handler.generateYaml(login.access_token),
+    cwd: handler.cwd,
+    path: "booksy.config.yaml"
+  });
   return login;
 }
 
-export async function generateData() {
+export async function generateImagesData() {
   const handler = new ConfigHandler(process.cwd());
   const booksy = new BooksyImageService(handler.cwd);
-  return await booksy.exeVercelBlob()
+  return await booksy.exeVercelBlob();
+}
+
+export async function generateReviewsData() {
+  const handler = new ConfigHandler(process.cwd());
+  const reviews = new BooksyReviewsService(handler.cwd);
+  reviews.generateReviews();
 }
 
 export async function vercelWorkup() {
@@ -23,13 +36,16 @@ export async function vercelWorkup() {
   handler.listVercelBlobs();
 }
 
-
 if (process.argv[2] === "init") {
   Promise.all([generateScaffold()]);
 }
 
-if (process.argv[2] === "generate") {
-  Promise.all([generateData()]);
+if (process.argv[2] === "generate-images") {
+  Promise.all([generateImagesData()]);
+}
+
+if (process.argv[2] === "generate-reviews") {
+  Promise.all([generateReviewsData()]);
 }
 
 if (process.argv[2] === "workup") {

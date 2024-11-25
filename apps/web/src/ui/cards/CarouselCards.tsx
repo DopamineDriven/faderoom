@@ -2,24 +2,28 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import ClassNames from "embla-carousel-class-names";
 import useEmblaCarousel from "embla-carousel-react";
 import { shimmer } from "@/lib/shimmer";
 import { cn } from "@/lib/utils";
 import { CarouselButton } from "@/ui/cards/CarouselButton";
 import css from "./carousel-cards.module.css";
-import Link from "next/link";
 
-export function CarouselCards({imageData}: {imageData: {
-  data: {
+export function CarouselCards({
+  imageData
+}: {
+  imageData: {
+    data: {
       id: number;
       width: number;
       height: number;
       file_extension: string;
       relative_path: string;
       url: string;
-  }[];
-}}) {
+    }[];
+  };
+}) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       dragFree: true,
@@ -59,43 +63,44 @@ export function CarouselCards({imageData}: {imageData: {
     };
   }, [emblaApi, onSelect]);
 
-
-
   return (
     <div className={cn("relative", css.embla)}>
       <div className={css.embla__viewport} ref={emblaRef}>
-        <div className={cn(css.embla__container, "h-[75vh] sm:h-[30rem]")}>
-          {imageData.data.map((img) => (
+        <div className={cn(css.embla__container)}>
+          {imageData.data.map(img => (
             <div
               key={img.id}
               className={cn(
                 css.embla__slide,
                 "embla__class-names relative isolate flex flex-col"
               )}>
-                <Link href={`/photos/${img.id}`} passHref className="appearance-none">
-              <Image
-                loading="eager"
-                alt={img.relative_path}
-                src={img.url}
-                width={img.width}
-                height={img.height}
-                placeholder="blur"
-                blurDataURL={shimmer([img.width, img.height])}
-                className="absolute inset-0 -z-10 h-full w-full object-cover group-hover:opacity-75"
-                style={{ objectFit: "cover" }}
-              />
+              <Link
+                href={`/photos/${img.id}`}
+                passHref
+                className="appearance-none">
+                <Image
+                  loading="eager"
+                  alt={img.relative_path}
+                  src={img.url}
+                  width={img.width}
+                  height={img.height}
+                  placeholder="blur"
+                  blurDataURL={shimmer([img.width, img.height])}
+                  className="absolute inset-0 -z-10 h-full w-full object-cover group-hover:opacity-75"
+                  style={{ objectFit: "cover" }}
+                />
 
-              <h3
-                className={cn(
-                  "mt-3 font-basis-grotesque-pro-medium text-[1.25rem] font-semibold leading-[1.75rem] tracking-tight"
-                )}>
-                <span className="absolute -translate-y-20 translate-x-3 appearance-none">
-                  <span className="z-[100] mx-1 my-2 bg-black/50 bg-clip-text text-white">
-                    {img.id}
+                <h3
+                  className={cn(
+                    "mt-3 font-basis-grotesque-pro-medium text-[1.25rem] font-semibold leading-[1.75rem] tracking-tight"
+                  )}>
+                  <span className="absolute -translate-y-20 translate-x-3 appearance-none">
+                    <span className="z-[100] mx-1 my-2 bg-black/50 bg-clip-text text-white">
+                      {img.id}
+                    </span>
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />{" "}
                   </span>
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />{" "}
-                </span>
-              </h3>
+                </h3>
               </Link>
             </div>
           ))}
