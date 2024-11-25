@@ -63,7 +63,7 @@ export type BooksyReviewsEntity = {
   photos: null[] | {
     id: number,
     url: string;
-    published: string |null;
+    published: string;
   }[];
   feedback_status: { Y: number; N: number; I: number };
 };

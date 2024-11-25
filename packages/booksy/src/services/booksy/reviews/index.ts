@@ -3,7 +3,7 @@ import type {
   BooksyReviewsByPagePerPagePayloadModified,
   BooksyReviewsEntity
 } from "@/types/booksy.js";
-import type { CoercionUnion } from "@/types/fs.js";
+import type { CoercionUnion, Unenumerate } from "@/types/fs.js";
 import type { BooksyConfig } from "@/types/helpers.js";
 import { ConfigHandler } from "@/services/config/index.js";
 
@@ -110,7 +110,16 @@ export class BooksyReviewsService extends ConfigHandler {
         created: new Date(created.concat(":00.000Z")).valueOf(),
         feedback_status,
         id,
-        photos: photos.length >= 1 ? photos : null,
+        photos:
+          photos != null
+            ? photos.length >= 1
+              ? (photos as {
+                  id: number;
+                  url: string;
+                  published: string;
+                }[])
+              : null
+            : null,
         photos_length: photos.length,
         rank,
         reply_content,
@@ -119,7 +128,11 @@ export class BooksyReviewsService extends ConfigHandler {
             ? new Date(reply_updated.concat(":00.000z")).valueOf()
             : reply_updated,
         review,
-        services: record.length > 1 ? record : record[0],
+        services: record
+          ? record.length > 1
+            ? record
+            : (record[0] ??= "")
+          : "",
         source,
         staff: staff.find(name => name.name === "Mauricio Flores")
           ? "Mauricio Flores"
@@ -132,27 +145,54 @@ export class BooksyReviewsService extends ConfigHandler {
     });
   }
 
+  public fragmentPaths = <const T>({
+    arrToFragment,
+    arrOfArrsAggregator = Array.of<T[]>(),
+    interval
+  }: {
+    arrToFragment: T[];
+    arrOfArrsAggregator: T[][];
+    interval: number;
+  }) =>
+    new Promise((resolve, _reject) =>
+      resolve(
+        ((interval: number) => {
+          for (let i = 0; i <= arrToFragment.length; i++) {
+            if ((i % interval === 0 || i === 0) && i <= arrToFragment.length) {
+              let segment = arrToFragment.slice(i, i + interval);
+              arrOfArrsAggregator.push(segment);
+            }
+          }
+        })(interval)
+      )
+    ).then(_ => {
+      return arrOfArrsAggregator;
+    });
+
   public async fetchReviews() {
-    return await Promise.all([
+    return (await Promise.all([
       this.fetchBooksyReviewsPerPageByPage<BooksyReviewsByPagePerPagePayload>({
         reviewsPerPage: 200,
         reviewsPageNumber: 1
       })
-    ])
-      .then(([data]) => {
-        return this.arrToArrOfArrs({
-          arrToFragment: this.reviewsDataTransformer(data.reviews),
-          arrOfArrsAggregator:
-            Array.of<BooksyReviewsByPagePerPagePayloadModified["reviews"]>(),
-          interval: 10
-        });
+    ]).then(([data]) =>
+      this.reviewsDataTransformer(data.reviews)
+    )) satisfies BooksyReviewsByPagePerPagePayloadModified["reviews"];
+  }
+
+  public async generateReviews() {
+    const [data] = await Promise.all([this.fetchReviews()]);
+
+    const [out] = await Promise.all([
+      this.fragmentPaths<Unenumerate<typeof data>>({
+        arrOfArrsAggregator: Array.of<typeof data>(),
+        arrToFragment: data,
+        interval: 10
       })
-      .then(v => {
-        this.writeTarget(
-          "src/utils/__generated__/reviews.json",
-          JSON.stringify(v, null, 2)
-        );
-        return v;
-      });
+    ]);
+    this.writeTarget(
+      "src/utils/__generated__/reviews.json",
+      JSON.stringify(out, null, 2)
+    );
   }
 }

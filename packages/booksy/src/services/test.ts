@@ -10,7 +10,7 @@ import { BooksyReviewsService } from "./booksy/reviews/index.js";
 // const handler = new ConfigHandler(process.cwd());
 const booksyReviews = new BooksyReviewsService(process.cwd());
 
-booksyReviews.fetchReviews();
+booksyReviews.generateReviews();
 // handler.listVercelBlobs();
 // const paths = handler
 //   .readDir({ cwd: handler.cwd, path: "src/utils/__generated__/vercel" })
