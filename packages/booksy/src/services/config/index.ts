@@ -2,6 +2,8 @@ import { execSync } from "child_process";
 import fsSync, { promises as fsAsync } from "fs";
 import { relative } from "path";
 import * as dotenv from "dotenv";
+import expand from "dotenv-expand";
+import { parse } from "yaml";
 import type {
   ExecuteCommandProps,
   MkDirSyncProps,
@@ -13,15 +15,13 @@ import type {
   WriteFileAsyncProps,
   WriteStreamProps
 } from "@/types/fs.js";
-import { ParsedUrlInfo } from "@/types/url.js";
-import expand from "dotenv-expand";
-import {parse} from "yaml";
-import { BooksyConfig } from "@/types/helpers.js";
+import type { BooksyConfig } from "@/types/helpers.js";
+import type { ParsedUrlInfo } from "@/types/url.js";
 
 dotenv.config();
 
 export class ConfigHandler {
-  constructor(public cwd: string){}
+  constructor(public cwd: string) {}
 
   public extractTuple<
     const T extends
@@ -153,7 +153,6 @@ email=
     ) as Pick<T, Unenumerate<typeof props>>;
   };
 
-
   private get myEnv() {
     return dotenv.config({ processEnv: {} });
   }
@@ -163,27 +162,27 @@ email=
   }
 
   public get booksyEnvKVs():
-  | undefined
-  | {
-      [key: string]: string;
-      BOOKSY_BIZ_EMAIL: string;
-      BOOKSY_BIZ_PASSWORD: string;
-      BOOKSY_BIZ_X_FINGERPRINT: string;
-      BOOKSY_BIZ_API_KEY: string;
-    } {
-  const parsed = this.parseDotEnv()?.parsed;
-  if (parsed) {
-    return parsed satisfies {
-      [key: string]: string;
-    } as {
-      [key: string]: string;
-      BOOKSY_BIZ_EMAIL: string;
-      BOOKSY_BIZ_PASSWORD: string;
-      BOOKSY_BIZ_X_FINGERPRINT: string;
-      BOOKSY_BIZ_API_KEY: string;
-    };
-  } else return undefined;
-}
+    | undefined
+    | {
+        [key: string]: string;
+        BOOKSY_BIZ_EMAIL: string;
+        BOOKSY_BIZ_PASSWORD: string;
+        BOOKSY_BIZ_X_FINGERPRINT: string;
+        BOOKSY_BIZ_API_KEY: string;
+      } {
+    const parsed = this.parseDotEnv()?.parsed;
+    if (parsed) {
+      return parsed satisfies {
+        [key: string]: string;
+      } as {
+        [key: string]: string;
+        BOOKSY_BIZ_EMAIL: string;
+        BOOKSY_BIZ_PASSWORD: string;
+        BOOKSY_BIZ_X_FINGERPRINT: string;
+        BOOKSY_BIZ_API_KEY: string;
+      };
+    } else return undefined;
+  }
 
   public omitFields<
     const Target extends { [record: string | symbol | number]: unknown },
@@ -418,8 +417,7 @@ email=
   }) =>
     Buffer.from(
       Buffer.from(
-        fsSync.readFileSync(relative(cwd, path)).toJSON()
-          .data
+        fsSync.readFileSync(relative(cwd, path)).toJSON().data
       ) satisfies Buffer
     ) satisfies Buffer;
 
@@ -441,13 +439,11 @@ email=
       .includes(targetDir);
   }
 
-
   public parseJsonBuffer(p: Buffer) {
     return JSON.parse(
       Buffer.from(Buffer.from(p).toJSON().data).toString("utf-8")
     );
   }
-
 
   public parsedConfig<T>() {
     const path = "booksy.config.yaml" as const;
@@ -481,28 +477,26 @@ email=
   ) {
     const path = "booksy.config.yaml" as const;
     if (!(s in keyVals)) {
-      throw new Error(
-        `required key ${s} missing in ${path}`
-      );
+      throw new Error(`required key ${s} missing in ${path}`);
     }
   }
 
-    public resolvedConfig() {
-      const keyVals = this.parsedConfig<BooksyConfig>();
-      this.confErr("accessToken", keyVals);
-      this.confErr("blobReadWriteToken", keyVals);
-      this.confErr("booksyBizApiKey", keyVals);
-      this.confErr("booksyBizAuthHeader", keyVals);
-      this.confErr("booksyBizAuthorizationSecret", keyVals);
-      this.confErr("booksyBizEmail", keyVals);
-      this.confErr("booksyBizPassword", keyVals);
-      this.confErr("booksyBizXFingerprint", keyVals);
-      return keyVals;
-    }
+  public resolvedConfig() {
+    const keyVals = this.parsedConfig<BooksyConfig>();
+    this.confErr("accessToken", keyVals);
+    this.confErr("blobReadWriteToken", keyVals);
+    this.confErr("booksyBizApiKey", keyVals);
+    this.confErr("booksyBizAuthHeader", keyVals);
+    this.confErr("booksyBizAuthorizationSecret", keyVals);
+    this.confErr("booksyBizEmail", keyVals);
+    this.confErr("booksyBizPassword", keyVals);
+    this.confErr("booksyBizXFingerprint", keyVals);
+    return keyVals;
+  }
 
-    public generateYaml(accessToken: string){
-      // prettier-ignore
-      return `# yaml-language-server: $schema=https://thefaderoominc.vercel.app/pkg/booksy.config.json
+  public generateYaml(accessToken: string) {
+    // prettier-ignore
+    return `# yaml-language-server: $schema=https://thefaderoominc.vercel.app/pkg/booksy.config.json
 $schema: https://thefaderoominc.vercel.app/pkg/booksy.config.json
 accessToken: ${accessToken}
 blobReadWriteToken: \${BLOB_READ_WRITE_TOKEN}
@@ -513,7 +507,7 @@ booksyBizAuthorizationSecret: \${BOOKSY_BIZ_AUTHORIZATION_SECRET}
 booksyBizAuthHeader: \${BOOKSY_BIZ_AUTH_HEADER}
 booksyBizXFingerprint: \${BOOKSY_BIZ_X_FINGERPRINT}
 `
-    }
+  }
 
   /* begin url */
 
@@ -744,8 +738,6 @@ booksyBizXFingerprint: \${BOOKSY_BIZ_X_FINGERPRINT}
       .reverse()
       .filter(this.isPrimeNumber);
 
-
-
   public chunkArray<T extends number>(
     arr: string[],
     maxChunkLength: T
@@ -772,5 +764,4 @@ booksyBizXFingerprint: \${BOOKSY_BIZ_X_FINGERPRINT}
     }
     return chunks.length ? chunks : [arr];
   }
-
 }
