@@ -274,7 +274,6 @@ const config = {
         },
         frgray: "#565656"
       },
-
       ringWidth: {
         "3": "3px",
         "5": "5px",
@@ -308,9 +307,7 @@ const config = {
       },
       keyframes: ({ theme: _theme }) => ({
         blink: {
-          "0%": {
-            opacity: "0.2"
-          },
+          "0%": { opacity: "0.2" },
           "20%": { opacity: "1" },
           "100%": { opacity: "0.2" }
         },
@@ -346,6 +343,9 @@ const config = {
         slowWave: "wave 10s ease-in-out",
         wave: "wave 560ms ease-in-out",
         blink: "blink 1.4s ease-in-out infinite"
+      },
+      height: {
+        "slide-height": "var(--slide-height)"
       },
       borderRadius: {
         lg: "var(--radius)",
