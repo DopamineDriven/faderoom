@@ -1,10 +1,11 @@
 "use client";
+
 import Image from "next/image";
 import { shimmer } from "@/lib/shimmer";
 
 export function ParticleOverlayImageGrid() {
   return (
-    <div className="relative isolate mx-auto flex flex-row justify-center h-full w-full">
+    <div className="relative isolate mx-auto flex h-full w-full flex-row justify-center">
       <svg
         aria-hidden="true"
         className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-fr-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]">
@@ -75,8 +76,8 @@ export function ParticleOverlayImageGrid() {
                     alt=""
                     width={176}
                     height={274}
-                     src="/womens-undercut.png"
-                    className="aspect-[2/3] w-full grayscale rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    src="/womens-undercut.png"
+                    className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg grayscale"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
@@ -89,8 +90,8 @@ export function ParticleOverlayImageGrid() {
                     alt=""
                     width={176}
                     height={274}
-                     src="/kids-cut.png"
-                    className="aspect-[2/3] grayscale w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    src="/kids-cut.png"
+                    className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg grayscale"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
@@ -101,8 +102,8 @@ export function ParticleOverlayImageGrid() {
                     alt=""
                     width={176}
                     height={274}
-                    src="/womens-undercut.png"
-                    className="aspect-[2/3] w-full grayscale rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    src="/hero-3.avif"
+                    className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg grayscale"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
@@ -115,8 +116,8 @@ export function ParticleOverlayImageGrid() {
                     width={176}
                     height={274}
                     alt=""
-                    src="/kids-cut.png"
-                    className="aspect-[2/3] w-full grayscale rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    src="/hero-4.avif"
+                    className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg grayscale"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
@@ -127,8 +128,8 @@ export function ParticleOverlayImageGrid() {
                     height={274}
                     blurDataURL={shimmer([176, 274])}
                     alt=""
-                    src="/womens-undercut.png"
-                    className="aspect-[2/3] w-full grayscale rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                    src="/hero-5.avif"
+                    className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg grayscale"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
