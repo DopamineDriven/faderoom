@@ -21,6 +21,7 @@ export default withPWAInit({ dest: "public", register: true, scope: "/app" })({
       { hostname: "thefaderoominc.com", protocol: "https" },
       { hostname: "thefaderoominc.vercel.app", protocol: "https" },
       { hostname: "thefaderoominc-dev.vercel.app", protocol: "https" },
+      {hostname: "api.dicebear.com", protocol: "https"},
       {
         hostname: "adgf6mjgcvaeo8u4.public.blob.vercel-storage.com",
         protocol: "https",
