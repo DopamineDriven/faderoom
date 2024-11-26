@@ -11,7 +11,7 @@ export default async function PhotoPage({params}: {params: Promise<{id: string;}
     notFound();
   }
   return (
-    <div>
+    <div className="">
       <Image
         alt={"/womens-undercut.png"}
         src={img.url}

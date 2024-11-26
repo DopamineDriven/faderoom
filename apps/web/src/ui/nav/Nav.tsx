@@ -73,6 +73,14 @@ export function Nav() {
   }, [mobileMenuOpen]);
 
   useEffect(() => {
+    if (pathname.includes("/photos/")) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [pathname]);
+
+  useEffect(() => {
     // effect only fires on pathname change which closes the menu in mobile view
     console.info(`route changed to ${pathname}`);
     setMobileMenuOpen(false);
@@ -182,7 +190,7 @@ export function Nav() {
         <div className={cn(`sm:hidden`, mobileMenuOpen ? "block" : "hidden")}>
           <div
             className={cn(
-              "basis-grotesque-pro-medium bg-fr-bg-main absolute flow-root w-full min-w-full space-y-1 pb-3 pt-2 will-change-scroll",
+              "basis-grotesque-pro-medium absolute flow-root w-full min-w-full space-y-1 bg-fr-bg-main pb-3 pt-2 will-change-scroll",
               hasScrolled === false ? "bg-opacity-100" : "bg-opacity-95",
               css.navMobile
             )}>
