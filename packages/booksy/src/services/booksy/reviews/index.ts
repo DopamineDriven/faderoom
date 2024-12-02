@@ -3,7 +3,7 @@ import type {
   BooksyReviewsByPagePerPagePayloadModified,
   BooksyReviewsEntity
 } from "@/types/booksy.js";
-import type { CoercionUnion, Unenumerate } from "@/types/fs.js";
+import type { CoercionUnion } from "@/types/fs.js";
 import type { BooksyConfig } from "@/types/helpers.js";
 import { ConfigHandler } from "@/services/config/index.js";
 
@@ -41,7 +41,7 @@ export class BooksyReviewsService extends ConfigHandler {
     } as const;
   }
 
-  public async fetchBooksyGET(url: string) {
+  public async fetchBooksyGET<const T extends string>(url: T) {
     return await fetch(url, {
       headers: this.booksyHeadersGET,
       method: "GET",
@@ -73,7 +73,7 @@ export class BooksyReviewsService extends ConfigHandler {
   }
 
   public reviewsDataTransformer(reviews: BooksyReviewsEntity[]) {
-    return reviews.map(v => {
+    return reviews?.map(v => {
       let record = Array.of<string>();
       const {
         anonymized,
@@ -145,15 +145,11 @@ export class BooksyReviewsService extends ConfigHandler {
     });
   }
 
-  public fragmentPaths = <const T>({
-    arrToFragment,
+  public fragmentPaths = <const T>(
+    arrToFragment = Array.of<T>(),
     arrOfArrsAggregator = Array.of<T[]>(),
-    interval
-  }: {
-    arrToFragment: T[];
-    arrOfArrsAggregator: T[][];
-    interval: number;
-  }) =>
+    interval = 1
+  ) =>
     new Promise((resolve, _reject) =>
       resolve(
         ((interval: number) => {
@@ -175,24 +171,21 @@ export class BooksyReviewsService extends ConfigHandler {
         reviewsPerPage: 200,
         reviewsPageNumber: 1
       })
-    ]).then(([data]) =>
-      this.reviewsDataTransformer(data.reviews)
-    )) satisfies BooksyReviewsByPagePerPagePayloadModified["reviews"];
+    ]).then(([data]) =>{
+     return data && this.reviewsDataTransformer(data.reviews)
+    })) satisfies BooksyReviewsByPagePerPagePayloadModified["reviews"];
   }
 
   public async generateReviews() {
     const [data] = await Promise.all([this.fetchReviews()]);
 
-    const [out] = await Promise.all([
-      this.fragmentPaths<Unenumerate<typeof data>>({
-        arrOfArrsAggregator: Array.of<typeof data>(),
-        arrToFragment: data,
-        interval: 10
-      })
-    ]);
-    this.writeTarget(
-      "src/utils/__generated__/reviews.json",
-      JSON.stringify(out, null, 2)
-    );
+    try {
+      this.writeTarget(
+        "src/utils/__generated__/reviews.json",
+        JSON.stringify({ reviews: data }, null, 2)
+      );
+    } catch (err) {
+      console.error(err);
+    }
   }
 }

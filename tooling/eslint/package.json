@@ -23,7 +23,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-turbo": "latest",
-    "jiti": "^2.4.0",
+    "jiti": "^2.4.1",
     "typescript-eslint": "latest"
   },
   "devDependencies": {

@@ -7,7 +7,7 @@ const wpAuthToken = process.env.WORDPRESS_AUTH_REFRESH_TOKEN ?? "";
 
 export default <CodegenConfig>{
   schema: {
-    ["https://dcs-headless.com/graphql"]: {
+    ["https://thefaderoomheadless.com/graphql"]: {
       headers: {
         "Content-Type": "application/json",
         Accept: "*/*",
@@ -18,7 +18,7 @@ export default <CodegenConfig>{
       }
     }
   },
-  documents: ["src/ui/**/*.tsx", "src/graphql/**/*.graphql"],
+  documents: ["src/mutations/**/*.ts", "src/fragments/**/*.ts", "src/graphql/**/*.graphql"],
   verbose: true,
   debug: true,
   generates: {

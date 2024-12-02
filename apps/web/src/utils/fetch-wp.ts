@@ -1,4 +1,4 @@
-import { wpHeaders, wpApiUrl } from "@/lib/constants";
+import { wpHeaders } from "@/lib/constants";
 
 export async function fetchWpAPI<const T>(
   query: string,
@@ -10,14 +10,13 @@ export async function fetchWpAPI<const T>(
       ...variables
     }
   });
-  const res = await fetch(wpApiUrl, {
+  const res = await fetch("https://thefaderoomheadless.com/graphql", {
     headers: wpHeaders,
     method: "POST",
     body,
-    cache: "default",
-    next: {
-      tags: ["wordpress"]
-    }
+    keepalive: true,
+
+    cache: "default"
   });
 
   const json = (await res.json()) as Record<string, T>;
