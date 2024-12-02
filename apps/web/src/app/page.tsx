@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import type { ReviewsProps } from "@/ui/reviews-section";
 import { Cards } from "@/ui/cards";
 import { LoadingDots } from "@/ui/loading/Dots";
-import { ParticleHeaderComponent } from "@/ui/particles/ParticleHeader";
+import { ParticleOverlayImageGrid } from "@/ui/particles/ParticleOverlayImageGrid";
 import { ReviewsSectionPaginated } from "@/ui/reviews-paginated";
 // import { ReviewsSection } from "@/ui/reviews-section";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <div className="relative">
         <Suspense fallback={<LoadingDots color="#d7be69" />}>
-          <ParticleHeaderComponent />
+          <ParticleOverlayImageGrid />
         </Suspense>
         <div className="absolute inset-0 overflow-hidden" />
         <Cards imageData={imageObject} />
