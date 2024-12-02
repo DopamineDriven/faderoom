@@ -12,13 +12,18 @@ import { Button } from "@/ui/reviews-paginated/ui/Button";
 import { Card, CardContent } from "@/ui/reviews-paginated/ui/Card";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
+import { ReviewContent } from "./ui/ReviewContent";
 
 export type ReviewsProps = (RemoveFields<
   Unenumerate<typeof reviewsData.reviews>,
   "rank"
 > & { rank: 1 | 2 | 3 | 4 | 5 })[];
 
-export function ReviewsSectionPaginated({ reviews }: { reviews: ReviewsProps }) {
+export function ReviewsSectionPaginated({
+  reviews
+}: {
+  reviews: ReviewsProps;
+}) {
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 10;
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
@@ -85,7 +90,7 @@ export function ReviewsSectionPaginated({ reviews }: { reviews: ReviewsProps }) 
                     </div>
                   </div>
                 </div>
-                <p className="text-zinc-100">{review.review}</p>
+                <ReviewContent content={review.review} />
               </CardContent>
             </Card>
           ))}
