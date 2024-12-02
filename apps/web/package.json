@@ -7,7 +7,7 @@
   "prettier": "@fade/prettier-config",
   "scripts": {
     "codegen": "graphql-codegen --config codegen.ts",
-    "prebuild": "pnpm booksy:init && pnpm booksy:workup && pnpm booksy:generate:images && pnpm booksy:generate:reviews",
+    "prebuild": "pnpm booksy:init && pnpm booksy:workup && pnpm booksy:generate:images",
     "booksy:init": "ddbooksy init",
     "booksy:generate:images": "ddbooksy generate-images",
     "booksy:generate:reviews": "ddbooksy generate-reviews",
