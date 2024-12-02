@@ -66,7 +66,7 @@ export function ReviewsSection({ reviews }: { reviews: ReviewsProps }) {
                       {review.user}
                     </cite>
                     <span className="text-sm text-gray-400">
-                      {dateFormatter(review.created)}
+                      {dateFormatter(review.created).full}
                     </span>
                   </footer>
                 </Card>

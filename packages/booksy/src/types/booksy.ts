@@ -78,6 +78,7 @@ export type BooksyReviewsEntityModified = {
     thumbnail_photo: string;
     full_address: string;
   };
+  avatar: string;
   rank: number;
   review: string;
   services: string | string[];
