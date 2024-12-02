@@ -10,7 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/ui/reviews-section/ui/Carousel";
-import {reviews} from "@/utils/__generated__/reviews.json";
+import { reviews } from "@/utils/__generated__/reviews.json";
+import { dateFormatter } from "@/utils/date-formatter";
 
 export type ReviewsProps = (RemoveFields<
   Unenumerate<typeof reviews>,
@@ -65,10 +66,7 @@ export function ReviewsSection({ reviews }: { reviews: ReviewsProps }) {
                       {review.user}
                     </cite>
                     <span className="text-sm text-gray-400">
-                      {new Date(review.created - 21600000)
-                        .toISOString()
-                        .split(/\./)?.[0]
-                        ?.replace("T", " at ") ?? ""}
+                      {dateFormatter(review.created)}
                     </span>
                   </footer>
                 </Card>
