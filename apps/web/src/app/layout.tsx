@@ -113,9 +113,8 @@ export default function RootLayout({
           <div className="m-0 flex min-h-full flex-col justify-between p-0">
             <Nav />
             {children}
-            <div className="m-auto" id="modal-root">
-              {modal}
-            </div>
+            {modal}
+            <div className="m-auto" id="modal-root"/>
             <Footer />
           </div>
         </body>
