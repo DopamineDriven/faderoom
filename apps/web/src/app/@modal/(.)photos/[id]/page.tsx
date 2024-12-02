@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { shimmer } from "@/lib/shimmer";
-import { Modal } from "@/ui/modal";
+import { Modal } from "@/ui/modal/WIthFramer";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
 
 export default async function PhotoModal({params}:  {params: Promise<{ id: string }>}) {

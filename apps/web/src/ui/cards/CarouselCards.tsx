@@ -76,7 +76,6 @@ export function CarouselCards({
               )}>
               <Link
                 href={`/photos/${img.id}`}
-                passHref
                 scroll={false}
                 className="appearance-none">
                 <Image

@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 // import FrozenRouter from "./FrozenRouter";
 
-export default function Modal({ children }: { children: ReactNode }) {
+export function Modal({ children }: { children: ReactNode }) {
   const overlay = useRef<HTMLDivElement | null>(null);
   const wrapper = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
