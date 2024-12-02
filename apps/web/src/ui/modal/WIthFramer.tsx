@@ -68,7 +68,7 @@ export function Modal({ children }: { children: ReactNode }) {
           initial="closed"
           animate="open"
           exit="closed"
-          className="w-full max-w-screen-sm transform bg-white p-6">
+          className="w-full max-w-screen-sm transform bg-fr-bg-main/90 p-6">
           {children}
         </motion.div>
       </motion.div>
