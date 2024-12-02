@@ -6,7 +6,7 @@ import { LoadingDots } from "@/ui/loading/Dots";
 import { ParticleHeaderComponent } from "@/ui/particles/ParticleHeader";
 import { ReviewsSection } from "@/ui/reviews-section";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
-import * as reviewsData from "@/utils/__generated__/reviews.json" with { type: "json" };
+import { reviews } from "@/utils/__generated__/reviews.json";
 
 export const metadata = {
   title: "The Fade Room Inc."
@@ -22,7 +22,7 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden" />
         <Cards imageData={imageObject} />
       </div>
-      <ReviewsSection reviews={reviewsData.reviews as ReviewsProps} />
+      <ReviewsSection reviews={reviews as ReviewsProps} />
     </>
   );
 }

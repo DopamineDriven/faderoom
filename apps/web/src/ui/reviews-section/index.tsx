@@ -10,10 +10,10 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/ui/reviews-section/ui/Carousel";
-import * as reviewsData from "@/utils/__generated__/reviews.json" with { type: "json" };
+import {reviews} from "@/utils/__generated__/reviews.json";
 
 export type ReviewsProps = (RemoveFields<
-  Unenumerate<typeof reviewsData.reviews>,
+  Unenumerate<typeof reviews>,
   "rank"
 > & { rank: 1 | 2 | 3 | 4 | 5 })[];
 
