@@ -8,6 +8,13 @@ const config = {
   darkMode: ["class", 'html[class~="dark"]'],
   future: { hoverOnlyWhenSupported: true },
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      }
+    },
     extend: {
       fontFamily: {
         "basis-grotesque-pro-regular": [
@@ -39,6 +46,39 @@ const config = {
         xxs: ["0.5rem", { lineHeight: "0.75rem" }]
       },
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))"
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))"
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))"
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))"
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))"
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))"
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))"
+        },
         "fr-bg-main": "#272729",
         "fr-bg-nav": "#1a1a1b",
         "reddit-0": "rgb(var(--reddit-0))",
@@ -138,7 +178,7 @@ const config = {
           "900": "#633b24",
           "950": "#381e10"
         },
-        accent: {
+        accentFr: {
           "100": "#1a1d1e",
           "200": "#414442",
           "300": "#7d7d7d",
@@ -306,6 +346,14 @@ const config = {
           "inset 0 1px 4px 0 rgb(119 122 175 / 40%), inset 0 1px 1px 0 rgb(119 122 175 / 40%), 0 1px 0 0 rgb(35 38 59 / 5%)"
       },
       keyframes: ({ theme: _theme }) => ({
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" }
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" }
+        },
         blink: {
           "0%": { opacity: "0.2" },
           "20%": { opacity: "1" },
@@ -342,7 +390,9 @@ const config = {
         slowPing: "pulse 10s cubic-bezier(0, 0, 0.2, 1) infinite",
         slowWave: "wave 10s ease-in-out",
         wave: "wave 560ms ease-in-out",
-        blink: "blink 1.4s ease-in-out infinite"
+        blink: "blink 1.4s ease-in-out infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out"
       },
       height: {
         "slide-height": "var(--slide-height)"
