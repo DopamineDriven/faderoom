@@ -73,7 +73,7 @@ export class BooksyReviewsService extends ConfigHandler {
   }
 
   public reviewsDataTransformer(reviews: BooksyReviewsEntity[]) {
-    return reviews.map(v => {
+    return reviews?.map(v => {
       let record = Array.of<string>();
       const {
         anonymized,
@@ -171,9 +171,9 @@ export class BooksyReviewsService extends ConfigHandler {
         reviewsPerPage: 200,
         reviewsPageNumber: 1
       })
-    ]).then(([data]) =>
-      this.reviewsDataTransformer(data.reviews)
-    )) satisfies BooksyReviewsByPagePerPagePayloadModified["reviews"];
+    ]).then(([data]) =>{
+     return data && this.reviewsDataTransformer(data.reviews)
+    })) satisfies BooksyReviewsByPagePerPagePayloadModified["reviews"];
   }
 
   public async generateReviews() {

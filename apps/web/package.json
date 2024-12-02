@@ -6,6 +6,7 @@
   "license": "MIT",
   "prettier": "@fade/prettier-config",
   "scripts": {
+    "codegen": "graphql-codegen --config codegen.ts",
     "prebuild": "pnpm booksy:init && pnpm booksy:workup && pnpm booksy:generate:images && pnpm booksy:generate:reviews",
     "booksy:init": "ddbooksy init",
     "booksy:generate:images": "ddbooksy generate-images",
@@ -21,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@d0paminedriven/booksy": "^0.10.0",
+    "@d0paminedriven/booksy": "^0.11.0",
     "@d0paminedriven/codemod": "^2.3.0",
     "@ducanh2912/next-pwa": "^10.2.9",
     "@headlessui/react": "^2.2.0",

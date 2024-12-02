@@ -28,7 +28,7 @@ export async function generateImagesData() {
 export async function generateReviewsData() {
   const handler = new ConfigHandler(process.cwd());
   const reviews = new BooksyReviewsService(handler.cwd);
-  reviews.generateReviews();
+  return await reviews.generateReviews();
 }
 
 export async function vercelWorkup() {

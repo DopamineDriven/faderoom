@@ -19,7 +19,6 @@ const tsupConfig = (options: Options) =>
     shims: true,
     sourcemap: true,
     cjsInterop: true,
-    external: ['assert'],
     tsconfig: "tsconfig.json",
     clean: true,
     outDir: "dist",

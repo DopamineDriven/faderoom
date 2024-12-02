@@ -1,7 +1,6 @@
 import * as dotenv from "dotenv";
 
 dotenv.config();
-export const wpApiUrl = process.env.WORDPRESS_API_URL ?? "";
 
 export const wpAuthToken = process.env.WORDPRESS_AUTH_REFRESH_TOKEN ?? "";
 
@@ -9,15 +8,10 @@ export const booksyFingerprint = process.env.BOOKSY_BIZ_X_FINGERPRINT ?? "";
 
 export const booksyApiKey = process.env.BOOKSY_BIZ_API_KEY ?? "";
 
-export const booksyEmail = process.env.BOOKSY_BIZ_EMAIL ?? "";
-
-export const booksyPassword = process.env.BOOKSY_BIZ_PASSWORD ?? "";
-
-console.log(booksyApiKey);
 
 export const wpHeaders = {
   "Content-Type": "application/json",
-  Accept: "*/*",
+  redirect: "follow",
   "Cache-Control": "no-cache",
   "Accept-Encoding": "gzip, deflate, br",
   Connection: "keep-alive",
