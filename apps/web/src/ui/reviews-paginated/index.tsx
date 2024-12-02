@@ -10,9 +10,9 @@ import {
 } from "@/ui/reviews-paginated/ui/Avatar";
 import { Button } from "@/ui/reviews-paginated/ui/Button";
 import { Card, CardContent } from "@/ui/reviews-paginated/ui/Card";
+import { ReviewContent } from "@/ui/reviews-paginated/ui/ReviewContent";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
-import { ReviewContent } from "./ui/ReviewContent";
 
 export type ReviewsProps = (RemoveFields<
   Unenumerate<typeof reviewsData.reviews>,
