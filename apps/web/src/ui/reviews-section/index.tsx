@@ -10,11 +10,11 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/ui/reviews-section/ui/Carousel";
-import { reviews } from "@/utils/__generated__/reviews.json";
+import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
 
 export type ReviewsProps = (RemoveFields<
-  Unenumerate<typeof reviews>,
+  Unenumerate<typeof reviewsData.reviews>,
   "rank"
 > & { rank: 1 | 2 | 3 | 4 | 5 })[];
 
