@@ -1,12 +1,45 @@
-[
-  [
+{
+  "reviews": [
+    {
+      "anonymized": false,
+      "appointment_date": 1732636800000,
+      "business": {
+        "id": 481001,
+        "name": "The Fade Room",
+        "reviews_count": 168,
+        "reviews_stars": 5,
+        "url": "481001_the-fade-room_barber-shop_18688_highland-park",
+        "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
+        "full_address": "Skokie Valley Rd, 229, 60035 Highland Park"
+      },
+      "created": 1732703100000,
+      "feedback_status": {
+        "Y": 0,
+        "N": 0,
+        "I": 0
+      },
+      "id": 8119318,
+      "photos": null,
+      "photos_length": 0,
+      "rank": 5,
+      "reply_content": null,
+      "reply_updated": null,
+      "review": "Great haircut as always",
+      "services": "Haircut",
+      "source": null,
+      "staff": "Mauricio Flores",
+      "title": "",
+      "user": "Niki R.",
+      "updated": 1732703100000,
+      "verified": true
+    },
     {
       "anonymized": false,
       "appointment_date": 1731582000000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -39,7 +72,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -72,7 +105,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -105,7 +138,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -138,7 +171,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -171,7 +204,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -204,7 +237,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -237,7 +270,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -270,7 +303,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -303,7 +336,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -329,16 +362,14 @@
       "user": "Roey B.",
       "updated": 1719514800000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1716973200000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -371,7 +402,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -404,7 +435,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -437,7 +468,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -470,7 +501,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -509,7 +540,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -542,7 +573,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -575,7 +606,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -608,7 +639,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -641,7 +672,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -667,16 +698,14 @@
       "user": "Jared S.",
       "updated": 1709746320000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1708513200000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -709,7 +738,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -742,7 +771,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -781,7 +810,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -814,7 +843,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -847,7 +876,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -880,7 +909,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -924,7 +953,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -957,7 +986,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -990,7 +1019,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1016,16 +1045,14 @@
       "user": "John K.",
       "updated": 1693410240000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1692702000000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1064,7 +1091,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1097,7 +1124,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1130,7 +1157,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1163,7 +1190,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1196,7 +1223,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1232,7 +1259,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1265,7 +1292,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1298,7 +1325,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1331,7 +1358,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1357,16 +1384,14 @@
       "user": "Teddy F.",
       "updated": 1681220340000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1680084000000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1399,7 +1424,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1432,7 +1457,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1465,7 +1490,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1498,7 +1523,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1531,7 +1556,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1564,7 +1589,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1600,7 +1625,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1633,7 +1658,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1666,7 +1691,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1692,16 +1717,14 @@
       "user": "Anthony V.",
       "updated": 1670200140000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1669997700000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1734,7 +1757,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1773,7 +1796,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1806,7 +1829,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1839,7 +1862,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1872,7 +1895,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1905,7 +1928,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1938,7 +1961,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -1971,7 +1994,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2004,7 +2027,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2030,16 +2053,14 @@
       "user": "Men C.",
       "updated": 1665389160000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1663768800000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2072,7 +2093,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2105,7 +2126,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2138,7 +2159,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2171,7 +2192,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2204,7 +2225,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2237,7 +2258,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2270,7 +2291,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2303,7 +2324,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2336,7 +2357,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2362,16 +2383,14 @@
       "user": "Jonathan P.",
       "updated": 1655473800000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1653408000000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2404,7 +2423,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2437,7 +2456,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2470,7 +2489,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2503,7 +2522,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2536,7 +2555,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2569,7 +2588,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2608,7 +2627,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2650,7 +2669,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2683,7 +2702,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2709,16 +2728,14 @@
       "user": "Daniel W.",
       "updated": 1642423860000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1638963000000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2751,7 +2768,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2784,7 +2801,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2817,7 +2834,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2850,7 +2867,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2883,7 +2900,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2916,7 +2933,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2949,7 +2966,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -2982,7 +2999,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3015,7 +3032,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3041,16 +3058,14 @@
       "user": "Reid B.",
       "updated": 1636414200000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1635962400000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3083,7 +3098,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3116,7 +3131,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3149,7 +3164,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3182,7 +3197,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3215,7 +3230,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3248,7 +3263,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3281,7 +3296,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3314,7 +3329,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3347,7 +3362,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3373,16 +3388,14 @@
       "user": "Bryan M.",
       "updated": 1632042240000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1629286200000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3421,7 +3434,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3454,7 +3467,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3487,7 +3500,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3534,7 +3547,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3567,7 +3580,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3600,7 +3613,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3633,7 +3646,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3666,7 +3679,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3699,7 +3712,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3725,16 +3738,14 @@
       "user": "Jayson S.",
       "updated": 1626964920000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1625680800000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3767,7 +3778,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3800,7 +3811,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3833,7 +3844,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3866,7 +3877,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3899,7 +3910,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3932,7 +3943,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3965,7 +3976,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -3998,7 +4009,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4031,7 +4042,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4057,16 +4068,14 @@
       "user": "Gustavo G.",
       "updated": 1620680880000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1619776800000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4099,7 +4108,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4132,7 +4141,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4165,7 +4174,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4198,7 +4207,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4231,7 +4240,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4264,7 +4273,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4297,7 +4306,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4330,7 +4339,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4363,7 +4372,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4389,16 +4398,14 @@
       "user": "Cicely L.",
       "updated": 1618867740000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1617442200000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4431,7 +4438,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4470,7 +4477,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4503,7 +4510,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4536,7 +4543,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4569,7 +4576,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4602,7 +4609,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4635,7 +4642,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4668,7 +4675,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4704,7 +4711,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4730,16 +4737,14 @@
       "user": "David S.",
       "updated": 1608052800000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1605967200000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4772,7 +4777,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4805,7 +4810,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4838,7 +4843,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4871,7 +4876,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4907,7 +4912,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4940,7 +4945,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -4973,7 +4978,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5006,7 +5011,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5039,7 +5044,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5065,16 +5070,14 @@
       "user": "Michael J.",
       "updated": 1606309860000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1606233600000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5107,7 +5110,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5140,7 +5143,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5173,7 +5176,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5210,7 +5213,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5247,7 +5250,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5280,7 +5283,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5313,7 +5316,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5346,7 +5349,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5382,7 +5385,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5429,16 +5432,14 @@
       "user": "Stephanie B.",
       "updated": 1605473100000,
       "verified": true
-    }
-  ],
-  [
+    },
     {
       "anonymized": false,
       "appointment_date": 1605353400000,
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5471,7 +5472,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5510,7 +5511,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5543,7 +5544,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5576,7 +5577,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5609,7 +5610,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5653,7 +5654,7 @@
       "business": {
         "id": 481001,
         "name": "The Fade Room",
-        "reviews_count": 167,
+        "reviews_count": 168,
         "reviews_stars": 5,
         "url": "481001_the-fade-room_barber-shop_18688_highland-park",
         "thumbnail_photo": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
@@ -5681,4 +5682,4 @@
       "verified": true
     }
   ]
-]
+}
