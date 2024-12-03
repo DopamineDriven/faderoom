@@ -1,15 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/ui/reviews-paginated/ui/Button";
 
 export function ReviewContent({ content }: { content: string }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
 
+  function refCb(props: HTMLDivElement | null) {
+    props = ref.current;
+    if (!props) {
+      return;
+    } else {
+      console.log(
+        "innerHeight: ".concat(
+          props.getBoundingClientRect().height.toString(10)
+        )
+      );
+    }
+  }
   return (
     <>
-      <div className="hidden md:visible">
+      <div className="hidden md:visible" ref={refCb}>
         <p
           className={`md:text-zinc-100 ${isExpanded ? "" : "md:line-clamp-3"}`}>
           {content}
@@ -32,7 +45,7 @@ export function ReviewContent({ content }: { content: string }) {
           </Button>
         )}
       </div>{" "}
-      <div className="visible md:hidden">
+      <div className="visible md:hidden" ref={refCb}>
         <p className={`text-zinc-100 ${isExpanded ? "" : "line-clamp-3"}`}>
           {content}
         </p>
