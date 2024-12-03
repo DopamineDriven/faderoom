@@ -85,3 +85,18 @@ export type {
   Widget
 } from "@/types/json.js";
 export { Serializer } from "@/types/json.js";
+
+/**
+ * augmenting the "node/http.d.ts" module to inject known booksy
+ * and vercel headers of utility into the root of this package
+ **/
+declare module "http" {
+  export interface IncomingHttpHeaders {
+    "X-fingerprint"?: string;
+    "X-Access-Token"?: string;
+    "X-Api-Key"?: string;
+    "X-Vercel-IP-Timezone"?: string;
+    "X-Vercel-IP-City"?: string;
+    "X-Vercel-IP-Country"?: string;
+  }
+}

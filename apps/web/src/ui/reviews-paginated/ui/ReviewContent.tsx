@@ -1,37 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { forwardRef, useLayoutEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { mergeRefs } from "@/lib/merge-refs";
+import { TsxTargeted } from "@/types/helpers";
 import { Button } from "@/ui/reviews-paginated/ui/Button";
 
-export function ReviewContent({ content }: { content: string }) {
-  const [isExpanded, setIsExpanded] = useState(false);
+export type ReviewContentProps = TsxTargeted<"div"> & { content: string };
 
-  return (
-    <div>
-      <p className={`text-zinc-100 ${isExpanded ? "" : "line-clamp-3"}`}>
-        {content}
-      </p>
-      {content.length > 175 && (
-        <Button
-          variant="ghost"
-          size="sm"
-          className="mt-2 text-[#C5A572] hover:bg-zinc-800 hover:text-[#C5A572]"
-          onClick={() => setIsExpanded(!isExpanded)}>
-          {isExpanded ? (
-            <>
-              Show less <ChevronUp className="ml-2 h-4 w-4" />
-            </>
-          ) : (
-            <>
-              Read more <ChevronDown className="ml-2 h-4 w-4" />
-            </>
-          )}
-        </Button>
-      )}
-    </div>
-  );
-}
+export const ReviewContent = forwardRef<HTMLDivElement, ReviewContentProps>(
+  ({ content }, ref) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [contentHeight, setContentHeight] = useState(0);
+    const divRef = useRef<HTMLDivElement | null>(null);
+    const merged = mergeRefs([divRef, ref]);
+    useLayoutEffect(() => {
+      // eslint-disable-next-line
+      const { height } = divRef?.current?.getBoundingClientRect()!;
+      setContentHeight(height);
+      console.log("Measured content height: " + height);
+    }, []);
+
+    return (
+      <div ref={merged}>
+        <p className={`text-zinc-100 ${isExpanded ? "" : "line-clamp-3"}`}>
+          {content.concat(`\n ${contentHeight}`)}
+        </p>
+        {content.length > 150 && (
+          <Button
+            variant="ghost"
+            size="sm"
+            className="mt-2 text-[#C5A572] hover:bg-zinc-800 hover:text-[#C5A572]"
+            onClick={() => setIsExpanded(!isExpanded)}>
+            {isExpanded ? (
+              <>
+                Show less <ChevronUp className="ml-2 h-4 w-4" />
+              </>
+            ) : (
+              <>
+                Read more <ChevronDown className="ml-2 h-4 w-4" />
+              </>
+            )}
+          </Button>
+        )}
+      </div>
+    );
+  }
+);
+
+ReviewContent.displayName = "ReviewContent";
 
 /*
 
