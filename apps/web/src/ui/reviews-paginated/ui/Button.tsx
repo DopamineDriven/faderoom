@@ -28,7 +28,7 @@ const variants = {
   }
 };
 
-const buttonVariants = cva(rootClassName, {
+const buttonVariants = cva(rootClassName.root, {
   variants,
   defaultVariants: {
     variant: "default",
