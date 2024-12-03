@@ -1,6 +1,6 @@
 {
   "name": "@fade/booksy",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "booksy api handling, file generation, and more for a client project",
   "publishConfig": {
     "access": "public",

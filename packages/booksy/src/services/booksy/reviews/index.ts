@@ -107,7 +107,7 @@ export class BooksyReviewsService extends ConfigHandler {
         appointment_date: new Date(
           appointment_date.concat(":00.000Z")
         ).valueOf(),
-        avatar: `https://api.dicebear.com/6.x/initials/svg?seed=${nameForUrl}&backgroundColor=1a1d1e&textColor=d7be69`,
+        avatar: `https://api.dicebear.com/6.x/initials/svg?seed=${nameForUrl}&backgroundColor=d7be69&textColor=1a1d1e`,
         business,
         created: new Date(created.concat(":00.000Z")).valueOf(),
         feedback_status,
