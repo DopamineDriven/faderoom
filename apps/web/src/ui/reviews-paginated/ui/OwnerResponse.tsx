@@ -11,7 +11,7 @@ export type OwnerResponseProps = {
 
 export function OwnerResponse({ content, date, staff }: OwnerResponseProps) {
   return (
-    <div className="mt-4 border-l-2 border-[#C5A572] pl-8">
+    <div className="mt-4 border-l-2 border-fr-300 pl-8">
       <div className="flex items-start">
         <Avatar className="mr-4">
           <AvatarImage
@@ -22,7 +22,7 @@ export function OwnerResponse({ content, date, staff }: OwnerResponseProps) {
         </Avatar>
         <div>
           <div className="flex items-center">
-            <p className="font-semibold text-[#C5A572]">The Fade Room</p>
+            <p className="font-semibold text-fr-300">The Fade Room</p>
             <span className="ml-2 text-sm text-zinc-400">
               {dateFormatter(date).ymd}
             </span>

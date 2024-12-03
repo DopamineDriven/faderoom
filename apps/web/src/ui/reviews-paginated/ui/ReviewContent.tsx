@@ -42,7 +42,7 @@ export function ReviewContent({ content }: { content: string }) {
         <Button
           variant="ghost"
           size="sm"
-          className="mt-2 text-[#C5A572] hover:bg-zinc-800 hover:text-[#C5A572]"
+          className="mt-2 text-fr-300 hover:bg-zinc-800 hover:text-fr-300"
           onClick={() => setIsExpanded(!isExpanded)}>
           {isExpanded ? (
             <>
