@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/ui/reviews-paginated/ui/Card";
 import { ReviewContent } from "@/ui/reviews-paginated/ui/ReviewContent";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
+import { OwnerResponse } from "./ui/OwnerResponse";
 
 export type ReviewsProps = (RemoveFields<
   Unenumerate<typeof reviewsData.reviews>,
@@ -25,7 +26,7 @@ export function ReviewsSectionPaginated({
   reviews: ReviewsProps;
 }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const reviewsPerPage = 10;
+  const reviewsPerPage = 5;
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
 
   const indexOfLastReview = currentPage * reviewsPerPage;
@@ -34,14 +35,14 @@ export function ReviewsSectionPaginated({
 
   return (
     <section className="w-full bg-black/95 py-12">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto max-w-3xl px-4 md:px-6">
         <h2 className="mb-2 text-center text-3xl font-bold text-[#C5A572]">
           Customer Reviews
         </h2>
         <p className="mb-8 text-center text-zinc-400">
           {reviews.length} reviews
         </p>
-        <div className="mb-8 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+        <div className="mb-8 space-y-6">
           {currentReviews.map(review => (
             <Card key={review.id} className="border-zinc-800 bg-zinc-900">
               <CardContent className="p-6">
@@ -91,6 +92,13 @@ export function ReviewsSectionPaginated({
                   </div>
                 </div>
                 <ReviewContent content={review.review} />
+                {review.reply_content && (
+                  <OwnerResponse
+                    content={review.reply_content}
+                    date={review.reply_updated}
+                    staff={review.staff}
+                  />
+                )}
               </CardContent>
             </Card>
           ))}

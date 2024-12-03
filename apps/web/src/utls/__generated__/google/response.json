@@ -1,0 +1,715 @@
+{
+  "data": {
+    "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw",
+    "id": "ChIJWR1tbabBD4gRrUSmN1K2TPw",
+    "types": [
+      "barber_shop",
+      "hair_care",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "nationalPhoneNumber": "(847) 780-7239",
+    "internationalPhoneNumber": "+1 847-780-7239",
+    "formattedAddress": "229 Skokie Valley Rd suite 5, Highland Park, IL 60035, USA",
+    "addressComponents": [
+      {
+        "longText": "suite 5",
+        "shortText": "suite 5",
+        "types": [
+          "subpremise"
+        ],
+        "languageCode": "en"
+      },
+      {
+        "longText": "229",
+        "shortText": "229",
+        "types": [
+          "street_number"
+        ],
+        "languageCode": "en-US"
+      },
+      {
+        "longText": "Skokie Valley Road",
+        "shortText": "Skokie Valley Rd",
+        "types": [
+          "route"
+        ],
+        "languageCode": "en"
+      },
+      {
+        "longText": "Highland Park",
+        "shortText": "Highland Park",
+        "types": [
+          "locality",
+          "political"
+        ],
+        "languageCode": "en"
+      },
+      {
+        "longText": "Moraine Township",
+        "shortText": "Moraine Township",
+        "types": [
+          "administrative_area_level_3",
+          "political"
+        ],
+        "languageCode": "en"
+      },
+      {
+        "longText": "Lake County",
+        "shortText": "Lake County",
+        "types": [
+          "administrative_area_level_2",
+          "political"
+        ],
+        "languageCode": "en"
+      },
+      {
+        "longText": "Illinois",
+        "shortText": "IL",
+        "types": [
+          "administrative_area_level_1",
+          "political"
+        ],
+        "languageCode": "en"
+      },
+      {
+        "longText": "United States",
+        "shortText": "US",
+        "types": [
+          "country",
+          "political"
+        ],
+        "languageCode": "en"
+      },
+      {
+        "longText": "60035",
+        "shortText": "60035",
+        "types": [
+          "postal_code"
+        ],
+        "languageCode": "en-US"
+      },
+      {
+        "longText": "4405",
+        "shortText": "4405",
+        "types": [
+          "postal_code_suffix"
+        ],
+        "languageCode": "en-US"
+      }
+    ],
+    "plusCode": {
+      "globalCode": "86JJ554W+W8",
+      "compoundCode": "554W+W8 Highland Park, IL, USA"
+    },
+    "location": {
+      "latitude": 42.1572639,
+      "longitude": -87.8041281
+    },
+    "viewport": {
+      "low": {
+        "latitude": 42.1559402197085,
+        "longitude": -87.8055934802915
+      },
+      "high": {
+        "latitude": 42.1586381802915,
+        "longitude": -87.8028955197085
+      }
+    },
+    "rating": 4.8,
+    "googleMapsUri": "https://maps.google.com/?cid=18180106260025066669",
+    "websiteUri": "https://www.thefaderoominc.com/",
+    "regularOpeningHours": {
+      "openNow": true,
+      "periods": [
+        {
+          "open": {
+            "day": 2,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 17,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 19,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 14,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 7,
+            "minute": 30
+          },
+          "close": {
+            "day": 6,
+            "hour": 17,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 9:00 AM – 5:00 PM",
+        "Wednesday: 9:00 AM – 7:00 PM",
+        "Thursday: 9:00 AM – 2:00 PM",
+        "Friday: 8:00 AM – 8:00 PM",
+        "Saturday: 7:30 AM – 5:00 PM",
+        "Sunday: Closed"
+      ],
+      "nextCloseTime": "2024-12-03T23:00:00Z"
+    },
+    "utcOffsetMinutes": -360,
+    "adrFormatAddress": "<span class=\"street-address\">229 Skokie Valley Rd suite 5</span>, <span class=\"locality\">Highland Park</span>, <span class=\"region\">IL</span> <span class=\"postal-code\">60035-4405</span>, <span class=\"country-name\">USA</span>",
+    "businessStatus": "OPERATIONAL",
+    "userRatingCount": 41,
+    "iconMaskBaseUri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+    "iconBackgroundColor": "#7B9EB0",
+    "displayName": {
+      "text": "The Fade Room",
+      "languageCode": "en"
+    },
+    "primaryTypeDisplayName": {
+      "text": "Barber shop",
+      "languageCode": "en-US"
+    },
+    "currentOpeningHours": {
+      "openNow": true,
+      "periods": [
+        {
+          "open": {
+            "day": 2,
+            "hour": 9,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 3
+            }
+          },
+          "close": {
+            "day": 2,
+            "hour": 17,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 3
+            }
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 9,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 4
+            }
+          },
+          "close": {
+            "day": 3,
+            "hour": 19,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 4
+            }
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 9,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 5
+            }
+          },
+          "close": {
+            "day": 4,
+            "hour": 14,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 5
+            }
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 8,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 6
+            }
+          },
+          "close": {
+            "day": 5,
+            "hour": 20,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 6
+            }
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 7,
+            "minute": 30,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 7
+            }
+          },
+          "close": {
+            "day": 6,
+            "hour": 17,
+            "minute": 0,
+            "date": {
+              "year": 2024,
+              "month": 12,
+              "day": 7
+            }
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 9:00 AM – 5:00 PM",
+        "Wednesday: 9:00 AM – 7:00 PM",
+        "Thursday: 9:00 AM – 2:00 PM",
+        "Friday: 8:00 AM – 8:00 PM",
+        "Saturday: 7:30 AM – 5:00 PM",
+        "Sunday: Closed"
+      ],
+      "nextCloseTime": "2024-12-03T23:00:00Z"
+    },
+    "primaryType": "barber_shop",
+    "shortFormattedAddress": "229 Skokie Valley Rd suite 5, Highland Park",
+    "reviews": [
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/reviews/ChZDSUhNMG9nS0VJQ0FnSUQxMXJENkJ3EAE",
+        "relativePublishTimeDescription": "11 months ago",
+        "rating": 5,
+        "text": {
+          "text": "I recently had a hair transplant and I need a stylist who understands the pattern of my hair growth as my scalp recovers. Cynthia and Mauricio are an awesome duo and they take great care of their clients. I highly recommend the Fade Room to you if you are looking for talented professionals who know how to sculpt fades and work with any hair type.",
+          "languageCode": "en"
+        },
+        "originalText": {
+          "text": "I recently had a hair transplant and I need a stylist who understands the pattern of my hair growth as my scalp recovers. Cynthia and Mauricio are an awesome duo and they take great care of their clients. I highly recommend the Fade Room to you if you are looking for talented professionals who know how to sculpt fades and work with any hair type.",
+          "languageCode": "en"
+        },
+        "authorAttribution": {
+          "displayName": "NorthShore PianoForte",
+          "uri": "https://www.google.com/maps/contrib/103336666616535449802/reviews",
+          "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjW5l0WhKycjYnBooxNQcePFAAXO-tjpnEOuytN2mANZS1MkXaw-=s128-c0x00000000-cc-rp-mo-ba3"
+        },
+        "publishTime": "2024-01-06T23:05:17.664057Z",
+        "flagContentUri": "https://www.google.com/local/review/rap/report?postId=ChZDSUhNMG9nS0VJQ0FnSUQxMXJENkJ3EAE&d=17924085&t=1",
+        "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChZDSUhNMG9nS0VJQ0FnSUQxMXJENkJ3EAE!2m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/reviews/ChZDSUhNMG9nS0VJQ0FnSUQ5cDlueWFBEAE",
+        "relativePublishTimeDescription": "8 months ago",
+        "rating": 5,
+        "text": {
+          "text": "Is this the cheapest haircut money can buy?  No.  And yet, here I am, going to Mauricio every 5 weeks like clockwork for the past 2 years, ever since I moved here.  Why?  Because the man knows how to cut hair.  He's skilled.  He's also professional, friendly, clean, timely, and provides a great conversation if needed.  He's also patient and a kind person.  As long as he's around, I won't feel comfortable having anyone else touch my head.  5 stars.",
+          "languageCode": "en"
+        },
+        "originalText": {
+          "text": "Is this the cheapest haircut money can buy?  No.  And yet, here I am, going to Mauricio every 5 weeks like clockwork for the past 2 years, ever since I moved here.  Why?  Because the man knows how to cut hair.  He's skilled.  He's also professional, friendly, clean, timely, and provides a great conversation if needed.  He's also patient and a kind person.  As long as he's around, I won't feel comfortable having anyone else touch my head.  5 stars.",
+          "languageCode": "en"
+        },
+        "authorAttribution": {
+          "displayName": "Rahil Shaikh",
+          "uri": "https://www.google.com/maps/contrib/115959991377633539593/reviews",
+          "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXApf1amcaUCwrVxXyCDnSbSBUzWix4M353vLalPON25z36lSEt=s128-c0x00000000-cc-rp-mo"
+        },
+        "publishTime": "2024-03-21T22:29:27.183805Z",
+        "flagContentUri": "https://www.google.com/local/review/rap/report?postId=ChZDSUhNMG9nS0VJQ0FnSUQ5cDlueWFBEAE&d=17924085&t=1",
+        "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChZDSUhNMG9nS0VJQ0FnSUQ5cDlueWFBEAE!2m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/reviews/ChdDSUhNMG9nS0VJQ0FnSUNhbUp5ZXh3RRAB",
+        "relativePublishTimeDescription": "3 years ago",
+        "rating": 5,
+        "text": {
+          "text": "Mauricio was very professional and respectful. I showed Mauricio a few pictures of what I was thinking of and he did awesome. I like to think it looks just like the picture. Mauricio made it an enjoyable and easy time and was flexible about the fact that I showed up a little late. I appreciate that he gave it his all and didn’t rush me out even though he had another client waiting. I will definitely be recommending the fade room to anyone asking about where to get a good hair cut and beard trim. It was a little challenging to find at first but seems like I found a new hidden gem.",
+          "languageCode": "en"
+        },
+        "originalText": {
+          "text": "Mauricio was very professional and respectful. I showed Mauricio a few pictures of what I was thinking of and he did awesome. I like to think it looks just like the picture. Mauricio made it an enjoyable and easy time and was flexible about the fact that I showed up a little late. I appreciate that he gave it his all and didn’t rush me out even though he had another client waiting. I will definitely be recommending the fade room to anyone asking about where to get a good hair cut and beard trim. It was a little challenging to find at first but seems like I found a new hidden gem.",
+          "languageCode": "en"
+        },
+        "authorAttribution": {
+          "displayName": "Joe Folkl",
+          "uri": "https://www.google.com/maps/contrib/102358899154158032144/reviews",
+          "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocIaumAHafYziv7S1r_U_IUlZRJhxGLN1Ws3fhQ2JLRKi78l9A=s128-c0x00000000-cc-rp-mo"
+        },
+        "publishTime": "2021-07-23T03:15:42.985826Z",
+        "flagContentUri": "https://www.google.com/local/review/rap/report?postId=ChdDSUhNMG9nS0VJQ0FnSUNhbUp5ZXh3RRAB&d=17924085&t=1",
+        "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChdDSUhNMG9nS0VJQ0FnSUNhbUp5ZXh3RRAB!2m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/reviews/ChZDSUhNMG9nS0VJQ0FnSUNoMjQtelBBEAE",
+        "relativePublishTimeDescription": "a year ago",
+        "rating": 5,
+        "text": {
+          "text": "So nice to my 5 yo and moved efficiently. My little one got so many compliments on his Mickey ears at Disney and felt so special.",
+          "languageCode": "en"
+        },
+        "originalText": {
+          "text": "So nice to my 5 yo and moved efficiently. My little one got so many compliments on his Mickey ears at Disney and felt so special.",
+          "languageCode": "en"
+        },
+        "authorAttribution": {
+          "displayName": "Marisa K",
+          "uri": "https://www.google.com/maps/contrib/116650345237425148690/reviews",
+          "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocLXujuQmzh3xiFJV7-XijmMXEfY3i5jiEWPpVA2AWnv1xR80g=s128-c0x00000000-cc-rp-mo"
+        },
+        "publishTime": "2023-02-23T03:07:25.480864Z",
+        "flagContentUri": "https://www.google.com/local/review/rap/report?postId=ChZDSUhNMG9nS0VJQ0FnSUNoMjQtelBBEAE&d=17924085&t=1",
+        "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChZDSUhNMG9nS0VJQ0FnSUNoMjQtelBBEAE!2m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/reviews/ChdDSUhNMG9nS0VJQ0FnSURpZ012d3VnRRAB",
+        "relativePublishTimeDescription": "4 years ago",
+        "rating": 5,
+        "text": {
+          "text": "I have been going to Mauricio to get my haircut for a couple of years now. He's a great barber! He's very easy going and treats you like family.  He pays attention to detail, takes his time and makes sure you're happy with everything. His shop is super clean. I highly recommend him.",
+          "languageCode": "en"
+        },
+        "originalText": {
+          "text": "I have been going to Mauricio to get my haircut for a couple of years now. He's a great barber! He's very easy going and treats you like family.  He pays attention to detail, takes his time and makes sure you're happy with everything. His shop is super clean. I highly recommend him.",
+          "languageCode": "en"
+        },
+        "authorAttribution": {
+          "displayName": "Kevin",
+          "uri": "https://www.google.com/maps/contrib/109257161814229925314/reviews",
+          "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjWhOsIZiPBizhD41P9Ayx7LqxfhMfMv5jT-0-d3Vw4d013zang=s128-c0x00000000-cc-rp-mo"
+        },
+        "publishTime": "2020-11-21T00:58:55.906790Z",
+        "flagContentUri": "https://www.google.com/local/review/rap/report?postId=ChdDSUhNMG9nS0VJQ0FnSURpZ012d3VnRRAB&d=17924085&t=1",
+        "googleMapsUri": "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sChdDSUhNMG9nS0VJQ0FnSURpZ012d3VnRRAB!2m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      }
+    ],
+    "photos": [
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWp2lqa_SoGbnObXE3LSOgCpT-I0m4w0YYwkByn-Q-9NUGEw5c7miHmPeR_VgPiQjlC_4I4zYK_PRPuaI8e_lYZNiesPETu3oopoeIO7CDD4F2yDIF-znpuekDFMpiHJq4ZYSzoY2CdQTW9No3WbYOMRztSPxgE6Rykr",
+        "widthPx": 1080,
+        "heightPx": 608,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipPfTjPFIx-NyG-JDL-yo1a-Kgxh5-5w0PVuW17j&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipPfTjPFIx-NyG-JDL-yo1a-Kgxh5-5w0PVuW17j!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWqRs-RcwArYzrrHOj76AQaveXwt_Y_czVGKltErA4q8uLYRN_UXJvLaxoTu0EYpPXP9GX-tuPXulBBulxP4dD5mC_i5njYADqBxMTL38acZQ8v_lfgoVQjnvr--YQuBfhIICa7MMPc1YWJ-uS3YLgKY-1HMedpNUGQR",
+        "widthPx": 2048,
+        "heightPx": 2048,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipOS18VUh_m-2awwl-Rsu_XVuVSTYcKZv4S-qtG-&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipOS18VUh_m-2awwl-Rsu_XVuVSTYcKZv4S-qtG-!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWqBFkCuQWoRo-MeLB05Oyim2z0NCgaa8KA0bTkiqpoKKpbOxlNGpMP9uKHcX21kOwLa7wbwo3h3kOttWMWcEmFoU5O1YQX8zFKKpekssgF7ba__aVCIv6hRTmz99vR0W3K8wOGPgYbyPQfr9yEMprWIZybeWUmOmyJk",
+        "widthPx": 2048,
+        "heightPx": 2048,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipOEsrK6OqKvCr5d2rvXi6LSGbP3sjwF3Brgoii_&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipOEsrK6OqKvCr5d2rvXi6LSGbP3sjwF3Brgoii_!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWoLp_bRpPEhj_HIheLIyAkf7eWVFqRhLJajHTCpDRWixxMiJJbM3HamauuX5FvzpIFcOi_2GxEfmsU1MEzIj7Z6Aq4a0353Raw2hnHAoIExAQ9ceFtLNuCXIIbk4MoM6LWdj-ragh9CkiH3d37s7vNF18SJcPL3Xr0d",
+        "widthPx": 3024,
+        "heightPx": 4032,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipMRYtjW9uZjNIwtmovUvEGl6ES19_ddR7vpyl9R&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipMRYtjW9uZjNIwtmovUvEGl6ES19_ddR7vpyl9R!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWpU3umMK63wUnH5uG1Q68e7YNupIz_O4zpo98SQzog6xrAZ0PubHGus7_Ev5ArrsAUpgiEObySS2yPR3y-okiCRyLmdzurR1hoKXsynR08lkHUDHNGrXxtYGfDbTiBgY_cm5OC1_-yGQFRikF288Zo--hnIz1HVNiXd",
+        "widthPx": 1284,
+        "heightPx": 1712,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipNeFXK_P3UVkF2V_tld2pShdb6yDiQvMig4_ZhG&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipNeFXK_P3UVkF2V_tld2pShdb6yDiQvMig4_ZhG!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWqn777bhNZYO4bcQ5Spn1fpyU16cuZoSMy3dje44ZHXTfQ8urdK8I44qo2q7byIyes-ozwtve_KYf9cCphBINyQ8bhcV2O35HaZ0kiaEMqA7qVXKx75RJLLJodG-ekYkCfrevzfn90FqohRrrFqYH6rEyWiWSdUVOx6",
+        "widthPx": 3024,
+        "heightPx": 4032,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipNY3Mo_gil6uc9u7_MK8Zwf-UwhcIlnyi8HJg2p&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipNY3Mo_gil6uc9u7_MK8Zwf-UwhcIlnyi8HJg2p!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWoS9sIyn4Mym2cL8L5yQZ7wu0FoQn8y5epXj3AF7dGpZaadAI06lst9GMse5In4UK-dHAfD8qAeUnnqus_9EAnJxpeVY_Pz8-BMUrE_dDQKIekr_Onu_ohEMYskH1czZoyaDzzHUObYJ7hbFbbcZ1darACoDCB1qB6O",
+        "widthPx": 3024,
+        "heightPx": 4032,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipO4HhwRJU4jSAlNsgVG7WZhqpRem74UZ0cAIFus&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipO4HhwRJU4jSAlNsgVG7WZhqpRem74UZ0cAIFus!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWoMOYrpGaIRT7MqXHmq2o9fcY_urNU9JLsATaEIm3VOgeaqG8jxzPhZVqcXQUw3QCBscizNxy0oQusIElhYg0A6UZ7a-SZd9aSkUrUaMPaG_bsCJp1Z_eUP2Blv_4sz98s8iy3jdVwfl_rW-8xOweDozJgbSAzjAMjt",
+        "widthPx": 1440,
+        "heightPx": 1440,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipO2Vbx5Kt9pcvOgTzSZNPIl1zCBhviUhADm7E4z&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipO2Vbx5Kt9pcvOgTzSZNPIl1zCBhviUhADm7E4z!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWq7x6WX26DRnOTGW0Fp6xebbO4Rj7w6pBNE2WirRYWumgHtwdJus-jkPsPz2Mmors-dIPGaxkXzKMFoGOkJP7xy4RX9J3cvdeMrckRaefdqAsimMo4ACoIaG31LKV9HTuPgAlcLyFet44ZmGxCeOD8iTMETy0OsbTWw",
+        "widthPx": 3024,
+        "heightPx": 4032,
+        "authorAttributions": [
+          {
+            "displayName": "The Fade Room",
+            "uri": "https://maps.google.com/maps/contrib/103483363745661589543",
+            "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjXq5t6dhzKYHZsLZjlGWw9SBL9hfbLu70AwiZ-yGzRFd4Xbpuww=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipNNkT2aCPAXNXFvB09ihJ30Py1y1cnZ_eE1zWIq&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipNNkT2aCPAXNXFvB09ihJ30Py1y1cnZ_eE1zWIq!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      },
+      {
+        "name": "places/ChIJWR1tbabBD4gRrUSmN1K2TPw/photos/AdDdOWqSHFENMiEkV9avwOqFgiXQIymGBBPBnzcBUESzqBmtKL9zn44knviS0CiVZQwa9GLDjdGWCp1SBP5Df0pKcNqHSt3SrTvP_7vjz-QiWpBEHLyiR2plCrG5fbvGfJdDE9og_8V1cC0OTgDNcP0lrEzyHvRLId6kYgsS",
+        "widthPx": 3024,
+        "heightPx": 4032,
+        "authorAttributions": [
+          {
+            "displayName": "Maury Flores",
+            "uri": "https://maps.google.com/maps/contrib/111749416263409051943",
+            "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocIbtgrE49IlI4-DrqlkTagGG9EIrYvI1ebpyIWvk4JS79T81g=s100-p-k-no-mo"
+          }
+        ],
+        "flagContentUri": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipO8WFcQGVV3f-LQs511qEJrTF6r8hxmvM_juBRO&hl=en-US",
+        "googleMapsUri": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipO8WFcQGVV3f-LQs511qEJrTF6r8hxmvM_juBRO!2e10!4m2!3m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad"
+      }
+    ],
+    "goodForChildren": true,
+    "restroom": true,
+    "accessibilityOptions": {
+      "wheelchairAccessibleParking": true,
+      "wheelchairAccessibleEntrance": true,
+      "wheelchairAccessibleRestroom": true
+    },
+    "generativeSummary": {
+      "overview": {
+        "text": "Barber shop located in the Crossroads Shopping Center offering men's grooming services.",
+        "languageCode": "en-US"
+      },
+      "overviewFlagContentUri": "https://www.google.com/local/review/rap/report?postId=CiUweDg4MGZjMWE2NmQ2ZDFkNTk6MHhmYzRjYjY1MjM3YTY0NGFkMAI&d=17924085&t=12"
+    },
+    "containingPlaces": [
+      {
+        "name": "places/ChIJD-I0KxbBD4gRgFw4W4NS7S0",
+        "id": "ChIJD-I0KxbBD4gRgFw4W4NS7S0"
+      }
+    ],
+    "pureServiceAreaBusiness": false,
+    "addressDescriptor": {
+      "landmarks": [
+        {
+          "name": "places/ChIJ_ZIjez3BD4gRpi4A5_II3SE",
+          "placeId": "ChIJ_ZIjez3BD4gRpi4A5_II3SE",
+          "displayName": {
+            "text": "Binny's Beverage Depot - Highland Park",
+            "languageCode": "en"
+          },
+          "types": [
+            "establishment",
+            "liquor_store",
+            "point_of_interest",
+            "store"
+          ],
+          "spatialRelationship": "AROUND_THE_CORNER",
+          "straightLineDistanceMeters": 193.09726,
+          "travelDistanceMeters": 248.51282
+        },
+        {
+          "name": "places/ChIJ6dsg6obBD4gRwqlnOSbrbls",
+          "placeId": "ChIJ6dsg6obBD4gRwqlnOSbrbls",
+          "displayName": {
+            "text": "McGrath Kia of Highland Park",
+            "languageCode": "en"
+          },
+          "types": [
+            "car_dealer",
+            "establishment",
+            "point_of_interest",
+            "store"
+          ],
+          "straightLineDistanceMeters": 130.6589,
+          "travelDistanceMeters": 177.21327
+        },
+        {
+          "name": "places/ChIJ13eOYz3BD4gREpBUm8ozpcY",
+          "placeId": "ChIJ13eOYz3BD4gREpBUm8ozpcY",
+          "displayName": {
+            "text": "Max's Deli",
+            "languageCode": "en"
+          },
+          "types": [
+            "establishment",
+            "food",
+            "meal_takeaway",
+            "point_of_interest",
+            "restaurant",
+            "store"
+          ],
+          "straightLineDistanceMeters": 85.49661,
+          "travelDistanceMeters": 167.82367
+        },
+        {
+          "name": "places/ChIJL7xj3xfBD4gR6chVFyyGDOM",
+          "placeId": "ChIJL7xj3xfBD4gR6chVFyyGDOM",
+          "displayName": {
+            "text": "Mizrahi Grill",
+            "languageCode": "en"
+          },
+          "types": [
+            "establishment",
+            "food",
+            "point_of_interest",
+            "restaurant"
+          ],
+          "straightLineDistanceMeters": 202.02246,
+          "travelDistanceMeters": 266.668
+        },
+        {
+          "name": "places/ChIJm7GfAhTBD4gReDfvNhxdRwA",
+          "placeId": "ChIJm7GfAhTBD4gReDfvNhxdRwA",
+          "displayName": {
+            "text": "Makom Solel Lakeside",
+            "languageCode": "en"
+          },
+          "types": [
+            "establishment",
+            "place_of_worship",
+            "point_of_interest",
+            "synagogue"
+          ],
+          "straightLineDistanceMeters": 456.9731,
+          "travelDistanceMeters": 947.2112
+        }
+      ],
+      "areas": [
+        {
+          "name": "places/ChIJD-I0KxbBD4gRS37ZyUM7_ek",
+          "placeId": "ChIJD-I0KxbBD4gRS37ZyUM7_ek",
+          "displayName": {
+            "text": "Crossroads Shopping Center",
+            "languageCode": "en"
+          },
+          "containment": "WITHIN"
+        }
+      ]
+    },
+    "googleMapsLinks": {
+      "directionsUri": "https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad!3e0",
+      "placeUri": "https://maps.google.com/?cid=18180106260025066669",
+      "writeAReviewUri": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad!12e1",
+      "reviewsUri": "https://www.google.com/maps/place//data=!4m4!3m3!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad!9m1!1b1",
+      "photosUri": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x880fc1a66d6d1d59:0xfc4cb65237a644ad!10e5"
+    }
+  }
+}
