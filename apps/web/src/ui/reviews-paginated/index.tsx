@@ -33,7 +33,7 @@ export function ReviewsSectionPaginated({
   const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
 
   return (
-    <section className="w-full bg-black/95 py-12">
+    <section className="w-full bg-black/95 py-12 max-w-6xl">
       <div className="container px-4 md:px-6">
         <h2 className="mb-2 text-center text-3xl font-bold text-[#C5A572]">
           Customer Reviews
