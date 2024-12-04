@@ -36,7 +36,7 @@ export function ReviewsSectionPaginated({
   return (
     <section className="w-full bg-black/95 py-12">
       <div className="container mx-auto max-w-3xl px-4 md:px-6">
-        <h2 className="mb-2 text-center text-3xl font-bold text-[#C5A572]">
+        <h2 className="mb-2 text-center text-3xl font-bold text-fr-300">
           Customer Reviews
         </h2>
         <p className="mb-8 text-center text-zinc-400">
@@ -61,7 +61,7 @@ export function ReviewsSectionPaginated({
                   </Avatar>
                   <div className="flex-grow">
                     <div className="flex items-center justify-between">
-                      <p className="font-semibold text-[#C5A572]">
+                      <p className="font-semibold text-fr-300">
                         {review.user}
                       </p>
                       <span className="text-sm text-zinc-400">
@@ -83,7 +83,7 @@ export function ReviewsSectionPaginated({
                           key={i}
                           className={`h-4 w-4 ${
                             i < review.rank
-                              ? "fill-[#C5A572] text-[#C5A572]"
+                              ? "fill-fr-300 text-fr-300"
                               : "text-zinc-600"
                           }`}
                         />
@@ -109,7 +109,7 @@ export function ReviewsSectionPaginated({
             <div className="flex justify-center gap-2">
               <Button
                 variant="outline"
-                className="border-[#C5A572] text-[#C5A572] hover:bg-[#C5A572] hover:text-black"
+                className="border-fr-300 text-fr-300 hover:bg-fr-300 hover:text-black"
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}>
                 Previous
@@ -119,7 +119,7 @@ export function ReviewsSectionPaginated({
               </div>
               <Button
                 variant="outline"
-                className="border-[#C5A572] text-[#C5A572] hover:bg-[#C5A572] hover:text-black"
+                className="border-fr-300 text-fr-300 hover:bg-fr-300 hover:text-black"
                 onClick={() =>
                   setCurrentPage(prev => Math.min(prev + 1, totalPages))
                 }
