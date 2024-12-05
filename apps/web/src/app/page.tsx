@@ -4,8 +4,7 @@ import type { ReviewsProps } from "@/ui/reviews-section";
 import { Cards } from "@/ui/cards";
 import { LoadingDots } from "@/ui/loading/Dots";
 import { ParticleOverlayImageGrid } from "@/ui/particles/ParticleOverlayImageGrid";
-import { ReviewsSectionPaginated } from "@/ui/reviews-paginated";
-// import { ReviewsSection } from "@/ui/reviews-section";
+import { ReviewsAndServicesSection } from "@/ui/reviews-paginated";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
 import reviewData from "@/utils/__generated__/reviews.json";
 
@@ -23,7 +22,7 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden" />
         <Cards imageData={imageObject} />
       </div>
-      <ReviewsSectionPaginated reviews={reviewData.reviews as ReviewsProps} />
+      <ReviewsAndServicesSection reviews={reviewData.reviews as ReviewsProps} />
     </>
   );
 }
