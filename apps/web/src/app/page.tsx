@@ -20,11 +20,11 @@ export default function Home() {
           <ParticleOverlayImageGrid />
         </Suspense>
         <div className="absolute inset-0 overflow-hidden" />
+        <ReviewsAndServicesSection
+          reviews={reviewData.reviews as ReviewsAndServicesSectionProps}
+        />
+        <Cards imageData={imageObject} />
       </div>
-      <ReviewsAndServicesSection
-        reviews={reviewData.reviews as ReviewsAndServicesSectionProps}
-      />
-      <Cards imageData={imageObject} />
     </>
   );
 }
