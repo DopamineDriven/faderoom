@@ -1,6 +1,8 @@
 import type React from "react";
 import type { RemoveFields, TsxTargetedExp } from "@/types/helpers";
 
+// https://www.svgviewer.dev/
+
 export type IconNode = [elementName: keyof React.ReactSVG, attrs: Record<string, string>][];
 
 export type ElementAttributePicker<

@@ -1,11 +1,12 @@
 import {
   BeakerIcon as Beard,
   Coffee,
-  Scissors,
-  SprayCanIcon as Spray,
+  Medal as HerosIcon,
   Gift as PresidentialIcon,
-  Medal as HerosIcon
+  Scissors,
+  SprayCanIcon as Spray
 } from "lucide-react";
+import { Towel } from "@/ui/icons/Towel";
 import {
   Card,
   CardContent,
@@ -66,8 +67,7 @@ const services = [
   {
     icon: Beard,
     name: "Basic Beard Trim",
-    description:
-      "Beard cleanup & edge up with trimmers (no straight blade)",
+    description: "Beard cleanup & edge up with trimmers (no straight blade)",
     price: "$35"
   },
   {
@@ -76,6 +76,13 @@ const services = [
     description:
       "Haircut, straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; hot steam shave or beard cleanup/lineup; black mask pore cleaner; facial",
     price: "$125"
+  },
+  {
+    icon: Towel,
+    name: "Facial",
+    description:
+      "Relaxing hot towel facial massage; mud scrub; black mask pore cleaning",
+    price: "$35"
   },
   {
     icon: Spray,
@@ -94,7 +101,9 @@ const services = [
 export function ServicesSection() {
   return (
     <div className="space-y-6">
-      <h2 id="services" className="mb-6 text-center text-3xl font-bold text-fr-300">
+      <h2
+        id="services"
+        className="mb-6 text-center text-3xl font-bold text-fr-300">
         Services
       </h2>
       {services.map((service, index) => (
