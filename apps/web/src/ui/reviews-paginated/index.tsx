@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { Star } from "lucide-react";
-import type { RemoveFields, Unenumerate } from "@/types/helpers";
+import type { ArrFieldReplacer } from "@/types/helpers";
 import {
   Avatar,
   AvatarFallback,
@@ -16,15 +16,15 @@ import { ServicesSection } from "@/ui/services";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
 
-export type ReviewsAndServicesProps = (RemoveFields<
-  Unenumerate<typeof reviewsData.reviews>,
-  "rank"
-> & { rank: 1 | 2 | 3 | 4 | 5 })[];
-
 export function ReviewsAndServicesSection({
   reviews
 }: {
-  reviews: ReviewsAndServicesProps;
+  reviews: ArrFieldReplacer<
+    typeof reviewsData.reviews,
+    "rank",
+    true,
+    { rank: 1 | 2 | 3 | 4 | 5 }
+  >;
 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 5;
@@ -34,8 +34,7 @@ export function ReviewsAndServicesSection({
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
   const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
 
-  const topRef = useRef<HTMLDivElement | null>(null);
-  const bottomRef = useRef<HTMLDivElement | null>(null);
+  const reviewsContainerRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <section className="w-full bg-black/95 py-12">
@@ -51,8 +50,9 @@ export function ReviewsAndServicesSection({
             <p className="mb-8 text-center text-zinc-400">
               {reviews.length} reviews
             </p>
-            <div className="h-[calc(100vh-18.75rem)] flex-grow overflow-y-auto">
-              <div ref={topRef} aria-hidden="true" />
+            <div
+              className="h-[calc(100vh-18.75rem)] flex-grow overflow-y-auto"
+              ref={reviewsContainerRef}>
               <div className="space-y-6 pr-4">
                 {currentReviews.map(review => (
                   <Card key={review.id} className="border-zinc-800 bg-zinc-900">
@@ -88,7 +88,7 @@ export function ReviewsAndServicesSection({
                                   ? [1, 2, 3]
                                   : review.rank === 2
                                     ? [1, 2]
-                                    : [1]
+                                    : [review.rank]
                             ).map((_, i) => (
                               <Star
                                 key={i}
@@ -114,7 +114,6 @@ export function ReviewsAndServicesSection({
                   </Card>
                 ))}
               </div>
-              <div ref={bottomRef} aria-hidden="true" />
             </div>
             {totalPages > 1 && (
               <div className="mt-6 flex flex-col items-center gap-4">
@@ -124,13 +123,12 @@ export function ReviewsAndServicesSection({
                     className="border-fr-300 text-fr-300 hover:bg-fr-300 hover:text-black"
                     onClick={() => {
                       setCurrentPage(prev => Math.max(prev - 1, 1));
-                      setTimeout(
-                        () =>
-                          bottomRef.current?.scrollIntoView({
-                            behavior: "smooth"
-                          }),
-                        100
-                      );
+                      setTimeout(() => {
+                        if (reviewsContainerRef.current) {
+                          reviewsContainerRef.current.scrollTop =
+                            reviewsContainerRef.current.scrollHeight;
+                        }
+                      }, 100);
                     }}
                     disabled={currentPage === 1}>
                     Previous
@@ -143,13 +141,11 @@ export function ReviewsAndServicesSection({
                     className="border-fr-300 text-fr-300 hover:bg-fr-300 hover:text-black"
                     onClick={() => {
                       setCurrentPage(prev => Math.min(prev + 1, totalPages));
-                      setTimeout(
-                        () =>
-                          topRef.current?.scrollIntoView({
-                            behavior: "smooth"
-                          }),
-                        100
-                      );
+                      setTimeout(() => {
+                        if (reviewsContainerRef.current) {
+                          reviewsContainerRef.current.scrollTop = 0;
+                        }
+                      }, 100);
                     }}
                     disabled={currentPage === totalPages}>
                     Next

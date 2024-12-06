@@ -14,6 +14,18 @@ export type RemoveFields<T, P extends keyof T = keyof T> = {
   [S in keyof T as Exclude<S, P>]: T[S];
 };
 
+export type ArrFieldReplacer<T, V, Q = false, P = unknown> = T extends
+  | (infer U)[]
+  | readonly (infer U)[]
+  ? V extends keyof U
+    ? Q extends true
+      ? (RemoveFields<U, V> & P)[]
+      : Q extends false
+        ? RemoveFields<U, V>[]
+        : U
+    : T
+  : T;
+
 export type ConditionalToRequired<
   T,
   Z extends keyof T = keyof T
@@ -56,13 +68,9 @@ export type FilterOptionalOrRequired<
   T extends "conditional" | "required"
 > = T extends "conditional" ? OnlyOptional<V> : OnlyRequired<V>;
 
-
-
 /* General Helper Types END */
 
-
 /* React Helper Types BEGIN */
-
 
 export type InferReactForwardRefExoticComponentProps<T> =
   T extends React.ForwardRefExoticComponent<infer U> ? U : T;
@@ -88,13 +96,9 @@ export type EventHandler<E extends React.SyntheticEvent<any>> = {
   bivarianceHack(event: E): void;
 }["bivarianceHack"];
 
-
 /* React Helper Types END */
 
-
-
 /* Case helper types BEGIN  */
-
 
 /** Convert literal string types like 'foo-bar' to 'FooBar' */
 export type ToPascalCase<S extends string> = string extends S
@@ -110,13 +114,9 @@ export type ToCamelCase<S extends string> = string extends S
     ? `${T}${ToPascalCase<U>}`
     : S;
 
-
 /* Case helper types END  */
 
-
-
 /* Experimental React Type Helpers BEGIN */
-
 
 export type InferTsxTargetedFlexi<T> =
   T extends React.DetailedHTMLProps<infer U, infer E> ? readonly [U, E] : T;
@@ -156,9 +156,7 @@ export type TsxIncludeExp<
   J extends keyof TsxTargetedExp<K, I>
 > = RemoveFields<TsxTargetedExp<K, I>, Exclude<keyof TsxTargetedExp<K, I>, J>>;
 
-
 /* Experimental React Type Helpers END */
-
 
 /* Helper functions BEGIN */
 
