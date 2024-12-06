@@ -39,7 +39,7 @@ export function ReviewsAndServicesSection({
   const reviewsContainerRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <section className="w-full bg-black/95 py-12">
+    <section className="w-full bg-black/95 py-12 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="lg:order-1">
