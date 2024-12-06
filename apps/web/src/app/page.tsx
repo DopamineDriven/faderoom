@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import type { ReviewsProps } from "@/ui/reviews-section";
+import type { ReviewsAndServicesSectionProps } from "@/ui/reviews-paginated";
 import { Cards } from "@/ui/cards";
 import { LoadingDots } from "@/ui/loading/Dots";
 import { ParticleOverlayImageGrid } from "@/ui/particles/ParticleOverlayImageGrid";
@@ -21,7 +21,9 @@ export default function Home() {
         </Suspense>
         <div className="absolute inset-0 overflow-hidden" />
       </div>
-      <ReviewsAndServicesSection reviews={reviewData.reviews as ReviewsProps} />
+      <ReviewsAndServicesSection
+        reviews={reviewData.reviews as ReviewsAndServicesSectionProps}
+      />
       <Cards imageData={imageObject} />
     </>
   );

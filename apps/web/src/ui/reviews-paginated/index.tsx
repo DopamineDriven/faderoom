@@ -16,15 +16,17 @@ import { ServicesSection } from "@/ui/services";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
 
+export type ReviewsAndServicesSectionProps = ArrFieldReplacer<
+  typeof reviewsData.reviews,
+  "rank",
+  true,
+  { rank: 1 | 2 | 3 | 4 | 5 }
+>;
+
 export function ReviewsAndServicesSection({
   reviews
 }: {
-  reviews: ArrFieldReplacer<
-    typeof reviewsData.reviews,
-    "rank",
-    true,
-    { rank: 1 | 2 | 3 | 4 | 5 }
-  >;
+  reviews: ReviewsAndServicesSectionProps;
 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 5;
