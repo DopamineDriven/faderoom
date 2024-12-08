@@ -43,12 +43,12 @@ const navigation = {
 
 export function Footer() {
   return (
-    <footer className="border-t-[7px] border-t-fr-500 bg-fr-bg-main px-6 lg:px-20">
+    <footer className="border-t-[0.25rem] border-t-fr-300 bg-fr-bg-main px-6 lg:px-20">
       <div className="overflow-hidden lg:pb-4 lg:pt-4">
         <nav
           className="hidden lg:flex lg:flex-row lg:items-center lg:justify-start"
           aria-label="Global">
-          <div className="not-sr-only mr-[3.25rem] flex flex-shrink">
+          <div className="not-sr-only mr-[3.25rem] mt-1 flex flex-shrink">
             <Link href="/" className="lg:-m-1.5 lg:px-1.5 lg:pb-1.5">
               <span className="sr-only">The Fade Room Inc.</span>
               <FadeRoomIcon height={115} width={115} />
@@ -60,7 +60,7 @@ export function Footer() {
                 key={`footer-${item.name}`}
                 href={item.href}
                 target={item.target}
-                className="font-basis-grotesque-pro-medium text-[1.125rem] leading-[1.5rem] tracking-[0.07813rem] text-fr-300 hover:text-fr-400 lg:tracking-[-0.00675rem]">
+                className="font-basis-grotesque-pro-medium text-[1.125rem] leading-[1.5rem] tracking-[0.07813rem] text-fr-300 hover:text-fr-300/95 lg:tracking-[-0.00675rem]">
                 {item.name}
               </Link>
             ))}
@@ -78,14 +78,14 @@ export function Footer() {
               <Link
                 key={`footer-${item.name}`}
                 href={item.href}
-                className="font-basis-grotesque-pro-medium text-[0.875rem] leading-[1.25rem] tracking-[-0.00675rem] text-fr-300 hover:text-fr-400">
+                className="font-basis-grotesque-pro-medium text-[0.875rem] leading-[1.25rem] tracking-[-0.00675rem] text-fr-300 hover:text-fr-300/95">
                 {item.name}
               </Link>
             ))}
           </div>
         </nav>
       </div>
-      <div className="mt-4 border-t border-fr-500 pb-4 pt-2 lg:mt-0 lg:flex lg:justify-between lg:pt-4">
+      <div className="mt-4 border-t border-fr-300 pb-4 pt-2 lg:mt-0 lg:flex lg:justify-between lg:pt-4">
         <div className="flex space-x-6 pb-2 pt-2 md:order-2">
           {navigation.social.map(item => (
             <a
@@ -93,7 +93,7 @@ export function Footer() {
               href={item.href}
               target="_blank"
               rel="noreferrer noopener"
-              className="text-fr-300 hover:text-fr-400">
+              className="text-fr-300 hover:text-fr-300/95">
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>

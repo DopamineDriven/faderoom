@@ -100,26 +100,33 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <div className="space-y-6">
-      <h2
-        id="services"
-        className="mb-6 text-center text-3xl font-bold text-fr-300">
-        Services
-      </h2>
-      {services.map((service, index) => (
-        <Card key={index} className="border-zinc-800 bg-zinc-900">
-          <CardHeader className="flex flex-row items-center gap-4">
-            <service.icon className="h-8 w-8 text-fr-300" />
-            <div>
-              <CardTitle className="text-fr-300">{service.name}</CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <p className="text-zinc-400">{service.description}</p>
-            <p className="mt-2 font-semibold text-fr-300">{service.price}</p>
-          </CardContent>
-        </Card>
-      ))}
+    <div className="flex h-full flex-col">
+      <div className="mb-6 text-center">
+        <h2 className="mb-2 text-3xl font-bold text-fr-300">Services</h2>
+        <p className="text-zinc-400">Popular</p>
+      </div>
+      <div
+        className="flex-grow overflow-y-auto pr-4"
+        style={{ height: "calc(100vh - 300px)" }}>
+        <div className="space-y-6">
+          {services.map((service, index) => (
+            <Card key={index} className="border-zinc-800 bg-zinc-900">
+              <CardHeader className="flex flex-row items-center gap-4">
+                <service.icon className="h-8 w-8 text-fr-300" />
+                <div>
+                  <CardTitle className="text-fr-300">{service.name}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-zinc-400">{service.description}</p>
+                <p className="mt-2 font-semibold text-fr-300">
+                  {service.price}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
