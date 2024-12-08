@@ -15,13 +15,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@eslint/compat": "^1.1.1",
+    "@eslint/compat": "^1.2.4",
     "@next/eslint-plugin-next": "latest",
     "eslint-config-turbo": "latest",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-turbo": "latest",
     "jiti": "^2.4.1",
     "typescript-eslint": "latest"

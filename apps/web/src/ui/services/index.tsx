@@ -2,21 +2,22 @@ import {
   BeakerIcon as Beard,
   Coffee,
   Medal as HerosIcon,
-  Gift as PresidentialIcon,
   Scissors,
-  SprayCanIcon as Spray
+  SprayCanIcon as Spray,
+  Stars,
+  Target
 } from "lucide-react";
 import { Towel } from "@/ui/icons/Towel";
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle
-} from "@/ui/reviews-paginated/ui/Card";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/ui/services/ui/Accordion";
 
 const services = [
   {
-    icon: Scissors,
+    icon: Target,
     name: "Precision Haircut",
     description:
       "Haircut, straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style",
@@ -71,7 +72,7 @@ const services = [
     price: "$35"
   },
   {
-    icon: PresidentialIcon,
+    icon: Stars,
     name: "Presidential Package",
     description:
       "Haircut, straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; hot steam shave or beard cleanup/lineup; black mask pore cleaner; facial",
@@ -100,32 +101,36 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <div className="flex h-full flex-col">
-      <div className="mb-6 text-center">
+    <div className="space-y-6">
+      <div className="text-center">
         <h2 className="mb-2 text-3xl font-bold text-fr-300">Services</h2>
         <p className="text-zinc-400">Popular</p>
       </div>
       <div
-        className="flex-grow overflow-y-auto pr-4"
-        style={{ height: "calc(100vh - 300px)" }}>
-        <div className="space-y-6">
+        className="overflow-y-auto pr-4"
+        style={{ maxHeight: "calc(100vh - 200px)" }}>
+        <Accordion type="single" collapsible className="w-full">
           {services.map((service, index) => (
-            <Card key={index} className="border-zinc-800 bg-zinc-900">
-              <CardHeader className="flex flex-row items-center gap-4">
-                <service.icon className="h-8 w-8 text-fr-300" />
-                <div>
-                  <CardTitle className="text-fr-300">{service.name}</CardTitle>
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex w-full items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <service.icon className="h-6 w-6 text-fr-300" />
+                    <span className="font-semibold text-fr-300">
+                      {service.name}
+                    </span>
+                  </div>
+                  <span className="font-semibold text-fr-300">
+                    {service.price}
+                  </span>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-zinc-400">{service.description}</p>
-                <p className="mt-2 font-semibold text-fr-300">
-                  {service.price}
-                </p>
-              </CardContent>
-            </Card>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="mt-2 text-zinc-400">{service.description}</p>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </div>
   );
