@@ -43,7 +43,7 @@ const navigation = {
 
 export function Footer() {
   return (
-    <footer className="border-t-[0.25rem] border-t-fr-300 bg-fr-bg-main px-6 lg:px-20">
+    <footer className="border-t-[0.25rem] border-t-fr-300 bg-fr-bg-main px-6">
       <div className="overflow-hidden lg:pb-4 lg:pt-4">
         <nav
           className="hidden lg:flex lg:flex-row lg:items-center lg:justify-start"
