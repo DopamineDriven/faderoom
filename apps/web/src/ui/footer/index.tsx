@@ -1,10 +1,10 @@
 import Link from "next/link";
 import type { TsxExclude } from "@/types/helpers";
+import { BooksyIcon } from "@/ui/icons/Booksy";
 import { FacebookIcon } from "@/ui/icons/Facebook";
 import { FadeRoomIcon } from "@/ui/icons/FadeRoom";
 import { InstagramIcon } from "@/ui/icons/Instagram";
 import { getYear } from "@/utils/get-year";
-import { BooksyIcon } from "../icons/Booksy";
 
 const navigation = {
   social: [
@@ -43,8 +43,8 @@ const navigation = {
 
 export function Footer() {
   return (
-    <footer className="border-t-[0.25rem] border-t-fr-300 bg-fr-bg-main px-6">
-      <div className="overflow-hidden lg:pb-4 lg:pt-4">
+    <footer className="border-t-[0.25rem] border-t-fr-300 bg-fr-bg-main">
+      <div className="overflow-hidden px-4 sm:px-6 lg:px-8 lg:pb-4 lg:pt-4">
         <nav
           className="hidden lg:flex lg:flex-row lg:items-center lg:justify-start"
           aria-label="Global">
