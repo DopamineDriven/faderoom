@@ -41,17 +41,17 @@ export function ReviewsAndServicesSection({
   return (
     <section className="w-full bg-black/95 py-12 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div className="lg:order-1">
+        <div className="grid gap-8 lg:h-[calc(100vh-96px)] lg:grid-cols-2">
+          <div className="lg:order-1 lg:h-full">
             <ServicesSection />
           </div>
-          <div className="flex flex-col lg:order-2">
-            <h2 className="mb-2 text-center text-3xl font-bold text-fr-300">
-              Customer Reviews
-            </h2>
-            <p className="mb-8 text-center text-zinc-400">
-              {reviews.length} reviews
-            </p>
+          <div className="flex flex-col lg:order-2 lg:h-full">
+            <div className="mb-6 text-center">
+              <h2 className="mb-2 text-center text-3xl font-bold text-fr-300">
+                Customer Reviews
+              </h2>
+              <p className="text-zinc-400">{reviews.length} reviews</p>
+            </div>
             <div
               className="h-[calc(100vh-18.75rem)] flex-grow overflow-y-auto"
               ref={reviewsContainerRef}>
