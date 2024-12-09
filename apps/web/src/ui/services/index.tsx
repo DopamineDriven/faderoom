@@ -1,6 +1,5 @@
 import {
   BeakerIcon as Beard,
-  Coffee,
   Medal as HerosIcon,
   Scissors,
   SprayCanIcon as Spray,
@@ -9,6 +8,7 @@ import {
 } from "lucide-react";
 import { Abc } from "@/ui/icons/Abc";
 import { Barbershop } from "@/ui/icons/Barbershop";
+import { Facial } from "@/ui/icons/Facial";
 import { Razor } from "@/ui/icons/Razor";
 import { Towel } from "@/ui/icons/Towel";
 import {
@@ -82,7 +82,7 @@ const services = [
     price: "$125"
   },
   {
-    icon: Towel,
+    icon: Facial,
     name: "Facial",
     description:
       "Relaxing hot towel facial massage; mud scrub; black mask pore cleaning",
@@ -95,7 +95,7 @@ const services = [
     price: "$50+"
   },
   {
-    icon: Coffee,
+    icon: Towel,
     name: "Hot Towel Shave",
     description: "Relaxing traditional straight razor shave",
     price: "$35+"
