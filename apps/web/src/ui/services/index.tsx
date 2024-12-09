@@ -7,6 +7,9 @@ import {
   Stars,
   Target
 } from "lucide-react";
+import { Abc } from "@/ui/icons/Abc";
+import { Barbershop } from "@/ui/icons/Barbershop";
+import { Razor } from "@/ui/icons/Razor";
 import { Towel } from "@/ui/icons/Towel";
 import {
   Accordion,
@@ -21,17 +24,17 @@ const services = [
     name: "Precision Haircut",
     description:
       "Haircut, straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style",
-    price: "$45+"
+    price: "$45"
   },
   {
-    icon: Scissors,
+    icon: Abc,
     name: "Kids Cut (11 & under)",
     description:
       "Haircut, edge up & neck cleaning with trimmers; hot towel with shampoo; blow dry & style",
     price: "$40"
   },
   {
-    icon: Scissors,
+    icon: Barbershop,
     name: "Senior Cut",
     description:
       "Haircut, straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style",
@@ -39,13 +42,13 @@ const services = [
   },
   {
     icon: HerosIcon,
-    name: "Hero Cut (military/police/firefighters/EMTs)",
+    name: "Hero Cut",
     description:
-      "Haircut, straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style",
+      "Haircut, straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style (military/police/firefighters/EMTs only)",
     price: "$40"
   },
   {
-    icon: Beard,
+    icon: Scissors,
     name: "Haircut & Shave (Beard Trim & Lineup)",
     description:
       "Haircut; straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; straight razor shave or beard cleanup/lineup",
@@ -59,7 +62,7 @@ const services = [
     price: "$65"
   },
   {
-    icon: Beard,
+    icon: Razor,
     name: "Shave or Beard Trim & Lineup",
     description:
       "Clean straight razor shave or beard cleanup with lineup; hot towel & mini facial",
