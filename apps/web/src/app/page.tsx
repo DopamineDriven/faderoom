@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import type { ReviewsAndServicesSectionProps } from "@/ui/reviews-paginated";
-import { Cards } from "@/ui/cards";
+// import { Cards } from "@/ui/cards";
 import { LoadingDots } from "@/ui/loading/Dots";
 import { ParticleOverlayImageGrid } from "@/ui/particles/ParticleOverlayImageGrid";
 import { ReviewsAndServicesSection } from "@/ui/reviews-paginated";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
 import reviewData from "@/utils/__generated__/reviews.json";
+import Carousel from "@/ui/carousel";
 
 export const metadata = {
   title: "The Fade Room Inc."
@@ -24,7 +25,7 @@ export default function Home() {
       <ReviewsAndServicesSection
         reviews={reviewData.reviews as ReviewsAndServicesSectionProps}
       />
-      <Cards imageData={imageObject} />
+      <Carousel imageData={imageObject} />
     </>
   );
 }

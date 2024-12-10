@@ -28,9 +28,9 @@ const services = [
   },
   {
     icon: Abc,
-    name: "Kids Cut (11 & under)",
+    name: "Kids Cut",
     description:
-      "Haircut, edge up & neck cleaning with trimmers; hot towel with shampoo; blow dry & style",
+      "Haircut, edge up & neck cleaning with trimmers; hot towel with shampoo; blow dry & style (ages 11 and under)",
     price: "$40"
   },
   {
@@ -49,13 +49,13 @@ const services = [
   },
   {
     icon: Scissors,
-    name: "Haircut & Shave (Beard Trim & Lineup)",
+    name: "Haircut & Shave",
     description:
-      "Haircut; straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; straight razor shave or beard cleanup/lineup",
+      "Haircut (Beard Trim & Lineup); straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; straight razor shave or beard cleanup/lineup",
     price: "$75"
   },
   {
-    icon: Beard,
+    icon: Razor,
     name: "Haircut & Basic Beard Trim",
     description:
       "Haircut; straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; beard cleanup/lineup with electric shaver",
@@ -63,7 +63,7 @@ const services = [
   },
   {
     icon: Razor,
-    name: "Shave or Beard Trim & Lineup",
+    name: "Shave & Mini Facial",
     description:
       "Clean straight razor shave or beard cleanup with lineup; hot towel & mini facial",
     price: "$45"
