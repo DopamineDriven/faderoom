@@ -120,7 +120,7 @@ export default function Carousel({
             <div className="overflow-hidden rounded-lg" ref={mainRef}>
               <div className="flex">
                 {imageData.data.map(image => (
-                  <div key={image.id} className="min-w-0 flex-[0_0_100%] bg-fr-bg-main/90 p-6">
+                  <div key={image.id} className="min-w-0 flex-[0_0_100%]">
                     <Link
                       href={`/photos/${image.id}`}
                       scroll={false}
