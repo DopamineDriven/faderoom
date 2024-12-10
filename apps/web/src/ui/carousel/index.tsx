@@ -6,15 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-// import { shimmer } from "@/lib/shimmer";
 import { Thumbnail } from "./Thumbnail";
-
-// Generate 60 images
-// const images = Array.from({ length: 60 }, (_, i) => ({
-//   id: i + 1,
-//   src: `/placeholder.svg?height=600&width=800&text=Image ${i + 1}`,
-//   alt: `Image ${i + 1}`
-// }));
 
 export default function Carousel({
   imageData
@@ -39,7 +31,6 @@ export default function Carousel({
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [_thumbsSlidesToScroll, setThumbsSlidesToScroll] = useState(0);
-  // const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
   const onThumbClick = useCallback(
     (index: number) => {
@@ -56,13 +47,6 @@ export default function Carousel({
   const scrollNext = useCallback(() => {
     if (mainApi) mainApi.scrollNext();
   }, [mainApi]);
-
-  // use if doesnt work as intended on deploy
-  // const onSelect = useCallback(() => {
-  //   if (!mainApi || !thumbsApi) return;
-  //   setSelectedIndex(mainApi.selectedScrollSnap());
-  //   thumbsApi.scrollTo( mainApi.selectedScrollSnap());
-  // }, [mainApi, thumbsApi]);
 
   const updateThumbs = useCallback(
     (api: EmblaCarouselType) => {
@@ -91,23 +75,6 @@ export default function Carousel({
       mainApi.off("select", onSelect);
     };
   }, [mainApi, thumbsApi, updateThumbs]);
-
-  // useEffect(() => {
-  //   if (!thumbsApi) return;
-
-  //   // Center the active thumbnail
-  //   const centerThumb = (index: number) => {
-  //     const thumbPerView = 7; // Should match the perView in thumbsRef options
-  //     const center = Math.floor(thumbPerView / 2);
-  //     const target = Math.max(
-  //       0,
-  //       Math.min(index - center, scrollSnaps.length - thumbPerView)
-  //     );
-  //     thumbsApi.scrollTo(target);
-  //   };
-
-  //   centerThumb(selectedIndex);
-  // }, [selectedIndex, thumbsApi, scrollSnaps.length]);
 
   return (
     <div className="min-h-screen bg-zinc-900">
