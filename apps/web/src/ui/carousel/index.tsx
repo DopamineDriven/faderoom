@@ -158,7 +158,7 @@ export default function Carousel({
             </div>
           </div>
           {showSwipeAnimation && (
-            <div className="relative my-auto -mt-4 h-12 md:hidden">
+            <div className="relative my-auto -mt-4 h-12">
               <div className="absolute left-1/2 -translate-x-1/2">
                 <SwipeGesture isActive={showSwipeAnimation && !hasInteracted} />
               </div>
