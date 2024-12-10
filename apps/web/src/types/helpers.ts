@@ -25,7 +25,7 @@ export type ArrFieldReplacer<T, V, Q = false, P = unknown> = T extends
         : U
     : T
   : T;
-  
+
 export type ConditionalToRequired<
   T,
   Z extends keyof T = keyof T
@@ -155,6 +155,11 @@ export type TsxIncludeExp<
   K extends keyof React.JSX.IntrinsicElements,
   J extends keyof TsxTargetedExp<K, I>
 > = RemoveFields<TsxTargetedExp<K, I>, Exclude<keyof TsxTargetedExp<K, I>, J>>;
+
+export type ElementAttributePicker<
+  T extends keyof React.JSX.IntrinsicElements
+> = React.RefAttributes<TsxTargetedExp<T, "element">> &
+  Partial<TsxTargetedExp<T, "attribute">>;
 
 /* Experimental React Type Helpers END */
 
