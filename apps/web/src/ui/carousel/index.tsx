@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-// import { shimmer } from "@/lib/shimmer";
 import { Thumbnail } from "./Thumbnail";
+import { shimmer } from "@/lib/shimmer";
 
 // Generate 60 images
 // const images = Array.from({ length: 60 }, (_, i) => ({
@@ -118,9 +118,9 @@ export default function Carousel({
         <div className="mx-auto max-w-5xl">
           <div className="relative mb-4">
             <div className="overflow-hidden rounded-lg" ref={mainRef}>
-              <div className="flex">
+              <div className="flex ">
                 {imageData.data.map(image => (
-                  <div key={image.id} className="min-w-0 flex-[0_0_100%]">
+                  <div key={image.id} className="min-w-0 w-full place-items-center flex-[0_0_100%] bg-fr-bg-main/90 p-6">
                     <Link
                       href={`/photos/${image.id}`}
                       scroll={false}
@@ -128,11 +128,10 @@ export default function Carousel({
                       <Image
                         src={image.url}
                         alt={image.relative_path}
-                        // width={image.width}
-                        // height={image.height}
-                        // placeholder="blur"
-                        // blurDataURL={shimmer([image.width, image.height])}
-                        fill
+                        width={image.width}
+                        height={image.height}
+                        placeholder="blur"
+                        blurDataURL={shimmer([image.width, image.height])}
                         className="object-cover"
                       />
                     </Link>
