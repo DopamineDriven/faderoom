@@ -67,7 +67,7 @@ export function Footer() {
           </div>
         </nav>
         <nav className="grid grid-cols-1 lg:hidden" aria-label="Global">
-          <div className="not-sr-only col-span-2 mr-[3.25rem] flex flex-shrink">
+          <div className="not-sr-only col-span-2 mx-[3.25rem] my-1 flex flex-shrink">
             <Link href="/" className="lg:-m-1.5 lg:px-1.5 lg:pb-1.5">
               <span className="sr-only">The Fade Room Inc.</span>
               <FadeRoomIcon height={100} width={100} />
