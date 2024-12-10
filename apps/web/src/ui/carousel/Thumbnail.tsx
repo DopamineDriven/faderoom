@@ -48,7 +48,7 @@ export const Thumbnail: FC<ThumbnailProps> = ({
         // placeholder="blur"
         // blurDataURL={shimmer([image.width, image.height])}
       />
-      <div className="absolute bottom-2 right-2 rounded rounded-tl-sm bg-black/50 px-[0.0625rem] py-[0.03125rem] text-xxs tracking-tight text-white">
+      <div className="absolute bottom-0 right-0 rounded rounded-tl-sm bg-black/50 px-[0.0625rem] py-[0.03125rem] text-xxs tracking-tight text-white">
         {index + 1}
       </div>
     </button>
