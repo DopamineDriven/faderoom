@@ -44,7 +44,7 @@ const navigation = {
 export function Footer() {
   return (
     <footer className="border-t-[0.25rem] border-t-fr-300 bg-fr-bg-main">
-      <div className="overflow-hidden px-4 sm:px-6 lg:px-8 lg:pb-4 lg:pt-4">
+      <div className="overflow-hidden mx-4 sm:px-6 lg:px-8 lg:pb-4 lg:pt-4">
         <nav
           className="hidden lg:flex lg:flex-row lg:items-center lg:justify-start"
           aria-label="Global">
@@ -67,7 +67,7 @@ export function Footer() {
           </div>
         </nav>
         <nav className="grid grid-cols-1 lg:hidden" aria-label="Global">
-          <div className="not-sr-only col-span-2 mx-[3.25rem] my-1 flex flex-shrink">
+          <div className="not-sr-only col-span-2 mr-[3.25rem] flex flex-shrink">
             <Link href="/" className="lg:-m-1.5 lg:px-1.5 lg:pb-1.5">
               <span className="sr-only">The Fade Room Inc.</span>
               <FadeRoomIcon height={100} width={100} />
