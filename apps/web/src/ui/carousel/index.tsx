@@ -172,7 +172,7 @@ export default function Carousel({
               ))}
             </div>
           </div>
-          {isInView && (
+          {isInView && hasInteracted === false && (
             <div className="relative my-auto -mt-4 h-12">
               <div className="absolute left-1/2 -translate-x-1/2">
                 <SwipeGesture isActive={showSwipeAnimation && !hasInteracted} />
