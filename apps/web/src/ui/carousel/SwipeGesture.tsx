@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { HandIcon } from "@/ui/icons/HandIcon";
 
 export interface SwipeGestureProps {
@@ -11,11 +11,11 @@ export const SwipeGesture: FC<SwipeGestureProps> = ({ isActive }) => {
     <div className="relative flex h-12 w-16 items-center justify-center rounded-full bg-transparent">
       <motion.div
         className="text-gray-200"
-        initial={{ x: -20, opacity: 0 }}
+        initial={{ x: 20, opacity: 0 }}
         animate={
           isActive
             ? {
-                x: [null, 0, 20, 0],
+                x: [null, 0, -20, 0],
                 opacity: [null, 1, 1, 0]
               }
             : { x: 0, opacity: 0 }
