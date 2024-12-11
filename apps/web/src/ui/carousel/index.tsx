@@ -37,7 +37,7 @@ export default function Carousel({
   const [_thumbsSlidesToScroll, setThumbsSlidesToScroll] = useState(0);
   const inViewDivRef = useRef<HTMLDivElement | null>(null);
 
-  const isInView = useInView(inViewDivRef, { amount: "some" });
+  const isInView = useInView(inViewDivRef, { amount: "some", once: true });
 
   const onThumbClick = useCallback(
     (index: number) => {
@@ -86,21 +86,23 @@ export default function Carousel({
     };
   }, [mainApi, thumbsApi, updateThumbs]);
 
-  useEffect(() => {
-    console.log(`isInView=${isInView}`);
-    if (isInView === false) {
-      setShowSwipeAnimation(true);
-      setHasInteracted(false);
-    }
-  }, [isInView]);
+  // useEffect(() => {
+  //   console.log(`isInView=${isInView}`);
+  //   if (isInView === false) {
+  //     setShowSwipeAnimation(true);
+  //     setHasInteracted(false);
+  //   }
+  // }, [isInView]);
 
   useEffect(() => {
+    if (isInView) {
     const timer = setTimeout(() => {
       setShowSwipeAnimation(false);
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }
+  }, [isInView]);
 
   const handleGalleryFocus = useCallback(() => {
     setHasInteracted(true);
