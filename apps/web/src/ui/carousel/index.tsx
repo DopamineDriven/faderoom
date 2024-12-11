@@ -87,6 +87,7 @@ export default function Carousel({
   }, [mainApi, thumbsApi, updateThumbs]);
 
   useEffect(() => {
+    console.log(`isInView=${isInView}`)
     if (isInView === false) {
       setShowSwipeAnimation(true);
       setHasInteracted(false);
@@ -132,7 +133,7 @@ export default function Carousel({
                         src={image.url}
                         alt={image.relative_path}
                         fill
-                        loading="lazy"
+                        // loading="lazy"
                         className="object-cover"
                       />
                       <div className="absolute bottom-2 right-2 rounded bg-black/50 px-2 py-1 text-sm text-white">
@@ -173,7 +174,7 @@ export default function Carousel({
             <div className="relative my-auto -mt-4 h-12">
               <div className="absolute left-1/2 -translate-x-1/2">
                 <SwipeGesture
-                  isActive={!!showSwipeAnimation && !hasInteracted}
+                  isActive={showSwipeAnimation && !hasInteracted}
                 />
               </div>
             </div>
