@@ -98,7 +98,7 @@ export default function Carousel({
     if (isInView) {
     const timer = setTimeout(() => {
       setShowSwipeAnimation(false);
-    }, 3000);
+    }, 6000);
 
     return () => clearTimeout(timer);
   }
