@@ -1,11 +1,12 @@
 "use client";
 
 import type { EmblaCarouselType } from "embla-carousel";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useInView } from "motion/react";
 import { SwipeGesture } from "@/ui/carousel/SwipeGesture";
 import { Thumbnail } from "@/ui/carousel/Thumbnail";
 
@@ -34,6 +35,9 @@ export default function Carousel({
   const [showSwipeAnimation, setShowSwipeAnimation] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [_thumbsSlidesToScroll, setThumbsSlidesToScroll] = useState(0);
+  const inViewDivRef = useRef<HTMLDivElement | null>(null);
+
+  const isInView = useInView(inViewDivRef, { once: true, amount: "all" });
 
   const onThumbClick = useCallback(
     (index: number) => {
@@ -104,6 +108,7 @@ export default function Carousel({
           Gallery
         </h2>
         <div
+          ref={inViewDivRef}
           className="mx-auto max-w-5xl"
           onFocus={handleGalleryFocus}
           tabIndex={0}>
@@ -157,10 +162,12 @@ export default function Carousel({
               ))}
             </div>
           </div>
-          {showSwipeAnimation && (
+          {isInView && (
             <div className="relative my-auto -mt-4 h-12">
               <div className="absolute left-1/2 -translate-x-1/2">
-                <SwipeGesture isActive={showSwipeAnimation && !hasInteracted} />
+                <SwipeGesture
+                  isActive={!!showSwipeAnimation && !hasInteracted}
+                />
               </div>
             </div>
           )}

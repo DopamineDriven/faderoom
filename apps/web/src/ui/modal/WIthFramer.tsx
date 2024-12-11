@@ -1,10 +1,10 @@
 "use client";
 
-import type { Variants } from "framer-motion";
+import type { Variants } from "motion/react";
 import type { MouseEvent as ReactMouseEvent, ReactNode } from "react";
 import { useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 // import FrozenRouter from "./FrozenRouter";
 
