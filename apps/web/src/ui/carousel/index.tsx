@@ -37,7 +37,7 @@ export default function Carousel({
   const [_thumbsSlidesToScroll, setThumbsSlidesToScroll] = useState(0);
   const inViewDivRef = useRef<HTMLDivElement | null>(null);
 
-  const isInView = useInView(inViewDivRef, { amount: "all" });
+  const isInView = useInView(inViewDivRef, { amount: "some" });
 
   const onThumbClick = useCallback(
     (index: number) => {
@@ -87,7 +87,7 @@ export default function Carousel({
   }, [mainApi, thumbsApi, updateThumbs]);
 
   useEffect(() => {
-    console.log(`isInView=${isInView}`)
+    console.log(`isInView=${isInView}`);
     if (isInView === false) {
       setShowSwipeAnimation(true);
       setHasInteracted(false);
@@ -97,7 +97,7 @@ export default function Carousel({
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSwipeAnimation(false);
-    }, 7500);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -173,9 +173,7 @@ export default function Carousel({
           {isInView && (
             <div className="relative my-auto -mt-4 h-12">
               <div className="absolute left-1/2 -translate-x-1/2">
-                <SwipeGesture
-                  isActive={showSwipeAnimation && !hasInteracted}
-                />
+                <SwipeGesture isActive={showSwipeAnimation && !hasInteracted} />
               </div>
             </div>
           )}
