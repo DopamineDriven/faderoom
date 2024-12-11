@@ -41,7 +41,7 @@ export const Thumbnail: FC<ThumbnailProps> = ({
         src={image.url}
         alt={image.relative_path}
         fill
-        loading="lazy"
+        // loading="lazy"
         className="object-cover"
         // width={image.width}
         // height={image.height}

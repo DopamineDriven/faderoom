@@ -132,7 +132,7 @@ export default function Carousel({
                         src={image.url}
                         alt={image.relative_path}
                         fill
-                        loading="lazy"
+                        // loading="lazy"
                         className="object-cover"
                       />
                       <div className="absolute bottom-2 right-2 rounded bg-black/50 px-2 py-1 text-sm text-white">
