@@ -87,6 +87,7 @@ export default function Carousel({
   }, [mainApi, thumbsApi, updateThumbs]);
 
   useEffect(() => {
+    console.log(`isInView=${isInView}`)
     if (isInView === false) {
       setShowSwipeAnimation(true);
       setHasInteracted(false);
