@@ -12,7 +12,7 @@ export function LocationMap() {
   useEffect(() => {
     if (typeof window.google !== "undefined" && mapRef.current && !map) {
       const mapInstance = new google.maps.Map(mapRef.current, {
-        center: { lat: 42.0583309, lng: -88.233325 },
+        center: { lat: 42.157264, lng: -87.804128 },
         zoom: 15,
         mapId: "2959b320759c0047"
       });
@@ -99,7 +99,7 @@ export function LocationMap() {
       // Coordinates for The Fade Room Inc.
       const lat = 42.0583309;
       const lng = -88.233325;
-      const label = encodeURIComponent("The Fade Room Inc");
+      const label = encodeURIComponent("The Fade Room Inc Highland Park IL");
 
       // Universal Link for iOS, Intent for Android, and fallback for other devices
       const appleMapsUrl = `maps://maps.apple.com/?q=${label}&ll=${lat},${lng}`;
