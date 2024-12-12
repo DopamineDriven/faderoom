@@ -11,7 +11,6 @@ export function LocationMap() {
 
   useEffect(() => {
     if (typeof window.google !== "undefined" && mapRef.current && !map) {
-      // 42.0583309,-88.233325
       const mapInstance = new google.maps.Map(mapRef.current, {
         center: { lat: 42.0583309, lng: -88.233325 },
         zoom: 15,
@@ -29,7 +28,7 @@ export function LocationMap() {
             status === google.maps.places.PlacesServiceStatus.OK &&
             place?.geometry?.location
           ) {
-            // Create a pin element
+            // create a pin
             const pinElement = document.createElement("div");
             pinElement.innerHTML = `
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-black">
@@ -69,6 +68,25 @@ export function LocationMap() {
     }
   }, [map]);
 
+  // const handleGetDirections = () => {
+  //   /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
+  //   const button = document.querySelector(
+  //     ".get-directions-button"
+  //   )! as HTMLButtonElement;
+  //   if (button) {
+  //     button.innerHTML =
+  //       '<span class="animate-spin mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/></svg></span>Opening Maps...';
+  //     setTimeout(() => {
+  //       window.open(
+  //         "https://www.google.com/maps/dir/?api=1&destination=The+Fade+Room+Inc+Highland+Park+IL&destination_place_id=ChIJWR1tbabBD4gRrUSmN1K2TPw",
+  //         "_blank"
+  //       );
+  //       button.innerHTML =
+  //         '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M3 12h18M3 12l4-4m-4 4 4 4"/></svg>Get Directions';
+  //     }, 1000);
+  //   }
+  // };
+
   const handleGetDirections = () => {
     /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
     const button = document.querySelector(
@@ -77,14 +95,35 @@ export function LocationMap() {
     if (button) {
       button.innerHTML =
         '<span class="animate-spin mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/></svg></span>Opening Maps...';
+
+      // Coordinates for The Fade Room Inc.
+      const lat = 42.0583309;
+      const lng = -88.233325;
+      const label = encodeURIComponent("The Fade Room Inc");
+
+      // Universal Link for iOS, Intent for Android, and fallback for other devices
+      const appleMapsUrl = `maps://maps.apple.com/?q=${label}&ll=${lat},${lng}`;
+      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}&query_place_id=ChIJWR1tbabBD4gRrUSmN1K2TPw`;
+      const androidIntent = `geo:${lat},${lng}?q=${lat},${lng}(${label})`;
+
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href = appleMapsUrl;
+        setTimeout(() => {
+          window.location.href = googleMapsUrl;
+        }, 2000);
+      } else if (/Android/i.test(navigator.userAgent)) {
+        window.location.href = androidIntent;
+        setTimeout(() => {
+          window.location.href = googleMapsUrl;
+        }, 2000);
+      } else {
+        window.open(googleMapsUrl, "_blank");
+      }
+
       setTimeout(() => {
-        window.open(
-          "https://www.google.com/maps/dir/?api=1&destination=The+Fade+Room+Inc+Highland+Park+IL&destination_place_id=ChIJWR1tbabBD4gRrUSmN1K2TPw",
-          "_blank"
-        );
         button.innerHTML =
           '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M3 12h18M3 12l4-4m-4 4 4 4"/></svg>Get Directions';
-      }, 1000);
+      }, 3000);
     }
   };
 
