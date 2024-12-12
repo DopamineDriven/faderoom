@@ -96,12 +96,12 @@ export default function Carousel({
 
   useEffect(() => {
     if (isInView) {
-    const timer = setTimeout(() => {
-      setShowSwipeAnimation(false);
-    }, 6000);
+      const timer = setTimeout(() => {
+        setShowSwipeAnimation(false);
+      }, 6000);
 
-    return () => clearTimeout(timer);
-  }
+      return () => clearTimeout(timer);
+    }
   }, [isInView]);
 
   const handleGalleryFocus = useCallback(() => {
@@ -172,12 +172,14 @@ export default function Carousel({
               ))}
             </div>
           </div>
-          {isInView && hasInteracted === false && (
+          {isInView && hasInteracted === false ? (
             <div className="relative my-auto -mt-4 h-12">
               <div className="absolute left-1/2 -translate-x-1/2">
                 <SwipeGesture isActive={showSwipeAnimation && !hasInteracted} />
               </div>
             </div>
+          ) : (
+            <></>
           )}
         </div>
       </div>
