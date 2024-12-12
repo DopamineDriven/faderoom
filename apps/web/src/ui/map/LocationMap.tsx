@@ -97,8 +97,8 @@ export function LocationMap() {
         '<span class="animate-spin mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/></svg></span>Opening Maps...';
 
       // Coordinates for The Fade Room Inc.
-      const lat = 42.0583309;
-      const lng = -88.233325;
+      const lat = 42.157264;
+      const lng = -87.804128;
       const label = encodeURIComponent("The Fade Room Inc Highland Park IL");
 
       // Universal Link for iOS, Intent for Android, and fallback for other devices
