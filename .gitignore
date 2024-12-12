@@ -46,3 +46,5 @@ booksy.config.yaml
 .npmrc
 
 apps/web/src/gql/*
+apps/web/src/utils/article.html
+apps/web/src/utils/tester.ts
