@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { Navigation } from "lucide-react";
 import { MapButton } from "@/ui/map/MapButton";
 
-
 // TODO https://developers.google.com/maps/documentation/javascript/load-maps-js-api#migrate-to-dynamic
 export function LocationMap() {
   const mapRef = useRef<HTMLDivElement | null>(null);
@@ -98,8 +97,9 @@ export function LocationMap() {
           className="h-[400px] w-full overflow-hidden rounded-lg border border-[#C5A572]/20"
         />
         <MapButton
+          variant="default"
           onClick={handleGetDirections}
-          className="get-directions-button w-full bg-[#C5A572] text-black hover:bg-[#C5A572]/90">
+          className="get-directions-button inline-flex w-full items-center justify-center rounded-md bg-[#C5A572] text-black hover:bg-[#C5A572]/90">
           <Navigation className="mr-2 h-4 w-4" />
           Get Directions
         </MapButton>

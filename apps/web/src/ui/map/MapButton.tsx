@@ -13,8 +13,10 @@ const variants = {
     default: "bg-[#C5A572] text-black hover:bg-[#C5A572]/90",
     destructive:
       "bg-[hsl(0_62.8%_30.6%)] text-[hsl(0_0%_100%)] hover:bg-[hsl(0_62.8%_30.6%/0.9)]",
-    outline: "border border-[hsl(39_48%_61%)] hover:bg-[hsl(39_48%_61%)] hover:text-[hsl(0_0%_0%)]",
-    secondary: "bg-[hsl(0_0%_9%)] text-[hsl(0_0%_100%)] hover:bg-[hsl(0_0%_9%/0.8)]",
+    outline:
+      "border border-[hsl(39_48%_61%)] hover:bg-[hsl(39_48%_61%)] hover:text-[hsl(0_0%_0%)]",
+    secondary:
+      "bg-[hsl(0_0%_9%)] text-[hsl(0_0%_100%)] hover:bg-[hsl(0_0%_9%/0.8)]",
     ghost: "hover:bg-[hsl(39_48%_61%)] hover:text-[hsl(0_0%_0%)]",
     link: "underline-offset-4 hover:underline text-[hsl(39_48%_61%)]"
   },
