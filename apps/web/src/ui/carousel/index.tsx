@@ -7,6 +7,7 @@ import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "motion/react";
+import { cn } from "@/lib/utils";
 import { SwipeGesture } from "@/ui/carousel/SwipeGesture";
 import { Thumbnail } from "@/ui/carousel/Thumbnail";
 
@@ -172,14 +173,16 @@ export default function Carousel({
               ))}
             </div>
           </div>
-          {isInView && hasInteracted === false ? (
-            <div className="relative my-auto -mt-4 h-12">
+          {isInView && hasInteracted === false && (
+            <div
+              className={cn(
+                "relative my-auto -mt-4 h-12",
+                showSwipeAnimation === true ? "" : "hidden"
+              )}>
               <div className="absolute left-1/2 -translate-x-1/2">
                 <SwipeGesture isActive={showSwipeAnimation && !hasInteracted} />
               </div>
             </div>
-          ) : (
-            <></>
           )}
         </div>
       </div>
