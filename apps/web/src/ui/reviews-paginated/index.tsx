@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { FC, PropsWithChildren, useRef, useState } from "react";
 import { Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
 import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
@@ -16,19 +16,20 @@ import { ReviewContent } from "@/ui/reviews-paginated/ui/ReviewContent";
 import { ServicesSection } from "@/ui/services";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
+import GoogleMap from "../map";
 
 export type ReviewsAndServicesSectionProps = ArrFieldReplacer<
   typeof reviewsData.reviews,
   "rank",
   true,
-  { rank: 1 | 2 | 3 | 4 | 5 }
+  {
+    rank: 1 | 2 | 3 | 4 | 5;
+  }
 >;
 
-export function ReviewsAndServicesSection({
-  reviews
-}: {
-  reviews: ReviewsAndServicesSectionProps;
-}) {
+export const ReviewsAndServicesSection: FC<
+  PropsWithChildren<{ reviews: ReviewsAndServicesSectionProps }>
+> = ({ reviews, children }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 5;
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
@@ -164,7 +165,11 @@ export function ReviewsAndServicesSection({
             )}
           </div>
         </div>
+        <div className="py-12">
+          <GoogleMap />
+        </div>
+        <div className="py-12">{children}</div>
       </div>
     </section>
   );
-}
+};

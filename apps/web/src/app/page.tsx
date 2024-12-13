@@ -4,7 +4,6 @@ import type { ReviewsAndServicesSectionProps } from "@/ui/reviews-paginated";
 import Carousel from "@/ui/carousel";
 // import { Cards } from "@/ui/cards";
 import { LoadingDots } from "@/ui/loading/Dots";
-import GoogleMap from "@/ui/map";
 import { ParticleOverlayImageGrid } from "@/ui/particles/ParticleOverlayImageGrid";
 import { ReviewsAndServicesSection } from "@/ui/reviews-paginated";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
@@ -24,10 +23,9 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden" />
       </div>
       <ReviewsAndServicesSection
-        reviews={reviewData.reviews as ReviewsAndServicesSectionProps}
-      />
-      <GoogleMap />
-      <Carousel imageData={imageObject} />
+        reviews={reviewData.reviews as ReviewsAndServicesSectionProps}>
+        <Carousel imageData={imageObject} />
+      </ReviewsAndServicesSection>
     </>
   );
 }
