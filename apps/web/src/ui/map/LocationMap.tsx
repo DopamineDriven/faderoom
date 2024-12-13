@@ -73,7 +73,7 @@ export function LocationMap() {
   }, [map]);
 
   const handleGetDirections = () => {
-    /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const button = document.querySelector(
       ".get-directions-button"
     )! as HTMLButtonElement;
@@ -81,41 +81,33 @@ export function LocationMap() {
       button.innerHTML =
         '<span class="animate-spin mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/></svg></span>Opening Maps...';
 
-      // Coordinates for The Fade Room Inc.
       const lat = 42.1572639;
       const lng = -87.8041281;
-
       const label = encodeURIComponent("The Fade Room Inc Highland Park IL");
-      const destination = encodeURIComponent("229 Skokie Valley Rd suite 5, Highland Park, IL 60035");
-      // google maps reference -> https://developers.google.com/maps/documentation/urls/get-started#directions-action
 
       // apple maps unique id for The Fade Room
       // reference -> https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
       const auid = `14932589762649227325`;
-
-      // const appleAddress = encodeURIComponent("229 Skokie Valley Rd Suite 5, Highland Park, IL  60035, United States")
-      // maps://maps.apple.com/?q=${label}&address=${appleAddress}
-
-      // Universal Link for iOS, Intent for Android, and fallback for other devices
       const appleMapsUrl = `maps://maps.apple.com/?auid=${auid}`;
-      // fallback google maps url
-      const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${destination}&destination_place_id=ChIJWR1tbabBD4gRrUSmN1K2TPw&travelmode=driving&dir_action=navigate`;
 
-      // Intent for Android
+      // google maps reference -> https://developers.google.com/maps/documentation/urls/get-started#directions-action
+      const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${lat}%2C${lng}&query_place_id=ChIJWR1tbabBD4gRrUSmN1K2TPw`;
+
       const androidIntent = `geo:${lat},${lng}?q=${lat},${lng}(${label})`;
 
+      const openInNewTab = (url: string) => {
+        const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+        if (newWindow) newWindow.opener = null;
+      };
+
       if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        window.location.href = appleMapsUrl;
-        setTimeout(() => {
-          window.location.href = googleMapsUrl;
-        }, 2000);
+        openInNewTab(appleMapsUrl);
+        setTimeout(() => openInNewTab(googleSearchUrl), 2000);
       } else if (/Android/i.test(navigator.userAgent)) {
-        window.location.href = androidIntent;
-        setTimeout(() => {
-          window.location.href = googleMapsUrl;
-        }, 2000);
+        openInNewTab(androidIntent);
+        setTimeout(() => openInNewTab(googleSearchUrl), 2000);
       } else {
-        window.open(googleMapsUrl, "_blank");
+        openInNewTab(googleSearchUrl);
       }
 
       setTimeout(() => {
