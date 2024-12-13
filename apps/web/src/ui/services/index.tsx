@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import {
   BeakerIcon as Beard,
   Medal as HerosIcon,
@@ -6,6 +7,7 @@ import {
   Stars,
   Target
 } from "lucide-react";
+import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
 import { Abc } from "@/ui/icons/Abc";
 import { Barbershop } from "@/ui/icons/Barbershop";
 import { Facial } from "@/ui/icons/Facial";
@@ -103,6 +105,9 @@ const services = [
 ] as const;
 
 export function ServicesSection() {
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  usePreventInnerScroll(scrollContainerRef);
+
   return (
     <div className="space-y-6">
       <div className="text-center">
@@ -110,6 +115,7 @@ export function ServicesSection() {
         <p className="text-zinc-400">Popular</p>
       </div>
       <div
+        ref={scrollContainerRef}
         className="overflow-y-auto pr-4"
         style={{ maxHeight: "calc(100vh - 200px)" }}>
         <Accordion type="single" collapsible className="w-full">

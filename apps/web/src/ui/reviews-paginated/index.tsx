@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
+import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
 import {
   Avatar,
   AvatarFallback,
@@ -37,6 +38,7 @@ export function ReviewsAndServicesSection({
   const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
 
   const reviewsContainerRef = useRef<HTMLDivElement | null>(null);
+  usePreventInnerScroll(reviewsContainerRef);
 
   return (
     <section className="w-full bg-black/95 py-12 md:py-20">
