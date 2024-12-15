@@ -151,6 +151,11 @@ body {
     --slide-height: 19rem;
     --slide-spacing: 1rem;
     --slide-size: 70%;
+    --chart-1: 47 100% 50%;
+    --chart-2: 39 100% 50%;
+    --chart-3: 31 100% 50%;
+    --chart-4: 23 100% 50%;
+    --chart-5: 15 100% 50%;
   }
 }
 
