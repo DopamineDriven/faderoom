@@ -16,7 +16,7 @@ import { ReviewContent } from "@/ui/reviews-paginated/ui/ReviewContent";
 import { ServicesSection } from "@/ui/services";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
-import GoogleMap from "../map";
+import {GoogleMap} from "../map";
 
 export type ReviewsAndServicesSectionProps = ArrFieldReplacer<
   typeof reviewsData.reviews,

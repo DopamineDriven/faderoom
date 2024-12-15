@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { LocationMap } from '@/ui/map/LocationMap'
 
-export default function GoogleMap() {
+export function GoogleMap() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
