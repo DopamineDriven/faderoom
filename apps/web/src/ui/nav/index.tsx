@@ -16,11 +16,7 @@ const NavBar = () => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <Scissors className="h-8 w-8 text-fr-300" />
-              <span className="ml-2 text-xl font-bold text-fr-300">
-                The Fade Room
-              </span>
-              <FadeRoomIcon className="text-fr-300 h-10 w-10" width={40} />
+              <FadeRoomIcon className="h-10 w-10 text-fr-300" width={40} />
             </Link>
           </div>
           <div className="hidden md:block">
