@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Scissors } from "lucide-react";
 import { FadeRoomIcon } from "../icons/FadeRoom";
 
 const NavBar = () => {
