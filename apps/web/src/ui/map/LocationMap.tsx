@@ -118,23 +118,22 @@ export function LocationMap() {
   };
 
   return (
-    // <div className="mx-auto w-full max-w-6xl px-6 py-12">
-    //   <div className="space-y-8">
-    //     <h2 className="text-5xl font-normal text-[#C5A572]">Find Us</h2>
-    <>
-      <div
-        ref={mapRef}
-        className="w-full overflow-hidden rounded-lg border border-[#C5A572]/20"
-      />
-      <MapButton
-        variant="default"
-        onClick={handleGetDirections}
-        className="get-directions-button inline-flex w-full items-center justify-center rounded-md bg-[#C5A572] text-black hover:bg-[#C5A572]/90">
-        <Navigation className="mr-2 h-4 w-4" />
-        Get Directions
-      </MapButton>
-    </>
-    /* </div>
-    </div> */
+    <div className="mx-auto w-full max-w-6xl">
+      <div className="space-y-6">
+        {/* <h2 className="text-5xl font-normal text-[#C5A572]">Find Us</h2> */}
+
+        <div
+          ref={mapRef}
+          className="h-full min-h-fit w-full overflow-hidden rounded-lg border border-[#C5A572]/20"
+        />
+        <MapButton
+          variant="default"
+          onClick={handleGetDirections}
+          className="get-directions-button inline-flex w-full items-center justify-center rounded-md bg-[#C5A572] text-black hover:bg-[#C5A572]/90">
+          <Navigation className="mr-2 h-4 w-4" />
+          Get Directions
+        </MapButton>
+      </div>
+    </div>
   );
 }
