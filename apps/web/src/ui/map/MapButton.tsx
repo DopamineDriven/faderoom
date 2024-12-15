@@ -10,7 +10,7 @@ const rootClassName = {
 
 const variants = {
   variant: {
-    default: "bg-[#C5A572] text-black hover:bg-[#C5A572]/90",
+    default: "bg-fr-300 text-black hover:bg-[#C5A572]/90 text-lg",
     destructive:
       "bg-[hsl(0_62.8%_30.6%)] text-[hsl(0_0%_100%)] hover:bg-[hsl(0_62.8%_30.6%/0.9)]",
     outline:

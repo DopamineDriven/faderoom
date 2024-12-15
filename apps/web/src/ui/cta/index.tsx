@@ -82,11 +82,11 @@ const OptimizedCTA = () => {
   return (
     <CtaCard className="border-cta-border mx-auto w-full max-w-3xl bg-zinc-900 p-2 text-zinc-100 sm:p-4">
       <CtaCardHeader className="mb-4 p-0">
-        <div className="rounded-t-lg bg-fr-300 p-2 text-zinc-900">
-          <p className="text-center text-xs font-bold sm:text-sm">
+        <div className="rounded-t-lg bg-fr-300 font-bold tracking-tight font-basis-grotesque-pro-bold p-2 text-zinc-900">
+          <p className="text-center text-xs sm:text-sm">
             HAIRCUTS BY APPOINTMENT ONLY
           </p>
-          <p className="text-center text-xs font-bold sm:text-sm">
+          <p className="text-center text-xs sm:text-sm">
             ANY SERVICE SCHEDULED BEFORE 7:30AM IS PRE-PAID
           </p>
         </div>

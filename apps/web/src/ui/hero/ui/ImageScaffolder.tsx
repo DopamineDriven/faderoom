@@ -5,6 +5,7 @@ import { forwardRef } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { shimmer } from "@/lib/shimmer";
 
 const ImageScaffolder = forwardRef<
   ElementRef<typeof Image>,
@@ -23,6 +24,8 @@ const ImageScaffolder = forwardRef<
           src={src}
           alt={alt}
           width={width}
+          placeholder="blur"
+          blurDataURL={shimmer([width, height])}
           height={height}
           className={cn(
             "aspect-[2/3] w-full rounded-xl bg-zinc-800/5 object-cover shadow-lg transition-all duration-300",

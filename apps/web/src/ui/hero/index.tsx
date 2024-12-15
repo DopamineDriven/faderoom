@@ -6,8 +6,9 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Booksy } from "@/ui/icons/Booksy";
 import { Razor } from "@/ui/icons/Razor";
+import { shimmer } from "@/lib/shimmer";
 
-const imageGrid = [
+const _imageGrid = [
   {
     src: "https://adgf6mjgcvaeo8u4.public.blob.vercel-storage.com/womens-undercut-q8GneuHKE2mkaOvVebhozFLI89Xpqn.png",
     alt: "Women's undercut with artistic wave pattern",
@@ -89,7 +90,7 @@ const imageHeroLayout = [
 
 const ImageScaffolder = dynamic(() => import("@/ui/hero/ui/ImageScaffolder"), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <Image src={shimmer([176,264])} width={176} height={264} alt="shimmer"  />
 });
 
 function Hero() {
@@ -222,7 +223,7 @@ function Hero() {
               </div>
             ))}
           </div>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -245,7 +246,7 @@ function Hero() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </div>

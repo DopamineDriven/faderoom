@@ -7,11 +7,12 @@ import { FadeRoomIcon } from "../icons/FadeRoom";
 const NavBar = () => {
   return (
     <motion.nav
-      className="fixed left-0 right-0 top-0 z-40 border-b border-zinc-800 bg-zinc-900/80 font-basis-grotesque-pro-medium backdrop-blur-sm"
+      className="fixed top-0 left-0 right-0 bg-zinc-900/80 backdrop-blur-sm border-b border-zinc-800 z-40"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+    >
+      <div className="max-w-[1980px] mx-auto px-4 sm:px-6 lg:px-8 border-zinc-800">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
