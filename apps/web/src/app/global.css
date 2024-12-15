@@ -342,3 +342,17 @@ body {
     opacity: 1;
   }
 }
+
+
+/* Z-index hierarchy */
+.z-nav {
+  z-index: 40;
+}
+
+.z-modal {
+  z-index: 50;
+}
+
+.z-toast {
+  z-index: 60;
+}

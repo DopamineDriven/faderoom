@@ -1,11 +1,12 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Booksy } from "@/ui/icons/Booksy";
 import { Razor } from "@/ui/icons/Razor";
-import dynamic from 'next/dynamic'
+
 const imageGrid = [
   {
     src: "https://adgf6mjgcvaeo8u4.public.blob.vercel-storage.com/womens-undercut-q8GneuHKE2mkaOvVebhozFLI89Xpqn.png",
@@ -86,14 +87,14 @@ const imageHeroLayout = [
   }
 ];
 
-const ImageScaffolder = dynamic(() => import('@/ui/hero/ui/ImageScaffolder'), {
+const ImageScaffolder = dynamic(() => import("@/ui/hero/ui/ImageScaffolder"), {
   ssr: false,
   loading: () => <div>Loading...</div>
-})
+});
 
 function Hero() {
   return (
-    <div className="relative isolate overflow-hidden bg-zinc-900">
+    <div className="relative isolate overflow-hidden bg-zinc-900 pt-16">
       <svg
         className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-zinc-800 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
         aria-hidden="true">
@@ -132,10 +133,10 @@ function Hero() {
           }}
         />
       </div>
-      <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+      <div className="mx-auto max-w-7xl px-6 pb-32 pt-24 sm:pt-32 lg:px-8 lg:pt-32">
         <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
           <motion.div
-            className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl"
+            className="relative w-full max-w-lg lg:max-w-xl lg:shrink-0 xl:max-w-2xl mb-20 sm:mb-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}>
@@ -212,7 +213,7 @@ function Hero() {
               </motion.div>
             </motion.div>
           </motion.div>
-          <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+          <div className="mt-20 flex justify-end gap-8 sm:mt-0 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
             {imageHeroLayout.map(props => (
               <div className={props.className} key={`cluster-${props.id}`}>
                 {props.imageData.map(img => (

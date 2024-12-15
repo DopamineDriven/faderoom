@@ -18,7 +18,8 @@ import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
 import ClientToaster from "@/ui/cta/ClientToaster";
 import { Footer } from "@/ui/footer";
-import { Nav } from "@/ui/nav/Nav";
+import NavBar from "@/ui/nav";
+// import { Nav } from "@/ui/nav/Nav";
 import * as myGtag from "@/utils/analytics";
 
 export const viewport = {
@@ -108,8 +109,8 @@ export default function RootLayout({
         suppressHydrationWarning
         lang="en"
         className={`h-full ${BasisGrotesqueProBlack.variable} ${BasisGrotesqueProBlackItalic.variable} ${BasisGrotesqueProBold.variable} ${BasisGrotesqueProBoldItalic.variable} ${BasisGrotesqueProItalic.variable} ${BasisGrotesqueProLight.variable} ${BasisGrotesqueProLightItalic.variable} ${BasisGrotesqueProMedium.variable} ${BasisGrotesqueProMediumItalic.variable} ${BasisGrotesqueProRegular.variable}`}>
-        <body className="flex min-h-full flex-col justify-between bg-fr-bg-main p-0 antialiased">
-          <Nav />
+        <body className="h-full">
+          <NavBar />
           {children}
           {modal}
           <div className="m-auto" id="modal-root" />
