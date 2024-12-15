@@ -1,24 +1,25 @@
 import Link from "next/link";
 import type { TsxExclude } from "@/types/helpers";
-import { BooksyIcon } from "@/ui/icons/Booksy";
-import { FacebookIcon } from "@/ui/icons/Facebook";
+import { Booksy } from "@/ui/icons/Booksy";
+import { Facebook } from "@/ui/icons/Facebook";
 import { FadeRoomIcon } from "@/ui/icons/FadeRoom";
-import { InstagramIcon } from "@/ui/icons/Instagram";
+import { Instagram } from "@/ui/icons/Instagram";
 import { getYear } from "@/utils/get-year";
 
 const navigation = {
   social: [
     {
-      name: "Facebook",
       href: "https://www.facebook.com/thefaderoominc/",
-      icon: FacebookIcon
+      icon: Facebook
     },
     {
-      name: "Instagram",
       href: "https://www.instagram.com/thefaderoomhighlandpark/?hl=en",
-      icon: InstagramIcon
+      icon: Instagram
     },
-    { name: "Booksy", href: "", icon: BooksyIcon }
+    {
+      href: "https://booksy.com/en-us/481001_the-fade-room_barber-shop_18688_highland-park",
+      icon: Booksy
+    }
   ],
   main: [
     { name: "Home", href: "/", target: "_self" },
@@ -28,7 +29,6 @@ const navigation = {
   ]
 } as const satisfies Readonly<{
   social: {
-    name: string;
     href: string;
     icon: ({
       ...props
@@ -44,7 +44,7 @@ const navigation = {
 export function Footer() {
   return (
     <footer className="border-t-[0.25rem] border-t-fr-300 bg-fr-bg-main">
-      <div className="overflow-hidden mx-4 sm:px-6 lg:px-8 lg:pb-4 lg:pt-4">
+      <div className="mx-4 overflow-hidden sm:px-6 lg:px-8 lg:pb-4 lg:pt-4">
         <nav
           className="hidden lg:flex lg:flex-row lg:items-center lg:justify-start"
           aria-label="Global">
@@ -89,12 +89,12 @@ export function Footer() {
         <div className="flex space-x-6 pb-2 pt-2 md:order-2">
           {navigation.social.map(item => (
             <a
-              key={item.name}
+              key={item.icon.displayName}
               href={item.href}
               target="_blank"
               rel="noreferrer noopener"
               className="text-fr-300 hover:text-fr-300/95">
-              <span className="sr-only">{item.name}</span>
+              <span className="sr-only">{item.icon.displayName}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}

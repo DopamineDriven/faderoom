@@ -113,10 +113,10 @@ export const OptimizedCTA: React.FC = () => {
               onClick={() => copyToClipboard(code)}>
               <span>
                 Use code{" "}
-                <span className="font-semibold text-amber-500">{code}</span> to
+                <span className="font-semibold text-fr-300">{code}</span> to
                 save {discount} on {threshold}
               </span>
-              <span className="text-amber-500">
+              <span className="text-fr-300">
                 {copiedCode === code ? (
                   <Check className="h-5 w-5" />
                 ) : (
