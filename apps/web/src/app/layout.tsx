@@ -108,9 +108,11 @@ export default function RootLayout({
         suppressHydrationWarning
         lang="en"
         className={`h-full ${BasisGrotesqueProBlack.variable} ${BasisGrotesqueProBlackItalic.variable} ${BasisGrotesqueProBold.variable} ${BasisGrotesqueProBoldItalic.variable} ${BasisGrotesqueProItalic.variable} ${BasisGrotesqueProLight.variable} ${BasisGrotesqueProLightItalic.variable} ${BasisGrotesqueProMedium.variable} ${BasisGrotesqueProMediumItalic.variable} ${BasisGrotesqueProRegular.variable}`}>
-        <body className="flex min-h-full flex-col justify-between bg-fr-bg-main p-0 antialiased">
+        <body className="h-full">
           <Nav />
+          <main className="pt-16">
           {children}
+        </main>
           {modal}
           <div className="m-auto" id="modal-root" />
           <Footer />
