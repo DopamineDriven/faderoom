@@ -16,6 +16,7 @@ import {
 import "./global.css";
 import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
+import { Toaster } from "@/ui/cta/ui/Toaster";
 import { Footer } from "@/ui/footer";
 import { Nav } from "@/ui/nav/Nav";
 // import { Footer } from "@/ui/sections/Footer";
@@ -114,9 +115,10 @@ export default function RootLayout({
             <Nav />
             {children}
             {modal}
-            <div className="m-auto" id="modal-root"/>
+            <div className="m-auto" id="modal-root" />
             <Footer />
           </div>
+          <Toaster />
         </body>
         <Script
           async
