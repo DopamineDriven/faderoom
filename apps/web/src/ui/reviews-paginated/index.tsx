@@ -4,7 +4,6 @@ import { FC, PropsWithChildren, useRef, useState } from "react";
 import { Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
 import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
-import { GoogleMap } from "@/ui/map";
 import {
   Avatar,
   AvatarFallback,
@@ -164,9 +163,6 @@ export const ReviewsAndServicesSection: FC<
               </div>
             )}
           </div>
-        </div>
-        <div className="py-12">
-          <GoogleMap />
         </div>
         <div className="py-12">{children}</div>
       </div>
