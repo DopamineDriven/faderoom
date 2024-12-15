@@ -173,3 +173,5 @@ export const ReviewsAndServicesSection: FC<
     </section>
   );
 };
+
+ReviewsAndServicesSection.displayName = "ReviewsAndServicesSection";
