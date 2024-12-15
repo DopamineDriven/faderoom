@@ -44,7 +44,7 @@ export function GoogleMap() {
         </CtaCardTitle>
       </CtaCardHeader>
       <CtaCardContent>
-        <div className="flex h-64 w-full items-center justify-center rounded-lg bg-zinc-800">
+        <div className="flex min-h-full h-64 w-full items-center justify-center rounded-lg bg-zinc-800">
           {isLoaded && <LocationMap />}
         </div>
         <p className="mt-4 text-zinc-300">
