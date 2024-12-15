@@ -4,6 +4,7 @@ import { FC, PropsWithChildren, useRef, useState } from "react";
 import { Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
 import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
+import { GoogleMap } from "@/ui/map";
 import {
   Avatar,
   AvatarFallback,
@@ -16,7 +17,6 @@ import { ReviewContent } from "@/ui/reviews-paginated/ui/ReviewContent";
 import { ServicesSection } from "@/ui/services";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
-import {GoogleMap} from "../map";
 
 export type ReviewsAndServicesSectionProps = ArrFieldReplacer<
   typeof reviewsData.reviews,

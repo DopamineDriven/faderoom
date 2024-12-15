@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ImageScaffolder } from "@/ui/hero/ui/ImageScaffolder";
 import { Booksy } from "@/ui/icons/Booksy";
 import { Razor } from "@/ui/icons/Razor";
