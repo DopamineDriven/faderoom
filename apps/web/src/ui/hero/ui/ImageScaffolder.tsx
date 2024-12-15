@@ -1,21 +1,18 @@
 "use client";
 
+import * as React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { InferIt } from "@/types/next";
 
-const ImageScaffolder = ({
-  src,
-  alt,
-  width = 176,
-  height = 264,
-  className,
-  ...rest
-}: InferIt<typeof import("next/image").default, "P">["0"]) => {
+const ImageScaffolder = React.forwardRef<
+  React.ElementRef<typeof Image>,
+  React.ComponentPropsWithoutRef<typeof Image>
+>(({ src, alt, width = 176, height = 264, className, ...rest }, ref) => {
   return (
     <div className="relative">
       <Image
         {...rest}
+        ref={ref}
         src={src}
         alt={alt}
         width={width}
@@ -28,8 +25,8 @@ const ImageScaffolder = ({
       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10" />
     </div>
   );
-};
+});
 
 ImageScaffolder.displayName = "ImageScaffolder";
 
-export { ImageScaffolder };
+export default ImageScaffolder;

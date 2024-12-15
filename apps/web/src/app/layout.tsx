@@ -19,8 +19,6 @@ import { ViewTransitions } from "next-view-transitions";
 import ClientToaster from "@/ui/cta/ClientToaster";
 import { Footer } from "@/ui/footer";
 import { Nav } from "@/ui/nav/Nav";
-// import { Footer } from "@/ui/sections/Footer";
-// import { Nav } from "@/ui/sections/Nav";
 import * as myGtag from "@/utils/analytics";
 
 export const viewport = {
@@ -114,9 +112,9 @@ export default function RootLayout({
           <Nav />
           {children}
           {modal}
-          <ClientToaster />
           <div className="m-auto" id="modal-root" />
           <Footer />
+          <ClientToaster />
         </body>
         <Script
           async

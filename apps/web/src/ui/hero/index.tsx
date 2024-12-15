@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ImageScaffolder } from "@/ui/hero/ui/ImageScaffolder";
+
 import { Booksy } from "@/ui/icons/Booksy";
 import { Razor } from "@/ui/icons/Razor";
-
+import dynamic from 'next/dynamic'
 const imageGrid = [
   {
     src: "https://adgf6mjgcvaeo8u4.public.blob.vercel-storage.com/womens-undercut-q8GneuHKE2mkaOvVebhozFLI89Xpqn.png",
@@ -85,7 +85,12 @@ const imageHeroLayout = [
   }
 ];
 
-export function Hero() {
+const ImageScaffolder = dynamic(() => import('@/ui/hero/ui/ImageScaffolder'), {
+  ssr: false,
+  loading: () => <div>Loading...</div>
+})
+
+function Hero() {
   return (
     <div className="relative isolate overflow-hidden bg-zinc-900">
       <svg
@@ -246,3 +251,5 @@ export function Hero() {
 }
 
 Hero.displayName = "Hero";
+
+export default Hero;
