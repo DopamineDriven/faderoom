@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import type { ReviewsAndServicesSectionProps } from "@/ui/reviews-paginated";
 import Carousel from "@/ui/carousel";
-import { OptimizedCTA } from "@/ui/cta";
-import { Hero } from "@/ui/hero";
+import OptimizedCTA from "@/ui/cta";
+import Hero from "@/ui/hero";
 import { BusinessHours } from "@/ui/hours";
 import { GoogleMap } from "@/ui/map";
 import { ReviewsAndServicesSection } from "@/ui/reviews-paginated";

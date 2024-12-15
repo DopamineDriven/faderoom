@@ -1,13 +1,12 @@
 "use client";
 
-import type { ComponentPropsWithoutRef, ElementRef } from "react";
-import React, { forwardRef } from "react";
+import * as React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-const ImageScaffolder = forwardRef<
-  ElementRef<typeof Image>,
-  ComponentPropsWithoutRef<typeof Image>
+const ImageScaffolder = React.forwardRef<
+  React.ElementRef<typeof Image>,
+  React.ComponentPropsWithoutRef<typeof Image>
 >(({ src, alt, width = 176, height = 264, className, ...rest }, ref) => {
   return (
     <div className="relative">
@@ -30,4 +29,4 @@ const ImageScaffolder = forwardRef<
 
 ImageScaffolder.displayName = "ImageScaffolder";
 
-export { ImageScaffolder };
+export default ImageScaffolder;

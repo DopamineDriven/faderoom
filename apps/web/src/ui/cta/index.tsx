@@ -47,7 +47,7 @@ const social = [
   }
 ] as const satisfies readonly SocialProps[];
 
-export const OptimizedCTA: React.FC = () => {
+const OptimizedCTA = () => {
   const { toast } = useToast();
   const [copiedCode, setCopiedCode] = React.useState<string | null>(null);
 
@@ -158,5 +158,7 @@ export const OptimizedCTA: React.FC = () => {
     </CtaCard>
   );
 };
+
+export default OptimizedCTA;
 
 OptimizedCTA.displayName = "OptimizedCTA";
