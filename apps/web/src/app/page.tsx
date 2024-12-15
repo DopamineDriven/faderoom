@@ -25,7 +25,7 @@ export default function Home() {
   //   </>
   // );
   return (
-    <main className="min-h-screen bg-fr-bg-main p-0 antialiased font-basis-grotesque-pro-medium">
+    <main className="min-h-screen bg-fr-bg-main font-basis-grotesque-pro-medium antialiased">
       <Hero />
       <div className="container mx-auto space-y-8 p-4 sm:p-8">
         <OptimizedCTA />

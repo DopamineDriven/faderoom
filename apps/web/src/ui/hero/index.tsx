@@ -133,10 +133,10 @@ function Hero() {
           }}
         />
       </div>
-      <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
+      <div className="mx-auto max-w-7xl px-6 pb-32 pt-24 sm:pt-32 lg:px-8 lg:pt-32">
         <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
           <motion.div
-            className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl"
+            className="relative w-full max-w-lg lg:max-w-xl lg:shrink-0 xl:max-w-2xl mb-20 sm:mb-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}>
@@ -213,7 +213,7 @@ function Hero() {
               </motion.div>
             </motion.div>
           </motion.div>
-          <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+          <div className="mt-20 flex justify-end gap-8 sm:mt-0 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
             {imageHeroLayout.map(props => (
               <div className={props.className} key={`cluster-${props.id}`}>
                 {props.imageData.map(img => (
