@@ -90,7 +90,7 @@ export function LocationMap() {
             const pinElement = document.createElement("div");
 
             pinElement.innerHTML = svgFadeString({
-              className: "w-10 h-10",
+              className: "w-6 h-6",
               width: 24,
               height: 24
             });
