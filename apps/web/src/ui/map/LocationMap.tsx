@@ -3,11 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import { Navigation } from "lucide-react";
 import { MapButton } from "@/ui/map/MapButton";
+import "./map-styles.css";
+import { svgFadeString } from "./FadeSvgString";
 
 // TODO https://developers.google.com/maps/documentation/javascript/load-maps-js-api#migrate-to-dynamic
 export function LocationMap() {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [infoWindow, setInfoWindow] = useState<google.maps.InfoWindow | null>(
+    null
+  );
+  const [isInfoWindowVisible, setIsInfoWindowVisible] = useState(true);
 
   useEffect(() => {
     if (typeof window.google !== "undefined" && mapRef.current && !map) {
@@ -15,6 +21,45 @@ export function LocationMap() {
         center: { lat: 42.1572639, lng: -87.8041281 },
         zoom: 15,
         mapId: "2959b320759c0047"
+      });
+
+      const contentString = `
+      <div class="info-window-content">
+        <button class="info-window-close" aria-label="Close info window">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <h2 class="info-window-title">The Fade Room</h2>
+        <p class="info-window-address">229 Skokie Valley Rd suite 5,<br/>Highland Park, IL 60035</p>
+        <div class="info-window-rating">
+          <span class="rating-score">4.8</span>
+          <div class="rating-stars">★★★★★</div>
+          <a href="https://www.google.com/maps/place/The+Fade+Room+Inc/@42.1572639,-87.8041281,15z/reviews"
+             class="review-link" target="_blank">
+            41 reviews
+          </a>
+        </div>
+        <a href="https://www.google.com/maps/place/The+Fade+Room+Inc/@42.1572639,-87.8041281,15z"
+           class="view-map-link" target="_blank">
+          View larger map
+        </a>
+      </div>
+    `;
+
+      const infoWindowInstance = new google.maps.InfoWindow({
+        content: contentString,
+        ariaLabel: "The Fade Room",
+        maxWidth: 300,
+        pixelOffset: new google.maps.Size(0, -5)
+      });
+
+      google.maps.event.addListenerOnce(infoWindowInstance, "domready", () => {
+        const closeButton = document.querySelector(".info-window-close");
+        if (closeButton) {
+          closeButton.addEventListener("click", () => {
+            setIsInfoWindowVisible(false);
+            infoWindowInstance.close();
+          });
+        }
       });
 
       const places = new google.maps.places.PlacesService(mapInstance);
@@ -31,12 +76,11 @@ export function LocationMap() {
           ) {
             // create a pin
             const pinElement = document.createElement("div");
-            pinElement.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-black">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-            `;
+            pinElement.innerHTML = svgFadeString({
+              className: "w-10 h-10",
+              width: 40,
+              height: 40
+            });
             // Add animation
             // pinElement.style.opacity = '0';
             // pinElement.style.transform = 'translate(-50%, -100%) scale(0.8)';
@@ -48,8 +92,8 @@ export function LocationMap() {
             //}, 100);
 
             const pinEle = new google.maps.marker.PinElement({
-              background: "#d7be69",
-              borderColor: "#242424",
+              background: "#242424",
+              borderColor: "#d7be69",
               glyph: pinElement
             });
 
@@ -61,16 +105,29 @@ export function LocationMap() {
               content: pinEle.element
             });
 
-            marker;
+            infoWindowInstance.open({
+              anchor: marker,
+              map: mapInstance
+            });
+
+            marker.addEventListener("gmp-click", () => {
+              if (!isInfoWindowVisible) {
+                infoWindowInstance.open({
+                  anchor: marker,
+                  map: mapInstance
+                });
+                setIsInfoWindowVisible(true);
+              }
+            });
 
             mapInstance.setCenter(place.geometry.location);
-
+            setInfoWindow(infoWindowInstance);
             setMap(mapInstance);
           }
         }
       );
     }
-  }, [map]);
+  }, [map, isInfoWindowVisible]);
 
   const handleGetDirections = () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -117,21 +174,53 @@ export function LocationMap() {
     }
   };
 
+  const handleInfoClick = () => {
+    if (infoWindow && map) {
+      const center = map.getCenter();
+      if (center) {
+        infoWindow.setPosition(center);
+        infoWindow.open(map);
+        setIsInfoWindowVisible(true);
+      }
+    }
+  };
+
   return (
-    <div className="mx-auto w-full font-basis-grotesque-pro-medium max-w-6xl">
+    <div className="mx-auto w-full max-w-6xl font-basis-grotesque-pro-medium">
       <div className="space-y-6">
-        <div
-          ref={mapRef}
-          className="h-64 aspect-auto shadow-glow min-h-fit w-full overflow-hidden rounded-lg border border-[#C5A572]/20"
-        />
+        <div className="relative h-[350px] w-full overflow-hidden rounded-lg border border-fr-300/20">
+          <div ref={mapRef} className="absolute inset-0" />
+          {!isInfoWindowVisible && (
+            <button
+              onClick={handleInfoClick}
+              className="absolute bottom-4 left-4 z-10 rounded-full bg-fr-300 p-2 shadow-md transition-colors hover:bg-fr-300/90"
+              aria-label="Show info window">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-6 w-6 text-black">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </button>
+          )}
+        </div>
         <MapButton
           variant="default"
           onClick={handleGetDirections}
-          className="get-directions-button inline-flex w-full items-center justify-center rounded-md bg-fr-300 text-black hover:bg-fr-300/90">
+          className="get-directions-button inline-flex w-full items-center justify-center rounded-md border border-fr-300/20 bg-fr-300 text-black transition-colors hover:bg-fr-300/90">
           <Navigation className="mr-2 h-4 w-4" />
           Get Directions
         </MapButton>
-        <address className="mt-4 text-center text-zinc-300 font-basis-grotesque-pro-medium-italic not-italic">
+        <address className="mt-4 text-center font-basis-grotesque-pro-medium-italic not-italic text-zinc-300">
           229 Skokie Valley Rd suite 5, Highland Park, IL 60035
         </address>
       </div>
