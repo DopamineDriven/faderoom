@@ -3,7 +3,6 @@ import type { ReviewsAndServicesSectionProps } from "@/ui/reviews-paginated";
 import Carousel from "@/ui/carousel";
 import OptimizedCTA from "@/ui/cta";
 import Hero from "@/ui/hero";
-import { BusinessHours } from "@/ui/hours";
 import { GoogleMap } from "@/ui/map";
 import { ReviewsAndServicesSection } from "@/ui/reviews-paginated";
 import { imageData as imageObject } from "@/utils/__generated__/image-object";
@@ -29,10 +28,7 @@ export default function Home() {
       <Hero />
       <div className="container mx-auto space-y-8 p-4 sm:p-8">
         <OptimizedCTA />
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <BusinessHours />
-          <GoogleMap />
-        </div>
+        <GoogleMap />
         <ReviewsAndServicesSection
           reviews={reviewData.reviews as ReviewsAndServicesSectionProps}>
           <Carousel imageData={imageObject} />
