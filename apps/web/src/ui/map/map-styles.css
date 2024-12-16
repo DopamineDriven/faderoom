@@ -1,0 +1,138 @@
+/* Remove the top chrome and arrow elements */
+.gm-style-iw-chr {
+  display: none !important;
+}
+
+.gm-style-iw-tc {
+  display: none !important;
+}
+
+/* Adjust the InfoWindow position without the chrome */
+.gm-style-iw.gm-style-iw-c {
+  padding-top: 0 !important;
+}
+
+/* Hide any remaining chrome elements */
+div[class*="gm-style-iw-ch"] {
+  display: none !important;
+}
+
+/* Force removal of top padding in InfoWindow */
+.gm-style .gm-style-iw-tc {
+  display: none !important;
+}
+
+.gm-style .gm-style-iw-c {
+  padding-top: 12px !important;
+  transform: translate(-50%, -100%) !important;
+}
+
+/* Adjust close button position */
+.gm-style .gm-style-iw-c button.gm-ui-hover-effect {
+  top: 8px !important;
+  right: 8px !important;
+}
+
+/* Remove the pointer/arrow element */
+.gm-style .gm-style-iw-t::after {
+  display: none !important;
+}
+
+/* Override Google Maps InfoWindow styles */
+.gm-style-iw {
+  padding: 0 !important;
+  max-width: 300px !important;
+}
+
+.gm-style-iw-d {
+  overflow: hidden !important;
+  max-height: none !important;
+}
+
+.gm-style-iw-c {
+  border-radius: 8px !important;
+  padding: 0 !important;
+}
+
+/* Custom InfoWindow content styles */
+.info-window-content {
+  padding: 12px 40px 12px 16px;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  position: relative;
+}
+
+.info-window-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0 0 4px 0;
+  color: #202124;
+  line-height: 1.5;
+}
+
+.info-window-address {
+  font-size: 0.875rem;
+  margin: 0 0 8px 0;
+  color: #5f6368;
+  line-height: 1.4;
+}
+
+.info-window-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 4px;
+}
+
+.rating-score {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #202124;
+}
+
+.rating-stars {
+  color: #fbbc04;
+  letter-spacing: -1px;
+}
+
+.review-link,
+.view-map-link {
+  font-size: 0.875rem;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.review-link:hover,
+.view-map-link:hover {
+  text-decoration: underline;
+}
+
+.gm-ui-hover-effect {
+  top: 0 !important;
+  right: 0 !important;
+}
+
+/* Info window close button styles */
+.info-window-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #5f6368;
+  outline: none !important;
+}
+
+.info-window-close:hover {
+  color: #202124;
+}
+
+.info-window-close:focus-visible {
+  outline: 2px solid #5f6368;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
