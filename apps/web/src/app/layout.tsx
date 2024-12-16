@@ -109,9 +109,9 @@ export default function RootLayout({
         suppressHydrationWarning
         lang="en"
         className={`h-full ${BasisGrotesqueProBlack.variable} ${BasisGrotesqueProBlackItalic.variable} ${BasisGrotesqueProBold.variable} ${BasisGrotesqueProBoldItalic.variable} ${BasisGrotesqueProItalic.variable} ${BasisGrotesqueProLight.variable} ${BasisGrotesqueProLightItalic.variable} ${BasisGrotesqueProMedium.variable} ${BasisGrotesqueProMediumItalic.variable} ${BasisGrotesqueProRegular.variable}`}>
-        <body className="h-full bg-fr-bg-main max-w-[1980px]">
+        <body className="relative h-full max-w-[1980px] bg-fr-bg-main">
           <NavBar />
-          {children}
+          <div className="relative mx-auto max-w-[1980px]">{children}</div>
           {modal}
           <div className="m-auto" id="modal-root" />
           <Footer />
