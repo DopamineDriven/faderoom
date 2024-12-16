@@ -10,6 +10,8 @@ import { BusinessHours } from "./BusinessHours";
 import { svgFadeString } from "./FadeSvgString";
 
 // TODO https://developers.google.com/maps/documentation/javascript/load-maps-js-api#migrate-to-dynamic
+
+
 export function LocationMap() {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<google.maps.Map | null>(null);
@@ -89,8 +91,8 @@ export function LocationMap() {
 
             pinElement.innerHTML = svgFadeString({
               className: "w-10 h-10",
-              width: 40,
-              height: 40
+              width: 24,
+              height: 24
             });
 
             const pinEle = new google.maps.marker.PinElement({
@@ -199,7 +201,7 @@ export function LocationMap() {
       setIsInfoWindowVisible(true);
     }
   };
-
+google.maps.importLibrary
   return (
 
       <div className="space-y-8">
@@ -262,7 +264,7 @@ export function LocationMap() {
           <BusinessHours />
         </div>
       </div>
-   
+
   );
 }
 
