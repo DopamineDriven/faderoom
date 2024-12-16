@@ -14,7 +14,6 @@ export type ThumbnailProps = {
   };
   selected: boolean;
   onClick: MouseEventHandler<HTMLButtonElement> | undefined;
-  key: string | number | bigint;
   index: number;
 };
 
@@ -22,12 +21,10 @@ export const Thumbnail: FC<ThumbnailProps> = ({
   image,
   selected,
   onClick,
-  key,
   index
 }) => {
   return (
     <button
-      key={key}
       onClick={onClick}
       aria-current={selected}
       aria-label={`View ${image.id}`}

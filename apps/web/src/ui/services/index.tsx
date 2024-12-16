@@ -111,7 +111,9 @@ export function ServicesSection() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="mb-2 text-3xl font-bold text-fr-300">Services</h2>
+        <h2 className="mb-2 text-3xl font-bold text-fr-300" id="services">
+          Services
+        </h2>
         <p className="text-zinc-400">Popular</p>
       </div>
       <div

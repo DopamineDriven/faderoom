@@ -8,12 +8,10 @@
   box-sizing: border-box;
 }
 
-
 html,
 body {
   height: 100%;
 }
-
 
 input,
 button,
@@ -30,7 +28,6 @@ body {
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   html {
@@ -227,8 +224,6 @@ body {
   color: #d7be69;
 }
 
-
-
 .cards-container {
   display: grid;
   grid-template-columns: repeat(3, 200px);
@@ -343,7 +338,6 @@ body {
   }
 }
 
-
 /* Z-index hierarchy */
 .z-nav {
   z-index: 40;
@@ -355,4 +349,11 @@ body {
 
 .z-toast {
   z-index: 60;
+}
+
+@layer utilities {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
 }

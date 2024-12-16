@@ -118,21 +118,22 @@ export function LocationMap() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-6xl">
+    <div className="mx-auto w-full font-basis-grotesque-pro-medium max-w-6xl">
       <div className="space-y-6">
-        {/* <h2 className="text-5xl font-normal text-[#C5A572]">Find Us</h2> */}
-
         <div
           ref={mapRef}
-          className="h-full min-h-fit w-full overflow-hidden rounded-lg border border-[#C5A572]/20"
+          className="h-64 aspect-auto shadow-glow min-h-fit w-full overflow-hidden rounded-lg border border-[#C5A572]/20"
         />
         <MapButton
           variant="default"
           onClick={handleGetDirections}
-          className="get-directions-button inline-flex w-full items-center justify-center rounded-md bg-[#C5A572] text-black hover:bg-[#C5A572]/90">
+          className="get-directions-button inline-flex w-full items-center justify-center rounded-md bg-fr-300 text-black hover:bg-fr-300/90">
           <Navigation className="mr-2 h-4 w-4" />
           Get Directions
         </MapButton>
+        <address className="mt-4 text-center text-zinc-300 font-basis-grotesque-pro-medium-italic not-italic">
+          229 Skokie Valley Rd suite 5, Highland Park, IL 60035
+        </address>
       </div>
     </div>
   );

@@ -37,19 +37,16 @@ export function GoogleMap() {
   }, []);
 
   return (
-    <CtaCard className="border-border w-full bg-zinc-900 text-zinc-100">
+    <CtaCard className="border-cta-border relative w-full bg-zinc-900 text-zinc-100">
       <CtaCardHeader>
-        <CtaCardTitle className="flex items-center text-xl font-bold text-fr-300 sm:text-2xl">
-          <MapPin className="mr-2" /> Find Us
+        <CtaCardTitle className="flex items-center pb-5 sm:pb-8 text-xl font-bold text-fr-300 sm:text-2xl">
+          <MapPin className="mr-2 h-7 w-7" /> Find Us
         </CtaCardTitle>
       </CtaCardHeader>
       <CtaCardContent>
-        <div className="flex h-64 w-full items-center justify-center rounded-lg bg-zinc-800">
+        <div className="flex flex-row space-y-2 pt-5 my-2 min-h-full h-64 w-full items-center justify-center rounded-lg ">
           {isLoaded && <LocationMap />}
         </div>
-        <p className="mt-4 text-zinc-300">
-          229 Skokie Valley Rd suite 5, Highland Park, IL 60035
-        </p>
       </CtaCardContent>
     </CtaCard>
   );
