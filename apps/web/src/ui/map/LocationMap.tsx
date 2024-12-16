@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Navigation } from "lucide-react";
+import { MapPin, Navigation } from "lucide-react";
+import { motion } from "motion/react";
 import { MapButton } from "@/ui/map/MapButton";
+import { Card, CardContent, CardHeader, CardTitle } from "@/ui/map/ui/Card";
 import "./map-styles.css";
+import { BusinessHours } from "./BusinessHours";
 import { svgFadeString } from "./FadeSvgString";
 
 // TODO https://developers.google.com/maps/documentation/javascript/load-maps-js-api#migrate-to-dynamic
@@ -14,6 +17,8 @@ export function LocationMap() {
     null
   );
   const [isInfoWindowVisible, setIsInfoWindowVisible] = useState(true);
+  const [markerPosition, setMarkerPosition] =
+    useState<google.maps.LatLng | null>(null);
 
   useEffect(() => {
     if (typeof window.google !== "undefined" && mapRef.current && !map) {
@@ -67,33 +72,32 @@ export function LocationMap() {
       places.getDetails(
         {
           placeId: "ChIJWR1tbabBD4gRrUSmN1K2TPw",
-          fields: ["name", "formatted_address", "geometry"]
+          fields: [
+            "name",
+            "formatted_address",
+            "geometry",
+            "rating",
+            "user_ratings_total"
+          ]
         },
         (place, status) => {
           if (
             status === google.maps.places.PlacesServiceStatus.OK &&
             place?.geometry?.location
           ) {
-            // create a pin
             const pinElement = document.createElement("div");
+
             pinElement.innerHTML = svgFadeString({
               className: "w-10 h-10",
               width: 40,
               height: 40
             });
-            // Add animation
-            // pinElement.style.opacity = '0';
-            // pinElement.style.transform = 'translate(-50%, -100%) scale(0.8)';
-            // pinElement.style.transition = 'opacity 0.3s, transform 0.3s';
-
-            //  setTimeout(() => {
-            //  pinElement.style.opacity = '1';
-            // pinElement.style.transform = 'translate(-50%, -100%) scale(1)';
-            //}, 100);
 
             const pinEle = new google.maps.marker.PinElement({
               background: "#242424",
               borderColor: "#d7be69",
+              glyphColor: "#1a1a1b",
+              scale: 1.1,
               glyph: pinElement
             });
 
@@ -101,20 +105,32 @@ export function LocationMap() {
             const marker = new google.maps.marker.AdvancedMarkerElement({
               map: mapInstance,
               position: place.geometry.location,
+              collisionBehavior:
+                google.maps.CollisionBehavior.REQUIRED_AND_HIDES_OPTIONAL,
               title: "The Fade Room Inc.",
               content: pinEle.element
             });
 
+            // Set the marker position
+            setMarkerPosition(place.geometry.location);
+
             infoWindowInstance.open({
               anchor: marker,
-              map: mapInstance
+              map: mapInstance,
+              // prevents side-effect panning on infoWindow toggle (show/hide)
+              shouldFocus: false
             });
 
             marker.addEventListener("gmp-click", () => {
-              if (!isInfoWindowVisible) {
+              if (
+                !isInfoWindowVisible &&
+                infoWindowInstance &&
+                markerPosition
+              ) {
+                infoWindowInstance.setPosition(markerPosition);
                 infoWindowInstance.open({
-                  anchor: marker,
-                  map: mapInstance
+                  map: mapInstance,
+                  shouldFocus: false
                 });
                 setIsInfoWindowVisible(true);
               }
@@ -127,7 +143,7 @@ export function LocationMap() {
         }
       );
     }
-  }, [map, isInfoWindowVisible]);
+  }, [map, isInfoWindowVisible, markerPosition]);
 
   const handleGetDirections = () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -142,12 +158,11 @@ export function LocationMap() {
       const lng = -87.8041281;
       const label = encodeURIComponent("The Fade Room Inc Highland Park IL");
 
-      // apple maps unique id for The Fade Room
-      // reference -> https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
+      /** apple maps unique id (auid) for The Fade Room @url https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html */
       const auid = `14932589762649227325`;
       const appleMapsUrl = `maps://maps.apple.com/?auid=${auid}`;
 
-      // google maps reference -> https://developers.google.com/maps/documentation/urls/get-started#directions-action
+      /**  google maps @url https://developers.google.com/maps/documentation/urls/get-started#directions-action */
       const googleSearchUrl = `https://www.google.com/maps/search/?api=1&query=${lat}%2C${lng}&query_place_id=ChIJWR1tbabBD4gRrUSmN1K2TPw`;
 
       const androidIntent = `geo:${lat},${lng}?q=${lat},${lng}(${label})`;
@@ -175,55 +190,82 @@ export function LocationMap() {
   };
 
   const handleInfoClick = () => {
-    if (infoWindow && map) {
-      const center = map.getCenter();
-      if (center) {
-        infoWindow.setPosition(center);
-        infoWindow.open(map);
-        setIsInfoWindowVisible(true);
-      }
+    if (infoWindow && map && markerPosition) {
+      infoWindow.setPosition(markerPosition);
+      infoWindow.open({
+        map,
+        shouldFocus: false
+      });
+      setIsInfoWindowVisible(true);
     }
   };
 
   return (
-    <div className="mx-auto w-full max-w-6xl font-basis-grotesque-pro-medium">
-      <div className="space-y-6">
-        <div className="relative h-[350px] w-full overflow-hidden rounded-lg border border-fr-300/20">
-          <div ref={mapRef} className="absolute inset-0" />
-          {!isInfoWindowVisible && (
-            <button
-              onClick={handleInfoClick}
-              className="absolute bottom-4 left-4 z-10 rounded-full bg-fr-300 p-2 shadow-md transition-colors hover:bg-fr-300/90"
-              aria-label="Show info window">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-6 w-6 text-black">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-            </button>
-          )}
+
+      <div className="space-y-8">
+        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+          <Card className="flex h-[600px] flex-col">
+            <CardHeader className="pb-2">
+              <CardTitle className="flex items-center text-xl font-bold text-fr-300 sm:text-2xl">
+                <MapPin className="mr-2 h-6 w-6" /> Find Us
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-grow flex-col">
+              <motion.div
+                className="relative mb-4 flex-grow"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}>
+                <div
+                  ref={mapRef}
+                  className="absolute inset-0 overflow-hidden rounded-lg shadow-lg"
+                />
+                {!isInfoWindowVisible && (
+                  <motion.button
+                    onClick={handleInfoClick}
+                    className="absolute bottom-4 left-4 z-10 rounded-full bg-fr-300 p-2 shadow-md transition-colors hover:bg-fr-300/90"
+                    aria-label="Show info window"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-6 w-6 text-black">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="16" x2="12" y2="12"></line>
+                      <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                  </motion.button>
+                )}
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}>
+                <MapButton
+                  variant="default"
+                  onClick={handleGetDirections}
+                  className="get-directions-button mt-auto inline-flex w-full items-center justify-center rounded-md border border-fr-300/20 bg-fr-300 text-black transition-colors hover:bg-fr-300/90">
+                  <Navigation className="mr-2 h-4 w-4" />
+                  Get Directions
+                </MapButton>
+              </motion.div>
+            </CardContent>
+          </Card>
+          <BusinessHours />
         </div>
-        <MapButton
-          variant="default"
-          onClick={handleGetDirections}
-          className="get-directions-button inline-flex w-full items-center justify-center rounded-md border border-fr-300/20 bg-fr-300 text-black transition-colors hover:bg-fr-300/90">
-          <Navigation className="mr-2 h-4 w-4" />
-          Get Directions
-        </MapButton>
-        <address className="mt-4 text-center font-basis-grotesque-pro-medium-italic not-italic text-zinc-300">
-          229 Skokie Valley Rd suite 5, Highland Park, IL 60035
-        </address>
       </div>
-    </div>
+   
   );
 }
+
+/* <address className="mt-4 text-center font-basis-grotesque-pro-medium-italic not-italic text-zinc-300">
+  229 Skokie Valley Rd suite 5, Highland Park, IL 60035
+</address> */
