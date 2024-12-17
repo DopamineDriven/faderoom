@@ -46,7 +46,7 @@ const config = {
         xxs: ["0.5rem", { lineHeight: "0.75rem" }]
       },
       colors: {
-        border: "hsl(var(--border))",
+        border: "hsl(var(--cta-border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
