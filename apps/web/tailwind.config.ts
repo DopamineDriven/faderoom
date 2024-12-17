@@ -46,7 +46,7 @@ const config = {
         xxs: ["0.5rem", { lineHeight: "0.75rem" }]
       },
       colors: {
-        border: "hsl(var(--border))",
+        border: "hsl(var(--cta-border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -79,7 +79,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))"
         },
-        "fr-bg-main": "#18181b",
+        "fr-bg-main": "#272729",
         "fr-bg-nav": "#1a1a1b",
         "reddit-0": "rgb(var(--reddit-0))",
         "reddit-1:": "rgb(var(--reddit-1:))",
