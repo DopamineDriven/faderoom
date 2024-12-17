@@ -5,17 +5,17 @@ import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { motion } from "motion/react";
 import type { TsxExclude } from "@/types/helpers";
 import { CtaButton } from "@/ui/cta/ui/CtaButton";
-import {
-  CtaCard,
-  CtaCardContent,
-  CtaCardFooter,
-  CtaCardHeader,
-  CtaCardTitle
-} from "@/ui/cta/ui/CtaCard";
 import { useToast } from "@/ui/hooks/useToast";
 import { Facebook } from "@/ui/icons/Facebook";
 import { Instagram } from "@/ui/icons/Instagram";
 import { SquareUp } from "@/ui/icons/SquareUp";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from "@/ui/map/ui/Card";
 
 interface PromoCode {
   code: string;
@@ -81,8 +81,8 @@ const OptimizedCTA = () => {
   };
 
   return (
-    <CtaCard className="border-cta-border mx-auto w-full max-w-3xl bg-zinc-900 p-2 font-basis-grotesque-pro-medium text-zinc-100 sm:p-4">
-      <CtaCardHeader className="mb-4 p-0">
+    <Card className="border-cta-border mx-auto w-full max-w-3xl bg-zinc-900 p-2 font-basis-grotesque-pro-medium text-zinc-100 sm:p-4">
+      <CardHeader className="mb-4 p-0">
         <div className="rounded-t-lg bg-fr-300 p-2 font-basis-grotesque-pro-bold font-bold tracking-tight text-zinc-900">
           <p className="text-center text-xs sm:text-sm">
             HAIRCUTS BY APPOINTMENT ONLY
@@ -91,11 +91,11 @@ const OptimizedCTA = () => {
             ANY SERVICE SCHEDULED BEFORE 7:30AM IS PRE-PAID
           </p>
         </div>
-      </CtaCardHeader>
-      <CtaCardContent className="space-y-4">
-        <CtaCardTitle className="text-xl font-bold text-fr-300 sm:text-2xl">
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <CardTitle className="text-xl font-bold text-fr-300 sm:text-2xl">
           EXCLUSIVE OFFERS
-        </CtaCardTitle>
+        </CardTitle>
         <a
           href="https://squareup.com/gift/MLHZCDVC0MKB1/order"
           className="group relative inline-block"
@@ -163,15 +163,15 @@ const OptimizedCTA = () => {
         <p className="font-basis-grotesque-pro-italic text-xxs text-zinc-400 sm:text-xs md:text-sm">
           Promo codes are valid for the current month
         </p>
-      </CtaCardContent>
-      <CtaCardFooter className="items-center justify-between">
+      </CardContent>
+      <CardFooter className="items-center justify-between">
         <div className="flex space-x-2 sm:space-x-4">
           {social.map(prop => (
             <a
               key={prop.icon.displayName}
               href={prop.href}
               target="_blank"
-              className="text-fr-300 hover:text-fr-300/[1.20]"
+              className="text-fr-300 hover:text-[hsl(46,58%,73%)]"
               rel="noopener noreferrer">
               <prop.icon className="h-5 w-5 sm:h-7 sm:w-7" />
             </a>
@@ -184,12 +184,12 @@ const OptimizedCTA = () => {
           rel="noopener noreferrer">
           <CtaButton
             variant="default"
-            className="bg-fr-300 text-xs text-zinc-900 hover:bg-fr-300/[1.20] sm:text-sm">
+            className="bg-fr-300 text-xs text-zinc-900 hover:bg-[hsl(46,58%,73%)] sm:text-sm">
             Book Now
           </CtaButton>
         </a>
-      </CtaCardFooter>
-    </CtaCard>
+      </CardFooter>
+    </Card>
   );
 };
 
