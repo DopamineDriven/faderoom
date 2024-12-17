@@ -13,7 +13,6 @@ import {
   CtaCardTitle
 } from "@/ui/cta/ui/CtaCard";
 import { useToast } from "@/ui/hooks/useToast";
-import { useTouchDevice } from "@/ui/hooks/useTouchDevice";
 import { Facebook } from "@/ui/icons/Facebook";
 import { Instagram } from "@/ui/icons/Instagram";
 import { SquareUp } from "@/ui/icons/SquareUp";
@@ -51,7 +50,6 @@ const social = [
 
 const OptimizedCTA = () => {
   const { toast } = useToast();
-  const isTouchDevice = useTouchDevice();
   const [copiedCode, setCopiedCode] = React.useState<string | null>(null);
 
   const promoCodes = [
@@ -106,15 +104,22 @@ const OptimizedCTA = () => {
           <motion.h2
             className="inline-flex items-center text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
             initial="initial"
-            whileHover={isTouchDevice ? "initial" : "hover"}
-            animate="initial">
+            whileHover="hover"
+            animate="initial"
+            exit="exit">
             <motion.span className="relative">
               Look Fresh For Less
               <motion.span
                 className="absolute bottom-0 left-0 h-0.5 w-full bg-fr-300"
                 variants={{
                   initial: { width: 0 },
-                  hover: { width: "100%", transition: { duration: 0.3 } }
+                  hover: { width: "100%" },
+                  exit: { width: 0 }
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 100
                 }}
                 style={{ originX: 1 }}
               />
@@ -122,7 +127,13 @@ const OptimizedCTA = () => {
             <motion.span
               variants={{
                 initial: { x: 0 },
-                hover: { x: 5, transition: { duration: 0.3 } }
+                hover: { x: 5 },
+                exit: { x: 0 }
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 100
               }}>
               <ArrowUpRight className="inline-block h-7 w-7 text-fr-300 sm:h-9 sm:w-9" />
             </motion.span>
