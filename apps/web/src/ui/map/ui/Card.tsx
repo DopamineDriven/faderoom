@@ -42,7 +42,7 @@ const CardTitle = React.forwardRef<
     transition={{ duration: 0.8, delay: 0.2 }}
     ref={ref}
     className={cn(
-      "font-basis-grotesque-pro-medium text-xl font-semibold leading-none tracking-tight text-fr-300 sm:text-2xl",
+      "font-basis-grotesque-pro-medium text-xl font-semibold leading-none tracking-tight text-[hsl(46,58%,63%)] sm:text-2xl",
       className
     )}
     {...props}

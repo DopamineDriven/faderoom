@@ -23,7 +23,7 @@ const BUSINESS_HOURS = [
   { day: "Wednesday", open: "9:00 am", close: "7:00 pm" },
   { day: "Thursday", open: "9:00 am", close: "2:00 pm" },
   { day: "Friday", open: "8:00 am", close: "8:00 pm" },
-  { day: "Saturday", open: "7:30 am", close: "5:00 pm" },
+  { day: "Saturday", open: "6:30 am", close: "5:00 pm" },
   { day: "Sunday", open: "Closed", close: "Closed" }
 ] satisfies BusinessHoursProps[];
 
