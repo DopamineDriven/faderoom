@@ -6,4 +6,4 @@ export type ParsedUrlInfo = {
   pathname: string;
   search: string;
   hash: string;
-}
+};

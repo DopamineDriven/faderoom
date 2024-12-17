@@ -5,7 +5,7 @@ export const mapParams = (params: readonly [string, string][]) =>
       return arr;
     }, [])
     .join("&");
-    
+
 export async function fetchBooksyLogin() {
   const params = mapParams([
     ["x-api-key", process.env.BOOKSY_BIZ_API_KEY ?? ""],
@@ -32,5 +32,5 @@ export async function fetchBooksyLogin() {
       referrerPolicy: "origin-when-cross-origin",
       keepalive: true
     }
-  ).then((data) => data.json());
+  ).then(data => data.json());
 }

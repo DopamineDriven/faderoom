@@ -23,5 +23,5 @@ export function useGoogleMapsScript() {
     }
   }, []);
 
-  return {isLoaded};
+  return { isLoaded };
 }

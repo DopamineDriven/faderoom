@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { shimmer } from "@/lib/shimmer";
 import { Booksy } from "@/ui/icons/Booksy";
 import { Razor } from "@/ui/icons/Razor";
-import { shimmer } from "@/lib/shimmer";
 
 const _imageGrid = [
   {
@@ -90,7 +90,9 @@ const imageHeroLayout = [
 
 const ImageScaffolder = dynamic(() => import("@/ui/hero/ui/ImageScaffolder"), {
   ssr: false,
-  loading: () => <Image src={shimmer([176,264])} width={176} height={264} alt="shimmer"  />
+  loading: () => (
+    <Image src={shimmer([176, 264])} width={176} height={264} alt="shimmer" />
+  )
 });
 
 function Hero() {
@@ -137,7 +139,7 @@ function Hero() {
       <div className="mx-auto max-w-7xl px-6 pb-32 pt-24 sm:pt-32 lg:px-8 lg:pt-32">
         <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
           <motion.div
-            className="relative w-full max-w-lg lg:max-w-xl lg:shrink-0 xl:max-w-2xl mb-20 sm:mb-0"
+            className="relative mb-20 w-full max-w-lg sm:mb-0 lg:max-w-xl lg:shrink-0 xl:max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}>

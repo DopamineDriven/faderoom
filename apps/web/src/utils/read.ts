@@ -1,5 +1,9 @@
 import { FsService } from "@/services/fs";
-import { BooksyReviewsByPagePerPagePayload, BooksyReviewsEntity, BooksyReviewsEntityModified } from "@/types/booksy-helpers";
+import {
+  BooksyReviewsByPagePerPagePayload,
+  BooksyReviewsEntity,
+  BooksyReviewsEntityModified
+} from "@/types/booksy-helpers";
 
 export class ReaderService extends FsService {
   constructor(public override cwd: string) {
@@ -52,13 +56,15 @@ export class ReaderService extends FsService {
       .catch(err => console.error(err));
   }
 
-  public convertCreatedDateToTimestamp(props:BooksyReviewsEntity[] ) {
-    return props.map((v) => {
-      const {created, ...rest} = v;
-      const toTimeStamp = created.concat(":00.000Z");
-      const toUnix = new Date(toTimeStamp).valueOf();
-      return {created: toUnix, ...rest} as BooksyReviewsEntityModified;
-    }).sort((a,b) => b.created - a.created);
+  public convertCreatedDateToTimestamp(props: BooksyReviewsEntity[]) {
+    return props
+      .map(v => {
+        const { created, ...rest } = v;
+        const toTimeStamp = created.concat(":00.000Z");
+        const toUnix = new Date(toTimeStamp).valueOf();
+        return { created: toUnix, ...rest } as BooksyReviewsEntityModified;
+      })
+      .sort((a, b) => b.created - a.created);
   }
 }
 
@@ -72,7 +78,11 @@ readService
       console.log(vv.arr.flat());
 
       readService.withWs({
-        data: JSON.stringify({ reviews: readService.convertCreatedDateToTimestamp(vv.arr.flat()) }, null, 2),
+        data: JSON.stringify(
+          { reviews: readService.convertCreatedDateToTimestamp(vv.arr.flat()) },
+          null,
+          2
+        ),
         cwd: process.cwd(),
         path: "src/utils/__write__/all-reviews-new.json"
       });

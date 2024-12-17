@@ -83,4 +83,10 @@ booksyService
     console.log(data);
     return data;
   })
-  .catch(err => typeof err === "string" ? console.error(err) : Array.isArray(err) ? console.error(JSON.stringify(err[0], null,2)) : console.error(JSON.stringify(err,null,2)));
+  .catch(err =>
+    typeof err === "string"
+      ? console.error(err)
+      : Array.isArray(err)
+        ? console.error(JSON.stringify(err[0], null, 2))
+        : console.error(JSON.stringify(err, null, 2))
+  );

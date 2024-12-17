@@ -14,12 +14,17 @@ export type RemoveFields<T, P extends keyof T = keyof T> = {
   [S in keyof T as Exclude<S, P>]: T[S];
 };
 
-export type ArrFieldReplacer<T extends (unknown)[] | readonly(unknown)[], V extends keyof Unenumerate<T>, Q = false, P = unknown> = T extends
-  | (infer U)[]
-  | readonly (infer U)[]
+export type ArrFieldReplacer<
+  T extends unknown[] | readonly unknown[],
+  V extends keyof Unenumerate<T>,
+  Q = false,
+  P = unknown
+> = T extends (infer U)[] | readonly (infer U)[]
   ? V extends keyof U
-    ? Q extends true ? P extends Record<V,infer X> ?
-       (RemoveFields<U, V> & Record<V, X>)[] : (RemoveFields<U, V> & P)[]
+    ? Q extends true
+      ? P extends Record<V, infer X>
+        ? (RemoveFields<U, V> & Record<V, X>)[]
+        : (RemoveFields<U, V> & P)[]
       : Q extends false
         ? RemoveFields<U, V>[]
         : U

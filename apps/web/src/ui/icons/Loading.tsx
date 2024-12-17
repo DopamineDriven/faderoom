@@ -30,4 +30,4 @@ export function LoadingSvg({
     </svg>
   );
 }
-LoadingSvg.displayName="LoadingSvg";
+LoadingSvg.displayName = "LoadingSvg";

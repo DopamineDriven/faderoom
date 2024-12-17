@@ -3,11 +3,10 @@ import type {
   ExecuteReviewFormSubmissionMutationProps,
   SubmissionPayloadProps
 } from "@/types/wp";
-import { DateCreatedHelper } from "@/utils/date-created"
+import { DateCreatedHelper } from "@/utils/date-created";
 import { EncodeClientMutationId } from "@/utils/encode-client-mutation-id";
 import { fetchWpAPI } from "@/utils/fetch-wp";
 import { SubmissionWorkup } from "./submission-workup";
-
 
 /* eslint-disable @typescript-eslint/no-non-null-assertion  */
 
@@ -44,9 +43,12 @@ export async function ExecuteReviewSubmissionMutation<
           id: 5,
           value: body
         },
-        { id: 9, imageValues: {
-          image: file
-        } }
+        {
+          id: 9,
+          imageValues: {
+            image: file
+          }
+        }
       ]
     }
   }).then(data => data!);

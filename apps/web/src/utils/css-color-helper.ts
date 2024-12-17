@@ -112,4 +112,3 @@ export const cssVarsToTailwindConfigFormat = () => {
   });
   return Object.fromEntries(objKeys);
 };
-

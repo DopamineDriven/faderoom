@@ -3,7 +3,10 @@ import type { RemoveFields, TsxTargetedExp } from "@/types/helpers";
 
 // https://www.svgviewer.dev/
 
-export type IconNode = [elementName: keyof React.ReactSVG, attrs: Record<string, string>][];
+export type IconNode = [
+  elementName: keyof React.ReactSVG,
+  attrs: Record<string, string>
+][];
 
 export type ElementAttributePicker<
   T extends keyof React.JSX.IntrinsicElements
@@ -25,9 +28,10 @@ export type LucideIcon = React.ForwardRefExoticComponent<
  * @example
  * type Test = CamelToPascal<'fooBar'> // 'FooBar'
  */
-export type CamelToPascal<T extends string> = T extends `${infer FirstChar}${infer Rest}`
-  ? `${Capitalize<FirstChar>}${Rest}`
-  : never;
+export type CamelToPascal<T extends string> =
+  T extends `${infer FirstChar}${infer Rest}`
+    ? `${Capitalize<FirstChar>}${Rest}`
+    : never;
 
 /**
  * Creates a list of components from a list of component names and a component type
@@ -36,14 +40,16 @@ export type ComponentList<ComponentNames, ComponentType> = {
   [Prop in keyof ComponentNames as CamelToPascal<Prop & string>]: ComponentType;
 };
 
-export const mergeClasses = <ClassType = string | undefined | null>(...classes: ClassType[]) =>
+export const mergeClasses = <ClassType = string | undefined | null>(
+  ...classes: ClassType[]
+) =>
   classes
     .filter((className, index, array) => {
       return (
         Boolean(className) &&
-        (className as string).trim() !== '' &&
+        (className as string).trim() !== "" &&
         array.indexOf(className) === index
       );
     })
-    .join(' ')
+    .join(" ")
     .trim();

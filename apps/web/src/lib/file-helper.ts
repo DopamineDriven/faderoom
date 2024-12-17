@@ -1,4 +1,6 @@
-export function readerResultHelper<const T extends string | ArrayBuffer | null>(result: T) {
+export function readerResultHelper<const T extends string | ArrayBuffer | null>(
+  result: T
+) {
   return result != null
     ? typeof result === "string"
       ? result

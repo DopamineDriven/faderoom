@@ -173,8 +173,8 @@ export class BooksyReviewsService extends ConfigHandler {
         reviewsPerPage: 200,
         reviewsPageNumber: 1
       })
-    ]).then(([data]) =>{
-     return data && this.reviewsDataTransformer(data.reviews)
+    ]).then(([data]) => {
+      return data && this.reviewsDataTransformer(data.reviews);
     })) satisfies BooksyReviewsByPagePerPagePayloadModified["reviews"];
   }
 

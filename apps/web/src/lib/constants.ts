@@ -8,7 +8,6 @@ export const booksyFingerprint = process.env.BOOKSY_BIZ_X_FINGERPRINT ?? "";
 
 export const booksyApiKey = process.env.BOOKSY_BIZ_API_KEY ?? "";
 
-
 export const wpHeaders = {
   "Content-Type": "application/json",
   redirect: "follow",

@@ -1,6 +1,5 @@
-import * as React from "react"
-
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 const CtaCard = React.forwardRef<
   HTMLDivElement,
@@ -14,8 +13,8 @@ const CtaCard = React.forwardRef<
     )}
     {...props}
   />
-))
-CtaCard.displayName = "CtaCard"
+));
+CtaCard.displayName = "CtaCard";
 
 const CtaCardHeader = React.forwardRef<
   HTMLDivElement,
@@ -26,8 +25,8 @@ const CtaCardHeader = React.forwardRef<
     className={cn("flex flex-col space-y-1.5 p-6", className)}
     {...props}
   />
-))
-CtaCardHeader.displayName = "CtaCardHeader"
+));
+CtaCardHeader.displayName = "CtaCardHeader";
 
 const CtaCardTitle = React.forwardRef<
   HTMLParagraphElement,
@@ -41,28 +40,24 @@ const CtaCardTitle = React.forwardRef<
     )}
     {...props}
   />
-))
-CtaCardTitle.displayName = "CtaCardTitle"
+));
+CtaCardTitle.displayName = "CtaCardTitle";
 
 const CtaCardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("text-sm text-zinc-400", className)}
-    {...props}
-  />
-))
-CtaCardDescription.displayName = "CtaCardDescription"
+  <p ref={ref} className={cn("text-sm text-zinc-400", className)} {...props} />
+));
+CtaCardDescription.displayName = "CtaCardDescription";
 
 const CtaCardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-))
-CtaCardContent.displayName = "CtaCardContent"
+));
+CtaCardContent.displayName = "CtaCardContent";
 
 const CtaCardFooter = React.forwardRef<
   HTMLDivElement,
@@ -73,8 +68,14 @@ const CtaCardFooter = React.forwardRef<
     className={cn("flex items-center p-6 pt-0", className)}
     {...props}
   />
-))
-CtaCardFooter.displayName = "CtaCardFooter"
+));
+CtaCardFooter.displayName = "CtaCardFooter";
 
-export { CtaCard, CtaCardHeader, CtaCardFooter, CtaCardTitle, CtaCardDescription, CtaCardContent }
-
+export {
+  CtaCard,
+  CtaCardHeader,
+  CtaCardFooter,
+  CtaCardTitle,
+  CtaCardDescription,
+  CtaCardContent
+};

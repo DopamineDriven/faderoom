@@ -102,7 +102,7 @@ export class BooksyImageService extends ConfigHandler {
   }
 
   public async getVercelBlobPaths() {
-    return (this.vercelData()).map(v => v.pathname);
+    return this.vercelData().map(v => v.pathname);
   }
 
   public async compareVercelBlobPathsToIncomingIds(
@@ -168,7 +168,7 @@ export class BooksyImageService extends ConfigHandler {
             Buffer.from(base64Data, "base64")
           );
         } else {
-          const blobs = this.vercelData()
+          const blobs = this.vercelData();
           // eslint-disable-next-line
           const getInfo = blobs.find(
             path => path.pathname === `${vv.image_id}.${vv.file_extension}`

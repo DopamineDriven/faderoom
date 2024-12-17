@@ -2,10 +2,7 @@
 
 import * as React from "react";
 
-export function forwardRefEnhanced<
-  const T,
-  const P = object
->(
+export function forwardRefEnhanced<const T, const P = object>(
   render: React.ForwardRefRenderFunction<T, React.PropsWithoutRef<P>>
 ): (
   props: React.PropsWithoutRef<P> & React.RefAttributes<T>

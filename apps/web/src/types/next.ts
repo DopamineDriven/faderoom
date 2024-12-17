@@ -1,4 +1,5 @@
-import type { Unenumerate, RemoveFields } from "@/types/helpers";
+import type { RemoveFields, Unenumerate } from "@/types/helpers";
+
 /**
  * RT->ReturnType
  *
@@ -34,8 +35,6 @@ export type InferIt<T, V extends "RT" | "P" | "B"> = T extends (
 export type InferGSPRT<V extends (...args: any) => any> = {
   params: Promise<Unenumerate<InferIt<V, "RT">>>;
 };
-
-
 
 export type LinkPropsInferred = InferIt<
   typeof import("next/link.js").default,

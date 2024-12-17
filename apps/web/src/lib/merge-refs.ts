@@ -1,4 +1,9 @@
-import type { ForwardedRef, LegacyRef, MutableRefObject, RefCallback } from "react";
+import type {
+  ForwardedRef,
+  LegacyRef,
+  MutableRefObject,
+  RefCallback
+} from "react";
 
 export function mergeRefs<const T>(
   refs: (MutableRefObject<T> | LegacyRef<T> | ForwardedRef<T>)[]

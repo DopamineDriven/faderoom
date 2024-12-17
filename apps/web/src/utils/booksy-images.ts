@@ -1,16 +1,17 @@
-import { FsService } from "@/services/fs";
-// import { BooksyImagesPage1 } from "./__write__/booksy-images-page-1";
-import type { BooksyImagesByPageNumberAndCount } from "@/types/booksy-helpers";
 // import {
 //   fetchBooksyPhotosPerPage
 // } from "./fetch-booksy";
 import * as dotenv from "dotenv";
+// import { BooksyImagesPage1 } from "./__write__/booksy-images-page-1";
+import type { BooksyImagesByPageNumberAndCount } from "@/types/booksy-helpers";
+import { FsService } from "@/services/fs";
 import BooksyImagesPage1 from "./__write__/booksy-images-page-1";
+
 dotenv.config();
 
-export class BooksyImageHandler extends FsService{
+export class BooksyImageHandler extends FsService {
   constructor(public override cwd: string) {
-    super(cwd ??=process.cwd())
+    super((cwd ??= process.cwd()));
   }
 
   public tester() {
@@ -123,8 +124,6 @@ export function mapper(props: BooksyImagesByPageNumberAndCount) {
 
 const fsService = new FsService(process.cwd());
 
-
-
 // eslint-disable-next-line
 mapper(BooksyImagesPage1).map(async (v, i) => {
   const { image, image_id } = await v;
@@ -137,4 +136,3 @@ mapper(BooksyImagesPage1).map(async (v, i) => {
     data: Buffer.from(base64Image, "base64")
   });
 });
-

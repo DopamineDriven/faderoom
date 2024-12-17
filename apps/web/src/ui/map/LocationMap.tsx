@@ -11,7 +11,6 @@ import { svgFadeString } from "./FadeSvgString";
 
 // TODO https://developers.google.com/maps/documentation/javascript/load-maps-js-api#migrate-to-dynamic
 
-
 export function LocationMap() {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<google.maps.Map | null>(null);
@@ -201,70 +200,68 @@ export function LocationMap() {
       setIsInfoWindowVisible(true);
     }
   };
-google.maps.importLibrary
+  google.maps.importLibrary;
   return (
-
-      <div className="space-y-8">
-        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
-          <Card className="flex h-[600px] flex-col">
-            <CardHeader className="pb-2">
-              <CardTitle className="flex items-center text-xl font-bold text-fr-300 sm:text-2xl">
-                <MapPin className="mr-2 h-6 w-6" /> Find Us
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-grow flex-col">
-              <motion.div
-                className="relative mb-4 flex-grow"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}>
-                <div
-                  ref={mapRef}
-                  className="absolute inset-0 overflow-hidden rounded-lg shadow-lg"
-                />
-                {!isInfoWindowVisible && (
-                  <motion.button
-                    onClick={handleInfoClick}
-                    className="absolute bottom-4 left-4 z-10 rounded-full bg-fr-300 p-2 shadow-md transition-colors hover:bg-fr-300/90"
-                    aria-label="Show info window"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-6 w-6 text-black">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="12" y1="16" x2="12" y2="12"></line>
-                      <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                    </svg>
-                  </motion.button>
-                )}
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}>
-                <MapButton
-                  variant="default"
-                  onClick={handleGetDirections}
-                  className="get-directions-button mt-auto inline-flex w-full items-center justify-center rounded-md border border-fr-300/20 bg-fr-300 text-black transition-colors hover:bg-fr-300/90">
-                  <Navigation className="mr-2 h-4 w-4" />
-                  Get Directions
-                </MapButton>
-              </motion.div>
-            </CardContent>
-          </Card>
-          <BusinessHours />
-        </div>
+    <div className="space-y-8">
+      <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+        <Card className="flex h-[600px] flex-col">
+          <CardHeader className="pb-2">
+            <CardTitle className="flex items-center text-xl font-bold text-fr-300 sm:text-2xl">
+              <MapPin className="mr-2 h-6 w-6" /> Find Us
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-grow flex-col">
+            <motion.div
+              className="relative mb-4 flex-grow"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}>
+              <div
+                ref={mapRef}
+                className="absolute inset-0 overflow-hidden rounded-lg shadow-lg"
+              />
+              {!isInfoWindowVisible && (
+                <motion.button
+                  onClick={handleInfoClick}
+                  className="absolute bottom-4 left-4 z-10 rounded-full bg-fr-300 p-2 shadow-md transition-colors hover:bg-fr-300/90"
+                  aria-label="Show info window"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-6 w-6 text-black">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                </motion.button>
+              )}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}>
+              <MapButton
+                variant="default"
+                onClick={handleGetDirections}
+                className="get-directions-button mt-auto inline-flex w-full items-center justify-center rounded-md border border-fr-300/20 bg-fr-300 text-black transition-colors hover:bg-fr-300/90">
+                <Navigation className="mr-2 h-4 w-4" />
+                Get Directions
+              </MapButton>
+            </motion.div>
+          </CardContent>
+        </Card>
+        <BusinessHours />
       </div>
-
+    </div>
   );
 }
 

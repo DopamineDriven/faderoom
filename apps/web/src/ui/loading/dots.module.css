@@ -9,7 +9,7 @@
 }
 
 .loading span {
-  @apply w-[4rem] my-0 mx-[2rem] sm:mx-[2.9375rem] h-[4rem] sm:w-[6.625rem] sm:h-[6.625rem];
+  @apply mx-[2rem] my-0 h-[4rem] w-[4rem] sm:mx-[2.9375rem] sm:h-[6.625rem] sm:w-[6.625rem];
   animation-name: blink;
   animation-duration: 1.4s;
   animation-iteration-count: infinite;

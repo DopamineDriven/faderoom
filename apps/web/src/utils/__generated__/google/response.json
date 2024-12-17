@@ -15,86 +15,61 @@
     {
       "longText": "suite 5",
       "shortText": "suite 5",
-      "types": [
-        "subpremise"
-      ],
+      "types": ["subpremise"],
       "languageCode": "en"
     },
     {
       "longText": "229",
       "shortText": "229",
-      "types": [
-        "street_number"
-      ],
+      "types": ["street_number"],
       "languageCode": "en-US"
     },
     {
       "longText": "Skokie Valley Road",
       "shortText": "Skokie Valley Rd",
-      "types": [
-        "route"
-      ],
+      "types": ["route"],
       "languageCode": "en"
     },
     {
       "longText": "Highland Park",
       "shortText": "Highland Park",
-      "types": [
-        "locality",
-        "political"
-      ],
+      "types": ["locality", "political"],
       "languageCode": "en"
     },
     {
       "longText": "Moraine Township",
       "shortText": "Moraine Township",
-      "types": [
-        "administrative_area_level_3",
-        "political"
-      ],
+      "types": ["administrative_area_level_3", "political"],
       "languageCode": "en"
     },
     {
       "longText": "Lake County",
       "shortText": "Lake County",
-      "types": [
-        "administrative_area_level_2",
-        "political"
-      ],
+      "types": ["administrative_area_level_2", "political"],
       "languageCode": "en"
     },
     {
       "longText": "Illinois",
       "shortText": "IL",
-      "types": [
-        "administrative_area_level_1",
-        "political"
-      ],
+      "types": ["administrative_area_level_1", "political"],
       "languageCode": "en"
     },
     {
       "longText": "United States",
       "shortText": "US",
-      "types": [
-        "country",
-        "political"
-      ],
+      "types": ["country", "political"],
       "languageCode": "en"
     },
     {
       "longText": "60035",
       "shortText": "60035",
-      "types": [
-        "postal_code"
-      ],
+      "types": ["postal_code"],
       "languageCode": "en-US"
     },
     {
       "longText": "4405",
       "shortText": "4405",
-      "types": [
-        "postal_code_suffix"
-      ],
+      "types": ["postal_code_suffix"],
       "languageCode": "en-US"
     }
   ],
@@ -631,12 +606,7 @@
           "text": "McGrath Kia of Highland Park",
           "languageCode": "en"
         },
-        "types": [
-          "car_dealer",
-          "establishment",
-          "point_of_interest",
-          "store"
-        ],
+        "types": ["car_dealer", "establishment", "point_of_interest", "store"],
         "straightLineDistanceMeters": 130.6589,
         "travelDistanceMeters": 177.21327
       },
@@ -665,12 +635,7 @@
           "text": "Mizrahi Grill",
           "languageCode": "en"
         },
-        "types": [
-          "establishment",
-          "food",
-          "point_of_interest",
-          "restaurant"
-        ],
+        "types": ["establishment", "food", "point_of_interest", "restaurant"],
         "straightLineDistanceMeters": 202.02246,
         "travelDistanceMeters": 266.668
       },

@@ -739,7 +739,7 @@ export class FsService {
   }
 
   public async assetToBlob(path: string) {
-    return await fetch(path).then((res) => res.blob());
+    return await fetch(path).then(res => res.blob());
   }
 
   public async assetToBuffer<const T extends string>(path: T) {
