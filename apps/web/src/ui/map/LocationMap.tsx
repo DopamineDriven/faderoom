@@ -98,7 +98,7 @@ export function LocationMap() {
               background: "#242424",
               borderColor: "#d7be69",
               glyphColor: "#1a1a1b",
-              scale: 1.1,
+              scale: 1,
               glyph: pinElement
             });
 
