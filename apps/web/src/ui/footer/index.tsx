@@ -1,5 +1,8 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
-import type { TsxExclude } from "@/types/helpers";
+import { motion } from "motion/react";
 import { Booksy } from "@/ui/icons/Booksy";
 import { Facebook } from "@/ui/icons/Facebook";
 import { FadeRoomIcon } from "@/ui/icons/FadeRoom";
@@ -9,14 +12,17 @@ import { getYear } from "@/utils/get-year";
 const navigation = {
   social: [
     {
+      name: Facebook.displayName,
       href: "https://www.facebook.com/thefaderoominc/",
       icon: Facebook
     },
     {
+      name: Instagram.displayName,
       href: "https://www.instagram.com/thefaderoomhighlandpark/?hl=en",
       icon: Instagram
     },
     {
+      name: Booksy.displayName,
       href: "https://booksy.com/en-us/481001_the-fade-room_barber-shop_18688_highland-park",
       icon: Booksy
     }
@@ -27,84 +33,62 @@ const navigation = {
     { name: "Gallery", href: "/#gallery", target: "_self" },
     { name: "Contact Us", href: "/#contact-us", target: "_self" }
   ]
-} as const satisfies Readonly<{
-  social: {
-    href: string;
-    icon: ({
-      ...props
-    }: TsxExclude<"svg", "fill" | "viewBox" | "xmlns">) => JSX.Element;
-  }[];
-  main: {
-    name: string;
-    href: string;
-    target: string;
-  }[];
-}>;
+} as const;
 
-export function Footer() {
+export default function Footer() {
   return (
-    <footer className="border-t-[0.25rem] border-t-fr-300 bg-fr-bg-main">
-      <div className="mx-4 overflow-hidden sm:px-6 lg:px-8 lg:pb-4 lg:pt-4">
-        <nav
-          className="hidden lg:flex lg:flex-row lg:items-center lg:justify-start"
-          aria-label="Global">
-          <div className="not-sr-only mr-[3.25rem] mt-1 flex flex-shrink">
-            <Link href="/" className="lg:-m-1.5 lg:px-1.5 lg:pb-1.5">
+    <footer className="border-t-4 border-t-fr-300 bg-zinc-900">
+      <div className="mx-auto max-w-[1980px] px-4 py-12 lg:px-8">
+        <div className="flex flex-col items-center space-y-8">
+          <div className="flex flex-col items-center space-y-4">
+            <Link href="/#top" className="inline-block" shallow={true}>
               <span className="sr-only">The Fade Room Inc.</span>
-              <FadeRoomIcon height={115} width={115} />
+              <FadeRoomIcon
+                aria-description="The Fade Room Inc"
+                className="h-24 w-auto"
+              />
             </Link>
+            <p className="text-base text-zinc-400">
+              Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.
+            </p>
           </div>
-          <div className="lg:flex lg:flex-row lg:justify-start lg:gap-x-[3.25rem] lg:space-y-0">
+          <div className="flex space-x-6">
+            {navigation.social.map(item => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className="text-fr-300 hover:text-[hsl(46,58%,73%)]"
+                target="_blank"
+                rel="noreferrer noopener"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
+                <span className="sr-only">{item.name}</span>
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                  transition={{ duration: 0.75, ease: "easeInOut" }}>
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                </motion.div>
+              </motion.a>
+            ))}
+          </div>
+          <nav className="flex justify-center space-x-6">
             {navigation.main.map(item => (
               <Link
-                key={`footer-${item.name}`}
+                shallow={true}
+                key={item.name}
                 href={item.href}
-                target={item.target}
-                className="font-basis-grotesque-pro-medium text-[1.125rem] leading-[1.5rem] tracking-[0.07813rem] text-fr-300 hover:text-fr-300/95 lg:tracking-[-0.00675rem]">
+                className="text-sm font-semibold text-fr-300 hover:text-[hsl(46,58%,73%)]">
                 {item.name}
               </Link>
             ))}
-          </div>
-        </nav>
-        <nav className="grid grid-cols-1 lg:hidden" aria-label="Global">
-          <div className="not-sr-only col-span-2 mr-[3.25rem] flex flex-shrink">
-            <Link href="/" className="lg:-m-1.5 lg:px-1.5 lg:pb-1.5">
-              <span className="sr-only">The Fade Room Inc.</span>
-              <FadeRoomIcon height={100} width={100} />
-            </Link>
-          </div>
-          <div className="my-auto flex flex-col justify-start gap-y-3.5 scroll-smooth">
-            {navigation.main.map(item => (
-              <Link
-                key={`footer-${item.name}`}
-                href={item.href}
-                className="font-basis-grotesque-pro-medium text-[0.875rem] leading-[1.25rem] tracking-[-0.00675rem] text-fr-300 hover:text-fr-300/95">
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </nav>
-      </div>
-      <div className="mt-4 border-t border-fr-300 pb-4 pt-2 lg:mt-0 lg:flex lg:justify-between lg:pt-4">
-        <div className="flex space-x-6 pb-2 pt-2 md:order-2">
-          {navigation.social.map(item => (
-            <a
-              key={item.icon.displayName}
-              href={item.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-fr-300 hover:text-fr-300/95">
-              <span className="sr-only">{item.icon.displayName}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </a>
-          ))}
+          </nav>
         </div>
-        <p className="xs:text-[0.75rem] relative mt-5 flex flex-col justify-start space-y-2.5 text-left font-basis-grotesque-pro-regular text-[0.5rem] leading-5 text-gray-200 lg:text-[1rem]">
-          <span className="my-auto w-full flex-shrink">
-            &copy;&nbsp;
-            {getYear(Date)}&nbsp;The Fade Room Inc. All rights reserved.
-          </span>
-        </p>
+        <div className="mt-8 border-t border-zinc-800 pt-8">
+          <p className="text-center text-sm text-zinc-400">
+            &copy; {getYear(Date)} The Fade Room Inc. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

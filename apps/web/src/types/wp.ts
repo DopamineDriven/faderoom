@@ -314,7 +314,7 @@ export type ExecuteReviewFormSubmissionMutationProps = {
   firstName: string;
   lastName: string;
   date: number;
-  rating: 1 | 2| 3 | 4| 5;
+  rating: 1 | 2 | 3 | 4 | 5;
   body: string;
   userAgent?: string;
   ip?: string;

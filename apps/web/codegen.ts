@@ -18,7 +18,11 @@ export default <CodegenConfig>{
       }
     }
   },
-  documents: ["src/mutations/**/*.ts", "src/fragments/**/*.ts", "src/graphql/**/*.graphql"],
+  documents: [
+    "src/mutations/**/*.ts",
+    "src/fragments/**/*.ts",
+    "src/graphql/**/*.graphql"
+  ],
   verbose: true,
   debug: true,
   generates: {

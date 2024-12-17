@@ -36,4 +36,3 @@ export function Razor({
   );
 }
 Razor.displayName = "Razor";
-

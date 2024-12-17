@@ -17,7 +17,7 @@ import "./global.css";
 import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
 import ClientToaster from "@/ui/cta/ClientToaster";
-import { Footer } from "@/ui/footer";
+import Footer from "@/ui/footer";
 import NavBar from "@/ui/nav";
 // import { Nav } from "@/ui/nav/Nav";
 import * as myGtag from "@/utils/analytics";
@@ -109,13 +109,15 @@ export default function RootLayout({
         suppressHydrationWarning
         lang="en"
         className={`h-full ${BasisGrotesqueProBlack.variable} ${BasisGrotesqueProBlackItalic.variable} ${BasisGrotesqueProBold.variable} ${BasisGrotesqueProBoldItalic.variable} ${BasisGrotesqueProItalic.variable} ${BasisGrotesqueProLight.variable} ${BasisGrotesqueProLightItalic.variable} ${BasisGrotesqueProMedium.variable} ${BasisGrotesqueProMediumItalic.variable} ${BasisGrotesqueProRegular.variable}`}>
-        <body className="relative h-full max-w-[1980px] bg-fr-bg-main">
+        <body className="relative h-full">
           <NavBar />
-          <div className="relative mx-auto max-w-[1980px]">{children}</div>
-          {modal}
-          <div className="m-auto" id="modal-root" />
+          <div className="relative mx-auto max-w-[1980px] bg-fr-bg-main">
+            {children}
+          </div>
           <Footer />
           <ClientToaster />
+          {modal}
+          <div className="m-auto" id="modal-root" />
         </body>
         <Script
           async

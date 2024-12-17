@@ -10,7 +10,7 @@ export class Serializer<T> {
 
 export type Widget = {
   toJSON(): {
-    kind: 'Widget';
+    kind: "Widget";
     date: Date;
   };
 };
@@ -19,7 +19,7 @@ export type Item = {
   text: string;
   count: number;
   // preserve options
-  choice: 'yes' | 'no' | null;
+  choice: "yes" | "no" | null;
   // drop functions
   func: () => void;
   nested: {
@@ -39,12 +39,12 @@ export type JSONified<T> = JSONifiedValue<
 export type JSONifiedValue<T> = T extends string | number | boolean | null
   ? T
   : T extends (...args: any) => any
-  ? never
-  : T extends object
-  ? JSONifiedObject<T>
-  : T extends (infer U)[] | readonly (infer U)[]
-  ? JSONifiedArray<U>
-  : never;
+    ? never
+    : T extends object
+      ? JSONifiedObject<T>
+      : T extends (infer U)[] | readonly (infer U)[]
+        ? JSONifiedArray<U>
+        : never;
 
 export type JSONifiedObject<T> = {
   [P in keyof T]: JSONifiedObject<T[P]>;
@@ -52,7 +52,7 @@ export type JSONifiedObject<T> = {
 
 export type UndefinedAsNull<T> = T extends undefined ? null : T;
 
-export type JSONifiedArray<T> = (UndefinedAsNull<JSONified<T>>)[];
+export type JSONifiedArray<T> = UndefinedAsNull<JSONified<T>>[];
 
 // general helpers
 

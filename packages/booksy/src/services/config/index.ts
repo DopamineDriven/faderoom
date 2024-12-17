@@ -769,26 +769,31 @@ booksyBizXFingerprint: \${BOOKSY_BIZ_X_FINGERPRINT}
 
   public async listVercelBlobs() {
     const list = (await import("@vercel/blob")).list;
-    console.log("listVercelBlobs was only called once")
+    console.log("listVercelBlobs was only called once");
     return (await list()).blobs.map(v => {
-      this.withWs({data: JSON.stringify(v, null, 2), path: `src/utils/__generated__/vercel/${v.pathname}.json`, cwd: this.cwd})
+      this.withWs({
+        data: JSON.stringify(v, null, 2),
+        path: `src/utils/__generated__/vercel/${v.pathname}.json`,
+        cwd: this.cwd
+      });
       return v;
     });
   }
 
   public vercelData = () => {
-    return this
-      .readDir({ cwd: this.cwd, path: "src/utils/__generated__/vercel" })
-      .map((v) => {
-        const data = JSON.parse(Buffer.from(
-          this
-            .fileToBuffer({
-              cwd: this.cwd,
-              path: `src/utils/__generated__/vercel/${v}`
-            })
-            .toJSON().data
-        ).toString("utf-8")) as VercelBlobShape;
-        return data;
-      });
+    return this.readDir({
+      cwd: this.cwd,
+      path: "src/utils/__generated__/vercel"
+    }).map(v => {
+      const data = JSON.parse(
+        Buffer.from(
+          this.fileToBuffer({
+            cwd: this.cwd,
+            path: `src/utils/__generated__/vercel/${v}`
+          }).toJSON().data
+        ).toString("utf-8")
+      ) as VercelBlobShape;
+      return data;
+    });
   };
 }

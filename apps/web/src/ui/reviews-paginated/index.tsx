@@ -1,6 +1,7 @@
 "use client";
 
-import { FC, PropsWithChildren, useRef, useState } from "react";
+import type { FC, PropsWithChildren } from "react";
+import { useRef, useState } from "react";
 import { Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
 import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
@@ -41,8 +42,8 @@ export const ReviewsAndServicesSection: FC<
   usePreventInnerScroll(reviewsContainerRef);
 
   return (
-    <section className="w-full bg-black/95 py-12 md:py-20">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="mt-10 w-full bg-black/95 py-12 md:py-20">
+      <div className="container mx-auto">
         <div className="grid gap-8 lg:h-[calc(100vh-96px)] lg:grid-cols-2">
           <div className="lg:order-1 lg:h-full">
             <ServicesSection />
@@ -60,7 +61,7 @@ export const ReviewsAndServicesSection: FC<
               <div className="space-y-6 pr-4">
                 {currentReviews.map(review => (
                   <Card key={review.id} className="border-zinc-800 bg-zinc-900">
-                    <CardContent className="p-6">
+                    <CardContent className="p-3">
                       <div className="mb-4 flex items-start">
                         <Avatar className="mr-4">
                           <AvatarImage

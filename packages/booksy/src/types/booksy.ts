@@ -60,11 +60,13 @@ export type BooksyReviewsEntity = {
   source: string | null;
   updated: string;
   anonymized: boolean;
-  photos: null[] | {
-    id: number,
-    url: string;
-    published: string;
-  }[];
+  photos:
+    | null[]
+    | {
+        id: number;
+        url: string;
+        published: string;
+      }[];
   feedback_status: { Y: number; N: number; I: number };
 };
 
@@ -94,12 +96,14 @@ export type BooksyReviewsEntityModified = {
   source: string | null;
   updated: number;
   anonymized: boolean;
-  photos: null | {
-    id: number,
-    url: string;
-    published: string |null;
-  }[];
-  photos_length:number;
+  photos:
+    | null
+    | {
+        id: number;
+        url: string;
+        published: string | null;
+      }[];
+  photos_length: number;
   feedback_status: { Y: number; N: number; I: number };
 };
 

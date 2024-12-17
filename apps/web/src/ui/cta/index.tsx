@@ -2,7 +2,8 @@
 
 import React from "react";
 import { ArrowUpRight, Check, Copy } from "lucide-react";
-import { TsxExclude } from "@/types/helpers";
+import { motion } from "motion/react";
+import type { TsxExclude } from "@/types/helpers";
 import { CtaButton } from "@/ui/cta/ui/CtaButton";
 import {
   CtaCard,
@@ -12,9 +13,10 @@ import {
   CtaCardTitle
 } from "@/ui/cta/ui/CtaCard";
 import { useToast } from "@/ui/hooks/useToast";
-import { Facebook } from "../icons/Facebook";
-import { Instagram } from "../icons/Instagram";
-import { SquareUp } from "../icons/SquareUp";
+import { useTouchDevice } from "@/ui/hooks/useTouchDevice";
+import { Facebook } from "@/ui/icons/Facebook";
+import { Instagram } from "@/ui/icons/Instagram";
+import { SquareUp } from "@/ui/icons/SquareUp";
 
 interface PromoCode {
   code: string;
@@ -49,6 +51,7 @@ const social = [
 
 const OptimizedCTA = () => {
   const { toast } = useToast();
+  const isTouchDevice = useTouchDevice();
   const [copiedCode, setCopiedCode] = React.useState<string | null>(null);
 
   const promoCodes = [
@@ -80,9 +83,9 @@ const OptimizedCTA = () => {
   };
 
   return (
-    <CtaCard className="border-cta-border mx-auto w-full max-w-3xl bg-zinc-900 p-2 text-zinc-100 sm:p-4">
+    <CtaCard className="border-cta-border mx-auto w-full max-w-3xl bg-zinc-900 p-2 font-basis-grotesque-pro-medium text-zinc-100 sm:p-4">
       <CtaCardHeader className="mb-4 p-0">
-        <div className="rounded-t-lg bg-fr-300 font-bold tracking-tight font-basis-grotesque-pro-bold p-2 text-zinc-900">
+        <div className="rounded-t-lg bg-fr-300 p-2 font-basis-grotesque-pro-bold font-bold tracking-tight text-zinc-900">
           <p className="text-center text-xs sm:text-sm">
             HAIRCUTS BY APPOINTMENT ONLY
           </p>
@@ -97,13 +100,33 @@ const OptimizedCTA = () => {
         </CtaCardTitle>
         <a
           href="https://squareup.com/gift/MLHZCDVC0MKB1/order"
-          className="group"
+          className="group relative inline-block"
           target="_blank"
           rel="noopener noreferrer">
-          <h2 className="inline-flex items-center text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
-            Look Fresh For Less{" "}
-            <ArrowUpRight className="inline-block h-7 w-7 text-fr-300 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:h-9 sm:w-9" />
-          </h2>
+          <motion.h2
+            className="inline-flex items-center text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
+            initial="initial"
+            whileHover={isTouchDevice ? "initial" : "hover"}
+            animate="initial">
+            <motion.span className="relative">
+              Look Fresh For Less
+              <motion.span
+                className="absolute bottom-0 left-0 h-0.5 w-full bg-fr-300"
+                variants={{
+                  initial: { width: 0 },
+                  hover: { width: "100%", transition: { duration: 0.3 } }
+                }}
+                style={{ originX: 1 }}
+              />
+            </motion.span>
+            <motion.span
+              variants={{
+                initial: { x: 0 },
+                hover: { x: 5, transition: { duration: 0.3 } }
+              }}>
+              <ArrowUpRight className="inline-block h-7 w-7 text-fr-300 sm:h-9 sm:w-9" />
+            </motion.span>
+          </motion.h2>
         </a>
         <ul className="space-y-1 text-xs sm:space-y-2 sm:text-sm md:text-base lg:text-lg">
           {promoCodes.map(({ code, discount, threshold }) => (
@@ -126,7 +149,7 @@ const OptimizedCTA = () => {
             </li>
           ))}
         </ul>
-        <p className="text-xs italic text-zinc-400 sm:text-sm">
+        <p className="font-basis-grotesque-pro-italic text-xxs text-zinc-400 sm:text-xs md:text-sm">
           Promo codes are valid for the current month
         </p>
       </CtaCardContent>

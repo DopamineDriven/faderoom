@@ -10,7 +10,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
 }) => {
   return (
     <>
-      <div className='spinner' />
+      <div className="spinner" />
       <style jsx>
         {`
           .spinner,

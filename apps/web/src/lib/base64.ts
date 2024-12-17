@@ -9,4 +9,3 @@ export function fromBase64<const T extends string>(str: T) {
     ? Buffer.from(str, "base64").toString("utf-8")
     : window.atob(str);
 }
-

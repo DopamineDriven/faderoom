@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
-import { FsService } from "@/services/fs";
 import type { PlacesResponse } from "@/types/google";
+import { FsService } from "@/services/fs";
 
 dotenv.config();
 

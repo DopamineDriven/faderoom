@@ -15,4 +15,4 @@ export function ChevronUp({
   );
 }
 
-ChevronUp.displayName="ChevronUp";
+ChevronUp.displayName = "ChevronUp";

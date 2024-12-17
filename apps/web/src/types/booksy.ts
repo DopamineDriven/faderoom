@@ -225,7 +225,6 @@ export type BooksyJSONified = UndefinedAsNull<
   JSONified<BooksyReviewFetchResponse>
 >[];
 
-
 // export class BooksyWrapper {
 // 	authResponse: BooksyAuthResponse;
 // 	coverImages: BooksyCoverImages;

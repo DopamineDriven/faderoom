@@ -40,7 +40,11 @@ export function dateTimeFormatHelper(props: string) {
 
   const toMonth = monthObj[month as keyof typeof monthObj];
 
-  return {full: `${toMonth} ${day}, ${year} at ${handleTime}`, ymd: `${toMonth} ${day}, ${year}`, hm: handleTime};
+  return {
+    full: `${toMonth} ${day}, ${year} at ${handleTime}`,
+    ymd: `${toMonth} ${day}, ${year}`,
+    hm: handleTime
+  };
 }
 
 export function dateFormatter<const T extends number>(date: T) {

@@ -4,8 +4,8 @@ import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
 import { shimmer } from "@/lib/shimmer";
+import { cn } from "@/lib/utils";
 
 const ImageScaffolder = forwardRef<
   ElementRef<typeof Image>,
