@@ -4,14 +4,12 @@ import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
   React.ElementRef<typeof motion.div>,
-  React.ComponentPropsWithoutRef<typeof motion.div> & {
-    gradientDirection?: "bl" | "br" | "tl" | "tr";
-  }
->(({ className, gradientDirection = "bl", ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof motion.div>
+>(({ className, ...props }, ref) => (
   <motion.div
     ref={ref}
     className={cn(
-      `rounded-lg border border-border bg-gradient-to-${gradientDirection} from-zinc-900 to-zinc-800 text-zinc-100 shadow-lg`,
+      `border-cta-border rounded-lg border bg-gradient-to-br from-zinc-900 to-zinc-800 text-zinc-100 shadow-lg`,
       className
     )}
     initial={{ opacity: 0, y: 20 }}
