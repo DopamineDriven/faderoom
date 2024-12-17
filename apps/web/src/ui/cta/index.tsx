@@ -81,7 +81,7 @@ const OptimizedCTA = () => {
   };
 
   return (
-    <Card className="border-cta-border mx-auto w-full max-w-3xl bg-zinc-900 p-2 font-basis-grotesque-pro-medium text-zinc-100 sm:p-4">
+    <Card className="border-border mx-auto w-full max-w-3xl p-2 font-basis-grotesque-pro-medium text-zinc-100 sm:p-4">
       <CardHeader className="mb-4 p-0">
         <div className="rounded-t-lg bg-fr-300 p-2 font-basis-grotesque-pro-bold font-bold tracking-tight text-zinc-900">
           <p className="text-center text-xs sm:text-sm">
