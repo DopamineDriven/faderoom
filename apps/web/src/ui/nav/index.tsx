@@ -38,7 +38,7 @@ const itemVariants = {
 };
 
 const navItems = [
-  { href: "/", label: "Home" },
+  { href: "/#top", label: "Home" },
   { href: "/#services", label: "Services" },
   { href: "/#gallery", label: "Gallery" },
   { href: "/#contact-us", label: "Contact Us" }
@@ -70,7 +70,7 @@ const NavBar = () => {
           className="mx-auto flex max-w-[1980px] items-center justify-between p-4 lg:px-8"
           aria-label="Global">
           <div className="flex items-center">
-            <Link href="/" className="-m-1.5 flex items-center p-1.5">
+            <Link href="/#top" className="-m-1.5 flex items-center p-1.5">
               <span className="sr-only">The Fade Room</span>
               <FadeRoomIcon className="h-10 w-10 text-fr-300" />
             </Link>
