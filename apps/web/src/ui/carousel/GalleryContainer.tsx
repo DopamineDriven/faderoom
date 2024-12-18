@@ -1,3 +1,5 @@
+"use client";
+
 import React, { PropsWithChildren } from "react";
 import { Camera } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/ui/map/ui/Card";
