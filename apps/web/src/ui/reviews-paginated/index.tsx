@@ -1,6 +1,6 @@
 "use client";
 
-import type { FC, PropsWithChildren } from "react";
+import type { FC } from "react";
 import { useRef, useState } from "react";
 import { Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
@@ -42,8 +42,8 @@ export type ReviewsAndServicesSectionProps = ArrFieldReplacer<
 >;
 
 export const ReviewsAndServicesSection: FC<
-  PropsWithChildren<{ reviews: ReviewsAndServicesSectionProps }>
-> = ({ reviews, children }) => {
+  { reviews: ReviewsAndServicesSectionProps }
+> = ({ reviews }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 5;
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
@@ -195,7 +195,6 @@ export const ReviewsAndServicesSection: FC<
             </Card>
           </div>
         </div>
-        <div>{children}</div>
       </div>
     </section>
   );

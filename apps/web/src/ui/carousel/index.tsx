@@ -5,11 +5,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useInView } from "motion/react";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from "@/lib/utils";
-import { SwipeGesture } from "@/ui/carousel/SwipeGesture";
-import { Thumbnail } from "@/ui/carousel/Thumbnail";
+import { SwipeGesture } from "./SwipeGesture";
+import { Thumbnail } from "./Thumbnail";
+import { motion, AnimatePresence, useInView } from 'motion/react';
 
 export default function Carousel({
   imageData
@@ -37,6 +37,7 @@ export default function Carousel({
   const [hasInteracted, setHasInteracted] = useState(false);
   const [_thumbsSlidesToScroll, setThumbsSlidesToScroll] = useState(0);
   const inViewDivRef = useRef<HTMLDivElement | null>(null);
+  const [direction, setDirection] = useState(0);
 
   const isInView = useInView(inViewDivRef, { amount: "some", once: true });
 
@@ -74,9 +75,11 @@ export default function Carousel({
     if (!mainApi || !thumbsApi) return;
 
     const onSelect = () => {
-      setSelectedIndex(mainApi.selectedScrollSnap());
+      const currentIndex = mainApi.selectedScrollSnap();
+      setDirection(currentIndex > selectedIndex ? 1 : -1);
+      setSelectedIndex(currentIndex);
       updateThumbs(thumbsApi);
-      thumbsApi.scrollTo(mainApi.selectedScrollSnap());
+      thumbsApi.scrollTo(currentIndex);
     };
 
     mainApi.on("select", onSelect);
@@ -85,15 +88,7 @@ export default function Carousel({
     return () => {
       mainApi.off("select", onSelect);
     };
-  }, [mainApi, thumbsApi, updateThumbs]);
-
-  // useEffect(() => {
-  //   console.log(`isInView=${isInView}`);
-  //   if (isInView === false) {
-  //     setShowSwipeAnimation(true);
-  //     setHasInteracted(false);
-  //   }
-  // }, [isInView]);
+  }, [mainApi, thumbsApi, updateThumbs, selectedIndex]);
 
   useEffect(() => {
     if (isInView) {
@@ -111,51 +106,63 @@ export default function Carousel({
   }, []);
 
   return (
-    <div className="min-h-[75vh] bg-transparent">
-      <div className="mx-auto px-4 py-12">
-        <h2
-          className="mb-8 text-center text-4xl font-bold text-fr-300 md:text-5xl"
-          id="gallery">
-          Gallery
-        </h2>
+    <div className="bg-transparent">
+      <div className="mx-auto px-4 py-6">
         <div
           ref={inViewDivRef}
           className="mx-auto max-w-5xl"
           onFocus={handleGalleryFocus}
           tabIndex={0}>
           <div className="relative mb-4">
-            <div className="overflow-hidden rounded-lg" ref={mainRef}>
-              <div className="flex">
+            <div className="overflow-hidden rounded-lg aspect-[4/3]" ref={mainRef}>
+              <div className="flex h-full">
                 {imageData.data.map((image, index) => (
-                  <div key={image.id} className="min-w-0 flex-[0_0_100%]">
-                    <Link
-                      href={`/photos/${image.id}`}
-                      scroll={false}
-                      className="relative block aspect-[4/3]">
-                      <Image
-                        src={image.url}
-                        alt={image.relative_path}
-                        fill
-                        // loading="lazy"
-                        className="object-cover"
-                      />
-                      <div className="absolute bottom-2 right-2 rounded bg-black/50 px-2 py-1 text-sm text-white">
-                        {index + 1} / {imageData.data.length}
-                      </div>
-                    </Link>
+                  <div key={image.id} className="relative flex-[0_0_100%] h-full">
+                    <AnimatePresence initial={false} custom={direction}>
+                      {index === selectedIndex && (
+                        <motion.div
+                          key={image.id}
+                          custom={direction}
+                          initial={{ opacity: 0, x: direction > 0 ? '100%' : '-100%' }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: direction > 0 ? '-100%' : '100%' }}
+                          transition={{
+                            x: { type: "spring", stiffness: 300, damping: 30 },
+                            opacity: { duration: 0.2 },
+                          }}
+                          className="absolute inset-0"
+                        >
+                          <Link
+                            href={`/photos/${image.id}`}
+                            scroll={false}
+                            className="block w-full h-full"
+                          >
+                            <Image
+                              src={image.url}
+                              alt={image.relative_path}
+                              fill
+                              className="object-cover"
+                            />
+                            <div className="absolute bottom-2 right-2 rounded bg-black/50 px-2 py-1 text-sm text-white">
+                              {index + 1} / {imageData.data.length}
+                            </div>
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 ))}
               </div>
             </div>
             <button
               aria-label="Previous image"
-              className="absolute left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/75 md:flex"
+              className="absolute left-4 top-1/2 h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/75 flex"
               onClick={scrollPrev}>
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               aria-label="Next image"
-              className="absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/75 md:flex"
+              className="absolute right-4 top-1/2 h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/75 flex"
               onClick={scrollNext}>
               <ChevronRight className="h-6 w-6" />
             </button>
@@ -189,3 +196,4 @@ export default function Carousel({
     </div>
   );
 }
+
