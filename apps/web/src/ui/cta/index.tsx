@@ -84,10 +84,10 @@ const OptimizedCTA = () => {
     <Card className="border-cta-border mx-auto w-full max-w-3xl p-2 font-basis-grotesque-pro-medium text-zinc-100 sm:p-4">
       <CardHeader className="mb-4 p-0">
         <div className="rounded-t-lg bg-fr-300 p-2 font-basis-grotesque-pro-bold font-bold tracking-tight text-zinc-900">
-          <p className="text-center text-xs sm:text-sm">
+          <p className="text-center text-xsx sm:text-sm">
             HAIRCUTS BY APPOINTMENT ONLY
           </p>
-          <p className="text-center text-xs sm:text-sm">
+          <p className="text-center text-xsx sm:text-sm">
             ANY SERVICE SCHEDULED BEFORE 7:30AM IS PRE-PAID
           </p>
         </div>
@@ -139,7 +139,7 @@ const OptimizedCTA = () => {
             </motion.span>
           </motion.h2>
         </a>
-        <ul className="space-y-1 text-xs sm:space-y-2 sm:text-sm md:text-base lg:text-lg">
+        <ul className="space-y-1 text-xsx sm:space-y-2 sm:text-sm md:text-base lg:text-lg">
           {promoCodes.map(({ code, discount, threshold }) => (
             <li
               key={code}
