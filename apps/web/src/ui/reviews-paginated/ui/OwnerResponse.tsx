@@ -46,9 +46,6 @@ export function OwnerResponse({ content, date, staff }: OwnerResponseProps) {
     </Card>
   );
 }
-const xr = (props: typeof google.maps.Map) => {}
-
-OwnerResponse.displayName = "OwnerResponse";
 
 /*
 
