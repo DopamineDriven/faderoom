@@ -11,6 +11,7 @@ import { SwipeGesture } from "./SwipeGesture";
 import { Thumbnail } from "./Thumbnail";
 import { motion, AnimatePresence, useInView } from 'motion/react';
 
+
 export default function Carousel({
   imageData
 }: {
