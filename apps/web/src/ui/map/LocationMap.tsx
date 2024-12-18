@@ -203,7 +203,7 @@ export function LocationMap() {
   google.maps.importLibrary;
   return (
     <div className="space-y-8">
-      <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 mx-auto">
         <Card className="flex h-[600px] flex-col">
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center text-xl font-bold text-fr-300 sm:text-2xl">

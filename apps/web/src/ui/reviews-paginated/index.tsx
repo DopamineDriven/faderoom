@@ -58,8 +58,8 @@ export const ReviewsAndServicesSection: FC<
   const { containerRef, height } = useAspectRatioLimit(0.5);
   console.log(height);
   return (
-    <section className="w-full max-w-[1400px]">
-      <div className="mx-auto px-4 md:px-6">
+    <section className="w-full">
+      <div className="mx-auto">
         <div className="grid gap-8 py-12 lg:grid-cols-2">
           <div className="lg:order-1" id="services">
             <ServicesSection ref={containerRef} />
@@ -79,15 +79,15 @@ export const ReviewsAndServicesSection: FC<
               <CardContent className="flex flex-col overflow-hidden">
                 <div
                   ref={reviewsContainerRef}
-                  className="h-full overflow-y-auto pr-4">
-                  <div className="space-y-6 pr-4">
+                  className="h-full overflow-y-auto sm:pr-4">
+                  <div className="space-y-6 sm:pr-4">
                     {currentReviews.map(review => (
                       <Card
                         key={review.id}
                         className="border-zinc-700 bg-zinc-800/50">
-                        <CardContent className="p-6">
-                          <div className="mb-4 flex items-start">
-                            <Avatar className="mr-4">
+                        <CardContent className="py-4 sm:p-6">
+                          <div className="mb-2 flex items-start sm:mb-4">
+                            <Avatar className="mr-2 sm:mr-4">
                               <AvatarImage
                                 src={`https://api.dicebear.com/6.x/initials/svg?seed=${review.user}&backgroundColor=d7be69&textColor=1a1d1e`}
                                 alt={review.user}
@@ -101,14 +101,14 @@ export const ReviewsAndServicesSection: FC<
                             </Avatar>
                             <div className="flex-grow">
                               <div className="flex items-center justify-between">
-                                <p className="font-semibold text-[hsl(46,58%,63%)]">
+                                <p className="text-xs font-semibold text-[hsl(46,58%,63%)] sm:text-sm">
                                   {review.user}
                                 </p>
-                                <span className="text-sm text-zinc-400">
+                                <span className="text-xs text-zinc-400 sm:text-sm">
                                   {dateFormatter(review.created).ymd}
                                 </span>
                               </div>
-                              <div className="mt-1 flex space-x-1">
+                              <div className="mt-1 flex space-x-0.5 sm:space-x-1">
                                 {(review.rank === 5
                                   ? [1, 2, 3, 4, 5]
                                   : review.rank === 4
@@ -121,7 +121,7 @@ export const ReviewsAndServicesSection: FC<
                                 ).map((_, i) => (
                                   <Star
                                     key={i}
-                                    className={`h-4 w-4 ${
+                                    className={`h-3 w-3 sm:h-4 sm:w-4 ${
                                       i < review.rank
                                         ? "fill-[hsl(46,58%,63%)] text-[hsl(46,58%,63%)]"
                                         : "text-zinc-600"
