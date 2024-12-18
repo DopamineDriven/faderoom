@@ -28,7 +28,7 @@ const navigation = {
     }
   ],
   main: [
-    { name: "Home", href: "/", target: "_self" },
+    { name: "Home", href: "/#top", target: "_self" },
     { name: "Services", href: "/#services", target: "_self" },
     { name: "Gallery", href: "/#gallery", target: "_self" },
     { name: "Contact Us", href: "/#contact-us", target: "_self" }
@@ -41,14 +41,14 @@ export default function Footer() {
       <div className="mx-auto max-w-[1980px] px-4 py-12 lg:px-8">
         <div className="flex flex-col items-center space-y-8">
           <div className="flex flex-col items-center space-y-4">
-            <Link href="/#top" className="inline-block" shallow={true}>
+            <Link href="/#top" className="inline-block" shallow={true} passHref>
               <span className="sr-only">The Fade Room Inc.</span>
               <FadeRoomIcon
                 aria-description="The Fade Room Inc"
                 className="h-24 w-auto"
               />
             </Link>
-            <p className="text-base text-zinc-400">
+            <p className="text-center text-base text-zinc-400">
               Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.
             </p>
           </div>
