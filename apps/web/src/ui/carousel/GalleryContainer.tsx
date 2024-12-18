@@ -1,12 +1,9 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { Camera } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/ui/map/ui/Card";
 
-interface GalleryContainerProps {
-  children: React.ReactNode;
-}
 
-const GalleryContainer: React.FC<GalleryContainerProps> = ({ children }) => {
+export const GalleryContainer: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Card className="border-cta-border w-full overflow-hidden bg-zinc-800/50 bg-opacity-50 text-zinc-100">
       <CardHeader className="">
@@ -18,5 +15,3 @@ const GalleryContainer: React.FC<GalleryContainerProps> = ({ children }) => {
     </Card>
   );
 };
-
-export default GalleryContainer;
