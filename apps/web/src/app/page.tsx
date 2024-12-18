@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReviewsAndServicesSectionProps } from "@/ui/reviews-paginated";
 import Carousel from "@/ui/carousel";
+import GalleryContainer from "@/ui/carousel/GalleryContainer";
 import OptimizedCTA from "@/ui/cta";
 import Hero from "@/ui/hero";
 import { GoogleMap } from "@/ui/map";
@@ -30,9 +31,11 @@ export default function Home() {
         <OptimizedCTA />
         <GoogleMap />
         <ReviewsAndServicesSection
-          reviews={reviewData.reviews as ReviewsAndServicesSectionProps}>
+          reviews={reviewData.reviews as ReviewsAndServicesSectionProps}
+        />
+        <GalleryContainer>
           <Carousel imageData={imageObject} />
-        </ReviewsAndServicesSection>
+        </GalleryContainer>
       </div>
     </main>
   );
