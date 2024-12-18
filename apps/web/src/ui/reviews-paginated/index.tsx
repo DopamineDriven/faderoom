@@ -1,6 +1,6 @@
 "use client";
 
-import type { FC, PropsWithChildren } from "react";
+import type { FC } from "react";
 import { useRef, useState } from "react";
 import { Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
