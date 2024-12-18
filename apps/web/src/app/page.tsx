@@ -24,7 +24,7 @@ export default function Home() {
   //   </>
   // );
   return (
-    <main className="min-h-screen bg-fr-bg-main font-basis-grotesque-pro-medium antialiased">
+    <main className="min-h-screen bg-gradient-to-tl from-[#1c1c1c] to-[#2a2a2a] font-basis-grotesque-pro-medium antialiased">
       <Hero />
       <div className="container mx-auto space-y-8 p-4 sm:p-8">
         <OptimizedCTA />
