@@ -1,7 +1,12 @@
 "use client";
 
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage
+} from "@/ui/reviews-paginated/ui/Avatar";
+import { ReviewContent } from "@/ui/reviews-paginated/ui/ReviewContent";
 import { dateFormatter } from "@/utils/date-formatter";
-import { Avatar, AvatarFallback, AvatarImage } from "./Avatar";
 
 export type OwnerResponseProps = {
   staff: string;
@@ -27,7 +32,7 @@ export function OwnerResponse({ content, date, staff }: OwnerResponseProps) {
               {dateFormatter(date).ymd}
             </span>
           </div>
-          <p className="mt-2 text-zinc-100">{content}</p>
+          <ReviewContent content={content} />
         </div>
       </div>
     </div>
