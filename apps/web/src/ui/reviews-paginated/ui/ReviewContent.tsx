@@ -34,7 +34,7 @@ export function ReviewContent({ content }: { content: string }) {
       <p
         ref={contentRef}
         className={cn(
-          `text-zinc-100 transition-all duration-300`,
+          `text-zinc-100 transition-all sm:text-sm text-xs duration-300`,
           isExpanded ? "" : "line-clamp-3"
         )}>
         {content}

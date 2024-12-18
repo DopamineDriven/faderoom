@@ -6,7 +6,7 @@ import { LocationMap } from "@/ui/map/LocationMap";
 export function GoogleMap() {
   const { isLoaded } = useGoogleMapsScript();
   return (
-    <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6">
+    <div className="mx-auto w-full">
       {isLoaded && <LocationMap />}
     </div>
   );
