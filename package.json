@@ -36,7 +36,7 @@
     "dotenv-expand": "latest",
     "eslint": "latest",
     "husky": "latest",
-    "jiti": "^2.4.1",
+    "jiti": "^2.4.2",
     "prettier": "latest",
     "tsx": "latest",
     "turbo": "latest",

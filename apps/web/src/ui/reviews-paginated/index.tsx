@@ -60,7 +60,7 @@ export const ReviewsAndServicesSection: FC<
   return (
     <section className="w-full">
       <div className="mx-auto">
-        <div className="grid gap-8 py-12 lg:grid-cols-2">
+        <div className="grid gap-8 py-8 sm:py-12 lg:grid-cols-2">
           <div className="lg:order-1" id="services">
             <ServicesSection ref={containerRef} />
           </div>
@@ -69,7 +69,7 @@ export const ReviewsAndServicesSection: FC<
               className="border-cta-border flex flex-col bg-gradient-to-br from-zinc-900 to-zinc-800"
               style={{ maxHeight: `${height}px` }}>
               <CardHeader>
-                <CardTitle className="mb-2 text-center text-3xl font-bold text-[hsl(46,58%,63%)]">
+                <CardTitle className="mb-2 text-center text-2xl font-bold text-[hsl(46,58%,63%)] sm:text-3xl">
                   Customer Reviews
                 </CardTitle>
                 <p className="mb-6 text-center text-zinc-400">
@@ -79,14 +79,14 @@ export const ReviewsAndServicesSection: FC<
               <CardContent className="flex flex-col overflow-hidden">
                 <div
                   ref={reviewsContainerRef}
-                  className="h-full overflow-y-auto sm:pr-4">
-                  <div className="space-y-6 sm:pr-4">
+                  className="h-full overflow-y-auto pr-1 sm:pr-4">
+                  <div className="space-y-6 pr-1 sm:pr-4">
                     {currentReviews.map(review => (
                       <Card
                         key={review.id}
-                        className="border-zinc-700 bg-zinc-800/50">
-                        <CardContent className="py-4 sm:p-6">
-                          <div className="mb-2 flex items-start sm:mb-4">
+                        className="border-zinc-700 bg-zinc-800/50 bg-opacity-50">
+                        <CardContent className="mb-4 space-y-2 p-6">
+                          <div className="my-0 flex items-center">
                             <Avatar className="mr-2 sm:mr-4">
                               <AvatarImage
                                 src={`https://api.dicebear.com/6.x/initials/svg?seed=${review.user}&backgroundColor=d7be69&textColor=1a1d1e`}
@@ -100,34 +100,39 @@ export const ReviewsAndServicesSection: FC<
                               </AvatarFallback>
                             </Avatar>
                             <div className="flex-grow">
-                              <div className="flex items-center justify-between">
-                                <p className="text-xs font-semibold text-[hsl(46,58%,63%)] sm:text-sm">
-                                  {review.user}
-                                </p>
-                                <span className="text-xs text-zinc-400 sm:text-sm">
-                                  {dateFormatter(review.created).ymd}
-                                </span>
-                              </div>
-                              <div className="mt-1 flex space-x-0.5 sm:space-x-1">
-                                {(review.rank === 5
-                                  ? [1, 2, 3, 4, 5]
-                                  : review.rank === 4
-                                    ? [1, 2, 3, 4]
-                                    : review.rank === 3
-                                      ? [1, 2, 3]
-                                      : review.rank === 2
-                                        ? [1, 2]
-                                        : [review.rank]
-                                ).map((_, i) => (
-                                  <Star
-                                    key={i}
-                                    className={`h-3 w-3 sm:h-4 sm:w-4 ${
-                                      i < review.rank
-                                        ? "fill-[hsl(46,58%,63%)] text-[hsl(46,58%,63%)]"
-                                        : "text-zinc-600"
-                                    }`}
-                                  />
-                                ))}
+                              <div className="my-auto flex items-start justify-between">
+                                <div className="flex flex-col">
+                                  <p className="text-xs font-semibold text-[hsl(46,58%,63%)] sm:text-base">
+                                    {review.user}
+                                  </p>
+                                  <span className="text-xsx text-zinc-400 sm:text-sm">
+                                    {
+                                      dateFormatter(review.created)
+                                        .iso8601DateOnly
+                                    }
+                                  </span>
+                                </div>
+                                <div className="flex space-x-[0.0625rem] sm:space-x-0.5">
+                                  {(review.rank === 5
+                                    ? [1, 2, 3, 4, 5]
+                                    : review.rank === 4
+                                      ? [1, 2, 3, 4]
+                                      : review.rank === 3
+                                        ? [1, 2, 3]
+                                        : review.rank === 2
+                                          ? [1, 2]
+                                          : [review.rank]
+                                  ).map((_, i) => (
+                                    <Star
+                                      key={i}
+                                      className={`h-2 w-2 sm:h-4 sm:w-4 ${
+                                        i < review.rank
+                                          ? "fill-[hsl(46,58%,63%)] text-[hsl(46,58%,63%)]"
+                                          : "text-zinc-600"
+                                      }`}
+                                    />
+                                  ))}
+                                </div>
                               </div>
                             </div>
                           </div>

@@ -27,6 +27,7 @@ import {
   CardTitle
 } from "@/ui/reviews-paginated/ui/Card";
 
+
 const services = [
   {
     icon: Target,
@@ -175,7 +176,7 @@ const Accordion: React.FC<AccordionProps> = ({
       <motion.header
         initial={false}
         animate={{
-          backgroundColor: isOpen ? "rgba(24, 24, 27, 0.5)" : "transparent"
+          backgroundColor: isOpen ? "rgba(24, 24, 27, 0.5)" : "rgba(24, 24, 27, 0)"
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
         onClick={() => setExpanded(isOpen ? false : index)}
@@ -233,7 +234,7 @@ const ServicesSection = React.forwardRef<
       ref={ref}
       {...props}>
       <CardHeader>
-        <CardTitle className="mb-2 text-center text-3xl font-bold text-[hsl(46,58%,63%)]">
+        <CardTitle className="mb-2 text-center text-2xl sm:text-3xl font-bold text-[hsl(46,58%,63%)]">
           Services
         </CardTitle>
         <p className="text-center text-zinc-400">Popular</p>

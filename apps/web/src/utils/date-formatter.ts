@@ -40,9 +40,11 @@ export function dateTimeFormatHelper(props: string) {
 
   const toMonth = monthObj[month as keyof typeof monthObj];
 
+
   return {
     full: `${toMonth} ${day}, ${year} at ${handleTime}`,
     ymd: `${toMonth} ${day}, ${year}`,
+    iso8601DateOnly: `${year}-${month}-${day}`,
     hm: handleTime
   };
 }
