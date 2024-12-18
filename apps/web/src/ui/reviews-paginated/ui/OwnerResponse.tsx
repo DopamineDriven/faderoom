@@ -34,7 +34,7 @@ export function OwnerResponse({ content, date, staff }: OwnerResponseProps) {
             <div className="flex items-start justify-between">
               <div className="flex flex-col">
                 <p className="text-xs font-semibold text-[hsl(46,58%,63%)] sm:text-base">{`${first} ${lastInitial}`}</p>
-                <span className="text-xsx ml-2 text-zinc-400 sm:text-sm">
+                <span className="text-xsx text-zinc-400 sm:text-sm">
                   {dateFormatter(date).iso8601DateOnly}
                 </span>
               </div>
@@ -46,28 +46,3 @@ export function OwnerResponse({ content, date, staff }: OwnerResponseProps) {
     </Card>
   );
 }
-
-/*
-
-    <Card className="mt-4 pl-4 rounded-none bg-transparent border-transparent border-l-2 border-l-[hsl(46,58%,63%)]">
-      <CardContent className="p-2">
-        <div className="flex items-start mb-2">
-          <Avatar className="mr-4 flex-shrink-0">
-            <AvatarImage src="https://api.dicebear.com/6.x/initials/svg?seed=Mauricio Flores&backgroundColor=d7be69&textColor=1a1d1e" alt="The Fade Room" />
-            <AvatarFallback>FR</AvatarFallback>
-          </Avatar>
-          <div className="flex-grow">
-            <div className="flex items-start justify-between">
-              <div className="flex flex-col">
-                <p className="text-[hsl(46,58%,63%)] text-base font-semibold">The Fade Room</p>
-                <span className="text-sm text-zinc-400">
-                  {new Date(response.date).toLocaleDateString()}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <ReviewContent content={response.content} />
-      </CardContent>
-    </Card>
-*/
