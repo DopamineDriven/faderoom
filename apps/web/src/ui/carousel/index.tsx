@@ -111,8 +111,8 @@ export default function Carousel({
   }, []);
 
   return (
-    <div className="min-h-[75vh] bg-current">
-      <div className="container mx-auto px-4 py-12">
+    <div className="min-h-[75vh] bg-transparent">
+      <div className="mx-auto px-4 py-12">
         <h2
           className="mb-8 text-center text-4xl font-bold text-fr-300 md:text-5xl"
           id="gallery">

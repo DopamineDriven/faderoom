@@ -58,8 +58,8 @@ export const ReviewsAndServicesSection: FC<
   const { containerRef, height } = useAspectRatioLimit(0.5);
   console.log(height);
   return (
-    <section className="w-full bg-gradient-to-br from-[#1c1c1c] to-[#2a2a2a]">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="w-full max-w-[1400px]">
+      <div className="mx-auto px-4 md:px-6">
         <div className="grid gap-8 py-12 lg:grid-cols-2">
           <div className="lg:order-1" id="services">
             <ServicesSection ref={containerRef} />
