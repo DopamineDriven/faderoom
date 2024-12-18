@@ -87,7 +87,7 @@ export const ReviewsAndServicesSection: FC<
                         className="border-zinc-700 bg-zinc-800/50 bg-opacity-50">
                         <CardContent className="mb-4 space-y-2 p-6">
                           <div className="my-0 flex items-center">
-                            <Avatar className="mr-2 sm:mr-4">
+                            <Avatar className="mr-2 sm:mr-3">
                               <AvatarImage
                                 src={`https://api.dicebear.com/6.x/initials/svg?seed=${review.user}&backgroundColor=d7be69&textColor=1a1d1e`}
                                 alt={review.user}
@@ -105,14 +105,14 @@ export const ReviewsAndServicesSection: FC<
                                   <p className="text-xs font-semibold text-[hsl(46,58%,63%)] sm:text-base">
                                     {review.user}
                                   </p>
-                                  <span className="text-xsx text-zinc-400 sm:text-sm">
+                                  <span className="text-xs text-zinc-400 sm:text-sm">
                                     {
                                       dateFormatter(review.created)
                                         .iso8601DateOnly
                                     }
                                   </span>
                                 </div>
-                                <div className="flex space-x-[0.0625rem] sm:space-x-0.5">
+                                <div className="flex space-x-0.5 sm:space-x-1">
                                   {(review.rank === 5
                                     ? [1, 2, 3, 4, 5]
                                     : review.rank === 4
@@ -125,7 +125,7 @@ export const ReviewsAndServicesSection: FC<
                                   ).map((_, i) => (
                                     <Star
                                       key={i}
-                                      className={`h-2 w-2 sm:h-4 sm:w-4 ${
+                                      className={`h-2.5 w-2.5 sm:h-4 sm:w-4 ${
                                         i < review.rank
                                           ? "fill-[hsl(46,58%,63%)] text-[hsl(46,58%,63%)]"
                                           : "text-zinc-600"
