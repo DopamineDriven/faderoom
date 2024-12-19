@@ -29,8 +29,7 @@ export default function Carousel({
 
   const [thumbsRef, thumbsApi] = useEmblaCarousel({
     containScroll: "keepSnaps",
-    dragFree: true,
-    loop: true
+    dragFree: true
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
