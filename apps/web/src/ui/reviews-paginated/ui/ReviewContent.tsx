@@ -34,7 +34,7 @@ export function ReviewContent({ content }: { content: string }) {
       <p
         ref={contentRef}
         className={cn(
-          `text-zinc-100 transition-all sm:text-sm text-xs duration-300`,
+          `text-zinc-100 transition-all sm:text-base text-sm duration-300`,
           isExpanded ? "" : "line-clamp-3"
         )}>
         {content}
@@ -43,15 +43,15 @@ export function ReviewContent({ content }: { content: string }) {
         <Button
           variant="ghost"
           size="sm"
-          className="mt-2 text-fr-300 hover:bg-zinc-800 hover:text-[hsl(48,58%,77%)]"
+          className="mt-2 text-[hsl(46,58%,63%)] hover:text-[hsl(48,58%,77%)] hover:bg-zinc-800 text-xs sm:text-sm"
           onClick={() => setIsExpanded(!isExpanded)}>
           {isExpanded ? (
             <>
-              Show less <ChevronUp className="ml-2 h-4 w-4" />
+              Show less <ChevronUp className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
             </>
           ) : (
             <>
-              Read more <ChevronDown className="ml-2 h-4 w-4" />
+              Read more <ChevronDown className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
             </>
           )}
         </Button>

@@ -27,7 +27,6 @@ import {
   CardTitle
 } from "@/ui/reviews-paginated/ui/Card";
 
-
 const services = [
   {
     icon: Target,
@@ -176,19 +175,19 @@ const Accordion: React.FC<AccordionProps> = ({
       <motion.header
         initial={false}
         animate={{
-          backgroundColor: isOpen ? "rgba(24, 24, 27, 0.5)" : "rgba(24, 24, 27, 0)"
+          backgroundColor: isOpen ? "rgba(24, 24, 27, 0.5)" : "transparent"
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
         onClick={() => setExpanded(isOpen ? false : index)}
-        className="flex w-full cursor-pointer items-center justify-between py-4">
-        <div className="flex items-center gap-4">
-          <service.icon className="h-6 w-6 text-[hsl(46,58%,63%)]" />
-          <span className="font-semibold text-[hsl(46,80%,70%)]">
+        className="flex w-full cursor-pointer items-center justify-between px-4 py-4 sm:px-6">
+        <div className="font-basis-font-basis-grotesque-pro-medium flex items-center gap-4">
+          <service.icon className="h-5 w-5 text-[hsl(46,58%,63%)] sm:h-6 sm:w-6" />
+          <span className="text-sm font-semibold text-[hsl(46,80%,70%)] sm:text-base">
             {service.name}
           </span>
         </div>
         <div className="flex items-center">
-          <span className="mr-2 font-semibold text-[hsl(46,40%,60%)]">
+          <span className="mr-2 text-sm font-semibold text-[hsl(46,40%,60%)] sm:text-base">
             {service.price}
           </span>
           <motion.div
@@ -207,8 +206,10 @@ const Accordion: React.FC<AccordionProps> = ({
             animate="open"
             exit="collapsed"
             variants={accordionVariants}>
-            <div className="pb-4 pt-2">
-              <p className="text-zinc-300">{service.description}</p>
+            <div className="px-4 pb-4 pt-2 sm:px-6">
+              <p className="text-sm text-zinc-300 sm:text-base">
+                {service.description}
+              </p>
             </div>
           </motion.section>
         )}
@@ -233,16 +234,18 @@ const ServicesSection = React.forwardRef<
       )}
       ref={ref}
       {...props}>
-      <CardHeader>
-        <CardTitle className="mb-2 text-center text-2xl sm:text-3xl font-bold text-[hsl(46,58%,63%)]">
-          Services
-        </CardTitle>
-        <p className="text-center text-zinc-400">Popular</p>
+      <CardHeader className="p-4 sm:p-6">
+        <div className="flex items-center gap-3">
+          <Scissors className="h-6 w-6 text-[hsl(46,58%,63%)]" />
+          <CardTitle className="text-2xl font-bold text-[hsl(46,58%,63%)] sm:text-3xl">
+            Our Services
+          </CardTitle>
+        </div>
       </CardHeader>
-      <CardContent className="flex max-h-[800px] flex-col">
+      <CardContent className="flex flex-col p-0 sm:max-h-[800px]">
         <div
           ref={scrollContainerRef}
-          className="overflow-y-auto pr-4"
+          className="overflow-y-auto"
           style={{ maxHeight: "calc(100vh - 200px)" }}>
           {services.map((service, index) => (
             <Accordion
