@@ -5,12 +5,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatePresence, motion, useInView } from "motion/react";
 import { cn } from "@/lib/utils";
-import { SwipeGesture } from "./SwipeGesture";
-import { Thumbnail } from "./Thumbnail";
-import { motion, AnimatePresence, useInView } from 'motion/react';
-
+import { SwipeGesture } from "@/ui/carousel/SwipeGesture";
+import { Thumbnail } from "@/ui/carousel/Thumbnail";
 
 export default function Carousel({
   imageData
@@ -30,7 +29,8 @@ export default function Carousel({
 
   const [thumbsRef, thumbsApi] = useEmblaCarousel({
     containScroll: "keepSnaps",
-    dragFree: true
+    dragFree: true,
+    loop: true
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -115,29 +115,37 @@ export default function Carousel({
           onFocus={handleGalleryFocus}
           tabIndex={0}>
           <div className="relative mb-4">
-            <div className="overflow-hidden rounded-lg aspect-[4/3]" ref={mainRef}>
+            <div
+              className="aspect-[4/3] overflow-hidden rounded-lg"
+              ref={mainRef}>
               <div className="flex h-full">
                 {imageData.data.map((image, index) => (
-                  <div key={image.id} className="relative flex-[0_0_100%] h-full">
+                  <div
+                    key={image.id}
+                    className="relative h-full flex-[0_0_100%]">
                     <AnimatePresence initial={false} custom={direction}>
                       {index === selectedIndex && (
                         <motion.div
                           key={image.id}
                           custom={direction}
-                          initial={{ opacity: 0, x: direction > 0 ? '100%' : '-100%' }}
+                          initial={{
+                            opacity: 0,
+                            x: direction > 0 ? "100%" : "-100%"
+                          }}
                           animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: direction > 0 ? '-100%' : '100%' }}
+                          exit={{
+                            opacity: 0,
+                            x: direction > 0 ? "-100%" : "100%"
+                          }}
                           transition={{
                             x: { type: "spring", stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 },
+                            opacity: { duration: 0.2 }
                           }}
-                          className="absolute inset-0"
-                        >
+                          className="absolute inset-0">
                           <Link
                             href={`/photos/${image.id}`}
                             scroll={false}
-                            className="block w-full h-full"
-                          >
+                            className="block h-full w-full">
                             <Image
                               src={image.url}
                               alt={image.relative_path}
@@ -157,13 +165,13 @@ export default function Carousel({
             </div>
             <button
               aria-label="Previous image"
-              className="absolute left-4 top-1/2 h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/75 flex"
+              className="absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/75"
               onClick={scrollPrev}>
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               aria-label="Next image"
-              className="absolute right-4 top-1/2 h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/75 flex"
+              className="absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/75"
               onClick={scrollNext}>
               <ChevronRight className="h-6 w-6" />
             </button>
@@ -197,4 +205,3 @@ export default function Carousel({
     </div>
   );
 }
-
