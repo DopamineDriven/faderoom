@@ -14,7 +14,7 @@ export function useAspectRatioLimit(minRatio = 0.5) {
 
         const currentRatio = offsetWidth / offsetHeight;
 
-        console.log(`[calculated-aspect-ratio]: ${offsetWidth / offsetHeight}`);
+        // console.log(`[calculated-aspect-ratio]: ${offsetWidth / offsetHeight}`);
         setWidth(offsetWidth);
         setHeight(offsetHeight);
         setIsRatioExceeded(currentRatio < minRatio);

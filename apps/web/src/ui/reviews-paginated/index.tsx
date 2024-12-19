@@ -2,7 +2,7 @@
 
 import type { FC } from "react";
 import { useRef, useState } from "react";
-import { Star } from "lucide-react";
+import { MessageSquare, Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
 import { useAspectRatioLimit } from "@/ui/hooks/useAspectRatio";
 import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
@@ -41,9 +41,9 @@ export type ReviewsAndServicesSectionProps = ArrFieldReplacer<
   }
 >;
 
-export const ReviewsAndServicesSection: FC<
-  { reviews: ReviewsAndServicesSectionProps }
-> = ({ reviews }) => {
+export const ReviewsAndServicesSection: FC<{
+  reviews: ReviewsAndServicesSectionProps;
+}> = ({ reviews }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 5;
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
@@ -53,10 +53,11 @@ export const ReviewsAndServicesSection: FC<
   const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
 
   const reviewsContainerRef = useRef<HTMLDivElement>(null);
+
   usePreventInnerScroll(reviewsContainerRef);
 
   const { containerRef, height } = useAspectRatioLimit(0.5);
-  console.log(height);
+
   return (
     <section className="w-full">
       <div className="mx-auto">
@@ -68,72 +69,70 @@ export const ReviewsAndServicesSection: FC<
             <Card
               className="border-cta-border flex flex-col bg-gradient-to-br from-zinc-900 to-zinc-800"
               style={{ maxHeight: `${height}px` }}>
-              <CardHeader>
-                <CardTitle className="mb-2 text-center text-2xl font-bold text-[hsl(46,58%,63%)] sm:text-3xl">
-                  Customer Reviews
-                </CardTitle>
-                <p className="mb-6 text-center text-zinc-400">
-                  {reviews.length} reviews
-                </p>
+              <CardHeader className="p-4 sm:p-6">
+                <div className="flex items-center gap-3">
+                  <MessageSquare className="h-6 w-6 text-[hsl(46,58%,63%)]" />
+                  <CardTitle className="text-2xl font-bold text-[hsl(46,58%,63%)] sm:text-3xl">
+                    Customer Reviews
+                  </CardTitle>
+                </div>
               </CardHeader>
-              <CardContent className="flex flex-col overflow-hidden">
+              <CardContent className="flex flex-col overflow-hidden p-0">
                 <div
                   ref={reviewsContainerRef}
-                  className="h-full overflow-y-auto pr-1 sm:pr-4">
-                  <div className="space-y-6 pr-1 sm:pr-4">
+                  className="h-full overflow-y-auto px-4 sm:px-6">
+                  <div className="space-y-4 sm:space-y-6">
                     {currentReviews.map(review => (
                       <Card
                         key={review.id}
                         className="border-zinc-700 bg-zinc-800/50 bg-opacity-50">
-                        <CardContent className="mb-4 space-y-2 p-6">
-                          <div className="my-0 flex items-center">
-                            <Avatar className="mr-2 sm:mr-3">
-                              <AvatarImage
-                                src={`https://api.dicebear.com/6.x/initials/svg?seed=${review.user}&backgroundColor=d7be69&textColor=1a1d1e`}
-                                alt={review.user}
-                              />
-                              <AvatarFallback>
-                                {review.user
-                                  .split(" ")
-                                  .map(n => n[0])
-                                  .join("")}
-                              </AvatarFallback>
-                            </Avatar>
-                            <div className="flex-grow">
-                              <div className="my-auto flex items-start justify-between">
-                                <div className="flex flex-col">
-                                  <p className="text-xs font-semibold text-[hsl(46,58%,63%)] sm:text-base">
-                                    {review.user}
-                                  </p>
-                                  <span className="text-xs text-zinc-400 sm:text-sm">
-                                    {
-                                      dateFormatter(review.created)
-                                        .iso8601DateOnly
-                                    }
-                                  </span>
-                                </div>
-                                <div className="flex space-x-0.5 sm:space-x-1">
-                                  {(review.rank === 5
-                                    ? [1, 2, 3, 4, 5]
-                                    : review.rank === 4
-                                      ? [1, 2, 3, 4]
-                                      : review.rank === 3
-                                        ? [1, 2, 3]
-                                        : review.rank === 2
-                                          ? [1, 2]
-                                          : [review.rank]
-                                  ).map((_, i) => (
-                                    <Star
-                                      key={i}
-                                      className={`h-2.5 w-2.5 sm:h-4 sm:w-4 ${
-                                        i < review.rank
-                                          ? "fill-[hsl(46,58%,63%)] text-[hsl(46,58%,63%)]"
-                                          : "text-zinc-600"
-                                      }`}
-                                    />
-                                  ))}
-                                </div>
+                        <CardContent className="space-y-2 p-4 sm:space-y-4 sm:p-6">
+                          <div className="flex items-start justify-between">
+                            <div className="flex items-center">
+                              <Avatar className="mr-2 h-8 w-8 sm:mr-4 sm:h-10 sm:w-10">
+                                <AvatarImage
+                                  src={`https://api.dicebear.com/6.x/initials/svg?seed=${review.user}&backgroundColor=d7be69&textColor=1a1d1e`}
+                                  alt={review.user}
+                                />
+                                <AvatarFallback>
+                                  {review.user
+                                    .split(" ")
+                                    .map(n => n[0])
+                                    .join("")}
+                                </AvatarFallback>
+                              </Avatar>
+                              <div className="flex flex-col">
+                                <p className="text-sm font-semibold text-[hsl(46,58%,63%)] sm:text-base">
+                                  {review.user}
+                                </p>
+                                <span className="text-xs text-zinc-400 sm:text-sm">
+                                  {
+                                    dateFormatter(review.created)
+                                      .iso8601DateOnly
+                                  }
+                                </span>
                               </div>
+                            </div>
+                            <div className="flex">
+                              {(review.rank === 5
+                                ? [1, 2, 3, 4, 5]
+                                : review.rank === 4
+                                  ? [1, 2, 3, 4]
+                                  : review.rank === 3
+                                    ? [1, 2, 3]
+                                    : review.rank === 2
+                                      ? [1, 2]
+                                      : [review.rank]
+                              ).map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`h-3 w-3 sm:h-4 sm:w-4 ${
+                                    i < review.rank
+                                      ? "fill-[hsl(46,58%,63%)] text-[hsl(46,58%,63%)]"
+                                      : "text-zinc-600"
+                                  }`}
+                                />
+                              ))}
                             </div>
                           </div>
                           <ReviewContent content={review.review} />
@@ -151,11 +150,11 @@ export const ReviewsAndServicesSection: FC<
                 </div>
               </CardContent>
               {totalPages > 1 && (
-                <div className="flex flex-col items-center gap-4 border-t border-zinc-800 p-4">
+                <div className="flex flex-col items-center gap-2 border-t border-zinc-800 p-4 sm:gap-4">
                   <div className="flex justify-center gap-2">
                     <Button
                       variant="outline"
-                      className="border-[hsl(46,58%,63%)] bg-[#1a1a1b] font-semibold text-[hsl(46,58%,63%)] hover:bg-[hsl(46,58%,63%)] hover:text-[#1a1a1b]"
+                      className="border-[hsl(46,58%,63%)] bg-[#1a1a1b] text-xs font-semibold text-[hsl(46,58%,63%)] hover:bg-[hsl(46,58%,63%)] hover:text-[#1a1a1b] sm:text-sm"
                       onClick={() => {
                         setCurrentPage(prev => Math.max(prev - 1, 1));
                         setTimeout(() => {
@@ -167,12 +166,12 @@ export const ReviewsAndServicesSection: FC<
                       disabled={currentPage === 1}>
                       Previous
                     </Button>
-                    <div className="flex items-center gap-2 px-4 text-zinc-400">
+                    <div className="flex items-center gap-2 px-2 text-xs text-zinc-400 sm:px-4 sm:text-sm">
                       {currentPage} of {totalPages}
                     </div>
                     <Button
                       variant="outline"
-                      className="border-[hsl(46,58%,63%)] bg-[#1a1a1b] font-semibold text-[hsl(46,58%,63%)] hover:bg-[hsl(46,58%,63%)] hover:text-[#1a1a1b]"
+                      className="border-[hsl(46,58%,63%)] bg-[#1a1a1b] text-xs font-semibold text-[hslhsl(46,58%,63%)] hover:bg-[hsl(46,58%,63%)] hover:text-[#1a1a1b] sm:text-sm"
                       onClick={() => {
                         setCurrentPage(prev => Math.min(prev + 1, totalPages));
                         setTimeout(() => {
@@ -185,7 +184,7 @@ export const ReviewsAndServicesSection: FC<
                       Next
                     </Button>
                   </div>
-                  <p className="text-zinc-400">
+                  <p className="text-xs text-zinc-400 sm:text-sm">
                     Showing {indexOfFirstReview + 1}-
                     {Math.min(indexOfLastReview, reviews.length)} of{" "}
                     {reviews.length} reviews
