@@ -88,21 +88,22 @@ const OptimizedCTA = () => {
             HAIRCUTS BY APPOINTMENT ONLY
           </p>
           <p className="text-center text-xsx sm:text-sm">
-            ANY SERVICE SCHEDULED BEFORE 7:30AM IS PRE-PAID
+            SERVICES SCHEDULED BEFORE 7:30AM ARE PRE-PAID
           </p>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <CardTitle className="text-xl font-bold text-fr-300 sm:text-2xl">
+      <CardContent className="space-y-2 p-3 sm:space-y-4 sm:p-6">
+        <CardTitle className="text-lg font-bold text-[hsl(46,58%,63%)] sm:text-xl md:text-2xl">
           EXCLUSIVE OFFERS
         </CardTitle>
         <a
           href="https://squareup.com/gift/MLHZCDVC0MKB1/order"
           className="group relative inline-block"
           target="_blank"
+          aria-label="Look Fresh For Less - Click to view our special offers"
           rel="noopener noreferrer">
           <motion.h2
-            className="inline-flex items-center text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"
+            className="inline-flex items-center text-xl font-bold tracking-tight sm:text-2xl md:text-3xl lg:text-4xl"
             initial="initial"
             whileHover="hover"
             animate="initial"
@@ -135,12 +136,13 @@ const OptimizedCTA = () => {
                 stiffness: 300,
                 damping: 100
               }}>
-              <ArrowUpRight className="inline-block h-7 w-7 text-fr-300 sm:h-9 sm:w-9" />
+              <ArrowUpRight className="inline-block h-6 w-6 text-[hsl(46,58%,63%)] sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-9 lg:w-9" />
             </motion.span>
           </motion.h2>
         </a>
-        <ul className="space-y-1 text-xsx sm:space-y-2 sm:text-sm md:text-base lg:text-lg">
+        <ul className="space-y-1 text-xsx sm:space-y-2 sm:text-sm md:text-base">
           {promoCodes.map(({ code, discount, threshold }) => (
+            //               className="flex items-center justify-between p-1 sm:p-2 rounded-md hover:bg-zinc-800 cursor-pointer transition-colors duration-200"
             <li
               key={code}
               className="flex cursor-pointer items-center justify-between rounded-md p-1 transition-colors duration-200 hover:bg-zinc-800 sm:p-2"
@@ -152,15 +154,15 @@ const OptimizedCTA = () => {
               </span>
               <span className="text-fr-300">
                 {copiedCode === code ? (
-                  <Check className="h-5 w-5" />
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5" />
                 ) : (
-                  <Copy className="h-5 w-5" />
+                  <Copy className="h-4 w-4 sm:h-5 sm:w-5" />
                 )}
               </span>
             </li>
           ))}
         </ul>
-        <p className="font-basis-grotesque-pro-italic text-xxs text-zinc-400 sm:text-xs md:text-sm">
+        <p className="font-basis-grotesque-pro-italic text-xs text-zinc-400 sm:text-xs md:text-sm">
           Promo codes are valid for the current month
         </p>
       </CardContent>
@@ -181,6 +183,7 @@ const OptimizedCTA = () => {
           className="appearance-none"
           href="https://booksy.com/en-us/481001_the-fade-room_barber-shop_18688_highland-park"
           target="_blank"
+          aria-label="Book Now"
           rel="noopener noreferrer">
           <CtaButton
             variant="default"

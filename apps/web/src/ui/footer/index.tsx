@@ -38,7 +38,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer className="border-t-4 border-t-fr-300 bg-zinc-900 font-basis-grotesque-pro-medium">
-      <div className="mx-auto max-w-[1980px] px-4 py-12 lg:px-8">
+      <div className="mx-auto max-w-[1980px] px-2 py-12 lg:px-8">
         <div className="flex flex-col items-center space-y-8">
           <div className="flex flex-col items-center space-y-4">
             <Link href="/#top" className="inline-block" shallow={true} passHref>
@@ -48,7 +48,7 @@ export default function Footer() {
                 className="h-24 w-auto"
               />
             </Link>
-            <p className="text-center text-sm tracking-tight text-zinc-400 sm:text-base">
+            <p className="text-center text-sm tracking-tighter text-zinc-400 sm:text-base">
               Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function Footer() {
           </nav>
         </div>
         <div className="mt-8 border-t border-zinc-800 pt-8">
-          <p className="text-center text-sm text-zinc-400">
+          <p className="text-center text-xs text-zinc-400 sm:text-sm">
             &copy; {getYear(Date)} The Fade Room Inc. All rights reserved.
           </p>
         </div>
