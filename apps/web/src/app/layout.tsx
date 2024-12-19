@@ -46,7 +46,8 @@ export const metadata = {
   },
   verification: {
     google: "l8pnpjizOvb6kENsMvlIwjPZ1IobO2K-zhq42q4Jq2E",
-    yandex: "11b85dcb9c04999c"
+    yandex: "11b85dcb9c04999c",
+    yahoo: "393664D4A457844259D7FAF5C4458CD5"
   },
   authors: [{ name: "Andrew Ross", url: "https://github.com/DopamineDriven" }],
   icons: [
