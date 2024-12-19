@@ -22,6 +22,7 @@ import { ServicesSection } from "@/ui/services";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
 import { OwnerResponse } from "./ui/OwnerResponse";
+
 import { ReviewContent } from "./ui/ReviewContent";
 
 interface OwnerResponse {
@@ -171,7 +172,7 @@ export const ReviewsAndServicesSection: FC<{
                     </div>
                     <Button
                       variant="outline"
-                      className="border-[hsl(46,58%,63%)] bg-[#1a1a1b] text-xs font-semibold text-[hslhsl(46,58%,63%)] hover:bg-[hsl(46,58%,63%)] hover:text-[#1a1a1b] sm:text-sm"
+                      className="border-[hsl(46,58%,63%)] bg-[#1a1a1b] text-xs font-semibold text-[hsl(46,58%,63%)] hover:bg-[hsl(46,58%,63%)] hover:text-[#1a1a1b] sm:text-sm"
                       onClick={() => {
                         setCurrentPage(prev => Math.min(prev + 1, totalPages));
                         setTimeout(() => {
@@ -185,7 +186,7 @@ export const ReviewsAndServicesSection: FC<{
                     </Button>
                   </div>
                   <p className="text-xs text-zinc-400 sm:text-sm">
-                    Showing {indexOfFirstReview + 1}-
+                    {indexOfFirstReview + 1}-
                     {Math.min(indexOfLastReview, reviews.length)} of{" "}
                     {reviews.length} reviews
                   </p>
