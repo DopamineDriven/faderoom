@@ -107,7 +107,7 @@ export default function Carousel({
   }, []);
 
   return (
-    <div className="bg-transparent">
+    <div className="bg-transparent" id="gallery">
       <div className="mx-auto px-4 py-6">
         <div
           ref={inViewDivRef}
