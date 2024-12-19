@@ -40,10 +40,13 @@ export const metadata = {
   },
   description: "Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves.",
   appleWebApp: {
-    capable: true,
     title: "The Fade Room Inc.",
     statusBarStyle: "black-translucent",
     startupImage: [{ url: "/apple-icon.png" }]
+  },
+  verification: {
+    google: "l8pnpjizOvb6kENsMvlIwjPZ1IobO2K-zhq42q4Jq2E",
+    yandex: "11b85dcb9c04999c"
   },
   authors: [{ name: "Andrew Ross", url: "https://github.com/DopamineDriven" }],
   icons: [
