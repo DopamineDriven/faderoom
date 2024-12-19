@@ -6,8 +6,6 @@ import { useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 
-// import FrozenRouter from "./FrozenRouter";
-
 export function Modal({ children }: { children: ReactNode }) {
   const overlay = useRef<HTMLDivElement | null>(null);
   const wrapper = useRef<HTMLDivElement | null>(null);

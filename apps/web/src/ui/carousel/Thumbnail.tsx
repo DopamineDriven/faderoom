@@ -29,7 +29,7 @@ export const Thumbnail: FC<ThumbnailProps> = ({
       aria-current={selected}
       aria-label={`View ${image.id}`}
       className={cn(
-        "relative aspect-[4/3] w-20 min-w-0 flex-[0_0_auto] overflow-hidden rounded-md transition-all",
+        "relative aspect-[4/3] w-20 min-w-0 flex-[0_0_auto] overflow-hidden rounded-md transition-all first-of-type:ml-2 last-of-type:mr-2",
         selected === true
           ? "opacity-100 ring-2 ring-fr-300"
           : "opacity-60 hover:opacity-80"
