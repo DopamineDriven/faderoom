@@ -10,7 +10,7 @@ import { imageData as imageObject } from "@/utils/__generated__/image-object";
 import reviewData from "@/utils/__generated__/reviews.json";
 
 export const metadata = {
-  title: "The Fade Room Inc."
+  title: "Home"
 } satisfies Metadata;
 
 export default function Home() {
