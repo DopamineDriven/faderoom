@@ -204,7 +204,7 @@ const Accordion: React.FC<AccordionProps> = ({
         onClick={() => setExpanded(isOpen ? false : index)}
         className="flex w-full cursor-pointer items-center justify-between px-4 py-4 sm:px-6">
         <div className="font-basis-font-basis-grotesque-pro-medium flex items-center gap-4">
-          <service.icon className="h-5 w-5 text-[hsl(46,58%,63%)] sm:h-6 sm:w-6" />
+          <service.icon className="h-6 w-6 text-[hsl(46,58%,63%)] sm:h-7 sm:w-7" />
           <span className="text-sm font-semibold text-[hsl(46,80%,70%)] sm:text-base">
             {service.name}
           </span>

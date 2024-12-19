@@ -61,7 +61,7 @@ export const ReviewsAndServicesSection: FC<{
   return (
     <section className="w-full">
       <div className="mx-auto">
-        <div className="grid gap-8 py-8 sm:py-12 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2">
           <div className="lg:order-1" id="services">
             <ServicesSection ref={containerRef} />
           </div>
@@ -150,7 +150,7 @@ export const ReviewsAndServicesSection: FC<{
                 </div>
               </CardContent>
               {totalPages > 1 && (
-                <div className="flex flex-col items-center gap-2 border-t border-zinc-800 p-4 sm:gap-4">
+                <div className="flex flex-col items-center gap-2 border-t border-zinc-800 p-4 sm:gap-8">
                   <div className="flex justify-center gap-2">
                     <Button
                       variant="outline"
