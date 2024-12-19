@@ -17,7 +17,11 @@ import { cn } from "@/lib/utils";
 import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
 import { Abc } from "@/ui/icons/Abc";
 import { Barbershop } from "@/ui/icons/Barbershop";
+import { Chameleon } from "@/ui/icons/Chameleon";
+import { Ear } from "@/ui/icons/Ear";
+import { Eyebrow } from "@/ui/icons/Eyebrow";
 import { Facial } from "@/ui/icons/Facial";
+import { Nose } from "@/ui/icons/Nose";
 import { Razor } from "@/ui/icons/Razor";
 import { Towel } from "@/ui/icons/Towel";
 import {
@@ -57,21 +61,21 @@ const services = [
     price: "$40"
   },
   {
-    icon: Scissors,
+    icon: Razor,
     name: "Haircut & Shave",
     description:
       "Haircut (Beard Trim & Lineup); straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; straight razor shave or beard cleanup/lineup",
     price: "$75"
   },
   {
-    icon: Razor,
+    icon: Scissors,
     name: "Haircut & Basic Beard Trim",
     description:
       "Haircut; straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; beard cleanup/lineup with electric shaver",
     price: "$65"
   },
   {
-    icon: Razor,
+    icon: Towel,
     name: "Shave & Mini Facial",
     description:
       "Clean straight razor shave or beard cleanup with lineup; hot towel & mini facial",
@@ -98,16 +102,35 @@ const services = [
     price: "$35"
   },
   {
-    icon: Spray,
-    name: "Hair Coloring",
-    description: "Vibrant, long-lasting color treatments",
-    price: "$50+"
+    icon: Chameleon,
+    name: "Gray Camouflage",
+    description:
+      "Not such a drastic change will still have some gray blended with the color gradually ",
+    price: "$35"
   },
   {
-    icon: Towel,
-    name: "Hot Towel Shave",
-    description: "Relaxing traditional straight razor shave",
-    price: "$35+"
+    icon: Spray,
+    name: "Permanent Hair Color ",
+    description: "A vibrant, long-lasting full color treatment",
+    price: "$45"
+  },
+  {
+    icon: Eyebrow,
+    name: "Eyebrow Wax",
+    description: "Shaping, trimming, & waxing of eyebrows",
+    price: "$16"
+  },
+  {
+    icon: Nose,
+    name: "Nose Wax",
+    description: "Waxing of hair within the nostrils",
+    price: "$10"
+  },
+  {
+    icon: Ear,
+    name: "Ear Wax",
+    description: "Waxing of hair all around the ear",
+    price: "$10"
   }
 ] as const;
 
