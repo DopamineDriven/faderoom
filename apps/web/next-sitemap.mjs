@@ -1,4 +1,4 @@
-const productionUrl = "https://thefaderoominc.vercel.app";
+const productionUrl = "https://www.thefaderoominc.com";
 
 const previewUrl = "https://thefaderoominc-dev.vercel.app";
 

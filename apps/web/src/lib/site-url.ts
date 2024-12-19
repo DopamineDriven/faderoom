@@ -1,4 +1,4 @@
-export const getProductionUrl = "https://thefaderoominc.vercel.app" as const;
+export const getProductionUrl = "https://www.thefaderoominc.com" as const;
 
 export const getPreviewUrl = "https://thefaderoominc-dev.vercel.app" as const;
 
