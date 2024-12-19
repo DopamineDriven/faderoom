@@ -794,4 +794,11 @@ export class FsService {
       return formatting;
     } else return f.substring(0, 1).toUpperCase().concat(f.substring(1));
   }
+
+  public cleanDataUrlBase64(props: string) {
+    return props.replace(
+      /^data:(image|application|video|text|font)\/[A-Za-z0-9+-.]+;base64,/,
+      ""
+    );
+  }
 }

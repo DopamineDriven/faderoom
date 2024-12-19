@@ -129,7 +129,7 @@ export class BooksyImageService extends ConfigHandler {
   ) {
     const [data] = await Promise.all([
       this.fetchBooksyPhotosPerPage<BooksyImagesByPageNumberAndCount>({
-        imagesPerPage: 40,
+        imagesPerPage: 100,
         imagesPage: 1
       })
     ]);
