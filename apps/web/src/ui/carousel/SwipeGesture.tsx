@@ -9,13 +9,12 @@ export interface SwipeGestureProps {
 
 export const SwipeGesture: FC<SwipeGestureProps> = ({ isActive }) => {
   return (
-    <div
-      className={cn(
-        isActive === true ? "flex" : "hidden",
-        "relative h-12 w-16 items-center justify-center rounded-full bg-transparent"
-      )}>
+    <div className="relative h-12 w-full">
       <motion.div
-        className="text-gray-200"
+        className={cn(
+          "absolute left-1/2 -translate-x-1/2 text-gray-200",
+          isActive ? "opacity-100" : "opacity-0"
+        )}
         initial={{ x: 20, opacity: 0 }}
         animate={
           isActive
@@ -31,7 +30,7 @@ export const SwipeGesture: FC<SwipeGestureProps> = ({ isActive }) => {
           repeat: isActive ? Infinity : 0,
           repeatDelay: 0.25
         }}>
-        <HandIcon className="h-6 w-6" />
+        <HandIcon className="h-6 w-6 sm:h-8 sm:w-8" />
       </motion.div>
       <span className="sr-only">Swipe to navigate</span>
     </div>
