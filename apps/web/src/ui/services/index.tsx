@@ -154,8 +154,8 @@ const Accordion: React.FC<AccordionProps> = ({
     if (isOpen && accordionRef.current) {
       setTimeout(() => {
         accordionRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest'
+          behavior: "smooth",
+          block: "nearest"
         });
       }, 100);
     }
@@ -262,7 +262,7 @@ const ServicesSection = React.forwardRef<
       <CardHeader className="p-4 sm:p-6">
         <div className="flex items-center gap-3">
           <Scissors className="h-6 w-6 text-[hsl(46,58%,63%)]" />
-          <CardTitle className="text-2xl font-bold text-[hsl(46,58%,63%)] sm:text-3xl">
+          <CardTitle className="text-xl font-bold text-[hsl(46,58%,63%)] sm:text-2xl md:text-3xl">
             Our Services
           </CardTitle>
         </div>

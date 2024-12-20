@@ -22,7 +22,6 @@ import { ServicesSection } from "@/ui/services";
 import reviewsData from "@/utils/__generated__/reviews.json";
 import { dateFormatter } from "@/utils/date-formatter";
 import { OwnerResponse } from "./ui/OwnerResponse";
-
 import { ReviewContent } from "./ui/ReviewContent";
 
 interface OwnerResponse {
@@ -73,7 +72,7 @@ export const ReviewsAndServicesSection: FC<{
               <CardHeader className="p-4 sm:p-6">
                 <div className="flex items-center gap-3">
                   <MessageSquare className="h-6 w-6 text-[hsl(46,58%,63%)]" />
-                  <CardTitle className="text-2xl font-bold text-[hsl(46,58%,63%)] sm:text-3xl">
+                  <CardTitle className="text-xl font-bold text-[hsl(46,58%,63%)] sm:text-2xl md:text-3xl">
                     Customer Reviews
                   </CardTitle>
                 </div>
