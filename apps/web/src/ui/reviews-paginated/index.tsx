@@ -114,7 +114,7 @@ export const ReviewsAndServicesSection: FC<{
                                 </span>
                               </div>
                             </div>
-                            <div className="flex">
+                            <div className="flex space-x-[0.0625rem] sm:space-x-0.5">
                               {(review.rank === 5
                                 ? [1, 2, 3, 4, 5]
                                 : review.rank === 4
