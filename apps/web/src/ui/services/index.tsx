@@ -152,10 +152,12 @@ const Accordion: React.FC<AccordionProps> = ({
 
   useEffect(() => {
     if (isOpen && accordionRef.current) {
-      accordionRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-      });
+      setTimeout(() => {
+        accordionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      }, 100);
     }
   }, [isOpen]);
 
@@ -260,7 +262,7 @@ const ServicesSection = React.forwardRef<
       <CardHeader className="p-4 sm:p-6">
         <div className="flex items-center gap-3">
           <Scissors className="h-6 w-6 text-[hsl(46,58%,63%)]" />
-          <CardTitle className="text-2xl font-bold text-[hsl(46,58%,63%)] sm:text-3xl">
+          <CardTitle className="text-xl font-bold text-[hsl(46,58%,63%)] sm:text-2xl md:text-3xl">
             Our Services
           </CardTitle>
         </div>
@@ -268,7 +270,7 @@ const ServicesSection = React.forwardRef<
       <CardContent className="flex flex-col p-0 sm:max-h-[800px]">
         <div
           ref={scrollContainerRef}
-          className="overflow-y-auto"
+          className="overflow-y-auto pb-5"
           style={{ maxHeight: "calc(100vh - 200px)" }}>
           {services.map((service, index) => (
             <Accordion

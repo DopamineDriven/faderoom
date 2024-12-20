@@ -89,7 +89,7 @@ export function LocationMap() {
             const pinElement = document.createElement("div");
 
             pinElement.innerHTML = svgFadeString({
-              className: "w-6 h-6",
+              className: "w-6 h-6 z-10",
               width: 24,
               height: 24
             });
@@ -202,23 +202,23 @@ export function LocationMap() {
   };
   google.maps.importLibrary;
   return (
-    <div className="space-y-8" id="contact-us">
-      <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 mx-auto">
-        <Card className="flex h-[600px] flex-col">
+    <div className="space-y-4 sm:space-y-8" id="contact-us">
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-1 lg:grid-cols-2 mx-auto">
+        <Card className="flex h-[500px] sm:h-[600px] flex-col">
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center text-xl font-bold text-fr-300 sm:text-2xl">
               <MapPin className="mr-2 h-6 w-6" /> Find Us
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex flex-grow flex-col">
+          <CardContent className="p-3 sm:p-6 flex flex-grow flex-col">
             <motion.div
-              className="relative mb-4 flex-grow"
+              className="relative mb-2 sm:mb-4 flex-grow"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}>
               <div
                 ref={mapRef}
-                className="absolute inset-0 overflow-hidden rounded-lg shadow-lg"
+                className="absolute inset-0 overflow-hidden rounded-lg shadow-lg touch-pan-x touch-pan-y"
               />
               {!isInfoWindowVisible && (
                 <motion.button

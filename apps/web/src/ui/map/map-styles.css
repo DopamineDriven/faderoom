@@ -133,3 +133,29 @@ div[class*="gm-style-iw-ch"] {
   outline-offset: 2px;
   border-radius: 4px;
 }
+/* Mobile-specific InfoWindow styles */
+@media (max-width: 640px) {
+  .info-window-content {
+    padding: 10px 36px 10px 12px;
+  }
+
+  .info-window-title {
+    font-size: 1rem;
+  }
+
+  .info-window-address {
+    font-size: 0.8125rem;
+  }
+
+  .rating-score,
+  .review-link,
+  .view-map-link {
+    font-size: 0.8125rem;
+  }
+
+  .info-window-close {
+    padding: 8px;
+    top: 4px;
+    right: 4px;
+  }
+}
