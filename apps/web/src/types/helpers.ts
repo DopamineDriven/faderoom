@@ -1,5 +1,35 @@
 import type React from "react";
 
+/* Typed JSON stringify and parse helpers BEGIN */
+
+
+export type UndefinedAsNull<T> = T extends undefined ? null : T
+
+const s = JSON.stringify;
+
+s({s: ""}, )
+
+export function stringifyJson<
+  const T,
+  const R extends (string | number)[] | null | undefined,
+  const S extends string | number | undefined
+>(json: T, replacer: R, space: S) {
+  return JSON.stringify(json, replacer, space) as TypedJsonString<T>;
+}
+
+export function parseJson<
+  const T,
+  const R extends ((this: any, key: string, value: any) => any) | undefined
+>(stringVal: TypedJsonString<T>, reviver: R) {
+  return JSON.parse(stringVal, reviver) as T;
+}
+
+export type TypedJsonString<T> = string & {
+  [TYPE: symbol]: T;
+};
+
+/* Typed JSON stringify & parse helpers END */
+
 /* General Helper Types BEGIN */
 
 export type Unenumerate<T> = T extends readonly (infer U)[] | (infer U)[]

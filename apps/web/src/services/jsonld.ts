@@ -1,11 +1,56 @@
-import type { JsonLdProps, JsonReplacer, JsonValue } from "@/types/jsonld";
-import { Unenumerate } from "@/types/fs";
-import { RemoveFields } from "@/types/helpers";
+import type {
+  RemoveFields,
+  TypedJsonString,
+  Unenumerate
+} from "@/types/helpers";
+
+export type JsonValueScalar = string | boolean | number;
+
+export type JsonEnumerable<T> = T | T[] | readonly T[];
+
+export type JsonValue =
+  | JsonEnumerable<JsonValueScalar>
+  | { [key: string]: JsonValue };
+
+export type JsonReplacer = (
+  _: string,
+  value: JsonValue
+) => JsonValue | undefined;
+
+export interface JsonLdProps {
+  type?: string;
+  scriptId?: string;
+  "@id"?: string;
+  [key: string]: any;
+}
 
 export class JsonLdService {
-  constructor() {}
+  // method type overloads
+  stringifyJson<
+    const T,
+    const R extends (string | number)[] | null | undefined,
+    const S extends string | number | undefined
+  >(json: unknown, replacer: R, space: S): TypedJsonString<T>;
+  stringifyJson<
+    const T,
+    const R extends ((this: any, key: string, value: any) => any) | undefined,
+    const S extends string | number | undefined
+  >(json: unknown, replacer: R, space: S): TypedJsonString<T>;
+  public stringifyJson<
+    const T,
+    const R extends ((this: any, key: string, value: any) => any) | undefined,
+    const S extends string | number | undefined
+  >(json: T, replacer: R, space: S) {
+    return JSON.stringify(json, replacer, space) as TypedJsonString<T>;
+  }
 
-  private escape_entities = {
+  public parseJson<
+    const T,
+    const R extends ((this: any, key: string, value: any) => any) | undefined
+  >(stringVal: TypedJsonString<T>, reviver: R) {
+    return JSON.parse(stringVal, reviver) as T;
+  }
+  public escape_entities = {
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
@@ -13,16 +58,16 @@ export class JsonLdService {
     "'": "&apos;"
   } as const;
 
-  private escape_regex = new RegExp(
+  public escape_regex = new RegExp(
     `[${Object.keys(this.escape_entities).join("")}]`,
     "g"
   );
 
-  private escape_replacer<const T extends string>(t: T) {
+  public escape_replacer<const T extends string>(t: T) {
     return this.escape_entities[t as keyof typeof this.escape_entities];
   }
 
-  private is_never(_: never): void {}
+  public is_never(_: never): void {}
 
   public safeJsonLdReplacer: JsonReplacer = (() => {
     return (_: string, value: JsonValue): JsonValue | undefined => {
@@ -81,7 +126,7 @@ export class JsonLdService {
     return obj;
   }
 
-  public toJson<T extends string = string>(type: T, jsonld: JsonLdProps) {
+  public toJson<const T>(type: T, jsonld: JsonLdProps) {
     const { ["@id"]: id = undefined } = jsonld;
     const updated = {
       ...(id ? { ["@id"]: id } : {}),
@@ -90,7 +135,7 @@ export class JsonLdService {
     const deleteIdField = this.omitFields(updated, ["@id"]);
 
     return {
-      __html: JSON.stringify(
+      __html: this.stringifyJson(
         {
           "@context": "https://schema.org/",
           "@type": type,

@@ -43,7 +43,7 @@ const config = {
         ]
       },
       fontSize: {
-        xsx: ["0.625rem", {lineHeight: "0.875rem"}],
+        xsx: ["0.625rem", { lineHeight: "0.875rem" }],
         xxs: ["0.5rem", { lineHeight: "0.75rem" }]
       },
       colors: {
@@ -339,6 +339,8 @@ const config = {
         testimonial: "5px 5px 5px 0px rgba(0, 0, 0, 0.35)",
         titleShadow: "0 1px 0 0 rgb(35 38 59 / 5%)",
         embla: "inset 0 0 0 0.2rem rgb(54 49 61 / 1)",
+        motion:
+          "0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075)",
         magical:
           "rgba(0, 0, 0, 0.02) 0px 30px 30px, rgba(0, 0, 0, 0.03) 0px 0px 8px, rgba(0, 0, 0, 0.05) 0px 1px 0px",
         cardHover:
