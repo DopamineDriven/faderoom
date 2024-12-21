@@ -1,14 +1,16 @@
+import { getSiteUrl } from "@/lib/site-url";
 import { ImageResponse } from "next/og";
-
+const baseUrl = getSiteUrl(process.env.NODE_ENV);
+const absoluteUrl = new URL("/thefaderoominc.svg", baseUrl);
 export const runtime = "edge";
 
-const svgUrl =
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thefaderoominc-bToio8JBCTJGJGHUESKjYov57ryROc.svg";
+// const svgUrl =
+//   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thefaderoominc-bToio8JBCTJGJGHUESKjYov57ryROc.svg";
 
 export async function GET() {
   try {
     // Fetch the SVG
-    const response = await fetch(svgUrl);
+    const response = await fetch(absoluteUrl);
     if (!response.ok) {
       throw new Error(`Failed to fetch SVG: ${response.statusText}`);
     }
@@ -57,7 +59,7 @@ export async function GET() {
                 background:
                   "linear-gradient(to bottom right, #D4AF37, #C5A028)",
                 backgroundClip: "text",
-                color: "#D4AF37",
+                color: "#D7BE69",
                 fontSize: 48,
                 fontFamily: "Georgia, serif",
                 fontWeight: "bold",
