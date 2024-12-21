@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 import { usePreventInnerScroll } from "@/ui/hooks/usePreventInnerScroll";
 import { Abc } from "@/ui/icons/Abc";
 import { Barbershop } from "@/ui/icons/Barbershop";
-import { Chameleon } from "@/ui/icons/Chameleon";
+import { EnhancedChameleon } from "@/ui/icons/Chameleon";
 import { Ear } from "@/ui/icons/Ear";
 import { Eyebrow } from "@/ui/icons/Eyebrow";
 import { Facial } from "@/ui/icons/Facial";
@@ -69,7 +69,7 @@ const services = [
   },
   {
     icon: Scissors,
-    name: "Haircut & Basic Beard Trim",
+    name: "Haircut & Beard Trim",
     description:
       "Haircut; straight razor edge up & neck cleaning; hot towel with shampoo; blow dry & style; beard cleanup/lineup with electric shaver",
     price: "$65"
@@ -102,7 +102,7 @@ const services = [
     price: "$35"
   },
   {
-    icon: Chameleon,
+    icon: EnhancedChameleon,
     name: "Gray Camouflage",
     description:
       "Not such a drastic change will still have some gray blended with the color gradually ",

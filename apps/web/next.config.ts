@@ -24,6 +24,11 @@ export default {
       { hostname: "thefaderoominc-dev.vercel.app", protocol: "https" },
       { hostname: "api.dicebear.com", protocol: "https" },
       {
+        hostname: "hebbkx1anhila5yf.public.blob.vercel-storage.com",
+        protocol: "https",
+        port: ""
+      },
+      {
         hostname: "adgf6mjgcvaeo8u4.public.blob.vercel-storage.com",
         protocol: "https",
         port: ""

@@ -14,16 +14,6 @@ export const metadata = {
 } satisfies Metadata;
 
 export default function Home() {
-  // return (
-  //   <>
-  //     <ParticleOverlayImageGrid />
-  //     <OptimizedCTA />
-  //     <ReviewsAndServicesSection
-  //       reviews={reviewData.reviews as ReviewsAndServicesSectionProps}>
-  //       <Carousel imageData={imageObject} />
-  //     </ReviewsAndServicesSection>
-  //   </>
-  // );
   return (
     <main className="min-h-screen bg-gradient-to-tl from-[#1c1c1c] to-[#2a2a2a] font-basis-grotesque-pro-medium antialiased">
       <Hero />
