@@ -175,11 +175,14 @@ function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}>
               <motion.div
-              className="relative z-5"
+                className="z-5 relative"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="#"
+                <a
+                  href="https://booksy.com/en-us/481001_the-fade-room_barber-shop_18688_highland-park"
+                  target="_blank"
+                  aria-label="Book Now Hero"
+                  rel="noopener noreferrer"
                   className="inline-flex w-full items-center justify-center rounded-md bg-[hsl(46,58%,63%)] px-5 py-3 text-base font-semibold text-zinc-900 shadow-sm transition-all duration-300 hover:bg-[hsl(46,58%,73%)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(46,58%,63%)] sm:w-auto">
                   Book Now
                   <motion.span
@@ -193,10 +196,10 @@ function Hero() {
                     }}>
                     <Booksy className="ml-1 h-6 w-6 stroke-2" />
                   </motion.span>
-                </Link>
+                </a>
               </motion.div>
               <motion.div
-                            className="relative z-5"
+                className="z-5 relative"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
                 <Link
