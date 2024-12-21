@@ -1,15 +1,23 @@
 import { ImageResponse } from "next/og";
-// import { getSiteUrl } from "@/lib/site-url";
 
 export const runtime = "edge";
+
+const svgUrl =
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thefaderoominc-bToio8JBCTJGJGHUESKjYov57ryROc.svg";
+
 export async function GET() {
-  // const baseUrl = getSiteUrl(process.env.NODE_ENV);
-  // const absoluteUrl = new URL("/thefaderoominc.svg", baseUrl);
   try {
-    // const logoSvg = await fetch(absoluteUrl).then(res => res.text());
-    const logoSvg = await fetch(
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thefaderoominc-bToio8JBCTJGJGHUESKjYov57ryROc.svg'
-    ).then(res => res.text())
+    // Fetch the SVG
+    const response = await fetch(svgUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch SVG: ${response.statusText}`);
+    }
+    const arrayBuffer = await response.arrayBuffer();
+
+    // Encode to base64
+    const base64Encoded = Buffer.from(arrayBuffer).toString("base64");
+    const logoDataUrl = `data:image/svg+xml;base64,${base64Encoded}`;
+
     return new ImageResponse(
       (
         <div
@@ -24,15 +32,17 @@ export async function GET() {
             padding: "40px"
           }}>
           {/* Logo */}
-          <div
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={logoDataUrl}
+            alt="The Fade Room Inc Logo"
+            width="300"
+            height="300"
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
               marginBottom: "40px"
             }}
-            dangerouslySetInnerHTML={{ __html: logoSvg }}
           />
+
           {/* Tagline */}
           <div
             style={{
@@ -47,7 +57,7 @@ export async function GET() {
                 background:
                   "linear-gradient(to bottom right, #D4AF37, #C5A028)",
                 backgroundClip: "text",
-                color: "transparent",
+                color: "#D4AF37",
                 fontSize: 48,
                 fontFamily: "Georgia, serif",
                 fontWeight: "bold",
@@ -68,12 +78,13 @@ export async function GET() {
   } catch (e) {
     if (e instanceof Error) {
       console.error(`Error generating OG image: ${e.message}`);
-      console.error(e.stack); // output stack trace for detailed debugging
+      console.error(e.stack);  // Log the stack trace for more detailed debugging
     } else {
-      console.error("An unknown error occurred while generating OG image:", e);
+      console.error('An unknown error occurred while generating OG image:', e);
     }
     return new Response(`Failed to generate the image`, {
-      status: 500
+      status: 500,
+      headers: { "Content-Type": "text/plain" }
     });
   }
 }
