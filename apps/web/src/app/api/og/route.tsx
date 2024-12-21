@@ -1,7 +1,11 @@
-import { getSiteUrl } from "@/lib/site-url";
 import { ImageResponse } from "next/og";
+import { getSiteUrl } from "@/lib/site-url";
+
 const baseUrl = getSiteUrl(process.env.NODE_ENV);
 const absoluteUrl = new URL("/thefaderoominc.svg", baseUrl);
+
+const fontAbsoluteUrl = new URL("/fonts/BasisGrotesquePro-Medium.ttf", baseUrl);
+
 export const runtime = "edge";
 
 // const svgUrl =
@@ -10,11 +14,18 @@ export const runtime = "edge";
 export async function GET() {
   try {
     // Fetch the SVG
-    const response = await fetch(absoluteUrl);
+    const [response, responseFont] = await Promise.all([
+      fetch(absoluteUrl),
+      fetch(fontAbsoluteUrl)
+    ]);
     if (!response.ok) {
       throw new Error(`Failed to fetch SVG: ${response.statusText}`);
     }
+    if (!responseFont.ok) {
+      throw new Error(`Failed to fetch SVG: ${responseFont.statusText}`);
+    }
     const arrayBuffer = await response.arrayBuffer();
+    const arrayBufferFont = await responseFont.arrayBuffer();
 
     // Encode to base64
     const base64Encoded = Buffer.from(arrayBuffer).toString("base64");
@@ -58,11 +69,11 @@ export async function GET() {
             <div
               style={{
                 background:
-                  "linear-gradient(to bottom right, #D4AF37, #C5A028)",
+                  "linear-gradient(to bottom right, #D7BE69, #C5A028)",
                 backgroundClip: "text",
                 color: "#D7BE69",
                 fontSize: 48,
-                fontFamily: "Georgia, serif",
+                fontFamily: "Basis Grotesque Pro",
                 fontWeight: "bold",
                 lineHeight: 1.4,
                 maxWidth: "800px",
@@ -74,6 +85,13 @@ export async function GET() {
         </div>
       ),
       {
+        fonts: [
+          {
+            name: "Basis Grotesque Pro",
+            data: arrayBufferFont,
+            style: "normal"
+          }
+        ],
         width: 1200,
         height: 630
       }
@@ -81,9 +99,9 @@ export async function GET() {
   } catch (e) {
     if (e instanceof Error) {
       console.error(`Error generating OG image: ${e.message}`);
-      console.error(e.stack);  // Log the stack trace for more detailed debugging
+      console.error(e.stack); // Log the stack trace for more detailed debugging
     } else {
-      console.error('An unknown error occurred while generating OG image:', e);
+      console.error("An unknown error occurred while generating OG image:", e);
     }
     return new Response(`Failed to generate the image`, {
       status: 500,
