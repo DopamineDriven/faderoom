@@ -2,6 +2,7 @@
 
 import type { FC } from "react";
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { MessageSquare, Star } from "lucide-react";
 import type { ArrFieldReplacer } from "@/types/helpers";
 import { useAspectRatioLimit } from "@/ui/hooks/useAspectRatio";
@@ -62,20 +63,22 @@ export const ReviewsAndServicesSection: FC<{
     <section className="w-full">
       <div className="mx-auto">
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="lg:order-1" id="services">
+          <div className="lg:order-1">
             <ServicesSection ref={containerRef} />
           </div>
-          <div className="flex flex-col lg:order-2" id="reviews">
+          <div className="flex flex-col lg:order-2">
             <Card
               className="border-cta-border flex flex-col bg-gradient-to-br from-zinc-900 to-zinc-800"
               style={{ maxHeight: `${height}px` }}>
               <CardHeader className="p-4 sm:p-6">
-                <div className="flex items-center gap-3">
-                  <MessageSquare className="h-6 w-6 text-[hsl(46,58%,63%)]" />
-                  <CardTitle className="text-xl font-bold text-[hsl(46,58%,63%)] sm:text-2xl md:text-3xl">
-                    Customer Reviews
-                  </CardTitle>
-                </div>
+                <Link href="/#reviews" className="appearance-none" id="reviews">
+                  <div className="flex items-center gap-3">
+                    <MessageSquare className="h-6 w-6 text-[hsl(46,58%,63%)]" />
+                    <CardTitle className="text-xl font-bold text-[hsl(46,58%,63%)] sm:text-2xl md:text-3xl">
+                      Customer Reviews
+                    </CardTitle>
+                  </div>
+                </Link>
               </CardHeader>
               <CardContent className="flex flex-col overflow-hidden p-0">
                 <div
