@@ -175,6 +175,7 @@ function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}>
               <motion.div
+              className="relative z-5"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
                 <Link
@@ -195,6 +196,7 @@ function Hero() {
                 </Link>
               </motion.div>
               <motion.div
+                            className="relative z-5"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
                 <Link
