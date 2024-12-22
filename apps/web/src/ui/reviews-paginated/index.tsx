@@ -71,7 +71,7 @@ export const ReviewsAndServicesSection: FC<{
               className="border-cta-border flex flex-col bg-gradient-to-br from-zinc-900 to-zinc-800"
               style={{ maxHeight: `${height}px` }}>
               <CardHeader className="p-4 sm:p-6">
-                <Link href="/#reviews" className="appearance-none" id="reviews">
+                <Link href="/#reviews" className="appearance-none scroll-smooth" id="reviews">
                   <div className="flex items-center gap-3">
                     <MessageSquare className="h-6 w-6 text-[hsl(46,58%,63%)]" />
                     <CardTitle className="text-xl font-bold text-[hsl(46,58%,63%)] sm:text-2xl md:text-3xl">
