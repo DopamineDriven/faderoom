@@ -171,7 +171,7 @@ vercel link
 - Summary
 
 ```bash
-? Set up “~/wcd/faderoom-github/faderoom”? [Y/n] y
+? Set up “~/wcd/faderoom-github/faderoom/apps/web”? [Y/n] y
 ? Which scope should contain your project? Wcd
 ? Link to existing project? [y/N] y
 ? What’s the name of your existing project? thefaderoominc
