@@ -245,4 +245,4 @@ turbo run dev --continue --filter=@fade/web
 
 ### (7) Tip
 
-- see (`extensions.json`)[https://github.com/DopamineDriven/faderoom/blob/master/.vscode/extensions.json] in the root `.vscode` directory for extension recommendations to enhance your coding experience
+- see [`extensions.json`](https://github.com/DopamineDriven/faderoom/blob/master/.vscode/extensions.json) in the root `.vscode` directory for extension recommendations to enhance your coding experience
