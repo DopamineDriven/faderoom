@@ -43,7 +43,7 @@ export function Modal({ children }: { children: ReactNode }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed bottom-0 left-0 right-0 top-0 z-10 mx-auto grid place-items-center bg-black/60 p-6"
+        className="fixed bottom-0 left-0 right-0 top-0 z-50 mx-auto grid place-items-center bg-black/60 p-6"
         onClick={onClick}>
         <motion.div
           ref={wrapper}
