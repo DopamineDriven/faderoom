@@ -121,7 +121,7 @@ corepack use pnpm@latest
 
 #### Link to the existing project
 
-- ensure that vercel is installed with pnpm globally by running
+- ensure that vercel is globally installed with pnpm by running
 
 ```bash
 pnpm add vercel --global
@@ -171,7 +171,7 @@ vercel link
 - Summary
 
 ```bash
-? Set up “~/wcd/faderoom-github/faderoom”? [Y/n] y
+? Set up “~/wcd/faderoom-github/faderoom/apps/web”? [Y/n] y
 ? Which scope should contain your project? Wcd
 ? Link to existing project? [y/N] y
 ? What’s the name of your existing project? thefaderoominc
@@ -245,4 +245,4 @@ turbo run dev --continue --filter=@fade/web
 
 ### (7) Tip
 
-- see (`extensions.json`)[https://github.com/DopamineDriven/faderoom/blob/master/.vscode/extensions.json] in the root `.vscode` directory for extension recommendations to enhance your coding experience
+- see [`extensions.json`](https://github.com/DopamineDriven/faderoom/blob/master/.vscode/extensions.json) in the root `.vscode` directory for extension recommendations to enhance your coding experience
