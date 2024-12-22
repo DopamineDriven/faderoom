@@ -55,8 +55,9 @@ const NavBar = () => {
   };
 
   useEffect(() => {
+    console.log(pathname);
     // prevent scrolling when a modal is opened in the gallery component and prevent scrolling when the mobile nav menu is open
-    const isImagePath = /\/image\/.+/g.test(pathname);
+    const isImagePath = /\/photos\/.+/g.test(pathname);
     if (isImagePath || isOpen) {
       document.body.classList.add("no-scroll");
     } else {
