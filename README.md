@@ -121,7 +121,7 @@ corepack use pnpm@latest
 
 #### Link to the existing project
 
-- ensure that vercel is installed with pnpm globally by running
+- ensure that vercel is globally installed with pnpm by running
 
 ```bash
 pnpm add vercel --global
