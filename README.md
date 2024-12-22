@@ -27,7 +27,7 @@ node-linker=hoisted
 pnpm install
 ```
 
-- if you don't have pnpm installed then continue reading otherwise skip to the next section (section (2))
+- if you don't have pnpm installed then continue reading otherwise skip to the next section (step (3))
 
 #### Install pnpm on Windows
 
