@@ -143,7 +143,7 @@ vercel link
 - This will bring up a prompt that first asks
 
 ```bash
- Set up “~/wcd/faderoom-github/faderoom”? [Y/n] 
+ Set up “~/wcd/faderoom-github/faderoom/apps/web”? [Y/n] 
 ```
 
 - type `Y` and hit enter; the next prompt should look something like
