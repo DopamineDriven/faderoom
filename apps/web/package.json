@@ -7,6 +7,7 @@
   "prettier": "@fade/prettier-config",
   "scripts": {
     "codegen": "graphql-codegen --config codegen.ts",
+    "configure": "pnpm booksy:init && pnpm booksy:workup && pnpm booksy:generate:images && pnpm booksy:generate:reviews",
     "prebuild": "pnpm booksy:init && pnpm booksy:workup && pnpm booksy:generate:images",
     "booksy:init": "ddbooksy init",
     "booksy:generate:images": "ddbooksy generate-images",
@@ -89,7 +90,7 @@
     "autoprefixer": "^10.4.20",
     "csstype": "^3.1.3",
     "dotenv": "^16.4.7",
-    "dotenv-cli": "^7.4.4",
+    "dotenv-cli": "^8.0.0",
     "dotenv-expand": "^12.0.1",
     "eslint": "latest",
     "googleapis": "^144.0.0",

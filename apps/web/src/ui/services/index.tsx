@@ -261,7 +261,7 @@ const ServicesSection = React.forwardRef<
       ref={ref}
       {...props}>
       <CardHeader className="p-4 sm:p-6">
-        <Link className="appearance-none" href="/#services" id="services">
+        <Link className="appearance-none scroll-smooth" href="/#services" id="services">
           <div className="flex items-center gap-3">
             <Scissors className="h-6 w-6 text-[hsl(46,58%,63%)]" />
             <CardTitle className="text-xl font-bold text-[hsl(46,58%,63%)] sm:text-2xl md:text-3xl">

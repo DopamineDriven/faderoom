@@ -6,8 +6,9 @@ import { motion } from "motion/react";
 import { MapButton } from "@/ui/map/MapButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/ui/map/ui/Card";
 import "./map-styles.css";
-import { BusinessHours } from "./BusinessHours";
-import { svgFadeString } from "./FadeSvgString";
+import Link from "next/link";
+import { BusinessHours } from "@/ui/map/BusinessHours";
+import { svgFadeString } from "@/ui/map/FadeSvgString";
 
 // TODO https://developers.google.com/maps/documentation/javascript/load-maps-js-api#migrate-to-dynamic
 
@@ -202,28 +203,34 @@ export function LocationMap() {
   };
   google.maps.importLibrary;
   return (
-    <div className="space-y-4 sm:space-y-8" id="contact-us">
-      <div className="grid gap-4 sm:gap-6 md:grid-cols-1 lg:grid-cols-2 mx-auto">
-        <Card className="flex h-[500px] sm:h-[600px] flex-col">
+    <div className="space-y-4 sm:space-y-8">
+      <div className="mx-auto grid gap-4 sm:gap-6 md:grid-cols-1 lg:grid-cols-2">
+        <Card className="flex h-[500px] flex-col sm:h-[600px]">
           <CardHeader className="pb-2">
-            <CardTitle className="flex items-center text-xl font-bold text-fr-300 sm:text-2xl">
-              <MapPin className="mr-2 h-6 w-6" /> Find Us
-            </CardTitle>
+            <Link
+              className="appearance-none scroll-smooth"
+              href="/#contact-us"
+              id="contact-us">
+              <CardTitle className="flex items-center text-xl font-bold text-fr-300 sm:text-2xl">
+                <MapPin className="mr-2 h-6 w-6" />
+                &nbsp;Find Us
+              </CardTitle>
+            </Link>
           </CardHeader>
-          <CardContent className="p-3 sm:p-6 flex flex-grow flex-col">
+          <CardContent className="flex flex-grow flex-col p-3 sm:p-6">
             <motion.div
-              className="relative mb-2 sm:mb-4 flex-grow"
+              className="relative mb-2 flex-grow sm:mb-4"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}>
               <div
                 ref={mapRef}
-                className="absolute inset-0 overflow-hidden rounded-lg shadow-lg touch-pan-x touch-pan-y"
+                className="absolute inset-0 touch-pan-x touch-pan-y overflow-hidden rounded-lg shadow-lg"
               />
               {!isInfoWindowVisible && (
                 <motion.button
                   onClick={handleInfoClick}
-                  className="absolute bottom-4 left-4 z-10 rounded-full bg-fr-300 p-2 shadow-md transition-colors hover:bg-fr-300/90"
+                  className="absolute bottom-4 left-4 z-10 rounded-full bg-fr-300 p-2 shadow-md transition-colors hover:bg-[hsla(46,58%,63%,1)]"
                   aria-label="Show info window"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}>
@@ -252,7 +259,7 @@ export function LocationMap() {
               <MapButton
                 variant="default"
                 onClick={handleGetDirections}
-                className="get-directions-button mt-auto inline-flex w-full items-center justify-center rounded-md border border-fr-300/20 bg-fr-300 text-black transition-colors hover:bg-fr-300/90">
+                className="get-directions-button mt-auto inline-flex w-full items-center justify-center rounded-md border border-[hsla(46,58%,63%,0.2)] bg-fr-300 text-black transition-colors hover:bg-[hsla(46,58%,63%,1)]">
                 <Navigation className="mr-2 h-4 w-4" />
                 Get Directions
               </MapButton>
@@ -264,7 +271,3 @@ export function LocationMap() {
     </div>
   );
 }
-
-/* <address className="mt-4 text-center font-basis-grotesque-pro-medium-italic not-italic text-zinc-300">
-  229 Skokie Valley Rd suite 5, Highland Park, IL 60035
-</address> */

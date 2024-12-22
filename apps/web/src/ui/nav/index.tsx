@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { FadeRoomIcon } from "@/ui/icons/FadeRoom";
@@ -47,22 +48,24 @@ const navItems = [
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const pathname = usePathname();
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
+    // prevent scrolling when a modal is opened in the gallery component and prevent scrolling when the mobile nav menu is open
+    const isImagePath = /\/image\/.+/g.test(pathname);
+    if (isImagePath || isOpen) {
+      document.body.classList.add("no-scroll");
     } else {
-      document.body.style.overflow = "unset";
+      document.body.classList.remove("no-scroll");
     }
-
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.classList.remove("no-scroll");
     };
-  }, [isOpen]);
-
+  }, [pathname, isOpen]);
   return (
     <>
       <header className="fixed left-0 right-0 top-0 z-40 bg-zinc-900/80 font-basis-grotesque-pro-medium backdrop-blur-sm">

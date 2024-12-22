@@ -7,8 +7,8 @@ import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion, useInView } from "motion/react";
-import { SwipeGesture } from "./SwipeGesture";
-import { Thumbnail } from "./Thumbnail";
+import { SwipeGesture } from "@/ui/carousel/SwipeGesture";
+import { Thumbnail } from "@/ui/carousel/Thumbnail";
 
 export default function Carousel({
   imageData
@@ -104,7 +104,7 @@ export default function Carousel({
   }, []);
 
   return (
-    <div className="bg-transparent" id="gallery">
+    <div className="bg-transparent">
       <div className="mx-auto px-2 py-4 sm:px-4 sm:py-6">
         <div
           ref={inViewDivRef}
