@@ -124,7 +124,7 @@ corepack use pnpm@latest
 - ensure that vercel is installed with pnpm globally by running
 
 ```bash
-pnpm 
+pnpm add vercel --global
 ```
 
 - next, cd into `apps/web` and run the following command
