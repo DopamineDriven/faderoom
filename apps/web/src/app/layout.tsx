@@ -400,52 +400,92 @@ export default function RootLayout({
       {
         "@type": "City",
         name: "Highland Park",
-        "@id": "https://www.cityhpil.com/"
+        "@id": "https://www.cityhpil.com/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Mundelein",
-        addressRegion: "IL"
+        "@id": "https://www.mundelein.org/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Vernon Hills",
-        addressRegion: "IL"
+        "@id": "https://www.vernonhills.org/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Lincolnshire",
-        addressRegion: "IL"
+        "@id": "https://www.lincolnshireil.gov/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Northbrook",
-        addressRegion: "IL"
+        "@id": "https://www.northbrook.il.us/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Libertyville",
-        addressRegion: "IL"
+        "@id": "https://www.libertyville.com/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Buffalo Grove",
-        addressRegion: "IL"
+        "@id": "https://www.vbg.org/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Deerfield",
-        addressRegion: "IL"
+        "@id": "https://www.deerfield.il.us/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Lake Zurich",
-        addressRegion: "IL"
+        "@id": "https://lakezurich.org/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       },
       {
         "@type": "City",
         name: "Lake Forest",
-        addressRegion: "IL"
+        "@id": "https://www.cityoflakeforest.com/",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Illinois"
+        }
       }
     ]
   });
