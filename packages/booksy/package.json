@@ -1,5 +1,5 @@
 {
-  "name": "@d0paminedriven/booksy",
+  "name": "@fade/booksy",
   "version": "0.15.0",
   "description": "booksy api handling, file generation, and more for a client project",
   "publishConfig": {
