@@ -55,13 +55,15 @@ export class BooksyImageService extends ConfigHandler {
 
   public async fetchBooksyPhotosPerPage<const T>({
     imagesPerPage,
-    imagesPage
+    imagesPage,
+    category
   }: {
     imagesPerPage: string | number;
     imagesPage: string | number;
+    category: "biz_photo" | "inspiration";
   }) {
     return (await this.fetchBooksyGET(
-      `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=biz_photo&images_page=${imagesPage}&images_per_page=${imagesPerPage}`
+      `https://us.booksy.com/api/us/2/business_api/me/businesses/481001/images?category=${category}&images_page=${imagesPage}&images_per_page=${imagesPerPage}`
     ).then(data => data.json())) as T;
   }
 
@@ -72,6 +74,7 @@ export class BooksyImageService extends ConfigHandler {
       const [{ b64encodedData, extension }] = await Promise.all([
         this.assetToBuffer(t.image)
       ]);
+
       return {
         image_id: t.image_id,
         width: t.width,
@@ -127,14 +130,26 @@ export class BooksyImageService extends ConfigHandler {
       readonly url: string;
     }>()
   ) {
-    const [data] = await Promise.all([
+    const [data, inspirationData] = await Promise.all([
       this.fetchBooksyPhotosPerPage<BooksyImagesByPageNumberAndCount>({
+        category: "biz_photo",
+        imagesPerPage: 100,
+        imagesPage: 1
+      }),
+      this.fetchBooksyPhotosPerPage<BooksyImagesByPageNumberAndCount>({
+        category: "inspiration",
         imagesPerPage: 100,
         imagesPage: 1
       })
     ]);
 
-    const derivedData = this.mapperAlt(data);
+    const combinedData = data.images.concat(inspirationData.images);
+
+    const derivedData = this.mapperAlt({
+      images: combinedData,
+      images_count: data.images_count + inspirationData.images_count,
+      images_per_page: 100
+    });
 
     try {
       return derivedData.map(async v => {

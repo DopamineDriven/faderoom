@@ -1,0 +1,22 @@
+{
+  "count": 1,
+  "per_page": 100,
+  "data": [
+    {
+      "id": 21814352,
+      "tags": [],
+      "description": null,
+      "category": "logo",
+      "is_cover_photo": false,
+      "inspiration_categories": [],
+      "order": 0,
+      "url": "https://d2zdpiztbgorvt.cloudfront.net/region1/us/481001/logo/eb9dc22b2da249729c153f8e73121f-the-fade-room-inc-logo-dceafa0fdea34e96ab27077992192f-booksy.jpeg",
+      "width": 1280,
+      "height": 1280,
+      "active": true,
+      "visible": true,
+      "likes_count": 0,
+      "instagram_id": null
+    }
+  ]
+}

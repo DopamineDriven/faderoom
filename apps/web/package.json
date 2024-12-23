@@ -23,7 +23,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@d0paminedriven/booksy": "^0.14.0",
+    "@d0paminedriven/booksy": "^0.15.0",
     "@d0paminedriven/codemod": "^2.3.0",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-avatar": "^1.1.2",

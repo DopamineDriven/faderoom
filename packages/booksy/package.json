@@ -1,6 +1,6 @@
 {
-  "name": "@fade/booksy",
-  "version": "0.14.0",
+  "name": "@d0paminedriven/booksy",
+  "version": "0.15.0",
   "description": "booksy api handling, file generation, and more for a client project",
   "publishConfig": {
     "access": "public",
