@@ -178,7 +178,7 @@ export type BooksyImageProps = {
   image: string;
   height: number;
   width: number;
-  category: string;
+  category: "biz_photo" | "inspiration";
   inspiration_categories: string[] | never[];
   order: number;
   visible: boolean;
@@ -200,3 +200,33 @@ export type BooksyImagesByPageNumberAndCount = {
   images_count: number;
   images_per_page: number;
 };
+
+// v2 api -> https://us.booksy.com/core/v2/business_api/me/businesses/481001/images/v2?category=inspiration&page=1&per_page=100
+export type BooksyImageResponseV2 = {
+  count: number;
+  per_page: number;
+  data: {
+    id: number;
+    tags?: string[];
+    description: string;
+    category: "biz_photo" | "inspiration" | "logo";
+    is_cover_photo: boolean;
+    inspiration_categories: number[];
+    order: number;
+    url: string;
+    width: number;
+    height: number;
+    active: boolean;
+    visible: boolean;
+    likes_count: number;
+    instagram_id: string | number | null;
+  }[];
+};
+
+export type BooksyPropsObj = {
+  v1: BooksyImagesByPageNumberAndCount;
+  v2: BooksyImageResponseV2;
+};
+
+export type BooksyImagePropsByVersion<T extends "v1" | "v2"> =
+  BooksyPropsObj[T];

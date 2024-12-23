@@ -20,7 +20,6 @@ import { SimplifiedJsonLdService } from "@/lib/jsonld-utils";
 import ClientToaster from "@/ui/cta/ClientToaster";
 import Footer from "@/ui/footer";
 import NavBar from "@/ui/nav";
-// import { Nav } from "@/ui/nav/Nav";
 import * as myGtag from "@/utils/analytics";
 
 export const viewport = {
@@ -152,14 +151,6 @@ export const metadata = {
     phoneNumbers: ["+1-847-780-7239"],
     emails: ["thefaderoom81@gmail.com", "andrew@windycitydevs.io"]
   },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "The Fade Room Inc.",
-  //   description:
-  //     "Precision Cuts. Fresh Fades. Sculpted Beards. Clean Shaves. Located in the Crossroads Shopping Center, Highland Park.",
-  //   images: ["/api/og"],
-  //   creator: "@thefaderoominc"
-  // },
   facebook: {
     appId: "4099530040060253"
   },
@@ -283,7 +274,6 @@ export default function RootLayout({
       }
     ],
     priceRange: "$$",
-    servesCuisine: "None",
     sameAs: [
       "https://www.facebook.com/thefaderoominc/",
       "https://www.instagram.com/thefaderoomhighlandpark/"

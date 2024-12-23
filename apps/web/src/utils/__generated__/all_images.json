@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "field": "category",
+      "description": "This field is required.",
+      "code": "required"
+    }
+  ]
+}
