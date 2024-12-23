@@ -4,7 +4,7 @@
 ## Setting up this repo 
 
 ### (1) Create a root .npmrc file 
-- before installing the dependencies from the root (cwd = this directory, where package.json is named @fade/root) ensure to add the following `.npmrc` file
+- before installing the dependencies from the root (cwd = this directory, where package.json is named @fade/root) be sure to add the following to a `.npmrc` file
 
 ```txt
 # Required -- include these two settings no matter what
